@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useStore } from "react-admin";
 
-type GroupStateType = [{ id: number; name: string }];
+type GroupStateType = { id: number; name: string };
 
 const useGetGroupList = () => {
     const [currentUserToken, setCurrentUserToken] = useState("");
     const [, setCurrentGroup] = useStore("currentGroup", "");
     const [currentGroupList, setCurrentGroupList] = useState<
-        GroupStateType | []
+        GroupStateType[] | []
     >([]);
 
     useEffect(() => {

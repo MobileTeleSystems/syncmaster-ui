@@ -1,5 +1,5 @@
-import { DataProvider } from 'react-admin';
-import fakeServerFactory from '../fakeServer';
+import { DataProvider } from "react-admin";
+import fakeServerFactory from "../fakeServer";
 
 export default (type: string) => {
     // The fake servers require to generate data, which can take some time.
@@ -15,7 +15,7 @@ export default (type: string) => {
     const dataProviderWithGeneratedData = new Proxy(defaultDataProvider, {
         get(_, name) {
             return (resource: string, params: any) => {
-                return dataProviderPromise.then(dataProvider => {
+                return dataProviderPromise.then((dataProvider) => {
                     return dataProvider[name.toString()](resource, params);
                 });
             };
@@ -26,17 +26,17 @@ export default (type: string) => {
 };
 
 const getDataProvider = async (type: string): Promise<DataProvider> => {
-    await fakeServerFactory(process.env.REACT_APP_DATA_PROVIDER || '');
+    await fakeServerFactory(process.env.REACT_APP_DATA_PROVIDER || "");
     /**
      * This demo can work with either a fake REST server, or a fake GraphQL server.
      *
      * To avoid bundling both libraries, the dataProvider and fake server factories
      * use the import() function, so they are asynchronous.
      */
-    if (type === 'graphql') {
-        return import('./graphql').then(factory => factory.default());
+    if (type === "graphql") {
+        return import("./graphql").then((factory) => factory.default());
     }
-    return import('./rest').then(provider => provider.default);
+    return import("./rest").then((provider) => provider.default);
 };
 
 const defaultDataProvider: DataProvider = {
