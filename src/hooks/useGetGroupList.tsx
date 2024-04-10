@@ -6,9 +6,9 @@ type GroupStateType = { id: number; name: string };
 const useGetGroupList = () => {
     const [currentUserToken, setCurrentUserToken] = useState("");
     const [, setCurrentGroup] = useStore("currentGroup", "");
-    const [currentGroupList, setCurrentGroupList] = useState<
-        GroupStateType[] | []
-    >([]);
+    const [currentGroupList, setCurrentGroupList] = useState<GroupStateType[]>(
+        [],
+    );
 
     useEffect(() => {
         const formdata = new FormData();
