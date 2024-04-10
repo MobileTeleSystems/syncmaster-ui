@@ -3,7 +3,7 @@ import {useStore} from "react-admin";
 import {useEffect, useState} from "react";
 
 
-type GroupListType = [
+type GroupStateType = [
     {id: number,
     name: string,}
 ]
@@ -12,7 +12,7 @@ const Groups = () => {
 
     const [currentUserToken, setCurrentUserToken] = useState('')
     const [, setCurrentGroup] = useStore("currentGroup", '');
-    const [currentGroupList, setCurrentGroupList] = useState<GroupListType | []>([]);
+    const [currentGroupList, setCurrentGroupList] = useState<GroupStateType | []>([]);
     const [age, setAge] = useState('');
 
     useEffect(
