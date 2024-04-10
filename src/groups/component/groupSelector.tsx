@@ -7,6 +7,7 @@ const Groups = () => {
     const [selectorValue, setSelectorValue] = useState('');
     const {currentGroupList, setCurrentGroup} = useGetGroupList()
 
+    // @ts-ignore
     const handleChange = (event: SelectChangeEvent, child) => {
         setCurrentGroup(child.props.children)
         setSelectorValue(event.target.value as string)

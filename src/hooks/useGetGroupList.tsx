@@ -23,6 +23,7 @@ const useGetGroupList = () => {
                 body: formdata,
                 redirect: 'follow'
             };
+            // @ts-ignore
             fetch("http://localhost:8000/v1/auth/token", requestOptions)
                 .then(res => res.json())
                 .then(json => json.access_token)
@@ -43,6 +44,7 @@ const useGetGroupList = () => {
             redirect: 'follow'
         };
         if (currentUserToken) {
+            // @ts-ignore
             fetch("http://localhost:8000/v1/groups", requestOptions)
                 .then(res => res.json())
                 .then(json => json.items)
