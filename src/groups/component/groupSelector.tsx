@@ -13,7 +13,7 @@ const Groups = () => {
     const [currentUserToken, setCurrentUserToken] = useState('')
     const [, setCurrentGroup] = useStore("currentGroup", '');
     const [currentGroupList, setCurrentGroupList] = useState<GroupStateType | []>([]);
-    const [age, setAge] = useState('');
+    const [selectorValue, setSelectorValue] = useState('');
 
     useEffect(
         () => {
@@ -56,7 +56,7 @@ const Groups = () => {
 
     const handleChange = (event: SelectChangeEvent, child) => {
         setCurrentGroup(child.props.children)
-        setAge(event.target.value as string)
+        setSelectorValue(event.target.value as string)
     };
 
     return (
@@ -67,7 +67,7 @@ const Groups = () => {
                         id="demo-simple-select"
                         label="Groups"
                         onChange={handleChange}
-                        value={age}
+                        value={selectorValue}
                 >
                     {
                         currentGroupList.map(
