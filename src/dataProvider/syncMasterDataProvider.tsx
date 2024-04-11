@@ -1,7 +1,6 @@
 import { DataProvider } from "react-admin";
 
 const syncMasterDataProvider: DataProvider = {
-    getCurrentGroup: async () => "selet_group",
     getGroupList: async () => {
         const myHeaders = new Headers();
         myHeaders.append(

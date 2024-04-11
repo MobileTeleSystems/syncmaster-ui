@@ -1,33 +1,20 @@
 import { Autocomplete } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import { useQuery } from "react-query";
-import { useDataProvider, useStore } from "react-admin";
-import { useState } from "react";
-
-type GroupStateType = { id: number; name: string };
+import { useStore } from "react-admin";
+import { GroupStateType } from "../../types";
 
 const Groups = () => {
     const [, setCurrentGroup] = useStore<string>("currentGroup", "");
-    const [groupList, setGroupList] = useStore<string[]>("groupList", []);
+    const [groupList, _] = useStore<GroupStateType[]>("groupList", []);
 
-    const [currentGroupList, setCurrentGroupList] = useState<GroupStateType[]>(
-        [],
-    );
-    const dataProvider = useDataProvider();
-    const { data, isLoading, error } = useQuery(
-        ["groups", localStorage.getItem("username")],
-        () => dataProvider.getGroupList(),
-    );
-
-    // const { currentGroupList, setCurrentGroup } = useGetGroupList();
     return (
         <>
             <Autocomplete
                 disablePortal
                 id="combo-box-demo"
                 options={
-                    currentGroupList.length > 0
-                        ? currentGroupList.map((group) => ({
+                    groupList.length > 0
+                        ? groupList.map((group) => ({
                               label: group.name,
                           }))
                         : []
