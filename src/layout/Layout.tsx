@@ -17,7 +17,7 @@ export default (props: LayoutProps) => {
 
     useEffect(() => {
         if (data) setGroupList(data);
-    }, [token, username]);
+    }, [token, username, isLoading]); // when isLoading change it write GroupList
 
     return <Layout {...props} appBar={AppBar} />;
 };
