@@ -10,6 +10,7 @@ const CustomAppBar = () => {
     const isLargeEnough = useMediaQuery<Theme>(theme =>
         theme.breakpoints.up('sm')
     );
+
     return (
         <AppBar color="secondary" toolbar={<AppBarToolbar/>}>
             <TitlePortal/>

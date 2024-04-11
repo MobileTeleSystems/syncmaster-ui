@@ -1,43 +1,51 @@
-import {
-    FormControl,
-    InputLabel,
-    MenuItem,
-    Select,
-    SelectChangeEvent,
-} from "@mui/material";
+import { Autocomplete } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import { useQuery } from "react-query";
+import { useDataProvider, useStore } from "react-admin";
 import { useState } from "react";
-import useGetGroupList from "../../hooks/useGetGroupList";
+
+type GroupStateType = { id: number; name: string };
 
 const Groups = () => {
-    const [selectorValue, setSelectorValue] = useState("");
-    const { currentGroupList, setCurrentGroup } = useGetGroupList();
+    const [, setCurrentGroup] = useStore<string>("currentGroup", "");
+    const [groupList, setGroupList] = useStore<string[]>("groupList", []);
 
-    // @ts-ignore
-    const handleChange = (event: SelectChangeEvent, child) => {
-        setCurrentGroup(child.props.children);
-        setSelectorValue(event.target.value as string);
-    };
+    const [currentGroupList, setCurrentGroupList] = useState<GroupStateType[]>(
+        [],
+    );
+    const dataProvider = useDataProvider();
+    const { data, isLoading, error } = useQuery(
+        ["groups", localStorage.getItem("username")],
+        () => dataProvider.getGroupList(),
+    );
 
+    // const { currentGroupList, setCurrentGroup } = useGetGroupList();
     return (
         <>
-            <FormControl style={{ minWidth: 150 }}>
-                <InputLabel id="demo-simple-select-label">
-                    Select group
-                </InputLabel>
-                <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    label="Groups"
-                    onChange={handleChange}
-                    value={selectorValue}
-                >
-                    {currentGroupList.map((item) => (
-                        <MenuItem value={item.id} key={item.id}>
-                            {item.name}
-                        </MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
+            <Autocomplete
+                disablePortal
+                id="combo-box-demo"
+                options={
+                    currentGroupList.length > 0
+                        ? currentGroupList.map((group) => ({
+                              label: group.name,
+                          }))
+                        : []
+                }
+                sx={{ width: 300 }}
+                renderInput={(params) => (
+                    <TextField {...params} label="Groups" />
+                )}
+                onChange={(_, value) => {
+                    if (value) {
+                        setCurrentGroup(value.label);
+                    } else setCurrentGroup("");
+                }}
+                isOptionEqualToValue={(option, value) => {
+                    return option.label === value.label; // fix mui
+                }}
+                noOptionsText={"You don't belong to any group"}
+            />
         </>
     );
 };
