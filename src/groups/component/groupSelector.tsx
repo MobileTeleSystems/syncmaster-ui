@@ -1,11 +1,11 @@
 import { Autocomplete } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import { useStore } from "react-admin";
-import { GroupStateType } from "../../types";
+import useLocalStoreCurrentGroup from "../../hooks/useLocalStore";
+import useLocalStoreGroupList from "../../hooks/useLocalStoreGroupList";
 
 const Groups = () => {
-    const [, setCurrentGroup] = useStore<string>("currentGroup", "");
-    const [groupList, _] = useStore<GroupStateType[]>("groupList", []);
+    const [, setCurrentGroup] = useLocalStoreCurrentGroup();
+    const [groupList, _] = useLocalStoreGroupList();
 
     return (
         <>
