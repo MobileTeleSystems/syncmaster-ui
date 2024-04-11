@@ -3,10 +3,8 @@ import { DataProvider } from "react-admin";
 const syncMasterDataProvider: DataProvider = {
     getGroupList: async () => {
         const myHeaders = new Headers();
-        myHeaders.append(
-            "Authorization",
-            "Bearer " + localStorage.getItem("token"),
-        );
+        const token: string | null = localStorage.getItem("token");
+        if (token) myHeaders.append("Authorization", "Bearer " + token);
 
         const requestOptions = {
             method: "GET",
