@@ -1,4 +1,4 @@
-export type GroupStateType = {
+export type GroupState = {
     id: number;
     name: string;
     description: string;

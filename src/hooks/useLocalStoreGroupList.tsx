@@ -1,8 +1,8 @@
 import { useStore } from "react-admin";
-import { GroupStateType } from "../types";
+import { GroupState } from "../types";
 
 const useLocalStoreGroupList = () => {
-    return useStore<GroupStateType[]>("groupList", []);
+    return useStore<GroupState[]>("groupList", []);
 };
 
 export default useLocalStoreGroupList;
