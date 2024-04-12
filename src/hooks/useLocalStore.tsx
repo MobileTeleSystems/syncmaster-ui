@@ -1,8 +1,8 @@
 import { useStore } from "react-admin";
-import { GroupState } from "../types";
+import { Group } from "../types";
 
 const useLocalStoreCurrentGroup = () => {
-    return useStore<GroupState | null>("currentGroup", null);
+    return useStore<Group | null>("currentGroup", null);
 };
 
 export default useLocalStoreCurrentGroup;
