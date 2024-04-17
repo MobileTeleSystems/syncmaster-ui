@@ -7,7 +7,7 @@ import {
 import useLocalStoreCurrentGroup from "../../../hooks/useLocalStoreCurrentGroup";
 import useLocalStoreGroupList from "../../../hooks/useLocalStoreGroupList";
 import { useState } from "react";
-import { Alert } from "@mui/material";
+import { Alert, Card } from "@mui/material";
 import PostgresConnection from "./connectionsList/postgresConnection";
 import Loading from "../../../shared/ui/loading";
 import Error from "../../../shared/ui/error";
@@ -34,7 +34,6 @@ const ConnectionList = () => {
         );
 
     const sort = { field: "id", order: "ASC" };
-
     return (
         <div style={{ paddingTop: "1em" }}>
             <ListContextProvider
@@ -51,7 +50,9 @@ const ConnectionList = () => {
                 {
                     <div>
                         <Title title="Connections" />
-                        <PostgresConnection />
+                        <Card>
+                            <PostgresConnection />
+                        </Card>
                         <Pagination />
                     </div>
                 }
