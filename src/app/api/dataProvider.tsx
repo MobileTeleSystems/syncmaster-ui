@@ -1,25 +1,29 @@
-import { DataProvider, GetListParams, HttpError } from "react-admin";
-import { json } from "react-router-dom";
+import { DataProvider, HttpError } from "react-admin";
 import { ConnectionData } from "../types";
 
 const apiUrl = "http://localhost:8000";
+
+const getHeader = () => {
+    const myHeaders = new Headers();
+    const token: string | null = localStorage.getItem("token");
+    if (token) myHeaders.append("Authorization", "Bearer " + token);
+
+    const requestOptions = {
+        method: "GET",
+        headers: myHeaders,
+    };
+
+    return requestOptions;
+};
 
 const dataProvider: DataProvider = {
     getList: (resource, params) => {
         const currentGroupId = params.meta.currentGroupId;
         return new Promise((resolve, reject) => {
-            const myHeaders = new Headers();
-            const token: string | null = localStorage.getItem("token");
-            if (token) myHeaders.append("Authorization", "Bearer " + token);
-
-            const requestOptions = {
-                method: "GET",
-                headers: myHeaders,
-            };
             // @ts-ignore
             return fetch(
                 `${apiUrl}/v1/${resource}?group_id=${currentGroupId}`,
-                requestOptions,
+                getHeader(),
             )
                 .then((response) =>
                     response.text().then((text) => ({
@@ -45,15 +49,17 @@ const dataProvider: DataProvider = {
                             ),
                         );
                     }
-                    const processedJSON = json.items.map((row: ConnectionData) => ({
-                        ...row,
-                        connection_data: {
-                            ...row.connection_data,
-                            additional_params: JSON.stringify(
-                                row.connection_data.additional_params,
-                            ),
-                        },
-                    }));
+                    const processedJSON = json.items.map(
+                        (row: ConnectionData) => ({
+                            ...row,
+                            connection_data: {
+                                ...row.connection_data,
+                                additional_params: JSON.stringify(
+                                    row.connection_data.additional_params,
+                                ),
+                            },
+                        }),
+                    );
 
                     return resolve({
                         data: processedJSON,
@@ -65,18 +71,10 @@ const dataProvider: DataProvider = {
     getOne: (resource, params) => {
         const currentConnectionId = params.id;
         return new Promise((resolve, reject) => {
-            const myHeaders = new Headers();
-            const token: string | null = localStorage.getItem("token");
-            if (token) myHeaders.append("Authorization", "Bearer " + token);
-
-            const requestOptions = {
-                method: "GET",
-                headers: myHeaders,
-            };
             // @ts-ignore
             return fetch(
                 `${apiUrl}/v1/${resource}/${currentConnectionId}`,
-                requestOptions,
+                getHeader(),
             )
                 .then((response) =>
                     response.text().then((text) => ({
