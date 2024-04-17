@@ -1,9 +1,9 @@
 import * as React from "react";
 import { useEffect } from "react";
 import { Layout, LayoutProps, useDataProvider } from "react-admin";
-import AppBar from "./AppBar";
+import AppBar from "./bar/AppBar";
 import { useQuery } from "react-query";
-import useLocalStoreGroupList from "../hooks/useLocalStoreGroupList";
+import useLocalStoreGroupList from "../../../hooks/useLocalStoreGroupList";
 
 export default (props: LayoutProps) => {
     const token = localStorage.getItem("token");

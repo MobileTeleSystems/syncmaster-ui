@@ -2,7 +2,7 @@ import * as React from "react";
 import { AppBar, TitlePortal } from "react-admin";
 import { Box, Theme, useMediaQuery } from "@mui/material";
 import { AppBarToolbar } from "./AppBarToolbar";
-import Groups from "../groups/component/groupSelector";
+import Groups from "../../../groups/ui/groupSelector";
 
 const CustomAppBar = () => {
     const isLargeEnough = useMediaQuery<Theme>((theme) =>

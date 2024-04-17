@@ -1,10 +1,10 @@
 import { Autocomplete } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import useLocalStoreCurrentGroup from "../../hooks/useLocalStore";
-import useLocalStoreGroupList from "../../hooks/useLocalStoreGroupList";
+import useLocalStoreCurrentGroup from "../../../hooks/useLocalStoreCurrentGroup";
+import useLocalStoreGroupList from "../../../hooks/useLocalStoreGroupList";
 
 const Groups = () => {
-    const [, setCurrentGroup] = useLocalStoreCurrentGroup();
+    const [currentGroup, setCurrentGroup] = useLocalStoreCurrentGroup();
     const [groupList, _] = useLocalStoreGroupList();
 
     return (
@@ -28,8 +28,10 @@ const Groups = () => {
                         setCurrentGroup(value.label);
                     } else setCurrentGroup("");
                 }}
+                value={{label: currentGroup}}
                 isOptionEqualToValue={(option, value) => {
-                    return option.label === value.label; // fix mui
+                    if (value.label === '') return true; // fix mui Autocomplete component
+                    return option.label === value.label; // fix mui Autocomplete component
                 }}
                 noOptionsText={"You don't belong to any group"}
             />

@@ -1,4 +1,4 @@
-import AppBar from './AppBar';
+import AppBar from './bar/AppBar';
 import Layout from './Layout';
 import Login from './Login';
 

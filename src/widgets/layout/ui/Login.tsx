@@ -67,10 +67,6 @@ const Login = () => {
                     minHeight: "100vh",
                     alignItems: "center",
                     justifyContent: "flex-start",
-                    background:
-                        "url(https://source.unsplash.com/featured/1600x900)",
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
                 }}
             >
                 <Card sx={{ minWidth: 300, marginTop: "6em" }}>

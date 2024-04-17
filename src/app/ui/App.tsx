@@ -6,11 +6,12 @@ import {
     useStore,
 } from "react-admin";
 
-import authProvider from "./authProvider";
-import { Layout, Login } from "./layout";
-import { ThemeName, themes } from "./themes/themes";
-import syncMasterDataProvider from "./dataProvider/syncMasterDataProvider";
-import DummyList from "./components/dummyList";
+import authProvider from "../api/authProvider";
+import { Layout, Login } from "../../widgets/layout/ui";
+import { ThemeName, themes } from "../../themes/themes";
+import dataProvider from "../api/dataProvider";
+import ConnetionListProvider from "../../widgets/connections/ui/connetionListProvider";
+import showPostgresConnection from "../../widgets/connections/ui/showConnection/connection";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -21,7 +22,7 @@ const App = () => {
     return (
         <Admin
             title="SyncMaster"
-            dataProvider={syncMasterDataProvider}
+            dataProvider={dataProvider}
             store={store}
             authProvider={authProvider}
             loginPage={Login}
@@ -31,7 +32,7 @@ const App = () => {
             darkTheme={darkTheme}
             defaultTheme="light"
         >
-            <Resource name="dummy" list={DummyList} />
+            <Resource name="connections" list={ConnetionListProvider} show={showPostgresConnection} />
         </Admin>
     );
 };
