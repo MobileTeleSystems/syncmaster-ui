@@ -29,7 +29,7 @@ const Groups = () => {
                 )}
                 onChange={(_, value) => {
                     if (value) {
-                        setCurrentGroup({ ...value });
+                        setCurrentGroup(value);
                     } else setCurrentGroup({ label: "" });
                 }}
                 isOptionEqualToValue={(option, value) => {
