@@ -10,7 +10,7 @@ import authProvider from "src/shared/api/authProvider";
 import dataProvider from "src/shared/api/dataProviderCombiner";
 import { ThemeName, themes } from "src/themes/themes";
 import ConnectionListProvider from "src/widgets/connections/ui/connectionListProvider";
-import ShowConnectionProvider from "src/widgets/connections/ui/showConnectionProvider";
+import ConnectionProvider from "src/widgets/connections/ui/connectionProvider";
 import { Layout } from "src/widgets/layout/ui";
 
 const store = localStorageStore(undefined, "SyncMaster");
@@ -35,7 +35,7 @@ const App = () => {
             <Resource
                 name="connections"
                 list={ConnectionListProvider}
-                show={ShowConnectionProvider}
+                show={ConnectionProvider}
             />
         </Admin>
     );

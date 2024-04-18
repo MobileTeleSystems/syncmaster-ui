@@ -1,6 +1,6 @@
 import { DateField, Show, SimpleShowLayout, TextField } from "react-admin";
 
-const ShowPostgresConnection = () => (
+const PostgresConnectionShow = () => (
     <Show>
         <SimpleShowLayout>
             <TextField source="id" />
@@ -17,4 +17,4 @@ const ShowPostgresConnection = () => (
     </Show>
 );
 
-export default ShowPostgresConnection;
+export default PostgresConnectionShow;
