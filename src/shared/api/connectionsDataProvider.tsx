@@ -6,7 +6,6 @@ const connectionsDataProvider: DataProvider = {
     getList: (resource, params) => {
         const groupId = params.meta.groupId;
         return new Promise((resolve, reject) => {
-            // @ts-ignore
             return fetch(
                 `${apiUrl}/v1/${resource}?group_id=${groupId}`,
                 getHeader(),
@@ -46,7 +45,6 @@ const connectionsDataProvider: DataProvider = {
     getOne: (resource, params) => {
         const connectionId = params.id;
         return new Promise((resolve, reject) => {
-            // @ts-ignore
             return fetch(
                 `${apiUrl}/v1/${resource}/${connectionId}`,
                 getHeader(),
