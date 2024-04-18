@@ -5,15 +5,16 @@ import {
     SimpleShowLayout,
     TextField,
     Title,
-    useGetOne,
 } from "react-admin";
-import Loading from "src/shared/ui/loading";
+import { ConnectionData } from "src/widgets/connections/types";
 
-const PostgresConnectionShow = ({ id }: { id: number }) => {
-    const { data, isLoading } = useGetOne("connections", { id });
-
-    if (isLoading) return <Loading />;
-
+const PostgresConnectionShow = ({
+    id,
+    data,
+}: {
+    id: number;
+    data: ConnectionData;
+}) => {
     const processedData = {
         ...data,
         connection_data: {

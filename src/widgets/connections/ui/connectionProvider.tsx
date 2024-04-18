@@ -1,8 +1,10 @@
+import { useGetOne } from "react-admin";
 import { useParams } from "react-router";
+import PostgresConnectionShow from "src/entities/postgresConnection";
 import useConnectionsList from "src/hooks/useConnectionsList";
 import Error from "src/shared/ui/error";
+import Loading from "src/shared/ui/loading";
 import { ConnectionType } from "src/widgets/connections/types";
-import PostgresConnectionShow from "src/entities/postgresConnection";
 
 const ConnectionProvider = () => {
     const { id } = useParams();
@@ -13,8 +15,12 @@ const ConnectionProvider = () => {
         (connection) => connection.id === Number.parseInt(id),
     )[0].connection_data.type;
 
+    const { data, isLoading } = useGetOne("connections", { id });
+
+    if (isLoading) return <Loading />;
+
     if (selectedConnectionType === "postgres") {
-        return <PostgresConnectionShow id={Number.parseInt(id)} />;
+        return <PostgresConnectionShow id={Number.parseInt(id)} data={data} />;
     }
     return <Error />;
 };
