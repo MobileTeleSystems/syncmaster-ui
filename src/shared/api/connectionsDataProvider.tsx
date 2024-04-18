@@ -3,7 +3,7 @@ import { apiUrl } from "src/shared/api/dataProviderCombiner";
 import { getHeader } from "src/shared/api/utils";
 
 const connectionsDataProvider: DataProvider = {
-    getList: async (resource, params) => {
+    getList: (resource, params) => {
         const groupId = params.meta.currentGroupId;
         return new Promise((resolve, reject) => {
             // @ts-ignore
@@ -43,7 +43,7 @@ const connectionsDataProvider: DataProvider = {
                 });
         });
     },
-    getOne: async (resource, params) => {
+    getOne: (resource, params) => {
         const connectionId = params.id;
         return new Promise((resolve, reject) => {
             // @ts-ignore
