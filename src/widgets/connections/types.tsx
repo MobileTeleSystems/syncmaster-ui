@@ -10,7 +10,7 @@ export type PostgresConnectionData = {
     database_name: string,
     host: string,
     port: number,
-    type: ConnectionType,
+    type: "postgres",
 }
 
 export type ConnectionData = {
