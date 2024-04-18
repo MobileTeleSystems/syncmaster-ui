@@ -6,7 +6,6 @@ import {
     Title,
     useGetList,
 } from "react-admin";
-import useConnectionsList from "src/hooks/useConnectionsList";
 import useLocalStoreCurrentGroup from "src/hooks/useLocalStoreCurrentGroup";
 import Error from "src/shared/ui/error";
 import Loading from "src/shared/ui/loading";
@@ -17,14 +16,9 @@ const ConnectionList = () => {
     const [currentGroup] = useLocalStoreCurrentGroup();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
-    const [, setConnectionList] = useConnectionsList();
-
     const { data, total, isLoading, error } = useGetList("connections", {
         meta: { groupId: currentGroup.id },
     });
-    useEffect(() => {
-        if (data) setConnectionList(data);
-    }, [data, isLoading]);
 
     if (isLoading) return <Loading />;
     if (error) return <Error />;

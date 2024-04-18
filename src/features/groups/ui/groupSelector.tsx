@@ -36,7 +36,7 @@ const Groups = () => {
                     if (value.label === "") return true; // fix mui Autocomplete component
                     return option.label === value.label; // fix mui Autocomplete component
                 }}
-                noOptionsText={"You don't belong to any group"}
+                noOptionsText={"No groups found"}
                 // Needed to save the display of the selected group when refreshing the page
                 value={{ label: currentGroup.label }}
             />
