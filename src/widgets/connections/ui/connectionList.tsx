@@ -18,6 +18,7 @@ const ConnectionList = () => {
     const [perPage, setPerPage] = useState(10);
     const { data, total, isLoading, error } = useGetList("connections", {
         meta: { group_id: currentGroup.id },
+        pagination: { page, perPage },
     });
 
     if (isLoading) return <Loading />;
@@ -44,7 +45,11 @@ const ConnectionList = () => {
                         <Card>
                             <Connections />
                         </Card>
-                        <Pagination />
+                        <Pagination
+                            page={page}
+                            total={total}
+                            perPage={perPage}
+                        />
                     </div>
                 }
             </ListContextProvider>

@@ -12,6 +12,9 @@ const dataProvider: DataProvider = {
             url.searchParams.append(k, params.meta[k]);
         }
 
+        url.searchParams.append("page", params.pagination.page.toString());
+        url.searchParams.append("page_size", params.pagination.perPage.toString());
+
         return new Promise((resolve, reject) => {
             return fetch(url.toString(), getHeader())
                 .then((response) =>
