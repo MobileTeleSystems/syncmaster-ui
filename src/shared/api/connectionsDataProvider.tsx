@@ -1,5 +1,4 @@
 import { DataProvider, HttpError } from "react-admin";
-import { ConnectionData } from "src/widgets/connections/types";
 import { apiUrl } from "src/shared/api/dataProviderCombiner";
 import { getHeader } from "src/shared/api/utils";
 
@@ -36,20 +35,9 @@ const connectionsDataProvider: DataProvider = {
                             ),
                         );
                     }
-                    const processedJSON = json.items.map(
-                        (row: ConnectionData) => ({
-                            ...row,
-                            connection_data: {
-                                ...row.connection_data,
-                                additional_params: JSON.stringify(
-                                    row.connection_data.additional_params,
-                                ),
-                            },
-                        }),
-                    );
 
                     return resolve({
-                        data: processedJSON,
+                        data: json.items,
                         total: json.meta.total,
                     });
                 });
@@ -87,18 +75,9 @@ const connectionsDataProvider: DataProvider = {
                             ),
                         );
                     }
-                    const processedJSON = {
-                        ...json,
-                        connection_data: {
-                            ...json.connection_data,
-                            additional_params: JSON.stringify(
-                                json.connection_data.additional_params,
-                            ),
-                        },
-                    };
 
                     return resolve({
-                        data: processedJSON,
+                        data: json,
                     });
                 });
         });
