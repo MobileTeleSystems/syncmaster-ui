@@ -1,22 +1,9 @@
 import { DataProvider, HttpError } from "react-admin";
-import { ConnectionData } from "../types";
+import { ConnectionData } from "src/app/types";
+import { apiUrl } from "src/app/api/dataProviderCombiner";
+import { getHeader } from "src/app/api/utils";
 
-const apiUrl = "http://localhost:8000";
-
-const getHeader = () => {
-    const myHeaders = new Headers();
-    const token: string | null = localStorage.getItem("token");
-    if (token) myHeaders.append("Authorization", "Bearer " + token);
-
-    const requestOptions = {
-        method: "GET",
-        headers: myHeaders,
-    };
-
-    return requestOptions;
-};
-
-const dataProvider: DataProvider = {
+const connectionsDataProvider: DataProvider = {
     getList: (resource, params) => {
         const currentGroupId = params.meta.currentGroupId;
         return new Promise((resolve, reject) => {
@@ -116,23 +103,6 @@ const dataProvider: DataProvider = {
                 });
         });
     },
-
-    getGroupList: async () => {
-        const myHeaders = new Headers();
-        const token: string | null = localStorage.getItem("token");
-        if (token) myHeaders.append("Authorization", "Bearer " + token);
-
-        const requestOptions = {
-            method: "GET",
-            headers: myHeaders,
-            redirect: "follow",
-        };
-        // @ts-ignore
-        return fetch(`${apiUrl}/v1/groups`, requestOptions)
-            .then((res) => res.json())
-            .then((json) => json.items)
-            .catch((e) => console.log(e));
-    },
 };
 
-export default dataProvider;
+export default connectionsDataProvider;

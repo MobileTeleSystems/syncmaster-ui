@@ -1,17 +1,17 @@
 import {
     Admin,
     localStorageStore,
+    Login,
     Resource,
     StoreContextProvider,
     useStore,
 } from "react-admin";
-
-import authProvider from "../api/authProvider";
-import { Layout, Login } from "../../widgets/layout/ui";
-import { ThemeName, themes } from "../../themes/themes";
-import dataProvider from "../api/dataProvider";
-import ConnetionListProvider from "../../widgets/connections/ui/connetionListProvider";
-import showPostgresConnection from "../../widgets/connections/ui/showConnection/connection";
+import authProvider from "src/app/api/authProvider";
+import dataProvider from "src/app/api/dataProviderCombiner";
+import { ThemeName, themes } from "src/themes/themes";
+import ConnetionListProvider from "src/widgets/connections/ui/connetionListProvider";
+import ShowConnectionProvider from "src/widgets/connections/ui/showConnectionProvider";
+import { Layout } from "src/widgets/layout/ui";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -32,7 +32,11 @@ const App = () => {
             darkTheme={darkTheme}
             defaultTheme="light"
         >
-            <Resource name="connections" list={ConnetionListProvider} show={showPostgresConnection} />
+            <Resource
+                name="connections"
+                list={ConnetionListProvider}
+                show={ShowConnectionProvider}
+            />
         </Admin>
     );
 };

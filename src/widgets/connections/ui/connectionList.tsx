@@ -1,22 +1,24 @@
+import { Alert, Card } from "@mui/material";
+import { useEffect, useState } from "react";
 import {
     ListContextProvider,
     Pagination,
     Title,
     useGetList,
 } from "react-admin";
-import useLocalStoreCurrentGroup from "../../../hooks/useLocalStoreCurrentGroup";
-import useLocalStoreGroupList from "../../../hooks/useLocalStoreGroupList";
-import { useState } from "react";
-import { Alert, Card } from "@mui/material";
-import PostgresConnection from "./connectionsList/postgresConnection";
-import Loading from "../../../shared/ui/loading";
-import Error from "../../../shared/ui/error";
+import useConnectionsList from "src/hooks/useConnectionsList";
+import useLocalStoreCurrentGroup from "src/hooks/useLocalStoreCurrentGroup";
+import useLocalStoreGroupList from "src/hooks/useLocalStoreGroupList";
+import Error from "src/shared/ui/error";
+import Loading from "src/shared/ui/loading";
+import Connections from "src/widgets/connections/ui/connectionListElement";
 
 const ConnectionList = () => {
     const [currentGroup] = useLocalStoreCurrentGroup();
     const [groupList] = useLocalStoreGroupList();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
+    const [, setConnectionList] = useConnectionsList();
 
     const currentGroupId = groupList.filter(
         (item) => item.name === currentGroup,
@@ -24,6 +26,10 @@ const ConnectionList = () => {
     const { data, total, isLoading, error } = useGetList("connections", {
         meta: { currentGroupId: currentGroupId },
     });
+    useEffect(() => {
+        if (data) setConnectionList(data);
+    }, [data, isLoading]);
+
     if (isLoading) return <Loading />;
     if (error) return <Error />;
     if (data?.length == 0)
@@ -34,6 +40,8 @@ const ConnectionList = () => {
         );
 
     const sort = { field: "id", order: "ASC" };
+
+
     return (
         <div style={{ paddingTop: "1em" }}>
             <ListContextProvider
@@ -51,7 +59,7 @@ const ConnectionList = () => {
                     <div>
                         <Title title="Connections" />
                         <Card>
-                            <PostgresConnection />
+                            <Connections />
                         </Card>
                         <Pagination />
                     </div>
