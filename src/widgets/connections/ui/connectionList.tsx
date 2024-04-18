@@ -1,5 +1,5 @@
 import { Card } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
     ListContextProvider,
     Pagination,
