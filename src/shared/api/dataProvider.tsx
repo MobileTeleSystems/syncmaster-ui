@@ -1,15 +1,19 @@
 import { DataProvider, HttpError } from "react-admin";
-import { apiUrl } from "src/shared/api/dataProviderCombiner";
 import { getHeader } from "src/shared/api/utils";
 
-const connectionsDataProvider: DataProvider = {
+const apiUrl = "http://localhost:8000";
+const apiVersion = "v1";
+
+const dataProvider: DataProvider = {
     getList: (resource, params) => {
-        const groupId = params.meta.groupId;
+        const url = new URL(apiUrl + "/" + apiVersion + "/" + resource);
+
+        for (const k in params.meta) {
+            url.searchParams.append(k, params.meta[k]);
+        }
+
         return new Promise((resolve, reject) => {
-            return fetch(
-                `${apiUrl}/v1/${resource}?group_id=${groupId}`,
-                getHeader(),
-            )
+            return fetch(url.toString(), getHeader())
                 .then((response) =>
                     response.text().then((text) => ({
                         status: response.status,
@@ -82,4 +86,4 @@ const connectionsDataProvider: DataProvider = {
     },
 };
 
-export default connectionsDataProvider;
+export default dataProvider;

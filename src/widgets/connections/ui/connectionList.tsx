@@ -17,7 +17,7 @@ const ConnectionList = () => {
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
     const { data, total, isLoading, error } = useGetList("connections", {
-        meta: { groupId: currentGroup.id },
+        meta: { group_id: currentGroup.id },
     });
 
     if (isLoading) return <Loading />;

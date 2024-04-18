@@ -7,7 +7,7 @@ import {
     useStore,
 } from "react-admin";
 import authProvider from "src/shared/api/authProvider";
-import dataProvider from "src/shared/api/dataProviderCombiner";
+import dataProvider from "src/shared/api/dataProvider";
 import { ThemeName, themes } from "src/themes/themes";
 import ConnectionListWrapper from "src/widgets/connections/ui/connectionListWrapper";
 import ConnectionWrapper from "src/widgets/connections/ui/connectionWrapper";
