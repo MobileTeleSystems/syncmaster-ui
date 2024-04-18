@@ -8,23 +8,18 @@ import {
 } from "react-admin";
 import useConnectionsList from "src/hooks/useConnectionsList";
 import useLocalStoreCurrentGroup from "src/hooks/useLocalStoreCurrentGroup";
-import useLocalStoreGroupList from "src/hooks/useLocalStoreGroupList";
 import Error from "src/shared/ui/error";
 import Loading from "src/shared/ui/loading";
 import Connections from "src/widgets/connections/ui/connectionListElement";
 
 const ConnectionList = () => {
     const [currentGroup] = useLocalStoreCurrentGroup();
-    const [groupList] = useLocalStoreGroupList();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
     const [, setConnectionList] = useConnectionsList();
 
-    const currentGroupId = groupList.filter(
-        (item) => item.name === currentGroup,
-    )[0].id;
     const { data, total, isLoading, error } = useGetList("connections", {
-        meta: { currentGroupId: currentGroupId },
+        meta: { currentGroupId: currentGroup.id },
     });
     useEffect(() => {
         if (data) setConnectionList(data);

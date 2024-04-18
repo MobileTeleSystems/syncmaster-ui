@@ -1,8 +1,8 @@
-import useLocalStoreCurrentGroup from "../../../hooks/useLocalStoreCurrentGroup";
-import NotSelectedGroup from "../../../shared/ui/notSelectedGroup";
-import ConnectionList from "./connectionList";
-import useLocalStoreGroupList from "../../../hooks/useLocalStoreGroupList";
-import NotAnyGroupAvailable from "../../../shared/ui/notAnyGroupAvailable";
+import useLocalStoreCurrentGroup from "src/hooks/useLocalStoreCurrentGroup";
+import useLocalStoreGroupList from "src/hooks/useLocalStoreGroupList";
+import NotAnyGroupAvailable from "src/shared/ui/notAnyGroupAvailable";
+import NotSelectedGroup from "src/shared/ui/notSelectedGroup";
+import ConnectionList from "src/widgets/connections/ui/connectionList";
 
 const ConnetionListProvider = () => {
     const [currentGroup] = useLocalStoreCurrentGroup();
@@ -10,7 +10,8 @@ const ConnetionListProvider = () => {
 
     if (groupList.length == 0) return <NotAnyGroupAvailable />;
 
-    if (groupList.length > 0 && currentGroup == "") return <NotSelectedGroup />;
+    if (groupList.length > 0 && currentGroup.label == "")
+        return <NotSelectedGroup />;
 
     return <ConnectionList />;
 };
