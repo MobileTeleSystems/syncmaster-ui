@@ -4,7 +4,7 @@ import { getHeader } from "src/shared/api/utils";
 
 const connectionsDataProvider: DataProvider = {
     getList: (resource, params) => {
-        const groupId = params.meta.currentGroupId;
+        const groupId = params.meta.groupId;
         return new Promise((resolve, reject) => {
             // @ts-ignore
             return fetch(

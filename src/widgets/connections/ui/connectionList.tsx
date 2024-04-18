@@ -20,7 +20,7 @@ const ConnectionList = () => {
     const [, setConnectionList] = useConnectionsList();
 
     const { data, total, isLoading, error } = useGetList("connections", {
-        meta: { currentGroupId: currentGroup.id },
+        meta: { groupId: currentGroup.id },
     });
     useEffect(() => {
         if (data) setConnectionList(data);
