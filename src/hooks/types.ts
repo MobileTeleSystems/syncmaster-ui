@@ -6,6 +6,6 @@ export type Group = {
 };
 
 export type GroupSelectorElement = {
-    id: number;
     label: string;
+    id?: number;
 };

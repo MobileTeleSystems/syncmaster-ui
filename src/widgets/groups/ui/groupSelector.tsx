@@ -29,10 +29,9 @@ const Groups = () => {
                 )}
                 onChange={(_, value) => {
                     if (value) {
-                        setCurrentGroup(value.label);
-                    } else setCurrentGroup("");
+                        setCurrentGroup({ ...value });
+                    } else setCurrentGroup({ label: "" });
                 }}
-                value={{label: currentGroup}}
                 isOptionEqualToValue={(option, value) => {
                     if (value.label === "") return true; // fix mui Autocomplete component
                     return option.label === value.label; // fix mui Autocomplete component
