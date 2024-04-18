@@ -1,6 +1,6 @@
 import { DataProvider } from "react-admin";
-import { apiUrl } from "src/app/api/dataProviderCombiner";
-import { getHeader } from "src/app/api/utils";
+import { apiUrl } from "src/shared/api/dataProviderCombiner";
+import { getHeader } from "src/shared/api/utils";
 
 const groupsDataProvider: DataProvider = {
     getList: async () => {

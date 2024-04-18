@@ -1,3 +1,5 @@
+export type ConnectionType = "postgres" | "hive" | "oracle" | "s3" | "hdfs"
+
 export type PostgresAuthData = {
     type: string,
     user: string,
@@ -8,7 +10,7 @@ export type PostgresConnectionData = {
     database_name: string,
     host: string,
     port: number,
-    type: string,
+    type: ConnectionType,
 }
 
 export type ConnectionData = {

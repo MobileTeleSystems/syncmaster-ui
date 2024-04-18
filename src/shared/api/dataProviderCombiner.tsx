@@ -1,6 +1,6 @@
 import { combineDataProviders } from "react-admin";
-import connectionsDataProvider from "src/app/api/connectionsDataProvider";
-import groupsDataProvider from "src/app/api/groupsDataProvider";
+import connectionsDataProvider from "src/shared/api/connectionsDataProvider";
+import groupsDataProvider from "src/shared/api/groupsDataProvider";
 
 export const apiUrl = "http://localhost:8000";
 

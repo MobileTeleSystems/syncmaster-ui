@@ -6,8 +6,8 @@ import {
     StoreContextProvider,
     useStore,
 } from "react-admin";
-import authProvider from "src/app/api/authProvider";
-import dataProvider from "src/app/api/dataProviderCombiner";
+import authProvider from "src/shared/api/authProvider";
+import dataProvider from "src/shared/api/dataProviderCombiner";
 import { ThemeName, themes } from "src/themes/themes";
 import ConnectionListProvider from "src/widgets/connections/ui/connectionListProvider";
 import ShowConnectionProvider from "src/widgets/connections/ui/showConnectionProvider";

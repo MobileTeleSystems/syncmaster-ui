@@ -1,7 +1,7 @@
 import { DataProvider, HttpError } from "react-admin";
-import { ConnectionData } from "src/app/types";
-import { apiUrl } from "src/app/api/dataProviderCombiner";
-import { getHeader } from "src/app/api/utils";
+import { ConnectionData } from "src/widgets/connections/types";
+import { apiUrl } from "src/shared/api/dataProviderCombiner";
+import { getHeader } from "src/shared/api/utils";
 
 const connectionsDataProvider: DataProvider = {
     getList: async (resource, params) => {
