@@ -10,6 +10,7 @@ import useConnectionsList from "src/hooks/useConnectionsList";
 import useLocalStoreCurrentGroup from "src/hooks/useLocalStoreCurrentGroup";
 import Error from "src/shared/ui/error";
 import Loading from "src/shared/ui/loading";
+import Warning from "src/shared/ui/warning";
 import Connections from "src/widgets/connections/ui/connectionListElement";
 
 const ConnectionList = () => {
@@ -27,15 +28,8 @@ const ConnectionList = () => {
 
     if (isLoading) return <Loading />;
     if (error) return <Error />;
-    if (data?.length == 0)
-        return (
-            <div style={{ paddingTop: "1em" }}>
-                <Alert severity="warning">No connections found.</Alert>
-            </div>
-        );
-
+    if (data?.length == 0) return <Warning message="No connections found." />;
     const sort = { field: "id", order: "ASC" };
-
 
     return (
         <div style={{ paddingTop: "1em" }}>

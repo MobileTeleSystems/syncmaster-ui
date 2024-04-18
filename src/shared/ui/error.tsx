@@ -1,7 +1,7 @@
-import { Alert } from "@mui/material";
+import Warning from "src/shared/ui/warning";
 
 const Error = () => {
-    return <Alert severity="error">Error</Alert>;
+    return <Warning message="Error" />;
 };
 
 export default Error;

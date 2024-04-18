@@ -1,11 +1,7 @@
-import { Alert } from "@mui/material";
+import Info from "src/shared/ui/info";
 
-const Loading= () => {
-    return (
-        <Alert severity="info" style={{ paddingTop: "1em" }}>
-            Loading...
-        </Alert>
-    );
+const Loading = () => {
+    return <Info message="Loading..." />;
 };
 
 export default Loading;

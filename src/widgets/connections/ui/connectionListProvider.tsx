@@ -1,17 +1,17 @@
 import useLocalStoreCurrentGroup from "src/hooks/useLocalStoreCurrentGroup";
 import useLocalStoreGroupList from "src/hooks/useLocalStoreGroupList";
-import NoGroupsAvailable from "src/shared/ui/noGroupsAvailable";
-import NotSelectedGroup from "src/shared/ui/notSelectedGroup";
+import Warning from "src/shared/ui/warning";
 import ConnectionList from "src/widgets/connections/ui/connectionList";
 
 const ConnectionListProvider = () => {
     const [currentGroup] = useLocalStoreCurrentGroup();
     const [groupList] = useLocalStoreGroupList();
 
-    if (groupList.length == 0) return <NoGroupsAvailable />;
+    if (groupList.length == 0)
+        return <Warning message="No groups available." />;
 
     if (groupList.length > 0 && currentGroup.label == "")
-        return <NotSelectedGroup />;
+        return <Warning message="Please, select a group." />;
 
     return <ConnectionList />;
 };
