@@ -4,12 +4,12 @@ import { apiUrl } from "src/app/api/dataProviderCombiner";
 import { getHeader } from "src/app/api/utils";
 
 const connectionsDataProvider: DataProvider = {
-    getList: (resource, params) => {
-        const currentGroupId = params.meta.currentGroupId;
+    getList: async (resource, params) => {
+        const groupId = params.meta.currentGroupId;
         return new Promise((resolve, reject) => {
             // @ts-ignore
             return fetch(
-                `${apiUrl}/v1/${resource}?group_id=${currentGroupId}`,
+                `${apiUrl}/v1/${resource}?group_id=${groupId}`,
                 getHeader(),
             )
                 .then((response) =>
@@ -55,12 +55,12 @@ const connectionsDataProvider: DataProvider = {
                 });
         });
     },
-    getOne: (resource, params) => {
-        const currentConnectionId = params.id;
+    getOne: async (resource, params) => {
+        const connectionId = params.id;
         return new Promise((resolve, reject) => {
             // @ts-ignore
             return fetch(
-                `${apiUrl}/v1/${resource}/${currentConnectionId}`,
+                `${apiUrl}/v1/${resource}/${connectionId}`,
                 getHeader(),
             )
                 .then((response) =>

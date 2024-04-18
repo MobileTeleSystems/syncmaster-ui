@@ -1,8 +1,8 @@
 import { Autocomplete } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { GroupSelectorElement } from "src/hooks/types";
-import useLocalStoreCurrentGroup from "../../../hooks/useLocalStoreCurrentGroup";
-import useLocalStoreGroupList from "../../../hooks/useLocalStoreGroupList";
+import useLocalStoreCurrentGroup from "src/hooks/useLocalStoreCurrentGroup";
+import useLocalStoreGroupList from "src/hooks/useLocalStoreGroupList";
 
 const Groups = () => {
     const [currentGroup, setCurrentGroup] = useLocalStoreCurrentGroup();

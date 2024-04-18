@@ -1,6 +1,6 @@
 import { Alert } from "@mui/material";
 
-const NotAnyGroupAvailable = () => {
+const NoGroupsAvailable = () => {
     return (
         <div style={{ paddingTop: "1em" }}>
             <Alert severity="warning">No groups available.</Alert>
@@ -8,4 +8,4 @@ const NotAnyGroupAvailable = () => {
     );
 };
 
-export default NotAnyGroupAvailable;
+export default NoGroupsAvailable;

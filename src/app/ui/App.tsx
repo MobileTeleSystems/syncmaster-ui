@@ -9,7 +9,7 @@ import {
 import authProvider from "src/app/api/authProvider";
 import dataProvider from "src/app/api/dataProviderCombiner";
 import { ThemeName, themes } from "src/themes/themes";
-import ConnetionListProvider from "src/widgets/connections/ui/connetionListProvider";
+import ConnectionListProvider from "src/widgets/connections/ui/connectionListProvider";
 import ShowConnectionProvider from "src/widgets/connections/ui/showConnectionProvider";
 import { Layout } from "src/widgets/layout/ui";
 
@@ -34,7 +34,7 @@ const App = () => {
         >
             <Resource
                 name="connections"
-                list={ConnetionListProvider}
+                list={ConnectionListProvider}
                 show={ShowConnectionProvider}
             />
         </Admin>
