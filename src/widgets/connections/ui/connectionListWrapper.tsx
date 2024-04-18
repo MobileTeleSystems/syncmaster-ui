@@ -3,7 +3,7 @@ import useLocalStoreGroupList from "src/hooks/useLocalStoreGroupList";
 import Warning from "src/shared/ui/warning";
 import ConnectionList from "src/widgets/connections/ui/connectionList";
 
-const ConnectionListProvider = () => {
+const ConnectionListWrapper = () => {
     const [currentGroup] = useLocalStoreCurrentGroup();
     const [groupList] = useLocalStoreGroupList();
 
@@ -16,4 +16,4 @@ const ConnectionListProvider = () => {
     return <ConnectionList />;
 };
 
-export default ConnectionListProvider;
+export default ConnectionListWrapper;

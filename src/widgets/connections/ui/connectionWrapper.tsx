@@ -6,7 +6,7 @@ import Error from "src/shared/ui/error";
 import Loading from "src/shared/ui/loading";
 import { ConnectionType } from "src/widgets/connections/types";
 
-const ConnectionProvider = () => {
+const ConnectionWrapper = () => {
     const { id } = useParams();
     const [connectionsList] = useConnectionsList();
     if (id === undefined) return <Error />;
@@ -25,4 +25,4 @@ const ConnectionProvider = () => {
     return <Error />;
 };
 
-export default ConnectionProvider;
+export default ConnectionWrapper;
