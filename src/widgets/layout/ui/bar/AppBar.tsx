@@ -1,7 +1,7 @@
 import * as React from "react";
 import { AppBar, TitlePortal } from "react-admin";
 import { Box, Theme, useMediaQuery } from "@mui/material";
-import Groups from "src/widgets/groups/ui/groupSelector";
+import Groups from "src/features/groups/ui/groupSelector";
 import { AppBarToolbar } from "src/widgets/layout/ui/bar/AppBarToolbar";
 
 const CustomAppBar = () => {

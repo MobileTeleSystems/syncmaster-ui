@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import useConnectionsList from "src/hooks/useConnectionsList";
 import Error from "src/shared/ui/error";
 import { ConnectionType } from "src/widgets/connections/types";
-import PostgresConnectionShow from "src/widgets/connections/ui/showConnection/postgresConnection";
+import PostgresConnectionShow from "src/entities/postgresConnection";
 
 const ConnectionProvider = () => {
     const { id } = useParams();
