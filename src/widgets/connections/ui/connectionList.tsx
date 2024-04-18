@@ -1,4 +1,4 @@
-import { Alert, Card } from "@mui/material";
+import { Card } from "@mui/material";
 import { useEffect, useState } from "react";
 import {
     ListContextProvider,
@@ -29,7 +29,7 @@ const ConnectionList = () => {
     if (isLoading) return <Loading />;
     if (error) return <Error />;
     if (data?.length == 0) return <Warning message="No connections found." />;
-    const sort = { field: "id", order: "ASC" };
+    const sort = { field: "name", order: "ASC" };
 
     return (
         <div style={{ paddingTop: "1em" }}>
