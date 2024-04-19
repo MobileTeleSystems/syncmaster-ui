@@ -1,5 +1,5 @@
 import { DataProvider, HttpError } from "react-admin";
-import { getHeader } from "src/shared/api/utils";
+import { getHeader } from "@shared/api/utils";
 
 const apiUrl = "http://localhost:8000";
 const apiVersion = "v1";

@@ -6,7 +6,7 @@ import {
     TextField,
     Title,
 } from "react-admin";
-import { ConnectionData } from "src/widgets/connections/types";
+import { ConnectionData } from "@widgets/connections/types";
 
 const PostgresConnectionShow = ({
     id,

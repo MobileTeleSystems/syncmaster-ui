@@ -6,11 +6,11 @@ import {
     Title,
     useGetList,
 } from "react-admin";
-import useLocalStoreCurrentGroup from "src/hooks/useLocalStoreCurrentGroup";
-import Error from "src/shared/ui/error";
-import Loading from "src/shared/ui/loading";
-import Warning from "src/shared/ui/warning";
-import Connections from "src/widgets/connections/ui/connectionListElement";
+import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
+import Error from "@shared/ui/error";
+import Loading from "@shared/ui/loading";
+import Warning from "@shared/ui/warning";
+import Connections from "@widgets/connections/ui/connectionListElement";
 
 const ConnectionList = () => {
     const [currentGroup] = useLocalStoreCurrentGroup();

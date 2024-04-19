@@ -1,4 +1,4 @@
-import Warning from "src/shared/ui/warning";
+import Warning from "@shared/ui/warning";
 
 const Error = () => {
     return <Warning message="Error" />;

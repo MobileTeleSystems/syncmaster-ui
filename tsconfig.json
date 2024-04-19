@@ -2,6 +2,18 @@
   "compilerOptions": {
     "target": "es5",
     "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@widgets/*": ["src/widgets/*"],
+      "@themes/*": ["src/themes/*"],
+      "@shared/*": ["src/shared/*"],
+      "@i18n/*": ["src/i18n/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@features/*": ["src/features/*"],
+      "@entities/*": ["src/entities/*"],
+    },
     "lib": [
       "dom",
       "dom.iterable",
@@ -25,5 +37,9 @@
     "./src/**/*.ts",
     "./src/**/*.d.ts"
   ],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

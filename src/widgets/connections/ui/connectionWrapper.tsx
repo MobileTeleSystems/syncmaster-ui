@@ -1,9 +1,9 @@
 import { useGetOne } from "react-admin";
 import { useParams } from "react-router";
-import PostgresConnectionShow from "src/entities/postgresConnection";
-import Error from "src/shared/ui/error";
-import Loading from "src/shared/ui/loading";
-import Warning from "src/shared/ui/warning";
+import PostgresConnectionShow from "@entities/postgresConnection";
+import Error from "@shared/ui/error";
+import Loading from "@shared/ui/loading";
+import Warning from "@shared/ui/warning";
 
 const ConnectionWrapper = () => {
     const { id } = useParams();

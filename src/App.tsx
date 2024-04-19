@@ -6,12 +6,12 @@ import {
     StoreContextProvider,
     useStore,
 } from "react-admin";
-import authProvider from "src/shared/api/authProvider";
-import dataProvider from "src/shared/api/dataProvider";
-import { ThemeName, themes } from "src/themes/themes";
-import ConnectionListWrapper from "src/widgets/connections/ui/connectionListWrapper";
-import ConnectionWrapper from "src/widgets/connections/ui/connectionWrapper";
-import { Layout } from "src/widgets/layout/ui";
+import authProvider from "@shared/api/authProvider";
+import dataProvider from "@shared/api/dataProvider";
+import { ThemeName, themes } from "@themes/themes";
+import ConnectionListWrapper from "@widgets/connections/ui/connectionListWrapper";
+import ConnectionWrapper from "@widgets/connections/ui/connectionWrapper";
+import { Layout } from "@widgets/layout/ui";
 
 const store = localStorageStore(undefined, "SyncMaster");
 

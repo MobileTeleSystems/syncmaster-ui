@@ -1,4 +1,4 @@
-import Info from "src/shared/ui/info";
+import Info from "@shared/ui/info";
 
 const Loading = () => {
     return <Info message="Loading..." />;
