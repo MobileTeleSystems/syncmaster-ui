@@ -1,8 +1,8 @@
 import { useStore } from "react-admin";
-import { Group } from "../types";
+import { GroupSelectorElement } from "src/hooks/types";
 
 const useLocalStoreCurrentGroup = () => {
-    return useStore<Group | null>("currentGroup", null);
+    return useStore<GroupSelectorElement>("currentGroup", {label: ""});
 };
 
 export default useLocalStoreCurrentGroup;

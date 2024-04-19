@@ -4,3 +4,8 @@ export type Group = {
     description: string;
     ownerId: number;
 };
+
+export type GroupSelectorElement = {
+    label: string;
+    id?: number;
+};

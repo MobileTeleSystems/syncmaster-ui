@@ -1,16 +1,17 @@
 import {
     Admin,
     localStorageStore,
+    Login,
     Resource,
     StoreContextProvider,
     useStore,
 } from "react-admin";
-
-import authProvider from "./authProvider";
-import { Layout, Login } from "./layout";
-import { ThemeName, themes } from "./themes/themes";
-import syncMasterDataProvider from "./dataProvider/syncMasterDataProvider";
-import DummyList from "./components/dummyList";
+import authProvider from "src/shared/api/authProvider";
+import dataProvider from "src/shared/api/dataProvider";
+import { ThemeName, themes } from "src/themes/themes";
+import ConnectionListWrapper from "src/widgets/connections/ui/connectionListWrapper";
+import ConnectionWrapper from "src/widgets/connections/ui/connectionWrapper";
+import { Layout } from "src/widgets/layout/ui";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -21,7 +22,7 @@ const App = () => {
     return (
         <Admin
             title="SyncMaster"
-            dataProvider={syncMasterDataProvider}
+            dataProvider={dataProvider}
             store={store}
             authProvider={authProvider}
             loginPage={Login}
@@ -31,7 +32,11 @@ const App = () => {
             darkTheme={darkTheme}
             defaultTheme="light"
         >
-            <Resource name="dummy" list={DummyList} />
+            <Resource
+                name="connections"
+                list={ConnectionListWrapper}
+                show={ConnectionWrapper}
+            />
         </Admin>
     );
 };
