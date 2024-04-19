@@ -45,11 +45,7 @@ const ConnectionList = () => {
                         <Card>
                             <Connections />
                         </Card>
-                        <Pagination
-                            page={page}
-                            total={total}
-                            perPage={perPage}
-                        />
+                        <Pagination />
                     </div>
                 }
             </ListContextProvider>

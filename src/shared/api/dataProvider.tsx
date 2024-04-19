@@ -22,8 +22,8 @@ const dataProvider: DataProvider = {
                         status: response.status,
                         statusText: response.statusText,
                         headers: response.headers,
-                        body: text,
-                    })),
+                        body: text
+                    }))
                 )
                 .then(({ status, statusText, headers, body }) => {
                     let json;
@@ -37,14 +37,17 @@ const dataProvider: DataProvider = {
                             new HttpError(
                                 (json && json.message) || statusText,
                                 status,
-                                json,
-                            ),
+                                json
+                            )
                         );
                     }
-
                     return resolve({
                         data: json.items,
                         total: json.meta.total,
+                        pageInfo: {
+                            hasNextPage: json.meta.has_next,
+                            hasPreviousPage: json.meta.has_previous
+                        }
                     });
                 });
         });
@@ -54,15 +57,15 @@ const dataProvider: DataProvider = {
         return new Promise((resolve, reject) => {
             return fetch(
                 `${apiUrl}/v1/${resource}/${connectionId}`,
-                getHeader(),
+                getHeader()
             )
                 .then((response) =>
                     response.text().then((text) => ({
                         status: response.status,
                         statusText: response.statusText,
                         headers: response.headers,
-                        body: text,
-                    })),
+                        body: text
+                    }))
                 )
                 .then(({ status, statusText, headers, body }) => {
                     let json;
@@ -76,17 +79,17 @@ const dataProvider: DataProvider = {
                             new HttpError(
                                 (json && json.message) || statusText,
                                 status,
-                                json,
-                            ),
+                                json
+                            )
                         );
                     }
 
                     return resolve({
-                        data: json,
+                        data: json
                     });
                 });
         });
-    },
+    }
 };
 
 export default dataProvider;
