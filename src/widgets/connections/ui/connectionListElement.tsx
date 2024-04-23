@@ -1,11 +1,19 @@
-import { Datagrid, DateField, TextField } from "react-admin";
+import {
+    CreateButton,
+    Datagrid,
+    DateField,
+    DeleteButton,
+    EditButton,
+    TextField
+} from "react-admin";
 
 const ConnectionListElement = () => {
     return (
         <Datagrid rowClick="show">
-            <TextField source="id"/>
+            <TextField source="id" />
             <TextField source="name" />
-            <DateField source="description" />
+            <TextField source="description" />
+            <DeleteButton />
         </Datagrid>
     );
 };

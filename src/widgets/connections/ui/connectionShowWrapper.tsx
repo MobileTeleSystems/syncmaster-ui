@@ -1,11 +1,11 @@
 import { useGetOne } from "react-admin";
 import { useParams } from "react-router";
-import PostgresConnectionShow from "@entities/postgresConnection";
+import PostgresConnectionShow from "@entities/postgresConnectionShow";
 import Error from "@shared/ui/error";
 import Loading from "@shared/ui/loading";
 import Warning from "@shared/ui/warning";
 
-const ConnectionWrapper = () => {
+const ConnectionShowWrapper = () => {
     const { id } = useParams();
     if (id === undefined) return <Error />;
 
@@ -19,4 +19,4 @@ const ConnectionWrapper = () => {
     return <Warning message="Connection type does not implemented yet" />;
 };
 
-export default ConnectionWrapper;
+export default ConnectionShowWrapper;

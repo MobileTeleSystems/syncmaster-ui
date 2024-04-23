@@ -1,6 +1,7 @@
 import { Card } from "@mui/material";
 import {
     DateField,
+    EditButton,
     RecordContextProvider,
     SimpleShowLayout,
     TextField,
@@ -27,13 +28,13 @@ const PostgresConnectionShow = ({
 
     return (
         <RecordContextProvider value={processedData}>
-            <div style={{paddingTop: '1em'}}>
+            <div style={{ paddingTop: "1em" }}>
                 <Title title={"Connection id = " + id} />
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="id" />
                         <TextField source="name" />
-                        <DateField source="description" />
+                        <TextField source="description" />
                         <TextField source="auth_data.type" label={"Type"} />
                         <TextField source="auth_data.user" label={"User"} />
                         <TextField
@@ -58,6 +59,17 @@ const PostgresConnectionShow = ({
                         />
                     </SimpleShowLayout>
                 </Card>
+                <div
+                    style={{
+                        display: "flex",
+                        justifyContent: "end",
+                        alignItems: "center",
+                        paddingTop: "0.5em",
+                        paddingBottom: "0.5em",
+                    }}
+                >
+                    <EditButton />
+                </div>
             </div>
         </RecordContextProvider>
     );

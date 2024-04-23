@@ -13,17 +13,23 @@ const dataProvider: DataProvider = {
         }
 
         url.searchParams.append("page", params.pagination.page.toString());
-        url.searchParams.append("page_size", params.pagination.perPage.toString());
+        url.searchParams.append(
+            "page_size",
+            params.pagination.perPage.toString(),
+        );
 
         return new Promise((resolve, reject) => {
-            return fetch(url.toString(), getHeader())
+            return fetch(url.toString(), {
+                headers: getHeader(),
+                method: "GET",
+            })
                 .then((response) =>
                     response.text().then((text) => ({
                         status: response.status,
                         statusText: response.statusText,
                         headers: response.headers,
-                        body: text
-                    }))
+                        body: text,
+                    })),
                 )
                 .then(({ status, statusText, headers, body }) => {
                     let json;
@@ -37,8 +43,8 @@ const dataProvider: DataProvider = {
                             new HttpError(
                                 (json && json.message) || statusText,
                                 status,
-                                json
-                            )
+                                json,
+                            ),
                         );
                     }
                     return resolve({
@@ -46,8 +52,8 @@ const dataProvider: DataProvider = {
                         total: json.meta.total,
                         pageInfo: {
                             hasNextPage: json.meta.has_next,
-                            hasPreviousPage: json.meta.has_previous
-                        }
+                            hasPreviousPage: json.meta.has_previous,
+                        },
                     });
                 });
         });
@@ -55,17 +61,17 @@ const dataProvider: DataProvider = {
     getOne: (resource, params) => {
         const connectionId = params.id;
         return new Promise((resolve, reject) => {
-            return fetch(
-                `${apiUrl}/v1/${resource}/${connectionId}`,
-                getHeader()
-            )
+            return fetch(`${apiUrl}/v1/${resource}/${connectionId}`, {
+                headers: getHeader(),
+                method: "GET",
+            })
                 .then((response) =>
                     response.text().then((text) => ({
                         status: response.status,
                         statusText: response.statusText,
                         headers: response.headers,
-                        body: text
-                    }))
+                        body: text,
+                    })),
                 )
                 .then(({ status, statusText, headers, body }) => {
                     let json;
@@ -79,17 +85,139 @@ const dataProvider: DataProvider = {
                             new HttpError(
                                 (json && json.message) || statusText,
                                 status,
-                                json
-                            )
+                                json,
+                            ),
                         );
                     }
 
                     return resolve({
-                        data: json
+                        data: json,
                     });
                 });
         });
-    }
+    },
+    delete: (resource, params) => {
+        const connectionId = params.id;
+        return new Promise((resolve, reject) => {
+            return fetch(`${apiUrl}/v1/${resource}/${connectionId}`, {
+                headers: getHeader(),
+                method: "DELETE",
+            })
+                .then((response) =>
+                    response.text().then((text) => ({
+                        status: response.status,
+                        statusText: response.statusText,
+                        headers: response.headers,
+                        body: text,
+                    })),
+                )
+                .then(({ status, statusText, headers, body }) => {
+                    let json;
+                    try {
+                        json = JSON.parse(body);
+                    } catch (e) {
+                        console.error(e);
+                    }
+                    if (status < 200 || status >= 300) {
+                        return reject(
+                            new HttpError(
+                                (json && json.message) || statusText,
+                                status,
+                                json,
+                            ),
+                        );
+                    }
+
+                    return resolve({
+                        data: json,
+                    });
+                });
+        });
+    },
+    update: (resource, params) => {
+        return new Promise((resolve, reject) => {
+            return fetch(`${apiUrl}/v1/${resource}/${params.id}`, {
+                headers: getHeader(),
+                method: "PATCH",
+                body: JSON.stringify({
+                    name: params.data.name,
+                    description: params.data.description,
+                    connection_data: params.data.connection_data,
+                    auth_data: params.data.auth_data,
+                }),
+            })
+                .then((response) =>
+                    response.text().then((text) => ({
+                        status: response.status,
+                        statusText: response.statusText,
+                        headers: response.headers,
+                        body: text,
+                    })),
+                )
+                .then(({ status, statusText, headers, body }) => {
+                    let json;
+                    try {
+                        json = JSON.parse(body);
+                    } catch (e) {
+                        console.error(e);
+                    }
+                    if (status < 200 || status >= 300) {
+                        return reject(
+                            new HttpError(
+                                (json && json.message) || statusText,
+                                status,
+                                json,
+                            ),
+                        );
+                    }
+                    return resolve({
+                        data: json,
+                    });
+                });
+        });
+    },
+    getConnectionTypes: () => {
+        return new Promise((resolve, reject) => {
+            const url = new URL(
+                apiUrl + "/" + apiVersion + "/connections/known_types",
+            );
+            return fetch(url.toString(), {
+                headers: getHeader(),
+                method: "GET",
+            })
+                .then((response) =>
+                    response.text().then((text) => ({
+                        status: response.status,
+                        statusText: response.statusText,
+                        headers: response.headers,
+                        body: text,
+                    })),
+                )
+                .then(({ status, statusText, headers, body }) => {
+                    let json;
+                    try {
+                        json = JSON.parse(body);
+                    } catch (e) {
+                        console.error(e);
+                    }
+                    if (status < 200 || status >= 300) {
+                        return reject(
+                            new HttpError(
+                                (json && json.message) || statusText,
+                                status,
+                                json,
+                            ),
+                        );
+                    }
+                    const choices: { id: string; name: string }[] = [];
+
+                    for (const k in json) {
+                        choices.push({ id: json[k], name: json[k] });
+                    }
+                    return resolve(choices);
+                });
+        });
+    },
 };
 
 export default dataProvider;

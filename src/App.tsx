@@ -1,3 +1,10 @@
+import authProvider from "@shared/api/authProvider";
+import dataProvider from "@shared/api/dataProvider";
+import { ThemeName, themes } from "@themes/themes";
+import ConnectionListWrapper from "@widgets/connections/ui/connectionListWrapper";
+import ConnectionShowWrapper from "@widgets/connections/ui/connectionShowWrapper";
+import ConnetcionEditWrapper from "@widgets/connections/ui/connetcionEditWrapper";
+import { Layout } from "@widgets/layout/ui";
 import {
     Admin,
     localStorageStore,
@@ -6,12 +13,7 @@ import {
     StoreContextProvider,
     useStore,
 } from "react-admin";
-import authProvider from "@shared/api/authProvider";
-import dataProvider from "@shared/api/dataProvider";
-import { ThemeName, themes } from "@themes/themes";
-import ConnectionListWrapper from "@widgets/connections/ui/connectionListWrapper";
-import ConnectionWrapper from "@widgets/connections/ui/connectionWrapper";
-import { Layout } from "@widgets/layout/ui";
+import ConnectionCreateWrapper from "@widgets/connections/ui/connectionCreateWrapper";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -35,7 +37,9 @@ const App = () => {
             <Resource
                 name="connections"
                 list={ConnectionListWrapper}
-                show={ConnectionWrapper}
+                show={ConnectionShowWrapper}
+                edit={ConnetcionEditWrapper}
+                create={ConnectionCreateWrapper}
             />
         </Admin>
     );

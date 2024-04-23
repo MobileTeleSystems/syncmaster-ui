@@ -1,6 +1,7 @@
 import { Card } from "@mui/material";
 import { useState } from "react";
 import {
+    CreateButton,
     ListContextProvider,
     Pagination,
     Title,
@@ -42,6 +43,17 @@ const ConnectionList = () => {
                 {
                     <div>
                         <Title title="Connections" />
+                        <div
+                            style={{
+                                display: "flex",
+                                justifyContent: "end",
+                                alignItems: "center",
+                                paddingTop: "0.5em",
+                                paddingBottom: "0.5em",
+                            }}
+                        >
+                            <CreateButton />
+                        </div>
                         <Card>
                             <Connections />
                         </Card>
