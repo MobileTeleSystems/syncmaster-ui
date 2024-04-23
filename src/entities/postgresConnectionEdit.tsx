@@ -25,17 +25,17 @@ export const postgresConnectionEdit = ({ data }: { data: ConnectionData }) => {
             <SimpleForm>
                 <TextInput source="id" disabled={true} />
                 <SelectInput
-                    source="Connection Type"
+                    source="connection_data.type"
                     choices={connectionTypes}
                     validate={required()}
                     isLoading={isLoading}
                     defaultValue={data.connection_data.type}
-                    disabled={true}
+                    name="connectionType"
                 />
                 <TextInput source="name" required={true} />
                 <TextInput source="description" />
                 <SelectInput
-                    source="Auth Data Type"
+                    source="auth_data.type"
                     choices={connectionTypes}
                     validate={required()}
                     isLoading={isLoading}

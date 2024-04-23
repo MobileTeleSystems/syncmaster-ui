@@ -1,8 +1,7 @@
 import PostgresConnectionEdit from "@entities/postgresConnectionEdit";
 import Error from "@shared/ui/error";
-import Loading from "@shared/ui/loading";
 import Warning from "@shared/ui/warning";
-import { useGetOne } from "react-admin";
+import { Loading, useGetOne } from "react-admin";
 import { useParams } from "react-router";
 
 const ConnectionEditWrapper = () => {

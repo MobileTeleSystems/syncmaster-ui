@@ -135,6 +135,15 @@ const dataProvider: DataProvider = {
         });
     },
     update: (resource, params) => {
+        console.log({
+            name: params.data.name,
+            description: params.data.description,
+            connection_data: {
+                ...params.data.connection_data,
+                type: params.data.connectionType,
+            },
+            auth_data: params.data.auth_data,
+        });
         return new Promise((resolve, reject) => {
             return fetch(`${apiUrl}/v1/${resource}/${params.id}`, {
                 headers: getHeader(),
@@ -142,7 +151,10 @@ const dataProvider: DataProvider = {
                 body: JSON.stringify({
                     name: params.data.name,
                     description: params.data.description,
-                    connection_data: params.data.connection_data,
+                    connection_data: {
+                        ...params.data.connection_data,
+                        type: params.data.connectionType,
+                    },
                     auth_data: params.data.auth_data,
                 }),
             })
