@@ -1,5 +1,6 @@
 import dataProvider from "@shared/api/dataProvider";
 import { validateIp } from "@shared/utils";
+import type { ConnectionData } from "@widgets/connections/types";
 import {
     Edit,
     Loading,
@@ -10,14 +11,11 @@ import {
     TextInput,
 } from "react-admin";
 import { useQuery } from "react-query";
-import type { ConnectionData } from "src/widgets/connections/types";
 
 export const postgresConnectionEdit = ({ data }: { data: ConnectionData }) => {
-    const {
-        data: connectionTypes,
-        isLoading,
-    } = useQuery(["connections", "getConnectionTypes"], () =>
-        dataProvider.getConnectionTypes(),
+    const { data: connectionTypes, isLoading } = useQuery(
+        ["connections", "getConnectionTypes"],
+        () => dataProvider.getConnectionTypes(),
     );
 
     if (isLoading) return <Loading />;

@@ -176,6 +176,57 @@ const dataProvider: DataProvider = {
                 });
         });
     },
+    create: (resource, params) => {
+        return new Promise((resolve, reject) => {
+            return fetch(`${apiUrl}/v1/${resource}`, {
+                headers: getHeader(),
+                method: "POST",
+                body: JSON.stringify({
+                    group_id: params.data.group,
+                    name: params.data.name,
+                    description: params.data.description,
+                    connection_data: {
+                        ...params.data.connection_data,
+                        type: params.data.connectionType,
+                        database_name: params.data.databaseName,
+                    },
+                    auth_data: {
+                        ...params.data.auth_data,
+                        password: params.data.password,
+                        type: params.data.authDataType,
+                    },
+                }),
+            })
+                .then((response) =>
+                    response.text().then((text) => ({
+                        status: response.status,
+                        statusText: response.statusText,
+                        headers: response.headers,
+                        body: text,
+                    })),
+                )
+                .then(({ status, statusText, headers, body }) => {
+                    let json;
+                    try {
+                        json = JSON.parse(body);
+                    } catch (e) {
+                        console.error(e);
+                    }
+                    if (status < 200 || status >= 300) {
+                        return reject(
+                            new HttpError(
+                                (json && json.message) || statusText,
+                                status,
+                                json,
+                            ),
+                        );
+                    }
+                    return resolve({
+                        data: json,
+                    });
+                });
+        });
+    },
     getConnectionTypes: () => {
         return new Promise((resolve, reject) => {
             const url = new URL(
