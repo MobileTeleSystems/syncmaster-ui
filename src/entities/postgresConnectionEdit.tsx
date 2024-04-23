@@ -1,4 +1,5 @@
 import dataProvider from "@shared/api/dataProvider";
+import { validateIp } from "@shared/utils";
 import {
     Edit,
     Loading,
@@ -7,57 +8,52 @@ import {
     SelectInput,
     SimpleForm,
     TextInput,
-    useGetOne,
-    useGetRecordId,
 } from "react-admin";
 import { useQuery } from "react-query";
-import { validateIp } from "@shared/utils";
+import type { ConnectionData } from "src/widgets/connections/types";
 
+export const postgresConnectionEdit = ({ data }: { data: ConnectionData }) => {
+    const {
+        data: connectionTypes,
+        isLoading,
+    } = useQuery(["connections", "getConnectionTypes"], () =>
+        dataProvider.getConnectionTypes(),
+    );
 
-export const postgresConnectionEdit = (props) => {
-    const { data, isLoading, error } = useQuery(
-        ["connections", "getConnectionTypes"],
-        () => dataProvider.getConnectionTypes(),
-    );
-    const recordId = useGetRecordId();
-    const { data: currentData, isLoading: isLoadindCurrData } = useGetOne(
-        "connections",
-        { id: recordId },
-    );
-    if (isLoading || isLoadindCurrData) return <Loading />;
+    if (isLoading) return <Loading />;
 
     return (
         <Edit>
             <SimpleForm>
                 <TextInput source="id" disabled={true} />
+                <SelectInput
+                    source="Connection Type"
+                    choices={connectionTypes}
+                    validate={required()}
+                    isLoading={isLoading}
+                    defaultValue={data.connection_data.type}
+                    disabled={true}
+                />
                 <TextInput source="name" required={true} />
                 <TextInput source="description" />
                 <SelectInput
                     source="Auth Data Type"
-                    choices={data}
+                    choices={connectionTypes}
                     validate={required()}
                     isLoading={isLoading}
-                    defaultValue={currentData.auth_data.type}
+                    defaultValue={data.auth_data.type}
                 />
                 <TextInput source="auth_data.user" label={"User"} />
-                <TextInput
-                    source="connection_data.additional_params"
-                    label={"Additional params"}
-                    defaultValue={JSON.stringify(currentData.connection_data.additional_params)}
-                />
                 <TextInput
                     source="connection_data.database_name"
                     label={"Database name"}
                 />
-                <TextInput source="connection_data.host" label={"Host"} validate={validateIp}/>
-                <NumberInput source="connection_data.port" label={"Port"} />
-                <SelectInput
-                    source="Connection Type"
-                    choices={data}
-                    validate={required()}
-                    isLoading={isLoading}
-                    defaultValue={currentData.connection_data.type}
+                <TextInput
+                    source="connection_data.host"
+                    label={"Host"}
+                    validate={validateIp}
                 />
+                <NumberInput source="connection_data.port" label={"Port"} />
             </SimpleForm>
         </Edit>
     );
