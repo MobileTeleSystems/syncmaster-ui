@@ -146,7 +146,11 @@ const dataProvider: DataProvider = {
                         ...params.data.connection_data,
                         type: params.data.connectionType,
                     },
-                    auth_data: params.data.auth_data,
+                    auth_data: {
+                        ...params.data.auth_data,
+                        type: params.data.connectionType,
+                        password: params.data.password,
+                    },
                 }),
             })
                 .then((response) =>
@@ -167,7 +171,7 @@ const dataProvider: DataProvider = {
                     if (status < 200 || status >= 300) {
                         return reject(
                             new HttpError(
-                                (json && json.message) || body,
+                                (json && json.message) || statusText,
                                 status,
                                 json,
                             ),
