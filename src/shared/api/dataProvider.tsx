@@ -135,15 +135,6 @@ const dataProvider: DataProvider = {
         });
     },
     update: (resource, params) => {
-        console.log({
-            name: params.data.name,
-            description: params.data.description,
-            connection_data: {
-                ...params.data.connection_data,
-                type: params.data.connectionType,
-            },
-            auth_data: params.data.auth_data,
-        });
         return new Promise((resolve, reject) => {
             return fetch(`${apiUrl}/v1/${resource}/${params.id}`, {
                 headers: getHeader(),
@@ -205,7 +196,7 @@ const dataProvider: DataProvider = {
                     auth_data: {
                         ...params.data.auth_data,
                         password: params.data.password,
-                        type: params.data.authDataType,
+                        type: params.data.connectionType,
                     },
                 }),
             })
@@ -227,7 +218,7 @@ const dataProvider: DataProvider = {
                     if (status < 200 || status >= 300) {
                         return reject(
                             new HttpError(
-                                (json && json.message) || statusText,
+                                (json && json.message) || body,
                                 status,
                                 json,
                             ),

@@ -5,6 +5,7 @@ import {
     Edit,
     Loading,
     NumberInput,
+    PasswordInput,
     required,
     SelectInput,
     SimpleForm,
@@ -21,7 +22,7 @@ export const postgresConnectionEdit = ({ data }: { data: ConnectionData }) => {
     if (isLoading) return <Loading />;
 
     return (
-        <Edit>
+        <Edit mutationMode="pessimistic">
             <SimpleForm>
                 <TextInput source="id" disabled={true} />
                 <SelectInput
@@ -34,14 +35,8 @@ export const postgresConnectionEdit = ({ data }: { data: ConnectionData }) => {
                 />
                 <TextInput source="name" required={true} />
                 <TextInput source="description" />
-                <SelectInput
-                    source="auth_data.type"
-                    choices={connectionTypes}
-                    validate={required()}
-                    isLoading={isLoading}
-                    defaultValue={data.auth_data.type}
-                />
                 <TextInput source="auth_data.user" label={"User"} />
+                <PasswordInput source="password" />
                 <TextInput
                     source="connection_data.database_name"
                     label={"Database name"}

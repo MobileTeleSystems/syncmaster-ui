@@ -44,15 +44,12 @@ const PostgresConnectionCreate = () => {
                     name="name"
                     required={true}
                 />
-                <TextInput source="description" />
-                <SelectInput
-                    source="Auth Data Type"
-                    name="authDataType"
-                    choices={connectionTypes}
-                    validate={required()}
-                    isLoading={isLoading}
+                <TextInput source="description" required={true} />
+                <TextInput
+                    source="auth_data.user"
+                    label={"User"}
+                    required={true}
                 />
-                <TextInput source="auth_data.user" label={"User"} />
                 <PasswordInput source="password" required={true} />
                 <TextInput
                     source="connection_data.database_name"
