@@ -41,7 +41,7 @@ const dataProvider: DataProvider = {
                     if (status < 200 || status >= 300) {
                         return reject(
                             new HttpError(
-                                (json && json.message) || statusText,
+                                (json && json.message) || body,
                                 status,
                                 json,
                             ),
@@ -83,7 +83,7 @@ const dataProvider: DataProvider = {
                     if (status < 200 || status >= 300) {
                         return reject(
                             new HttpError(
-                                (json && json.message) || statusText,
+                                (json && json.message) || body,
                                 status,
                                 json,
                             ),
@@ -121,7 +121,7 @@ const dataProvider: DataProvider = {
                     if (status < 200 || status >= 300) {
                         return reject(
                             new HttpError(
-                                (json && json.message) || statusText,
+                                (json && json.message) || body,
                                 status,
                                 json,
                             ),
@@ -167,7 +167,7 @@ const dataProvider: DataProvider = {
                     if (status < 200 || status >= 300) {
                         return reject(
                             new HttpError(
-                                (json && json.message) || statusText,
+                                (json && json.message) || body,
                                 status,
                                 json,
                             ),
@@ -257,7 +257,7 @@ const dataProvider: DataProvider = {
                     if (status < 200 || status >= 300) {
                         return reject(
                             new HttpError(
-                                (json && json.message) || statusText,
+                                (json && json.message) || body,
                                 status,
                                 json,
                             ),
