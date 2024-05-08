@@ -4,22 +4,31 @@ const PostgresEditForm = () => {
     return (
         <>
             <TextInput
-                name={"database_name"}
+                name={"connection_data.database_name"}
                 source="connection_data.database_name"
                 label={"Database name"}
             />
             <TextInput
                 source="connection_data.host"
                 label={"Host"}
-                name={"host"}
+                name={"connection_data.host"}
             />
             <NumberInput
                 source="connection_data.port"
                 label={"Port"}
-                name={"port"}
+                name={"connection_data.port"}
+                placeholder={"5432"}
             />
-            <TextInput source="auth_data.user" label={"User"} name={"user"} />
-            <PasswordInput source="password" name={"password"} />
+            <TextInput
+                source="auth_data.user"
+                label={"User"}
+                name={"auth_data.user"}
+            />
+            <PasswordInput
+                source="auth_data.password"
+                name={"auth_data.password"}
+                label={"Password"}
+            />
         </>
     );
 };

@@ -90,7 +90,6 @@ const dataProvider: DataProvider = {
                             ),
                         );
                     }
-
                     return resolve({
                         data: json,
                     });
@@ -145,13 +144,12 @@ const dataProvider: DataProvider = {
                     description: params.data.description,
                     connection_data: {
                         ...params.data.connection_data,
-                        type: params.data.connectionType,
                     },
                     auth_data: {
                         ...params.data.auth_data,
-                        type: params.data.connectionType,
-                        password: params.data.password
-                            ? params.data.password
+                        type: params.data.connection_data.type,
+                        password: params.data.auth_data.password
+                            ? params.data.auth_data.password
                             : null,
                     },
                 }),
@@ -197,15 +195,13 @@ const dataProvider: DataProvider = {
                     description: params.data.description,
                     connection_data: {
                         ...params.data.connection_data,
-                        type: params.data.connectionType,
-                        database_name: params.data.databaseName,
                     },
                     auth_data: {
                         ...params.data.auth_data,
-                        password: params.data.password
-                            ? params.data.password
+                        password: params.data.auth_data.password
+                            ? params.data.auth_data.password
                             : null,
-                        type: params.data.connectionType,
+                        type: params.data.connection_data.type,
                     },
                 }),
             })

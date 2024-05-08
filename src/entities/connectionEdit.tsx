@@ -23,9 +23,8 @@ export const ConnectionEdit = ({ data }: { data: ConnectionData }) => {
     return (
         <Edit mutationMode="pessimistic">
             <SimpleForm>
-                <TextInput source="id" disabled={true} name={"id"} />
                 <SelectInput
-                    name="connectionType"
+                    name="connection_data.type"
                     source="connection_data.type"
                     choices={connectionTypes}
                     validate={required()}
@@ -35,10 +34,12 @@ export const ConnectionEdit = ({ data }: { data: ConnectionData }) => {
                 <TextInput source="name" name={"name"} />
                 <TextInput source="description" name={"description"} />
 
-                <FormDataConsumer>
+                <FormDataConsumer<{
+                    connection_data: ConnectionData["connection_data"];
+                }>>
                     {({ formData }) => {
-                        const connectionType = formData.connectionType
-                            ? formData.connectionType
+                        const connectionType = formData.connection_data.type
+                            ? formData.connection_data.type
                             : "unknown";
                         return (
                             <EditFormWrapper connectionType={connectionType} />

@@ -1,9 +1,10 @@
+import ConnectionCreate from "@entities/ConnectionCreate";
 import authProvider from "@shared/api/authProvider";
 import dataProvider from "@shared/api/dataProvider";
 import { ThemeName, themes } from "@themes/themes";
-import ConnectionListWrapper from "@widgets/connections/ui/connectionListWrapper";
-import ConnectionShowWrapper from "@widgets/connections/ui/connectionShowWrapper";
-import ConnetcionEditWrapper from "@widgets/connections/ui/connetcionEditWrapper";
+import ConnectionEditWrapper from "@widgets/connections/ui/wrappers/connectionEditWrapper";
+import ConnectionListWrapper from "@widgets/connections/ui/wrappers/connectionListWrapper";
+import ConnectionShowWrapper from "@widgets/connections/ui/wrappers/connectionShowWrapper";
 import { Layout } from "@widgets/layout/ui";
 import {
     Admin,
@@ -13,7 +14,6 @@ import {
     StoreContextProvider,
     useStore,
 } from "react-admin";
-import ConnectionCreate from "@entities/ConnectionCreate";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -38,7 +38,7 @@ const App = () => {
                 name="connections"
                 list={ConnectionListWrapper}
                 show={ConnectionShowWrapper}
-                edit={ConnetcionEditWrapper}
+                edit={ConnectionEditWrapper}
                 create={ConnectionCreate}
             />
         </Admin>

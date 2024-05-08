@@ -9,7 +9,7 @@ import {
     Title,
 } from "react-admin";
 
-const PostgresConnectionShow = ({
+const OracleConnectionShow = ({
     id,
     data,
 }: {
@@ -29,7 +29,7 @@ const PostgresConnectionShow = ({
     return (
         <RecordContextProvider value={processedData}>
             <div style={{ paddingTop: "1em" }}>
-                <Title title={"Connection id =" + id} />
+                <Title title={"Connection id = " + id} />
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="name" />
@@ -41,13 +41,14 @@ const PostgresConnectionShow = ({
                             label={"Additional params"}
                         />
                         <TextField
-                            source="connection_data.database_name"
-                            label={"Database name"}
+                            source="connection_data.service_name"
+                            label={"Service name"}
                         />
                         <TextField
                             source="connection_data.host"
                             label={"Host"}
                         />
+                        <TextField source="connection_data.sid" label={"sid"} />
                         <NumberField
                             source="connection_data.port"
                             label={"Port"}
@@ -74,4 +75,4 @@ const PostgresConnectionShow = ({
     );
 };
 
-export default PostgresConnectionShow;
+export default OracleConnectionShow;
