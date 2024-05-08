@@ -2,7 +2,6 @@ import { Card } from "@mui/material";
 import { ConnectionData } from "@widgets/connections/types";
 import {
     EditButton,
-    NumberField,
     RecordContextProvider,
     SimpleShowLayout,
     TextField,
@@ -33,8 +32,11 @@ const PostgresConnectionShow = ({
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="name" />
+                        <TextField
+                            source="connection_data.type"
+                            label={"Connection Type"}
+                        />
                         <TextField source="description" />
-                        <TextField source="auth_data.type" label={"Type"} />
                         <TextField source="auth_data.user" label={"User"} />
                         <TextField
                             source="connection_data.additional_params"
@@ -48,13 +50,9 @@ const PostgresConnectionShow = ({
                             source="connection_data.host"
                             label={"Host"}
                         />
-                        <NumberField
+                        <TextField
                             source="connection_data.port"
                             label={"Port"}
-                        />
-                        <TextField
-                            source="connection_data.type"
-                            label={"Connection Type"}
                         />
                     </SimpleShowLayout>
                 </Card>
