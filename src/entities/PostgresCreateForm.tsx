@@ -15,6 +15,7 @@ const PostgresCreateForm = () => {
                 label={"Port"}
                 required={true}
                 // TODO: replace to defaultValue
+                // yes, I tried defaultValue={"5432"} and it still didn't re-render
                 placeholder={"5432"}
             />
             <TextInput

@@ -15,6 +15,7 @@ const OracleCreateForm = () => {
                 label={"Port"}
                 required={true}
                 // TODO: replace to defaultValue
+                // yes, I tried defaultValue={"1521"} and it still didn't re-render
                 placeholder={"1521"}
             />
             <TextInput

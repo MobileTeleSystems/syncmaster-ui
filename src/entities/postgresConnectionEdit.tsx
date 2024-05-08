@@ -27,7 +27,7 @@ export const postgresConnectionEdit = ({ data }: { data: ConnectionData }) => {
                 <SelectInput
                     source="connection_data.type"
                     choices={connectionTypes}
-                    validate={required()}
+                    required={true}
                     isLoading={isLoading}
                     defaultValue={data.connection_data.type}
                     name="connectionType"
