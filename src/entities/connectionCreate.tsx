@@ -1,4 +1,4 @@
-import CreateFormWrapper from "@entities/CreateFormWrapper";
+import CreateFormWrapper from "@entities/wrappers/createFormWrapper";
 import dataProvider from "@shared/api/dataProvider";
 import { useState } from "react";
 import {

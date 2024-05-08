@@ -1,4 +1,4 @@
-import EditFormWrapper from "@entities/editFormWrapper";
+import EditFormWrapper from "@entities/wrappers/editFormWrapper";
 import dataProvider from "@shared/api/dataProvider";
 import type { ConnectionData } from "@widgets/connections/types";
 import {

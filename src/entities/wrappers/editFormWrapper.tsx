@@ -1,5 +1,5 @@
-import PostgresEditForm from "@entities/postgresEditForm";
-import OracleEditForm from "@entities/oracleEditForm";
+import PostgresEditForm from "@entities/forms/postgresEditForm";
+import OracleEditForm from "@entities/forms/oracleEditForm";
 
 const EditFormWrapper = ({ connectionType }: { connectionType: string }) => {
     if (connectionType === "postgres") {

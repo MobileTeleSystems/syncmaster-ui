@@ -1,13 +1,6 @@
 import { Card } from "@mui/material";
-import {
-    DateField,
-    EditButton,
-    RecordContextProvider,
-    SimpleShowLayout,
-    TextField,
-    Title,
-} from "react-admin";
 import { ConnectionData } from "@widgets/connections/types";
+import { EditButton, RecordContextProvider, SimpleShowLayout, TextField, Title } from "react-admin";
 
 const PostgresConnectionShow = ({
     id,
