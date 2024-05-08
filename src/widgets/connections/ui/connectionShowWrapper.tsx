@@ -1,4 +1,4 @@
-import PostgresConnectionShow from "@entities/postgresConnectionShow";
+import PostgresConnectionShow from "@entities/show/postgresConnectionShow";
 import Error from "@shared/ui/error";
 import Warning from "@shared/ui/warning";
 import { Loading, useGetOne } from "react-admin";
