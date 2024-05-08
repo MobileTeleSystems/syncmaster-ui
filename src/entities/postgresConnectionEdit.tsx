@@ -1,5 +1,4 @@
 import dataProvider from "@shared/api/dataProvider";
-import { validateIp } from "@shared/utils";
 import type { ConnectionData } from "@widgets/connections/types";
 import {
     Edit,
@@ -33,20 +32,16 @@ export const postgresConnectionEdit = ({ data }: { data: ConnectionData }) => {
                     defaultValue={data.connection_data.type}
                     name="connectionType"
                 />
-                <TextInput source="name" required={true} />
+                <TextInput source="name" />
                 <TextInput source="description" />
-                <TextInput source="auth_data.user" label={"User"} />
-                <PasswordInput source="password" />
                 <TextInput
                     source="connection_data.database_name"
                     label={"Database name"}
                 />
-                <TextInput
-                    source="connection_data.host"
-                    label={"Host"}
-                    validate={validateIp}
-                />
+                <TextInput source="connection_data.host" label={"Host"} />
                 <NumberInput source="connection_data.port" label={"Port"} />
+                <TextInput source="auth_data.user" label={"User"} />
+                <PasswordInput source="password" />
             </SimpleForm>
         </Edit>
     );

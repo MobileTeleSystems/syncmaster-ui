@@ -1,0 +1,1 @@
+export type ConnectionTypes = { id: string; name: string }[]

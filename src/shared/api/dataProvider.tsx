@@ -1,5 +1,6 @@
 import { DataProvider, HttpError } from "react-admin";
-import { getHeader } from "@shared/api/utils";
+import { getHeaders } from "@shared/api/utils";
+import type { ConnectionTypes } from "@shared/api/types";
 
 const apiUrl = "http://localhost:8000";
 const apiVersion = "v1";
@@ -20,7 +21,7 @@ const dataProvider: DataProvider = {
 
         return new Promise((resolve, reject) => {
             return fetch(url.toString(), {
-                headers: getHeader(),
+                headers: getHeaders(),
                 method: "GET",
             })
                 .then((response) =>
@@ -38,7 +39,7 @@ const dataProvider: DataProvider = {
                     } catch (e) {
                         console.error(e);
                     }
-                    if (status < 200 || status >= 300) {
+                    if (status < 200 || status >= 400) {
                         return reject(
                             new HttpError(
                                 (json && json.message) || body,
@@ -59,10 +60,10 @@ const dataProvider: DataProvider = {
         });
     },
     getOne: (resource, params) => {
-        const connectionId = params.id;
+        const id = params.id;
         return new Promise((resolve, reject) => {
-            return fetch(`${apiUrl}/v1/${resource}/${connectionId}`, {
-                headers: getHeader(),
+            return fetch(`${apiUrl}/${apiVersion}/${resource}/${id}`, {
+                headers: getHeaders(),
                 method: "GET",
             })
                 .then((response) =>
@@ -80,7 +81,7 @@ const dataProvider: DataProvider = {
                     } catch (e) {
                         console.error(e);
                     }
-                    if (status < 200 || status >= 300) {
+                    if (status < 200 || status >= 400) {
                         return reject(
                             new HttpError(
                                 (json && json.message) || body,
@@ -97,10 +98,10 @@ const dataProvider: DataProvider = {
         });
     },
     delete: (resource, params) => {
-        const connectionId = params.id;
+        const id = params.id;
         return new Promise((resolve, reject) => {
-            return fetch(`${apiUrl}/v1/${resource}/${connectionId}`, {
-                headers: getHeader(),
+            return fetch(`${apiUrl}/${apiVersion}/${resource}/${id}`, {
+                headers: getHeaders(),
                 method: "DELETE",
             })
                 .then((response) =>
@@ -118,7 +119,7 @@ const dataProvider: DataProvider = {
                     } catch (e) {
                         console.error(e);
                     }
-                    if (status < 200 || status >= 300) {
+                    if (status < 200 || status >= 400) {
                         return reject(
                             new HttpError(
                                 (json && json.message) || body,
@@ -136,8 +137,8 @@ const dataProvider: DataProvider = {
     },
     update: (resource, params) => {
         return new Promise((resolve, reject) => {
-            return fetch(`${apiUrl}/v1/${resource}/${params.id}`, {
-                headers: getHeader(),
+            return fetch(`${apiUrl}/${apiVersion}/${resource}/${params.id}`, {
+                headers: getHeaders(),
                 method: "PATCH",
                 body: JSON.stringify({
                     name: params.data.name,
@@ -149,7 +150,9 @@ const dataProvider: DataProvider = {
                     auth_data: {
                         ...params.data.auth_data,
                         type: params.data.connectionType,
-                        password: params.data.password,
+                        password: params.data.password
+                            ? params.data.password
+                            : null,
                     },
                 }),
             })
@@ -168,7 +171,7 @@ const dataProvider: DataProvider = {
                     } catch (e) {
                         console.error(e);
                     }
-                    if (status < 200 || status >= 300) {
+                    if (status < 200 || status >= 400) {
                         return reject(
                             new HttpError(
                                 (json && json.message) || statusText,
@@ -185,8 +188,8 @@ const dataProvider: DataProvider = {
     },
     create: (resource, params) => {
         return new Promise((resolve, reject) => {
-            return fetch(`${apiUrl}/v1/${resource}`, {
-                headers: getHeader(),
+            return fetch(`${apiUrl}/${apiVersion}/${resource}`, {
+                headers: getHeaders(),
                 method: "POST",
                 body: JSON.stringify({
                     group_id: params.data.group,
@@ -199,7 +202,9 @@ const dataProvider: DataProvider = {
                     },
                     auth_data: {
                         ...params.data.auth_data,
-                        password: params.data.password,
+                        password: params.data.password
+                            ? params.data.password
+                            : null,
                         type: params.data.connectionType,
                     },
                 }),
@@ -219,7 +224,7 @@ const dataProvider: DataProvider = {
                     } catch (e) {
                         console.error(e);
                     }
-                    if (status < 200 || status >= 300) {
+                    if (status < 200 || status >= 400) {
                         return reject(
                             new HttpError(
                                 (json && json.message) || body,
@@ -240,7 +245,7 @@ const dataProvider: DataProvider = {
                 apiUrl + "/" + apiVersion + "/connections/known_types",
             );
             return fetch(url.toString(), {
-                headers: getHeader(),
+                headers: getHeaders(),
                 method: "GET",
             })
                 .then((response) =>
@@ -258,7 +263,7 @@ const dataProvider: DataProvider = {
                     } catch (e) {
                         console.error(e);
                     }
-                    if (status < 200 || status >= 300) {
+                    if (status < 200 || status >= 400) {
                         return reject(
                             new HttpError(
                                 (json && json.message) || body,
@@ -267,7 +272,7 @@ const dataProvider: DataProvider = {
                             ),
                         );
                     }
-                    const choices: { id: string; name: string }[] = [];
+                    const choices: ConnectionTypes = [];
 
                     for (const k in json) {
                         choices.push({ id: json[k], name: json[k] });

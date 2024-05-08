@@ -13,7 +13,7 @@ import {
     StoreContextProvider,
     useStore,
 } from "react-admin";
-import PostgresConnectionCreate from "@entities/postgresConnectionCreate";
+import DBConnectionCreate from "@entities/DBConnectionCreate";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -39,7 +39,7 @@ const App = () => {
                 list={ConnectionListWrapper}
                 show={ConnectionShowWrapper}
                 edit={ConnetcionEditWrapper}
-                create={PostgresConnectionCreate}
+                create={DBConnectionCreate}
             />
         </Admin>
     );
