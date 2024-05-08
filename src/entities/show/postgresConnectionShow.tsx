@@ -29,7 +29,7 @@ const PostgresConnectionShow = ({
     return (
         <RecordContextProvider value={processedData}>
             <div style={{ paddingTop: "1em" }}>
-                <Title title={"Connection id =" + id} />
+                <Title title={"Connection id = " + id} />
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="name" />
