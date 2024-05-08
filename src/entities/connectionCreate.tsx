@@ -1,6 +1,5 @@
 import CreateFormWrapper from "@entities/wrappers/createFormWrapper";
 import dataProvider from "@shared/api/dataProvider";
-import { useState } from "react";
 import {
     Create,
     FormDataConsumer,
@@ -12,6 +11,7 @@ import {
     useGetList,
 } from "react-admin";
 import { useQuery } from "react-query";
+import type { ConnectionData } from "src/widgets/connections/types";
 
 const ConnectionCreate = () => {
     const { data: connectionTypes, isLoading } = useQuery(
@@ -20,52 +20,38 @@ const ConnectionCreate = () => {
     );
 
     const { data: groups, isLoading: isLoadingGroups } = useGetList("groups");
-    const [connectionType, setConnectionType] = useState({
-        name: "postgres",
-        port: 5432,
-    });
     if (isLoading) return <Loading />;
     return (
         <Create>
             <SimpleForm>
                 <SelectInput
-                    source="connectionTypes"
-                    name="connectionType"
+                    source="connection_data.type"
+                    name="connection_data.type"
+                    label={"Type"}
                     choices={connectionTypes}
                     validate={required()}
                     isLoading={isLoading}
-                    value={connectionType.name}
-                    defaultValue={connectionType.name}
-                    onChange={(e) =>
-                        setConnectionType({
-                            name: e.target.value,
-                            port: e.target.value === "postgres" ? 5432 : 1521,
-                        })
-                    }
                 />
                 <SelectInput
                     source="Group"
                     name="group"
+                    label={"Group"}
                     choices={groups}
                     validate={required()}
                     isLoading={isLoadingGroups}
                 />
+                <TextInput source="name" name="name" required={true} />
                 <TextInput
-                    source="Connection name"
-                    name="connection_name"
+                    source="description"
+                    name={"description"}
+                    label={"Description"}
                     required={true}
                 />
-                <TextInput source="description" required={true} />
-                <TextInput
-                    source="connection_data.database_name"
-                    label={"Database name"}
-                    name="databaseName"
-                    validate={required()}
-                />
-                <FormDataConsumer>
+
+                <FormDataConsumer<ConnectionData>>
                     {({ formData }) => {
-                        const connectionType = formData.connectionType
-                            ? formData.connectionType
+                        const connectionType = formData.connection_data
+                            ? formData.connection_data.type
                             : "unknown";
                         return (
                             <CreateFormWrapper

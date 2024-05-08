@@ -1,16 +1,22 @@
-import { NumberInput, PasswordInput, TextInput } from "react-admin";
+import { NumberInput, PasswordInput, required, TextInput } from "react-admin";
 
 const PostgresCreateForm = () => {
     return (
         <>
             <TextInput
-                name={"host"}
+                source="connection_data.database_name"
+                name="connection_data.database_name"
+                label={"Database name"}
+                validate={required()}
+            />
+            <TextInput
+                name={"connection_data.host"}
                 source="connection_data.host"
                 label={"Host"}
                 required={true}
             />
             <NumberInput
-                name={"port"}
+                name={"connection_data.port"}
                 source="connection_data.port"
                 label={"Port"}
                 required={true}
@@ -19,14 +25,15 @@ const PostgresCreateForm = () => {
                 placeholder={"5432"}
             />
             <TextInput
-                name={"user"}
+                name={"auth_data.user"}
                 source="auth_data.user"
                 label={"User"}
                 required={true}
             />
             <PasswordInput
-                name={"password"}
-                source="password"
+                name={"auth_data.password"}
+                source="auth_data.password"
+                label={"Password"}
                 required={true}
             />
         </>
