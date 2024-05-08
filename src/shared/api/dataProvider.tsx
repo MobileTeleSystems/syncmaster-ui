@@ -5,6 +5,35 @@ import { DataProvider, HttpError } from "react-admin";
 const apiUrl = "http://localhost:8000";
 const apiVersion = "v1";
 
+const parseResponse = (response) =>
+    response.text().then((text: string) => ({
+        status: response.status,
+        statusText: response.statusText,
+        headers: response.headers,
+        body: text,
+    }));
+
+const parseJSON = (
+    status: number,
+    statusText: string,
+    headers: object,
+    body: string,
+    reject: () => any,
+) => {
+    let json;
+    try {
+        json = JSON.parse(body);
+    } catch (e) {
+        console.error(e);
+    }
+    if (status < 200 || status >= 400) {
+        return reject(
+            new HttpError((json && json.message) || body, status, json),
+        );
+    }
+    return json;
+};
+
 const dataProvider: DataProvider = {
     getList: (resource, params) => {
         const url = new URL(apiUrl + "/" + apiVersion + "/" + resource);
@@ -24,30 +53,15 @@ const dataProvider: DataProvider = {
                 headers: getHeaders(),
                 method: "GET",
             })
-                .then((response) =>
-                    response.text().then((text) => ({
-                        status: response.status,
-                        statusText: response.statusText,
-                        headers: response.headers,
-                        body: text,
-                    })),
-                )
+                .then(parseResponse)
                 .then(({ status, statusText, headers, body }) => {
-                    let json;
-                    try {
-                        json = JSON.parse(body);
-                    } catch (e) {
-                        console.error(e);
-                    }
-                    if (status < 200 || status >= 400) {
-                        return reject(
-                            new HttpError(
-                                (json && json.message) || body,
-                                status,
-                                json,
-                            ),
-                        );
-                    }
+                    const json = parseJSON(
+                        status,
+                        statusText,
+                        headers,
+                        body,
+                        reject,
+                    );
                     return resolve({
                         data: json.items,
                         total: json.meta.total,
@@ -66,30 +80,15 @@ const dataProvider: DataProvider = {
                 headers: getHeaders(),
                 method: "GET",
             })
-                .then((response) =>
-                    response.text().then((text) => ({
-                        status: response.status,
-                        statusText: response.statusText,
-                        headers: response.headers,
-                        body: text,
-                    })),
-                )
+                .then(parseResponse)
                 .then(({ status, statusText, headers, body }) => {
-                    let json;
-                    try {
-                        json = JSON.parse(body);
-                    } catch (e) {
-                        console.error(e);
-                    }
-                    if (status < 200 || status >= 400) {
-                        return reject(
-                            new HttpError(
-                                (json && json.message) || body,
-                                status,
-                                json,
-                            ),
-                        );
-                    }
+                    const json = parseJSON(
+                        status,
+                        statusText,
+                        headers,
+                        body,
+                        reject,
+                    );
                     return resolve({
                         data: json,
                     });
@@ -103,30 +102,15 @@ const dataProvider: DataProvider = {
                 headers: getHeaders(),
                 method: "DELETE",
             })
-                .then((response) =>
-                    response.text().then((text) => ({
-                        status: response.status,
-                        statusText: response.statusText,
-                        headers: response.headers,
-                        body: text,
-                    })),
-                )
+                .then(parseResponse)
                 .then(({ status, statusText, headers, body }) => {
-                    let json;
-                    try {
-                        json = JSON.parse(body);
-                    } catch (e) {
-                        console.error(e);
-                    }
-                    if (status < 200 || status >= 400) {
-                        return reject(
-                            new HttpError(
-                                (json && json.message) || body,
-                                status,
-                                json,
-                            ),
-                        );
-                    }
+                    const json = parseJSON(
+                        status,
+                        statusText,
+                        headers,
+                        body,
+                        reject,
+                    );
 
                     return resolve({
                         data: json,
@@ -154,30 +138,15 @@ const dataProvider: DataProvider = {
                     },
                 }),
             })
-                .then((response) =>
-                    response.text().then((text) => ({
-                        status: response.status,
-                        statusText: response.statusText,
-                        headers: response.headers,
-                        body: text,
-                    })),
-                )
+                .then(parseResponse)
                 .then(({ status, statusText, headers, body }) => {
-                    let json;
-                    try {
-                        json = JSON.parse(body);
-                    } catch (e) {
-                        console.error(e);
-                    }
-                    if (status < 200 || status >= 400) {
-                        return reject(
-                            new HttpError(
-                                (json && json.message) || statusText,
-                                status,
-                                json,
-                            ),
-                        );
-                    }
+                    const json = parseJSON(
+                        status,
+                        statusText,
+                        headers,
+                        body,
+                        reject,
+                    );
                     return resolve({
                         data: json,
                     });
@@ -205,30 +174,15 @@ const dataProvider: DataProvider = {
                     },
                 }),
             })
-                .then((response) =>
-                    response.text().then((text) => ({
-                        status: response.status,
-                        statusText: response.statusText,
-                        headers: response.headers,
-                        body: text,
-                    })),
-                )
+                .then(parseResponse)
                 .then(({ status, statusText, headers, body }) => {
-                    let json;
-                    try {
-                        json = JSON.parse(body);
-                    } catch (e) {
-                        console.error(e);
-                    }
-                    if (status < 200 || status >= 400) {
-                        return reject(
-                            new HttpError(
-                                (json && json.message) || body,
-                                status,
-                                json,
-                            ),
-                        );
-                    }
+                    const json = parseJSON(
+                        status,
+                        statusText,
+                        headers,
+                        body,
+                        reject,
+                    );
                     return resolve({
                         data: json,
                     });
@@ -244,30 +198,15 @@ const dataProvider: DataProvider = {
                 headers: getHeaders(),
                 method: "GET",
             })
-                .then((response) =>
-                    response.text().then((text) => ({
-                        status: response.status,
-                        statusText: response.statusText,
-                        headers: response.headers,
-                        body: text,
-                    })),
-                )
+                .then(parseResponse)
                 .then(({ status, statusText, headers, body }) => {
-                    let json;
-                    try {
-                        json = JSON.parse(body);
-                    } catch (e) {
-                        console.error(e);
-                    }
-                    if (status < 200 || status >= 400) {
-                        return reject(
-                            new HttpError(
-                                (json && json.message) || body,
-                                status,
-                                json,
-                            ),
-                        );
-                    }
+                    const json = parseJSON(
+                        status,
+                        statusText,
+                        headers,
+                        body,
+                        reject,
+                    );
                     const choices: ConnectionTypes = [];
 
                     for (const k in json) {
