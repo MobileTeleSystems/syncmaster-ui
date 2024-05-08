@@ -1,4 +1,4 @@
-import PostgresConnectionEdit from "@entities/postgresConnectionEdit";
+import ConnectionEdit from "@entities/connectionEdit";
 import Error from "@shared/ui/error";
 import Warning from "@shared/ui/warning";
 import { Loading, useGetOne } from "react-admin";
@@ -12,7 +12,7 @@ const ConnectionEditWrapper = () => {
     if (isLoading) return <Loading />;
     if (error) return <Error />;
     if (data.connection_data.type === "postgres") {
-        return <PostgresConnectionEdit data={data} />;
+        return <ConnectionEdit data={data} />;
     }
 
     return <Warning message="Connection type does not implemented yet" />;

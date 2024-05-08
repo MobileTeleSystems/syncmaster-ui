@@ -13,7 +13,7 @@ import {
 } from "react-admin";
 import { useQuery } from "react-query";
 
-const DBConnectionCreate = () => {
+const ConnectionCreate = () => {
     const { data: connectionTypes, isLoading } = useQuery(
         ["connections", "getConnectionTypes"],
         () => dataProvider.getConnectionTypes(),
@@ -79,4 +79,4 @@ const DBConnectionCreate = () => {
     );
 };
 
-export default DBConnectionCreate;
+export default ConnectionCreate;

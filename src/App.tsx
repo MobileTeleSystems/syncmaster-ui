@@ -13,7 +13,7 @@ import {
     StoreContextProvider,
     useStore,
 } from "react-admin";
-import ConnectionCreate from "@entities/DBConnectionCreate";
+import ConnectionCreate from "@entities/ConnectionCreate";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
