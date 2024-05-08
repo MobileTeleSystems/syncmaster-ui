@@ -1,10 +1,10 @@
+import CreateFormWrapper from "@entities/CreateFormWrapper";
 import dataProvider from "@shared/api/dataProvider";
 import { useState } from "react";
 import {
     Create,
+    FormDataConsumer,
     Loading,
-    NumberInput,
-    PasswordInput,
     required,
     SelectInput,
     SimpleForm,
@@ -34,7 +34,7 @@ const DBConnectionCreate = () => {
                     choices={connectionTypes}
                     validate={required()}
                     isLoading={isLoading}
-                    value={connectionType}
+                    value={connectionType.name}
                     defaultValue={connectionType.name}
                     onChange={(e) =>
                         setConnectionType({
@@ -62,31 +62,18 @@ const DBConnectionCreate = () => {
                     name="databaseName"
                     validate={required()}
                 />
-                <TextInput
-                    name={"host"}
-                    source="connection_data.host"
-                    label={"Host"}
-                    required={true}
-                />
-                <NumberInput
-                    name={"port"}
-                    source="connection_data.port"
-                    label={"Port"}
-                    required={true}
-                    // TODO: replace to defaultValue
-                    placeholder={connectionType.port.toString()}
-                />
-                <TextInput
-                    name={"user"}
-                    source="auth_data.user"
-                    label={"User"}
-                    required={true}
-                />
-                <PasswordInput
-                    name={"password"}
-                    source="password"
-                    required={true}
-                />
+                <FormDataConsumer>
+                    {({ formData }) => {
+                        const connectionType = formData.connectionType
+                            ? formData.connectionType
+                            : "unknown";
+                        return (
+                            <CreateFormWrapper
+                                connectionType={connectionType}
+                            />
+                        );
+                    }}
+                </FormDataConsumer>
             </SimpleForm>
         </Create>
     );
