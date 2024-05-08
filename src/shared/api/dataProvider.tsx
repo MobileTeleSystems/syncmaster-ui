@@ -1,7 +1,6 @@
-import { DataProvider, HttpError } from "react-admin";
-import { getHeaders } from "@shared/api/utils";
 import type { ConnectionTypes } from "@shared/api/types";
-import { createSearchParams } from "react-router-dom";
+import { getHeaders } from "@shared/api/utils";
+import { DataProvider, HttpError } from "react-admin";
 
 const apiUrl = "http://localhost:8000";
 const apiVersion = "v1";
