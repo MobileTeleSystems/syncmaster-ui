@@ -11,7 +11,7 @@ import {
     useGetList,
 } from "react-admin";
 import { useQuery } from "react-query";
-import type { ConnectionData } from "src/widgets/connections/types";
+import type { ConnectionData } from "@widgets/connections/types";
 
 const ConnectionCreate = () => {
     const { data: connectionTypes, isLoading } = useQuery(
