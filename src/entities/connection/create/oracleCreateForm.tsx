@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NumberInput, PasswordInput, TextInput } from "react-admin";
+import { NumberInput, PasswordInput, required, TextInput } from "react-admin";
 
 const OracleCreateForm = () => {
     const [sidState, setSidState] = useState(false);
@@ -39,13 +39,13 @@ const OracleCreateForm = () => {
                 name={"connection_data.host"}
                 source="connection_data.host"
                 label={"Host"}
-                required={true}
+                validate={required()}
             />
             <NumberInput
                 name={"connection_data.port"}
                 source="connection_data.port"
                 label={"Port"}
-                required={true}
+                validate={required()}
                 // TODO: replace to defaultValue
                 // yes, I tried defaultValue={"1521"} and it still didn't re-render
                 placeholder={"1521"}
@@ -54,13 +54,13 @@ const OracleCreateForm = () => {
                 name={"auth_data.user"}
                 source="auth_data.user"
                 label={"User"}
-                required={true}
+                validate={required()}
             />
             <PasswordInput
                 name={"auth_data.password"}
                 label={"Password"}
                 source="password"
-                required={true}
+                validate={required()}
             />
         </>
     );

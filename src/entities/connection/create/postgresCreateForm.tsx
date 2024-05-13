@@ -13,13 +13,13 @@ const PostgresCreateForm = () => {
                 name={"connection_data.host"}
                 source="connection_data.host"
                 label={"Host"}
-                required={true}
+                validate={required()}
             />
             <NumberInput
                 name={"connection_data.port"}
                 source="connection_data.port"
                 label={"Port"}
-                required={true}
+                validate={required()}
                 // TODO: replace to defaultValue
                 // yes, I tried defaultValue={"5432"} and it still didn't re-render
                 placeholder={"5432"}
@@ -28,13 +28,13 @@ const PostgresCreateForm = () => {
                 name={"auth_data.user"}
                 source="auth_data.user"
                 label={"User"}
-                required={true}
+                validate={required()}
             />
             <PasswordInput
                 name={"auth_data.password"}
                 source="auth_data.password"
                 label={"Password"}
-                required={true}
+                validate={required()}
             />
         </>
     );
