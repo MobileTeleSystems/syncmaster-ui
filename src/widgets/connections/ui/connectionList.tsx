@@ -1,16 +1,17 @@
+import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import { Card } from "@mui/material";
+import Error from "@shared/ui/error";
+import Warning from "@shared/ui/warning";
+import Connections from "@widgets/connections/ui/connectionListElement";
 import { useState } from "react";
 import {
+    CreateButton,
     ListContextProvider,
+    Loading,
     Pagination,
     Title,
     useGetList,
 } from "react-admin";
-import useLocalStoreCurrentGroup from "src/hooks/useLocalStoreCurrentGroup";
-import Error from "src/shared/ui/error";
-import Loading from "src/shared/ui/loading";
-import Warning from "src/shared/ui/warning";
-import Connections from "src/widgets/connections/ui/connectionListElement";
 
 const ConnectionList = () => {
     const [currentGroup] = useLocalStoreCurrentGroup();
@@ -42,6 +43,17 @@ const ConnectionList = () => {
                 {
                     <div>
                         <Title title="Connections" />
+                        <div
+                            style={{
+                                display: "flex",
+                                justifyContent: "end",
+                                alignItems: "center",
+                                paddingTop: "0.5em",
+                                paddingBottom: "0.5em",
+                            }}
+                        >
+                            <CreateButton />
+                        </div>
                         <Card>
                             <Connections />
                         </Card>

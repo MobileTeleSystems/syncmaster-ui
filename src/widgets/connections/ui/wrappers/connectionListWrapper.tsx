@@ -1,7 +1,7 @@
-import useLocalStoreCurrentGroup from "src/hooks/useLocalStoreCurrentGroup";
-import useLocalStoreGroupList from "src/hooks/useLocalStoreGroupList";
-import Warning from "src/shared/ui/warning";
-import ConnectionList from "src/widgets/connections/ui/connectionList";
+import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
+import useLocalStoreGroupList from "@hooks/useLocalStoreGroupList";
+import Warning from "@shared/ui/warning";
+import ConnectionList from "@widgets/connections/ui/connectionList";
 
 const ConnectionListWrapper = () => {
     const [currentGroup] = useLocalStoreCurrentGroup();

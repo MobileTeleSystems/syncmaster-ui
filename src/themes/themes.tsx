@@ -10,8 +10,8 @@ import {
     houseLightTheme,
 } from 'react-admin';
 
-import { softDarkTheme, softLightTheme } from './softTheme';
-import { chiptuneTheme } from './chiptuneTheme';
+import { softDarkTheme, softLightTheme } from '@themes/softTheme';
+import { chiptuneTheme } from '@themes/chiptuneTheme';
 
 export type ThemeName =
     | 'soft'

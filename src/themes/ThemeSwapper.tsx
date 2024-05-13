@@ -3,7 +3,7 @@ import { useStore, useTranslate, ToggleThemeButton } from 'react-admin';
 import { IconButton, Menu, MenuItem, Tooltip } from '@mui/material';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 
-import { themes, ThemeName } from './themes';
+import { themes, ThemeName } from '@themes/themes';
 
 export const ThemeSwapper = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);

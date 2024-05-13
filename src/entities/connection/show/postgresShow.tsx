@@ -1,12 +1,12 @@
 import { Card } from "@mui/material";
+import { ConnectionData } from "@widgets/connections/types";
 import {
-    DateField,
+    EditButton,
     RecordContextProvider,
     SimpleShowLayout,
     TextField,
     Title,
 } from "react-admin";
-import { ConnectionData } from "src/widgets/connections/types";
 
 const PostgresConnectionShow = ({
     id,
@@ -27,14 +27,16 @@ const PostgresConnectionShow = ({
 
     return (
         <RecordContextProvider value={processedData}>
-            <div style={{paddingTop: '1em'}}>
-                <Title title={"Connection id = " + id} />
+            <div style={{ paddingTop: "1em" }}>
+                <Title title={"Connection #" + id} />
                 <Card>
                     <SimpleShowLayout>
-                        <TextField source="id" />
                         <TextField source="name" />
-                        <DateField source="description" />
-                        <TextField source="auth_data.type" label={"Type"} />
+                        <TextField
+                            source="connection_data.type"
+                            label={"Connection Type"}
+                        />
+                        <TextField source="description" />
                         <TextField source="auth_data.user" label={"User"} />
                         <TextField
                             source="connection_data.additional_params"
@@ -52,12 +54,19 @@ const PostgresConnectionShow = ({
                             source="connection_data.port"
                             label={"Port"}
                         />
-                        <TextField
-                            source="connection_data.type"
-                            label={"Connection Type"}
-                        />
                     </SimpleShowLayout>
                 </Card>
+                <div
+                    style={{
+                        display: "flex",
+                        justifyContent: "end",
+                        alignItems: "center",
+                        paddingTop: "0.5em",
+                        paddingBottom: "0.5em",
+                    }}
+                >
+                    <EditButton />
+                </div>
             </div>
         </RecordContextProvider>
     );

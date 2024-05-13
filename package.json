@@ -6,6 +6,7 @@
         "@apollo/client": "^3.3.19",
         "@mui/icons-material": "^5.0.1",
         "@mui/material": "^5.0.2",
+        "@rollup/plugin-alias": "^5.1.0",
         "@types/inflection": "^1.5.28",
         "@types/recharts": "^1.8.10",
         "@vitejs/plugin-react": "^2.2.0",
@@ -37,7 +38,9 @@
         "react-dom": "^17.0.0",
         "react-router": "^6.1.0",
         "react-router-dom": "^6.1.0",
-        "recharts": "^2.1.15"
+        "recharts": "^2.1.15",
+      "@react-buddy/ide-toolbox": "^2.4.0",
+      "@react-buddy/palette-mui": "^5.0.1"
     },
     "scripts": {
         "dev": "vite",
@@ -47,7 +50,7 @@
     "devDependencies": {
         "@types/fetch-mock": "^7.3.2",
         "@types/jest": "^29.5.2",
-        "@types/node": "^12.12.14",
+        "@types/node": "^20.12.7",
         "@types/prop-types": "^15.6.0",
         "@types/react": "^17.0.20",
         "@types/react-dom": "^17.0.9",

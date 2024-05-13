@@ -1,5 +1,5 @@
 import { useStore } from "react-admin";
-import { Group } from "src/hooks/types";
+import { Group } from "@hooks/types";
 
 const useLocalStoreGroupList = () => {
     return useStore<Group[]>("groupList", []);
