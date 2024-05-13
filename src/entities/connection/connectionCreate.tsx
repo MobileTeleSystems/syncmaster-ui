@@ -38,7 +38,6 @@ const ConnectionCreate = () => {
                     label={"Group"}
                     choices={groups}
                     validate={required()}
-                    isLoading={isLoadingGroups}
                 />
                 <TextInput source="name" name="name" required={true} />
                 <TextInput

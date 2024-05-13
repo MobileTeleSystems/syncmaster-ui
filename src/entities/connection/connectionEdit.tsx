@@ -30,7 +30,6 @@ export const ConnectionEdit = ({ data }: { data: ConnectionData }) => {
                     source="connection_data.type"
                     choices={connectionTypes}
                     validate={required()}
-                    isLoading={isLoading}
                     defaultValue={data.connection_data.type}
                 />
                 <TextInput source="name" name={"name"} />
