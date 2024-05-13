@@ -1,5 +1,5 @@
-import OracleCreateForm from "@entities/edit/oracleCreateForm";
-import PostgresCreateForm from "@entities/edit/postgresCreateForm";
+import OracleCreateForm from "@entities/create/oracleCreateForm";
+import PostgresCreateForm from "@entities/create/postgresCreateForm";
 import Warning from "@shared/ui/warning";
 
 const CreateFormWrapper = ({ connectionType }: { connectionType: string }) => {
