@@ -1,3 +1,4 @@
+import EditToolbar from "@entities/editToolbar";
 import EditFormWrapper from "@entities/wrappers/editFormWrapper";
 import dataProvider from "@shared/api/dataProvider";
 import type { ConnectionData } from "@widgets/connections/types";
@@ -22,7 +23,7 @@ export const ConnectionEdit = ({ data }: { data: ConnectionData }) => {
 
     return (
         <Edit mutationMode="pessimistic">
-            <SimpleForm>
+            <SimpleForm toolbar={<EditToolbar />}>
                 <SelectInput
                     name="connection_data.type"
                     source="connection_data.type"
