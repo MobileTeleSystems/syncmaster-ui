@@ -119,6 +119,7 @@ const dataProvider: DataProvider = {
         });
     },
     update: (resource, params) => {
+        // rework the body processing logic for different resources
         let bodyObject: any;
         if (resource === "connections") {
             bodyObject = {
@@ -160,6 +161,7 @@ const dataProvider: DataProvider = {
         });
     },
     create: (resource, params) => {
+        // rework the body processing logic for different resources
         let bodyObject: any;
         if (resource === "connections") {
             bodyObject = {
