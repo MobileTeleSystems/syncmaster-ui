@@ -1,6 +1,7 @@
-import EditToolbar from "@entities/editToolbar";
-import EditFormWrapper from "@entities/wrappers/editFormWrapper";
+import EditToolbar from "@entities/connection/editToolbar";
+import EditFormWrapper from "@entities/connection/wrappers/editFormWrapper";
 import dataProvider from "@shared/api/dataProvider";
+import Warning from "@shared/ui/warning";
 import type { ConnectionData } from "@widgets/connections/types";
 import {
     Edit,
@@ -42,6 +43,9 @@ export const ConnectionEdit = ({ data }: { data: ConnectionData }) => {
                         const connectionType = formData.connection_data.type
                             ? formData.connection_data.type
                             : "unknown";
+                        if (connectionType === undefined) {
+                            return <Warning message="Select connection type" />;
+                        }
                         return (
                             <EditFormWrapper connectionType={connectionType} />
                         );

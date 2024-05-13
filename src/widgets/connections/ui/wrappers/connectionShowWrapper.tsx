@@ -1,5 +1,5 @@
-import OracleConnectionShow from "@entities/show/oracleConnectionShow";
-import PostgresConnectionShow from "@entities/show/postgresConnectionShow";
+import OracleConnectionShow from "@entities/connection/show/oracleShow";
+import PostgresConnectionShow from "@entities/connection/show/postgresShow";
 import Error from "@shared/ui/error";
 import Warning from "@shared/ui/warning";
 import { Loading, useGetOne } from "react-admin";

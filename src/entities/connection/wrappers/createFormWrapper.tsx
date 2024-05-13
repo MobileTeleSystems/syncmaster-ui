@@ -1,5 +1,5 @@
-import OracleCreateForm from "@entities/create/oracleCreateForm";
-import PostgresCreateForm from "@entities/create/postgresCreateForm";
+import OracleCreateForm from "@entities/connection/create/oracleCreateForm";
+import PostgresCreateForm from "@entities/connection/create/postgresCreateForm";
 import Warning from "@shared/ui/warning";
 
 const CreateFormWrapper = ({ connectionType }: { connectionType: string }) => {
@@ -9,7 +9,8 @@ const CreateFormWrapper = ({ connectionType }: { connectionType: string }) => {
     if (connectionType === "oracle") {
         return <OracleCreateForm />;
     }
-    return <Warning message="Select connection type" />
+
+    return <Warning message={"Unknown connection type"} />;
 };
 
 export default CreateFormWrapper;

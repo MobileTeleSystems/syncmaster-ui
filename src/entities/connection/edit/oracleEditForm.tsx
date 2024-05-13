@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NumberInput, PasswordInput, TextInput } from "react-admin";
 
-const OracleCreateForm = () => {
+const OracleEditForm = () => {
     const [sidState, setSidState] = useState(false);
     const [serviceNameState, setServiceNameState] = useState(false);
     const [sidValue, setSidValue] = useState("");
@@ -9,12 +9,6 @@ const OracleCreateForm = () => {
 
     return (
         <>
-            <TextInput
-                name={"connection_data.host"}
-                source="connection_data.host"
-                label={"Host"}
-                required={true}
-            />
             <TextInput
                 name={"connection_data.sid"}
                 source="connection_data.sid"
@@ -41,29 +35,29 @@ const OracleCreateForm = () => {
                 }}
                 disabled={serviceNameState}
             />
+            <TextInput
+                source="connection_data.host"
+                label={"Host"}
+                name={"connection_data.host"}
+            />
             <NumberInput
-                name={"connection_data.port"}
                 source="connection_data.port"
                 label={"Port"}
-                required={true}
-                // TODO: replace to defaultValue
-                // yes, I tried defaultValue={"1521"} and it still didn't re-render
+                name={"connection_data.port"}
                 placeholder={"1521"}
             />
             <TextInput
-                name={"auth_data.user"}
                 source="auth_data.user"
                 label={"User"}
-                required={true}
+                name={"auth_data.user"}
             />
             <PasswordInput
-                name={"auth_data.password"}
+                source="auth_data.password"
                 label={"Password"}
-                source="password"
-                required={true}
+                name={"auth_data.password"}
             />
         </>
     );
 };
 
-export default OracleCreateForm;
+export default OracleEditForm;

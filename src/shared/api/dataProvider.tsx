@@ -119,24 +119,30 @@ const dataProvider: DataProvider = {
         });
     },
     update: (resource, params) => {
+        let bodyObject: any;
+        if (resource === "connections") {
+            bodyObject = {
+                name: params.data.name,
+                description: params.data.description,
+                connection_data: {
+                    ...params.data.connection_data,
+                },
+                auth_data: {
+                    ...params.data.auth_data,
+                    type: params.data.connection_data.type,
+                    password: params.data.auth_data.password
+                        ? params.data.auth_data.password
+                        : null,
+                },
+            };
+        } else {
+            bodyObject = {};
+        }
         return new Promise((resolve, reject) => {
             return fetch(`${apiUrl}/${apiVersion}/${resource}/${params.id}`, {
                 headers: getHeaders(),
                 method: "PATCH",
-                body: JSON.stringify({
-                    name: params.data.name,
-                    description: params.data.description,
-                    connection_data: {
-                        ...params.data.connection_data,
-                    },
-                    auth_data: {
-                        ...params.data.auth_data,
-                        type: params.data.connection_data.type,
-                        password: params.data.auth_data.password
-                            ? params.data.auth_data.password
-                            : null,
-                    },
-                }),
+                body: JSON.stringify(bodyObject),
             })
                 .then(parseResponse)
                 .then(({ status, statusText, headers, body }) => {
@@ -154,25 +160,31 @@ const dataProvider: DataProvider = {
         });
     },
     create: (resource, params) => {
+        let bodyObject: any;
+        if (resource === "connections") {
+            bodyObject = {
+                group_id: params.data.group,
+                name: params.data.name,
+                description: params.data.description,
+                connection_data: {
+                    ...params.data.connection_data,
+                },
+                auth_data: {
+                    ...params.data.auth_data,
+                    password: params.data.auth_data.password
+                        ? params.data.auth_data.password
+                        : null,
+                    type: params.data.connection_data.type,
+                },
+            };
+        } else {
+            bodyObject = {};
+        }
         return new Promise((resolve, reject) => {
             return fetch(`${apiUrl}/${apiVersion}/${resource}`, {
                 headers: getHeaders(),
                 method: "POST",
-                body: JSON.stringify({
-                    group_id: params.data.group,
-                    name: params.data.name,
-                    description: params.data.description,
-                    connection_data: {
-                        ...params.data.connection_data,
-                    },
-                    auth_data: {
-                        ...params.data.auth_data,
-                        password: params.data.auth_data.password
-                            ? params.data.auth_data.password
-                            : null,
-                        type: params.data.connection_data.type,
-                    },
-                }),
+                body: JSON.stringify(bodyObject),
             })
                 .then(parseResponse)
                 .then(({ status, statusText, headers, body }) => {
@@ -217,5 +229,4 @@ const dataProvider: DataProvider = {
         });
     },
 };
-
 export default dataProvider;

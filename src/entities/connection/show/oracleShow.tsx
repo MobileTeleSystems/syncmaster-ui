@@ -43,12 +43,12 @@ const OracleConnectionShow = ({
                             label={"Additional params"}
                         />
                         <TextField
-                            source="connection_data.service_name"
-                            label={"Service name"}
-                        />
-                        <TextField
                             source="connection_data.host"
                             label={"Host"}
+                        />
+                        <TextField
+                            source="connection_data.service_name"
+                            label={"Service name"}
                         />
                         <TextField source="connection_data.sid" label={"sid"} />
                         <TextField

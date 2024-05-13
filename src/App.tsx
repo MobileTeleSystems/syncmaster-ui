@@ -1,4 +1,4 @@
-import ConnectionCreate from "@entities/ConnectionCreate";
+import ConnectionCreate from "@entities/connection/connectionCreate";
 import authProvider from "@shared/api/authProvider";
 import dataProvider from "@shared/api/dataProvider";
 import { ThemeName, themes } from "@themes/themes";

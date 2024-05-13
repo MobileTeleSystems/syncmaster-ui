@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NumberInput, PasswordInput, TextInput } from "react-admin";
 
-const OracleEditForm = () => {
+const OracleCreateForm = () => {
     const [sidState, setSidState] = useState(false);
     const [serviceNameState, setServiceNameState] = useState(false);
     const [sidValue, setSidValue] = useState("");
@@ -23,11 +23,6 @@ const OracleEditForm = () => {
                 disabled={sidState}
             />
             <TextInput
-                source="connection_data.host"
-                label={"Host"}
-                name={"connection_data.host"}
-            />
-            <TextInput
                 source="connection_data.service_name"
                 label={"Service name"}
                 name={"connection_data.service_name"}
@@ -40,24 +35,35 @@ const OracleEditForm = () => {
                 }}
                 disabled={serviceNameState}
             />
+            <TextInput
+                name={"connection_data.host"}
+                source="connection_data.host"
+                label={"Host"}
+                required={true}
+            />
             <NumberInput
+                name={"connection_data.port"}
                 source="connection_data.port"
                 label={"Port"}
-                name={"connection_data.port"}
+                required={true}
+                // TODO: replace to defaultValue
+                // yes, I tried defaultValue={"1521"} and it still didn't re-render
                 placeholder={"1521"}
             />
             <TextInput
+                name={"auth_data.user"}
                 source="auth_data.user"
                 label={"User"}
-                name={"auth_data.user"}
+                required={true}
             />
             <PasswordInput
-                source="auth_data.password"
-                label={"Password"}
                 name={"auth_data.password"}
+                label={"Password"}
+                source="password"
+                required={true}
             />
         </>
     );
 };
 
-export default OracleEditForm;
+export default OracleCreateForm;

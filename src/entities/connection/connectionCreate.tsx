@@ -1,5 +1,7 @@
-import CreateFormWrapper from "@entities/wrappers/createFormWrapper";
+import CreateFormWrapper from "@entities/connection/wrappers/createFormWrapper";
 import dataProvider from "@shared/api/dataProvider";
+import Warning from "@shared/ui/warning";
+import type { ConnectionData } from "@widgets/connections/types";
 import {
     Create,
     FormDataConsumer,
@@ -11,7 +13,6 @@ import {
     useGetList,
 } from "react-admin";
 import { useQuery } from "react-query";
-import type { ConnectionData } from "@widgets/connections/types";
 
 const ConnectionCreate = () => {
     const { data: connectionTypes, isLoading } = useQuery(
@@ -30,7 +31,6 @@ const ConnectionCreate = () => {
                     label={"Type"}
                     choices={connectionTypes}
                     validate={required()}
-                    isLoading={isLoading}
                 />
                 <SelectInput
                     source="Group"
@@ -52,7 +52,10 @@ const ConnectionCreate = () => {
                     {({ formData }) => {
                         const connectionType = formData.connection_data
                             ? formData.connection_data.type
-                            : "unknown";
+                            : undefined;
+                        if (connectionType === undefined) {
+                            return <Warning message="Select connection type" />;
+                        }
                         return (
                             <CreateFormWrapper
                                 connectionType={connectionType}
