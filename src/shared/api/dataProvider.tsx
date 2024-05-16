@@ -1,5 +1,5 @@
 import type { ConnectionTypes } from "@shared/api/types";
-import { getHeaders } from "@shared/api/utils";
+import { getAUTHHeaders, getPOSTHeaders } from "@shared/api/utils";
 import { DataProvider, HttpError } from "react-admin";
 
 const apiUrl = "http://localhost:8000";
@@ -50,7 +50,7 @@ const dataProvider: DataProvider = {
 
         return new Promise((resolve, reject) => {
             return fetch(url.toString(), {
-                headers: getHeaders(),
+                headers: getAUTHHeaders(),
                 method: "GET",
             })
                 .then(parseResponse)
@@ -77,7 +77,7 @@ const dataProvider: DataProvider = {
         const id = params.id;
         return new Promise((resolve, reject) => {
             return fetch(`${apiUrl}/${apiVersion}/${resource}/${id}`, {
-                headers: getHeaders(),
+                headers: getAUTHHeaders(),
                 method: "GET",
             })
                 .then(parseResponse)
@@ -99,7 +99,7 @@ const dataProvider: DataProvider = {
         const id = params.id;
         return new Promise((resolve, reject) => {
             return fetch(`${apiUrl}/${apiVersion}/${resource}/${id}`, {
-                headers: getHeaders(),
+                headers: getPOSTHeaders(),
                 method: "DELETE",
             })
                 .then(parseResponse)
@@ -141,7 +141,7 @@ const dataProvider: DataProvider = {
         }
         return new Promise((resolve, reject) => {
             return fetch(`${apiUrl}/${apiVersion}/${resource}/${params.id}`, {
-                headers: getHeaders(),
+                headers: getPOSTHeaders(),
                 method: "PATCH",
                 body: JSON.stringify(bodyObject),
             })
@@ -184,7 +184,7 @@ const dataProvider: DataProvider = {
         }
         return new Promise((resolve, reject) => {
             return fetch(`${apiUrl}/${apiVersion}/${resource}`, {
-                headers: getHeaders(),
+                headers: getPOSTHeaders(),
                 method: "POST",
                 body: JSON.stringify(bodyObject),
             })
@@ -209,7 +209,7 @@ const dataProvider: DataProvider = {
                 apiUrl + "/" + apiVersion + "/connections/known_types",
             );
             return fetch(url.toString(), {
-                headers: getHeaders(),
+                headers: getAUTHHeaders(),
                 method: "GET",
             })
                 .then(parseResponse)
