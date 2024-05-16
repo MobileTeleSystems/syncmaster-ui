@@ -1,5 +1,5 @@
 import type { ConnectionTypes } from "@shared/api/types";
-import { getAUTHHeaders, getPOSTHeaders } from "@shared/api/utils";
+import { getAuthHeaders, getPOSTHeaders } from "@shared/api/utils";
 import { DataProvider, HttpError } from "react-admin";
 
 const apiUrl = "http://localhost:8000";
@@ -50,7 +50,7 @@ const dataProvider: DataProvider = {
 
         return new Promise((resolve, reject) => {
             return fetch(url.toString(), {
-                headers: getAUTHHeaders(),
+                headers: getAuthHeaders(),
                 method: "GET",
             })
                 .then(parseResponse)
@@ -77,7 +77,7 @@ const dataProvider: DataProvider = {
         const id = params.id;
         return new Promise((resolve, reject) => {
             return fetch(`${apiUrl}/${apiVersion}/${resource}/${id}`, {
-                headers: getAUTHHeaders(),
+                headers: getAuthHeaders(),
                 method: "GET",
             })
                 .then(parseResponse)
@@ -209,7 +209,7 @@ const dataProvider: DataProvider = {
                 apiUrl + "/" + apiVersion + "/connections/known_types",
             );
             return fetch(url.toString(), {
-                headers: getAUTHHeaders(),
+                headers: getAuthHeaders(),
                 method: "GET",
             })
                 .then(parseResponse)
