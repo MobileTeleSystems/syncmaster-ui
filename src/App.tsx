@@ -8,10 +8,10 @@ import ConnectionShowWrapper from "@widgets/connections/ui/wrappers/connectionSh
 import { Layout } from "@widgets/layout/ui";
 import {
     Admin,
-    localStorageStore,
     Login,
     Resource,
     StoreContextProvider,
+    localStorageStore,
     useStore,
 } from "react-admin";
 
