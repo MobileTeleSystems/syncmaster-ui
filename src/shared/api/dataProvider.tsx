@@ -136,6 +136,9 @@ const dataProvider: DataProvider = {
                         : null,
                 },
             };
+        }
+        if (resource === "queues") {
+            bodyObject = { description: params.data.description };
         } else {
             bodyObject = {};
         }
@@ -178,6 +181,13 @@ const dataProvider: DataProvider = {
                         : null,
                     type: params.data.connection_data.type,
                 },
+            };
+        }
+        if (resource === "queues") {
+            bodyObject = {
+                name: params.data.name,
+                group_id: params.data.group,
+                description: params.data.description,
             };
         } else {
             bodyObject = {};

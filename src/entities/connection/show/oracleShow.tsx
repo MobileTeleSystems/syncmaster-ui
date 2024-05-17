@@ -1,5 +1,5 @@
 import { Card } from "@mui/material";
-import { ConnectionData } from "@widgets/connections/types";
+import { ConnectionData } from "@widgets/connection/types";
 import {
     EditButton,
     RecordContextProvider,

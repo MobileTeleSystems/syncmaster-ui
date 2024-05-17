@@ -2,7 +2,7 @@ import EditToolbar from "@entities/connection/editToolbar";
 import EditFormWrapper from "@entities/connection/wrappers/editFormWrapper";
 import dataProvider from "@shared/api/dataProvider";
 import Warning from "@shared/ui/warning";
-import type { ConnectionData } from "@widgets/connections/types";
+import type { ConnectionData } from "@widgets/connection/types";
 import {
     Edit,
     FormDataConsumer,
