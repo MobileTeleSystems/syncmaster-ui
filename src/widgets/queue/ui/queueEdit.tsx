@@ -1,4 +1,4 @@
-import EditToolbar from "@entities/connection/editToolbar";
+import EditToolbar from "@entities/editToolbar";
 import { Edit, SimpleForm, TextInput } from "react-admin";
 
 const QueueEdit = () => {

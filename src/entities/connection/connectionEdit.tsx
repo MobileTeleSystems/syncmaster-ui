@@ -1,4 +1,4 @@
-import EditToolbar from "@entities/connection/editToolbar";
+import EditToolbar from "@entities/editToolbar";
 import EditFormWrapper from "@entities/connection/wrappers/editFormWrapper";
 import dataProvider from "@shared/api/dataProvider";
 import Warning from "@shared/ui/warning";
