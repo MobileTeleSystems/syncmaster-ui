@@ -1,29 +1,18 @@
-import {
-    Create,
-    Loading,
-    required,
-    SelectInput,
-    SimpleForm,
-    TextInput,
-    useGetList,
-} from "react-admin";
+import { Create, SimpleForm, TextInput, useRecordContext } from "react-admin";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 
 const QueueCreate = () => {
-    const { data: groups, isLoading } = useGetList("groups");
     const [currentGroup] = useLocalStoreCurrentGroup();
-    if (isLoading) return <Loading />;
     return (
         <Create>
             <SimpleForm>
                 <TextInput source="name" name="name" required={true} />
-                <SelectInput
+                <TextInput
                     source="Group"
-                    name="group"
                     label={"Group"}
-                    choices={groups}
-                    validate={required()}
+                    name="group"
                     defaultValue={currentGroup.id}
+                    style={{ display: "none" }}
                 />
                 <TextInput
                     source="description"
