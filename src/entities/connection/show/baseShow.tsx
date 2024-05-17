@@ -1,4 +1,4 @@
-import { Card } from "@mui/material";
+import { Card, Typography } from "@mui/material";
 import { ConnectionData } from "@widgets/connection/types";
 import {
     EditButton,
@@ -13,7 +13,7 @@ const BaseConnectionShow = ({
     connectionColumns,
 }: {
     data: ConnectionData;
-    connectionColumns: JSX.Element[];
+    connectionColumns: { source: string; label: string }[];
 }) => {
     const processedData = {
         ...data,
@@ -28,7 +28,20 @@ const BaseConnectionShow = ({
     return (
         <RecordContextProvider value={processedData}>
             <div style={{ paddingTop: "1em" }}>
-                <Title title={"Connection"} />
+                <Title
+                    title={
+                        <Typography
+                            variant={"inherit"}
+                            noWrap={false}
+                            sx={{
+                                overflowY: "auto",
+                                width: "500px",
+                            }}
+                        >
+                            Connection {data.name}
+                        </Typography>
+                    }
+                />
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="name" />
@@ -37,7 +50,9 @@ const BaseConnectionShow = ({
                             label={"Connection Type"}
                         />
                         <TextField source="description" />
-                        {connectionColumns.map((column) => column)}
+                        {connectionColumns.map((column, id) => (
+                            <TextField {...column} key={id} />
+                        ))}
                     </SimpleShowLayout>
                 </Card>
                 <div
