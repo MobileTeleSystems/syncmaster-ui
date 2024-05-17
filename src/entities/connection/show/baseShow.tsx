@@ -36,6 +36,7 @@ const BaseConnectionShow = ({
                             sx={{
                                 overflowY: "auto",
                                 width: "500px",
+                                paddingRight: "50px"
                             }}
                         >
                             Connection {data.name}
