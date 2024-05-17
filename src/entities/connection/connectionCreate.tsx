@@ -10,7 +10,6 @@ import {
     required,
     SelectInput,
     SimpleForm,
-    TextField,
     TextInput,
 } from "react-admin";
 import { useQuery } from "react-query";
