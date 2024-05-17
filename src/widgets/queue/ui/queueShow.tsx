@@ -20,7 +20,7 @@ const QueueShow = () => {
     return (
         <RecordContextProvider value={data}>
             <div style={{ paddingTop: "1em" }}>
-                <Title title={"Queue #" + data.name} />
+                <Title title={"Queue " + data.name} />
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="id" />
