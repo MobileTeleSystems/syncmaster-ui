@@ -1,9 +1,9 @@
-import BaseListDatagridColumns from "@entities/list/baseListDatagridColumns";
+import BaseDatagrid from "@entities/list/baseDatagrid";
 import { TextField } from "react-admin";
 
 const ConnectionListElement = () => {
     return (
-        <BaseListDatagridColumns
+        <BaseDatagrid
             additionColumns={
                 <TextField
                     source="connection_data.type"

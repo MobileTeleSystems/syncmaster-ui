@@ -1,7 +1,7 @@
-import BaseListDatagridColumns from "@entities/list/baseListDatagridColumns";
+import BaseDatagrid from "@entities/list/baseDatagrid";
 
 const QueueListElement = (): JSX.Element => {
-    return <BaseListDatagridColumns />;
+    return <BaseDatagrid />;
 };
 
 export default QueueListElement;
