@@ -1,15 +1,13 @@
 import { Datagrid, DeleteButton, TextField } from "react-admin";
+import type { BaseListColumns } from "@entities/types";
 
-const ConnectionListElement = () => {
+const BaseDatagrid = ({additionColumns}: BaseListColumns) => {
     return (
         <Datagrid rowClick="show">
             <TextField source="id" />
             <TextField source="name" />
             <TextField source="description" />
-            <TextField
-                source="connection_data.type"
-                label={"Connection Type"}
-            />
+            {additionColumns}
             <DeleteButton
                 mutationMode="pessimistic"
                 sx={{
@@ -23,4 +21,4 @@ const ConnectionListElement = () => {
     );
 };
 
-export default ConnectionListElement;
+export default BaseDatagrid;

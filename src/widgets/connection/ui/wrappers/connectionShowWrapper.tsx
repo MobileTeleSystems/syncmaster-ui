@@ -7,11 +7,11 @@ import { useParams } from "react-router";
 
 const ConnectionShowWrapper = () => {
     const { id } = useParams();
-    if (id === undefined) return <Error />;
+    if (id === undefined) return <Error message={"Undefined id"}/>;
 
     const { data, isLoading, error } = useGetOne("connections", { id });
     if (isLoading) return <Loading />;
-    if (error) return <Error />;
+    if (error) return <Error message={error}/>;
     if (data.connection_data.type === "postgres") {
         return <PostgresConnectionShow id={data.id} data={data} />;
     }

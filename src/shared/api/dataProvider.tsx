@@ -121,23 +121,32 @@ const dataProvider: DataProvider = {
     update: (resource, params) => {
         // rework the body processing logic for different resources
         let bodyObject: any;
-        if (resource === "connections") {
-            bodyObject = {
-                name: params.data.name,
-                description: params.data.description,
-                connection_data: {
-                    ...params.data.connection_data,
-                },
-                auth_data: {
-                    ...params.data.auth_data,
-                    type: params.data.connection_data.type,
-                    password: params.data.auth_data.password
-                        ? params.data.auth_data.password
-                        : null,
-                },
-            };
-        } else {
-            bodyObject = {};
+        switch (resource) {
+            case "connections": {
+                bodyObject = {
+                    name: params.data.name,
+                    description: params.data.description,
+                    connection_data: {
+                        ...params.data.connection_data,
+                    },
+                    auth_data: {
+                        ...params.data.auth_data,
+                        type: params.data.connection_data.type,
+                        password: params.data.auth_data.password
+                            ? params.data.auth_data.password
+                            : null,
+                    },
+                };
+                break;
+            }
+            case "queues": {
+                bodyObject = { description: params.data.description };
+                break;
+            }
+            default: {
+                bodyObject = {};
+                break;
+            }
         }
         return new Promise((resolve, reject) => {
             return fetch(`${apiUrl}/${apiVersion}/${resource}/${params.id}`, {
@@ -163,24 +172,37 @@ const dataProvider: DataProvider = {
     create: (resource, params) => {
         // rework the body processing logic for different resources
         let bodyObject: any;
-        if (resource === "connections") {
-            bodyObject = {
-                group_id: params.data.group,
-                name: params.data.name,
-                description: params.data.description,
-                connection_data: {
-                    ...params.data.connection_data,
-                },
-                auth_data: {
-                    ...params.data.auth_data,
-                    password: params.data.auth_data.password
-                        ? params.data.auth_data.password
-                        : null,
-                    type: params.data.connection_data.type,
-                },
-            };
-        } else {
-            bodyObject = {};
+        switch (resource) {
+            case "connections": {
+                bodyObject = {
+                    group_id: params.data.group_id,
+                    name: params.data.name,
+                    description: params.data.description,
+                    connection_data: {
+                        ...params.data.connection_data,
+                    },
+                    auth_data: {
+                        ...params.data.auth_data,
+                        password: params.data.auth_data.password
+                            ? params.data.auth_data.password
+                            : null,
+                        type: params.data.connection_data.type,
+                    },
+                };
+                break;
+            }
+            case "queues": {
+                bodyObject = {
+                    name: params.data.name,
+                    group_id: params.data.group_id,
+                    description: params.data.description,
+                };
+                break;
+            }
+            default: {
+                bodyObject = {};
+                break;
+            }
         }
         return new Promise((resolve, reject) => {
             return fetch(`${apiUrl}/${apiVersion}/${resource}`, {

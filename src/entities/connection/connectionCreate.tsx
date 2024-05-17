@@ -1,7 +1,8 @@
 import CreateFormWrapper from "@entities/connection/wrappers/createFormWrapper";
+import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import dataProvider from "@shared/api/dataProvider";
 import Warning from "@shared/ui/warning";
-import type { ConnectionData } from "@widgets/connections/types";
+import type { ConnectionData } from "@widgets/connection/types";
 import {
     Create,
     FormDataConsumer,
@@ -10,7 +11,6 @@ import {
     SelectInput,
     SimpleForm,
     TextInput,
-    useGetList,
 } from "react-admin";
 import { useQuery } from "react-query";
 
@@ -19,24 +19,18 @@ const ConnectionCreate = () => {
         ["connections", "getConnectionTypes"],
         () => dataProvider.getConnectionTypes(),
     );
+    const [currentGroup] = useLocalStoreCurrentGroup();
+    const groupId = () => ({ group_id: currentGroup.id });
 
-    const { data: groups, isLoading: isLoadingGroups } = useGetList("groups");
     if (isLoading) return <Loading />;
     return (
         <Create>
-            <SimpleForm>
+            <SimpleForm defaultValues={groupId()}>
                 <SelectInput
                     source="connection_data.type"
                     name="connection_data.type"
                     label={"Type"}
                     choices={connectionTypes}
-                    validate={required()}
-                />
-                <SelectInput
-                    source="Group"
-                    name="group"
-                    label={"Group"}
-                    choices={groups}
                     validate={required()}
                 />
                 <TextInput source="name" name="name" required={true} />

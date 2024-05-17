@@ -1,11 +1,16 @@
 import ConnectionCreate from "@entities/connection/connectionCreate";
+import LayersRoundedIcon from "@mui/icons-material/LayersRounded";
 import authProvider from "@shared/api/authProvider";
 import dataProvider from "@shared/api/dataProvider";
 import { ThemeName, themes } from "@themes/themes";
-import ConnectionEditWrapper from "@widgets/connections/ui/wrappers/connectionEditWrapper";
-import ConnectionListWrapper from "@widgets/connections/ui/wrappers/connectionListWrapper";
-import ConnectionShowWrapper from "@widgets/connections/ui/wrappers/connectionShowWrapper";
+import ConnectionEditWrapper from "@widgets/connection/ui/wrappers/connectionEditWrapper";
+import ConnectionListWrapper from "@widgets/connection/ui/wrappers/connectionListWrapper";
+import ConnectionShowWrapper from "@widgets/connection/ui/wrappers/connectionShowWrapper";
 import { Layout } from "@widgets/layout/ui";
+import QueueCreate from "@widgets/queue/ui/queueCreate";
+import QueueEdit from "@widgets/queue/ui/queueEdit";
+import QueueList from "@widgets/queue/ui/list/queueList";
+import QueueShow from "@widgets/queue/ui/queueShow";
 import {
     Admin,
     localStorageStore,
@@ -40,6 +45,14 @@ const App = () => {
                 show={ConnectionShowWrapper}
                 edit={ConnectionEditWrapper}
                 create={ConnectionCreate}
+            />
+            <Resource
+                name="queues"
+                list={QueueList}
+                show={QueueShow}
+                edit={QueueEdit}
+                create={QueueCreate}
+                icon={LayersRoundedIcon}
             />
         </Admin>
     );
