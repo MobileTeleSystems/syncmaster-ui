@@ -22,7 +22,7 @@ const BaseList = ({ type, title, element }: BaseList) => {
     });
 
     if (isLoading) return <Loading />;
-    if (error) return <Error />;
+    if (error) return <Error message={error}/>;
     const sort = { field: "name", order: "ASC" };
 
     return (
