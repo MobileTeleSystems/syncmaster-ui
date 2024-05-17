@@ -5,5 +5,5 @@ export type BaseList = {
 };
 
 export type BaseListColumns = {
-    additionColumn?: JSX.Element;
+    additionColumns?: JSX.Element;
 };

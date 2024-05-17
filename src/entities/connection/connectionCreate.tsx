@@ -13,12 +13,14 @@ import {
     useGetList,
 } from "react-admin";
 import { useQuery } from "react-query";
+import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 
 const ConnectionCreate = () => {
     const { data: connectionTypes, isLoading } = useQuery(
         ["connections", "getConnectionTypes"],
         () => dataProvider.getConnectionTypes(),
     );
+    const [currentGroup] = useLocalStoreCurrentGroup()
 
     const { data: groups, isLoading: isLoadingGroups } = useGetList("groups");
     if (isLoading) return <Loading />;
@@ -38,6 +40,7 @@ const ConnectionCreate = () => {
                     label={"Group"}
                     choices={groups}
                     validate={required()}
+                    defaultValue={currentGroup.id}
                 />
                 <TextInput source="name" name="name" required={true} />
                 <TextInput

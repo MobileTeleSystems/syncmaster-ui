@@ -1,13 +1,13 @@
 import { Datagrid, DeleteButton, TextField } from "react-admin";
 import type { BaseListColumns } from "@entities/types";
 
-const BaseListDatagridColumns = ({additionColumn}: BaseListColumns) => {
+const BaseListDatagridColumns = ({additionColumns}: BaseListColumns) => {
     return (
         <Datagrid rowClick="show">
             <TextField source="id" />
             <TextField source="name" />
             <TextField source="description" />
-            {additionColumn}
+            {additionColumns}
             <DeleteButton
                 mutationMode="pessimistic"
                 sx={{

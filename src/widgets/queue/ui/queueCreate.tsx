@@ -7,9 +7,11 @@ import {
     TextInput,
     useGetList,
 } from "react-admin";
+import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 
 const QueueCreate = () => {
     const { data: groups, isLoading } = useGetList("groups");
+    const [currentGroup] = useLocalStoreCurrentGroup();
     if (isLoading) return <Loading />;
     return (
         <Create>
@@ -21,6 +23,7 @@ const QueueCreate = () => {
                     label={"Group"}
                     choices={groups}
                     validate={required()}
+                    defaultValue={currentGroup.id}
                 />
                 <TextInput
                     source="description"

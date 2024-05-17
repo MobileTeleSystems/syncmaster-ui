@@ -4,7 +4,7 @@ import { TextField } from "react-admin";
 const ConnectionListElement = () => {
     return (
         <BaseListDatagridColumns
-            additionColumn={
+            additionColumns={
                 <TextField
                     source="connection_data.type"
                     label={"Connection Type"}
