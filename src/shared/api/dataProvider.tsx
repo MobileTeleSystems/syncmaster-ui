@@ -175,7 +175,7 @@ const dataProvider: DataProvider = {
         switch (resource) {
             case "connections": {
                 bodyObject = {
-                    group_id: params.data.group,
+                    group_id: params.data.group_id,
                     name: params.data.name,
                     description: params.data.description,
                     connection_data: {
@@ -194,7 +194,7 @@ const dataProvider: DataProvider = {
             case "queues": {
                 bodyObject = {
                     name: params.data.name,
-                    group_id: params.data.group,
+                    group_id: params.data.group_id,
                     description: params.data.description,
                 };
                 break;

@@ -1,19 +1,13 @@
-import { Create, SimpleForm, TextInput, useRecordContext } from "react-admin";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
+import { Create, SimpleForm, TextInput } from "react-admin";
 
 const QueueCreate = () => {
     const [currentGroup] = useLocalStoreCurrentGroup();
+    const groupId = () => ({ group_id: currentGroup.id });
     return (
         <Create>
-            <SimpleForm>
+            <SimpleForm defaultValues={groupId}>
                 <TextInput source="name" name="name" required={true} />
-                <TextInput
-                    source="Group"
-                    label={"Group"}
-                    name="group"
-                    defaultValue={currentGroup.id}
-                    style={{ display: "none" }}
-                />
                 <TextInput
                     source="description"
                     name={"description"}

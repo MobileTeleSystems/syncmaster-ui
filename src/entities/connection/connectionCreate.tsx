@@ -21,24 +21,18 @@ const ConnectionCreate = () => {
         () => dataProvider.getConnectionTypes(),
     );
     const [currentGroup] = useLocalStoreCurrentGroup();
+    const groupId = () => ({ group_id: currentGroup.id });
 
     if (isLoading) return <Loading />;
     return (
         <Create>
-            <SimpleForm>
+            <SimpleForm defaultValues={groupId()}>
                 <SelectInput
                     source="connection_data.type"
                     name="connection_data.type"
                     label={"Type"}
                     choices={connectionTypes}
                     validate={required()}
-                />
-                <TextInput
-                    source="Group"
-                    label={"Group"}
-                    name="group"
-                    defaultValue={currentGroup.id}
-                    style={{ display: "none" }}
                 />
                 <TextInput source="name" name="name" required={true} />
                 <TextInput
