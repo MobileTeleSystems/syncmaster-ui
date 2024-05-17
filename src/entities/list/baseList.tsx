@@ -2,7 +2,6 @@ import type { BaseList } from "@entities/types";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
-import Warning from "@shared/ui/warning";
 import { useState } from "react";
 import {
     CreateButton,
@@ -24,8 +23,6 @@ const BaseList = ({ type, title, element }: BaseList) => {
 
     if (isLoading) return <Loading />;
     if (error) return <Error />;
-    if (data?.length == 0)
-        return <Warning message={"No " + type + " found."} />;
     const sort = { field: "name", order: "ASC" };
 
     return (
