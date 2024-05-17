@@ -32,6 +32,7 @@ const OracleConnectionShow = ({
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="name" />
+                        <TextField source="id" />
                         <TextField
                             source="connection_data.type"
                             label={"Connection Type"}

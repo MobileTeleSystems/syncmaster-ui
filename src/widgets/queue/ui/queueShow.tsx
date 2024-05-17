@@ -24,6 +24,7 @@ const QueueShow = () => {
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="id" />
+                        <TextField source="name" />
                         <TextField source="description" />
                     </SimpleShowLayout>
                 </Card>
