@@ -1,6 +1,6 @@
 import type { ConnectionTypes } from "@shared/api/types";
 import { getAuthHeaders, getPOSTHeaders } from "@shared/api/utils";
-import { DataProvider, HttpError } from "react-admin";
+import { DataProvider, type GetManyParams, HttpError } from "react-admin";
 
 const apiUrl = "http://localhost:8000";
 const apiVersion = "v1";
