@@ -1,4 +1,4 @@
-import type { BaseList } from "@entities/types";
+import type { RunBaseList } from "@entities/types";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
@@ -12,12 +12,12 @@ import {
     useGetList,
 } from "react-admin";
 
-const BaseList = ({ type, title, element }: BaseList) => {
+const RunBaseList = ({ type, title, element, transferId }: RunBaseList) => {
     const [currentGroup] = useLocalStoreCurrentGroup();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
     const { data, total, isLoading, error } = useGetList(type, {
-        meta: { group_id: currentGroup.id },
+        meta: { transfer_id: transferId },
         pagination: { page, perPage },
     });
 
@@ -41,17 +41,6 @@ const BaseList = ({ type, title, element }: BaseList) => {
                 {
                     <div>
                         <Title title={title} />
-                        <div
-                            style={{
-                                display: "flex",
-                                justifyContent: "end",
-                                alignItems: "center",
-                                paddingTop: "0.5em",
-                                paddingBottom: "0.5em",
-                            }}
-                        >
-                            <CreateButton />
-                        </div>
                         <Card>{element}</Card>
                         <Pagination />
                     </div>
@@ -61,4 +50,4 @@ const BaseList = ({ type, title, element }: BaseList) => {
     );
 };
 
-export default BaseList;
+export default RunBaseList;

@@ -11,6 +11,7 @@ import {
 } from "react-admin";
 import { useParams } from "react-router";
 import LinkedField from "@shared/linkedField";
+import RunList from "@widgets/run/list/runList";
 
 const TransferShow = () => {
     const { id } = useParams();
@@ -55,6 +56,7 @@ const TransferShow = () => {
                         <TextField source="source_params" />
                         <TextField source="target_params" />
                         <TextField source="strategy_params" />
+                        <RunList transferId={data.id} label={"Runs"} />
                     </SimpleShowLayout>
                 </Card>
                 <div

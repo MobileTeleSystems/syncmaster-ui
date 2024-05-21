@@ -1,4 +1,5 @@
 import ConnectionCreate from "@entities/connection/connectionCreate";
+import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
 import LayersRoundedIcon from "@mui/icons-material/LayersRounded";
 import MoveUpIcon from "@mui/icons-material/MoveUp";
 import authProvider from "@shared/api/authProvider";
@@ -24,6 +25,8 @@ import {
     StoreContextProvider,
     useStore,
 } from "react-admin";
+import RunShow from "@widgets/run/runShow";
+import RunList from "@widgets/run/list/runList";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -66,6 +69,11 @@ const App = () => {
                 edit={QueueEdit}
                 create={QueueCreate}
                 icon={LayersRoundedIcon}
+            />
+            <Resource
+                name="runs"
+                show={RunShow}
+                icon={CompareArrowsIcon}
             />
         </Admin>
     );
