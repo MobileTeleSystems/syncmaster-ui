@@ -41,6 +41,7 @@ const RunBaseList = ({ type, title, element, transferId }: RunBaseList) => {
                 {
                     <div>
                         <Title title={title} />
+                        <CreateButton label={"Run transfer"}/>
                         <Card>{element}</Card>
                         <Pagination />
                     </div>

@@ -1,13 +1,15 @@
+import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
 import {
+    Button, CreateButton,
     EditButton,
     Loading,
     RecordContextProvider,
     SimpleShowLayout,
     TextField,
     Title,
-    useGetOne,
+    useGetOne
 } from "react-admin";
 import { useParams } from "react-router";
 import LinkedField from "@shared/linkedField";
@@ -55,7 +57,7 @@ const TransferShow = () => {
                         <TextField source="is_scheduled" />
                         <TextField source="source_params" />
                         <TextField source="target_params" />
-                        <TextField source="strategy_params" />
+                        <TextField source="strategy_params"/>
                         <RunList transferId={data.id} label={"Runs"} />
                     </SimpleShowLayout>
                 </Card>
