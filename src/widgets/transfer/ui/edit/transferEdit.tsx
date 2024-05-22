@@ -1,13 +1,10 @@
 import EditToolbar from "@entities/editToolbar";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import Error from "@shared/ui/error";
-import Warning from "@shared/ui/warning";
-import type { TransferData } from "@widgets/transfer/ui/edit/types";
 import EditTransferFormWrapper from "@widgets/transfer/ui/edit/wrappers/editTransferFormWrapper";
 import { useState } from "react";
 import {
     Edit,
-    FormDataConsumer,
     Loading,
     required,
     SelectInput,
@@ -65,7 +62,7 @@ const Select = ({
     );
 };
 
-const PreTransferEdit = ({ record }) => {
+const TransferEditForm = ({ record }) => {
     const [currentGroup] = useLocalStoreCurrentGroup();
     const [currentSourceType, setCurrentSourceType] = useState({
         id: record.source_connection_id,
@@ -76,7 +73,7 @@ const PreTransferEdit = ({ record }) => {
         label: record.target_params.type,
     });
     return (
-        <Edit mutationMode="pessimistic">
+        <Edit mutationMode="pessimistic" >
             <SimpleForm toolbar={<EditToolbar />}>
                 <TextInput source="name" name={"name"} />
                 <Select
@@ -93,7 +90,7 @@ const PreTransferEdit = ({ record }) => {
                 <EditTransferFormWrapper
                     transferType={currentSourceType.label}
                     source={"source_params.table_name"}
-                    label={"Source"}
+                    label={"Source table"}
                 />
                 <Select
                     id={currentGroup.id}
@@ -104,7 +101,7 @@ const PreTransferEdit = ({ record }) => {
                 <EditTransferFormWrapper
                     transferType={currentTargetType.label}
                     source={"target_params.table_name"}
-                    label={"Target"}
+                    label={"Target table"}
                 />
                 <TextInput source="description" name={"description"} />
                 <SelectInput
@@ -123,7 +120,7 @@ const PreTransferEdit = ({ record }) => {
 const TransferEdit = () => {
     const { record, isLoading } = useEditController();
     if (isLoading) return <Loading />;
-    return <PreTransferEdit record={record} />;
+    return <TransferEditForm record={record} />;
 };
 
 export default TransferEdit;
