@@ -1,5 +1,6 @@
 import EditToolbar from "@entities/editToolbar";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
+import { Typography } from "@mui/material";
 import Error from "@shared/ui/error";
 import EditTransferFormWrapper from "@widgets/transfer/ui/edit/wrappers/editTransferFormWrapper";
 import { useState } from "react";
@@ -24,11 +25,13 @@ const Select = ({
     name,
     resource,
     setData,
+    label,
 }: {
     id: number;
     name: string;
     resource: string;
     setData?: ({ id, label }: { id: number; label: string }) => {};
+    label: string
 }) => {
     // TODO: since the backend sends a list page by page and not all elements at once,
     //  if there are a large number of elements it may lose records
@@ -42,6 +45,7 @@ const Select = ({
     return (
         <SelectInput
             name={name}
+            label={label}
             source={name}
             choices={data}
             validate={required()}
@@ -73,7 +77,7 @@ const TransferEditForm = ({ record }) => {
         label: record.target_params.type,
     });
     return (
-        <Edit mutationMode="pessimistic" >
+        <Edit mutationMode="pessimistic">
             <SimpleForm toolbar={<EditToolbar />}>
                 <TextInput source="name" name={"name"} />
                 <Select
@@ -86,22 +90,24 @@ const TransferEditForm = ({ record }) => {
                     name={"source_connection_id"}
                     resource={"connections"}
                     setData={setCurrentSourceType}
+                    label={"Source connection : " + currentSourceType.label}
                 />
                 <EditTransferFormWrapper
                     transferType={currentSourceType.label}
                     source={"source_params.table_name"}
-                    label={"Source table"}
+                    label={"Source"}
                 />
                 <Select
                     id={currentGroup.id}
                     name={"target_connection_id"}
                     resource={"connections"}
                     setData={setCurrentTargetType}
+                    label={"Target connection : " + currentTargetType.label}
                 />
                 <EditTransferFormWrapper
                     transferType={currentTargetType.label}
                     source={"target_params.table_name"}
-                    label={"Target table"}
+                    label={"Target"}
                 />
                 <TextInput source="description" name={"description"} />
                 <SelectInput

@@ -4,7 +4,7 @@ const OracleTransferEditForm = ({source, label}: {source: string, label: string}
     return (
         <TextInput
             source={source}
-            label={label + ": Oracle"}
+            label={label}
             name={source}
         />
     );

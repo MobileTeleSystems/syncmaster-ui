@@ -4,7 +4,7 @@ const PostgresTransferEditForm = ({source, label}:{source: string, label: string
     return (
         <TextInput
             source={source}
-            label={label + ": Postgres"}
+            label={label}
             name={source}
         />
     );
