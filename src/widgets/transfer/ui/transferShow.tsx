@@ -13,7 +13,7 @@ import {
 } from "react-admin";
 import { useParams } from "react-router";
 import LinkedField from "@shared/linkedField";
-import RunList from "@widgets/run/list/runList";
+import RunList from "@widgets/run/ui/list/runList";
 
 const TransferShow = () => {
     const { id } = useParams();

@@ -1,5 +1,5 @@
-import RunListElement from "@widgets/run/list/listElement";
-import RunBaseList from "@widgets/run/list/runBaseList";
+import RunListElement from "@widgets/run/ui/list/listElement";
+import RunBaseList from "@widgets/run/ui/list/runBaseList";
 
 const RunList = ({transferId}:{transferId: number}) => {
     return (
