@@ -87,8 +87,21 @@ const TransferEditForm = ({ record }) => {
         ...record,
         strategy_params: record.strategy_params.type,
     };
+    const transform = (data) => ({
+        ...data,
+        new_queue_id: data.queue_id,
+        strategy_params: { type: data.strategy_params },
+        source_params: {
+            ...data.source_params,
+            type: currentSourceType.label,
+        },
+        target_params: {
+            ...data.target_params,
+            type: currentTargetType.label,
+        },
+    });
     return (
-        <Edit mutationMode="pessimistic">
+        <Edit mutationMode="pessimistic" transform={transform}>
             <SimpleForm toolbar={<EditToolbar />} values={processedData}>
                 <TextInput source="name" name={"name"} />
                 <Select
