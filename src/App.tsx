@@ -13,9 +13,10 @@ import QueueList from "@widgets/queue/ui/list/queueList";
 import QueueCreate from "@widgets/queue/ui/queueCreate";
 import QueueEdit from "@widgets/queue/ui/queueEdit";
 import QueueShow from "@widgets/queue/ui/queueShow";
+import RunShow from "@widgets/run/ui/runShow";
+import TransferEdit from "@widgets/transfer/ui/edit/transferEdit";
 import TransferList from "@widgets/transfer/ui/list/transferList";
 import TransferCreate from "@widgets/transfer/ui/transferCreate";
-import TransferEdit from "@widgets/transfer/ui/edit/transferEdit";
 import TransferShow from "@widgets/transfer/ui/transferShow";
 import {
     Admin,
@@ -25,7 +26,6 @@ import {
     StoreContextProvider,
     useStore,
 } from "react-admin";
-import RunShow from "@widgets/run/ui/runShow";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -69,11 +69,7 @@ const App = () => {
                 create={QueueCreate}
                 icon={LayersRoundedIcon}
             />
-            <Resource
-                name="runs"
-                show={RunShow}
-                icon={CompareArrowsIcon}
-            />
+            <Resource name="runs" show={RunShow} icon={CompareArrowsIcon} />
         </Admin>
     );
 };

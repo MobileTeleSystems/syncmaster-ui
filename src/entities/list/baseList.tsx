@@ -1,8 +1,9 @@
 import type { BaseList } from "@entities/types";
+import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
     CreateButton,
     ListContextProvider,
@@ -13,6 +14,7 @@ import {
 } from "react-admin";
 
 const BaseList = ({ type, title, element }: BaseList) => {
+    const [, setIsChange] = useLocalStoreChangeGroup();
     const [currentGroup] = useLocalStoreCurrentGroup();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
@@ -21,6 +23,9 @@ const BaseList = ({ type, title, element }: BaseList) => {
         pagination: { page, perPage },
     });
 
+    useEffect(() => {
+        setIsChange(false);
+    }, []);
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;
     const sort = { field: "name", order: "ASC" };

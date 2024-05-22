@@ -1,7 +1,4 @@
-import * as React from "react";
-import { useState } from "react";
-import PropTypes from "prop-types";
-import { useLocation } from "react-router-dom";
+import LockIcon from "@mui/icons-material/Lock";
 
 import {
     Avatar,
@@ -10,17 +7,20 @@ import {
     CardActions,
     CircularProgress,
 } from "@mui/material";
-import LockIcon from "@mui/icons-material/Lock";
+
+import Box from "@mui/material/Box";
+import PropTypes from "prop-types";
+import * as React from "react";
+import { useState } from "react";
 import {
     Form,
     required,
     TextInput,
-    useTranslate,
     useLogin,
     useNotify,
+    useTranslate,
 } from "react-admin";
-
-import Box from "@mui/material/Box";
+import { useLocation } from "react-router-dom";
 
 const Login = () => {
     const [loading, setLoading] = useState(false);

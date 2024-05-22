@@ -1,23 +1,27 @@
-import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
+import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 import { Card } from "@mui/material";
+import LinkedField from "@shared/linkedField";
 import Error from "@shared/ui/error";
+import RunList from "@widgets/run/ui/list/runList";
+import { useEffect } from "react";
 import {
-    Button, CreateButton,
     EditButton,
     Loading,
     RecordContextProvider,
     SimpleShowLayout,
     TextField,
     Title,
-    useGetOne
+    useGetOne,
 } from "react-admin";
 import { useParams } from "react-router";
-import LinkedField from "@shared/linkedField";
-import RunList from "@widgets/run/ui/list/runList";
 
 const TransferShow = () => {
+    const [, setIsChange] = useLocalStoreChangeGroup();
     const { id } = useParams();
     const { data, isLoading, error } = useGetOne("transfers", { id });
+    useEffect(() => {
+        setIsChange(true);
+    }, []);
     if (id === undefined) return <Error message={"Undefined id"} />;
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;
@@ -57,7 +61,7 @@ const TransferShow = () => {
                         <TextField source="is_scheduled" />
                         <TextField source="source_params" />
                         <TextField source="target_params" />
-                        <TextField source="strategy_params"/>
+                        <TextField source="strategy_params" />
                         <RunList transferId={data.id} label={"Runs"} />
                     </SimpleShowLayout>
                 </Card>
