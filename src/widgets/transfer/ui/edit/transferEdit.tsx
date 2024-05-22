@@ -1,6 +1,5 @@
 import EditToolbar from "@entities/editToolbar";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
-import { Typography } from "@mui/material";
 import Error from "@shared/ui/error";
 import EditTransferFormWrapper from "@widgets/transfer/ui/edit/wrappers/editTransferFormWrapper";
 import { useState } from "react";
@@ -20,6 +19,11 @@ const scheduledValues = [
     { name: false, id: false },
 ];
 
+const strategyParams = [
+    { name: "full", id: "full" },
+    { name: "incremental", id: "incremental", disabled: true },
+];
+
 const Select = ({
     id,
     name,
@@ -31,7 +35,7 @@ const Select = ({
     name: string;
     resource: string;
     setData?: ({ id, label }: { id: number; label: string }) => {};
-    label: string
+    label: string;
 }) => {
     // TODO: since the backend sends a list page by page and not all elements at once,
     //  if there are a large number of elements it may lose records
@@ -76,9 +80,13 @@ const TransferEditForm = ({ record }) => {
         id: record.target_connection_id,
         label: record.target_params.type,
     });
+    const processedData = {
+        ...record,
+        strategy_params: record.strategy_params.type,
+    };
     return (
         <Edit mutationMode="pessimistic">
-            <SimpleForm toolbar={<EditToolbar />}>
+            <SimpleForm toolbar={<EditToolbar />} values={processedData}>
                 <TextInput source="name" name={"name"} />
                 <Select
                     id={currentGroup.id}
@@ -117,7 +125,12 @@ const TransferEditForm = ({ record }) => {
                     validate={required()}
                 />
                 <TextInput source="schedule" name={"schedule"} />
-                <TextInput source="strategy_params" name={"strategy_params"} />
+                <SelectInput
+                    name="strategy_params"
+                    source="strategy_params"
+                    choices={strategyParams}
+                    validate={required()}
+                />
             </SimpleForm>
         </Edit>
     );
