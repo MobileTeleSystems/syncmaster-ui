@@ -1,6 +1,6 @@
 import type { ConnectionTypes } from "@shared/api/types";
 import { getAuthHeaders, getPOSTHeaders } from "@shared/api/utils";
-import { DataProvider, type GetManyParams, HttpError } from "react-admin";
+import { DataProvider, HttpError } from "react-admin";
 
 const apiUrl = "http://localhost:8000";
 const apiVersion = "v1";
@@ -141,6 +141,23 @@ const dataProvider: DataProvider = {
             }
             case "queues": {
                 bodyObject = { description: params.data.description };
+                break;
+            }
+            case "transfers": {
+                console.log(params);
+                bodyObject = {
+                    ...params.data,
+                    new_queue_id: params.data.queue_id,
+                    strategy_params: { type: params.data.strategy_params },
+                    source_params: {
+                        ...params.data.source_params,
+                        type: params.data.source_params.type,
+                    },
+                    target_params: {
+                        ...params.data.target_params,
+                        type: params.data.target_params.type,
+                    },
+                };
                 break;
             }
             default: {

@@ -72,6 +72,9 @@ const Select = ({
 
 const TransferEditForm = ({ record }) => {
     const [currentGroup] = useLocalStoreCurrentGroup();
+    const [isScheduled, setIsScheduled] = useState<true | false>(
+        record.is_scheduled,
+    );
     const [currentSourceType, setCurrentSourceType] = useState({
         id: record.source_connection_id,
         label: record.source_params.type,
@@ -98,24 +101,26 @@ const TransferEditForm = ({ record }) => {
                     name={"source_connection_id"}
                     resource={"connections"}
                     setData={setCurrentSourceType}
-                    label={"Source connection : " + currentSourceType.label}
+                    label={"Source connection"}
                 />
                 <EditTransferFormWrapper
                     transferType={currentSourceType.label}
                     source={"source_params.table_name"}
                     label={"Source"}
+                    helperText={currentSourceType.label}
                 />
                 <Select
                     id={currentGroup.id}
                     name={"target_connection_id"}
                     resource={"connections"}
                     setData={setCurrentTargetType}
-                    label={"Target connection : " + currentTargetType.label}
+                    label={"Target connection"}
                 />
                 <EditTransferFormWrapper
                     transferType={currentTargetType.label}
                     source={"target_params.table_name"}
                     label={"Target"}
+                    helperText={currentTargetType.label}
                 />
                 <TextInput source="description" name={"description"} />
                 <SelectInput
@@ -123,8 +128,16 @@ const TransferEditForm = ({ record }) => {
                     source="is_scheduled"
                     choices={scheduledValues}
                     validate={required()}
+                    value={isScheduled}
+                    onChange={(event) => {
+                        setIsScheduled(event.target.value);
+                    }}
                 />
-                <TextInput source="schedule" name={"schedule"} />
+                <TextInput
+                    source="schedule"
+                    name={"schedule"}
+                    disabled={!isScheduled}
+                />
                 <SelectInput
                     name="strategy_params"
                     source="strategy_params"
