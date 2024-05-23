@@ -1,7 +1,7 @@
 import EditToolbar from "@entities/editToolbar";
 import Selector from "@entities/selector";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
-import EditTransferFormWrapper from "@widgets/transfer/ui/edit/wrappers/editTransferFormWrapper";
+import EditTransferFormWrapper from "@entities/transfer/ui/edit/wrappers/editTransferFormWrapper";
 import { scheduledValues, strategyParams } from "@widgets/transfer/ui/types";
 import { useState } from "react";
 import {

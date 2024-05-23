@@ -14,8 +14,8 @@ import QueueCreate from "@widgets/queue/ui/queueCreate";
 import QueueEdit from "@widgets/queue/ui/queueEdit";
 import QueueShow from "@widgets/queue/ui/queueShow";
 import RunShow from "@widgets/run/ui/runShow";
-import TransferEdit from "@widgets/transfer/ui/edit/transferEdit";
-import TransferList from "@widgets/transfer/ui/list/transferList";
+import TransferEdit from "@widgets/transfer/ui/transferEdit";
+import TransferList from "@entities/transfer/ui/list/transferList";
 import TransferCreate from "@widgets/transfer/ui/transferCreate";
 import TransferShow from "@widgets/transfer/ui/transferShow";
 import {

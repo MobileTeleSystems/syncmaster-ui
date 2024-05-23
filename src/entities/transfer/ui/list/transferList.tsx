@@ -1,5 +1,5 @@
-import BaseList from "@entities/list/baseList";
-import TransferListElement from "@widgets/transfer/ui/list/listElement";
+import BaseList from "@entities/base/list/baseList";
+import TransferListElement from "@entities/transfer/ui/list/listElement";
 
 const TransferList = () => {
     return (

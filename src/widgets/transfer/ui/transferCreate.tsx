@@ -1,7 +1,7 @@
 import Selector from "@entities/selector";
 import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
-import EditTransferFormWrapper from "@widgets/transfer/ui/edit/wrappers/editTransferFormWrapper";
+import EditTransferFormWrapper from "@entities/transfer/ui/edit/wrappers/editTransferFormWrapper";
 import { useEffect, useState } from "react";
 import {
     Create,
