@@ -104,6 +104,7 @@ const TransferEditForm = ({ record }) => {
         <Edit mutationMode="pessimistic" transform={transform}>
             <SimpleForm toolbar={<EditToolbar />} values={processedData}>
                 <TextInput source="name" name={"name"} />
+                <TextInput source="description" name={"description"} />
                 <Select
                     id={currentGroup.id}
                     name={"queue_id"}
@@ -135,7 +136,6 @@ const TransferEditForm = ({ record }) => {
                     label={"Target"}
                     helperText={currentTargetType.label}
                 />
-                <TextInput source="description" name={"description"} />
                 <SelectInput
                     name="is_scheduled"
                     source="is_scheduled"
