@@ -31,7 +31,7 @@ const EditTransferFormWrapper = ({
             />
         );
     }
-    return <Warning message={"Unknown connection type"} />;
+    return <Warning message={"Connection not selected or unknown connection type"} />;
 };
 
 export default EditTransferFormWrapper;
