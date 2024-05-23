@@ -1,4 +1,4 @@
-import ConnectionCreate from "@entities/connection/connectionCreate";
+import ConnectionCreate from "@widgets/connection/ui/connectionCreate";
 import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
 import LayersRoundedIcon from "@mui/icons-material/LayersRounded";
 import MoveUpIcon from "@mui/icons-material/MoveUp";
