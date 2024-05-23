@@ -17,11 +17,11 @@ import { useParams } from "react-router";
 
 const TransferShow = () => {
     const [, setIsChange] = useLocalStoreChangeGroup();
-    const { id } = useParams();
-    const { data, isLoading, error } = useGetOne("transfers", { id });
     useEffect(() => {
         setIsChange(true);
     }, []);
+    const { id } = useParams();
+    const { data, isLoading, error } = useGetOne("transfers", { id });
     if (id === undefined) return <Error message={"Undefined id"} />;
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;

@@ -1,7 +1,8 @@
 import EditToolbar from "@entities/editToolbar";
+import Selector from "@entities/selector";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
-import Error from "@shared/ui/error";
 import EditTransferFormWrapper from "@widgets/transfer/ui/edit/wrappers/editTransferFormWrapper";
+import { scheduledValues, strategyParams } from "@widgets/transfer/ui/types";
 import { useState } from "react";
 import {
     Edit,
@@ -11,64 +12,7 @@ import {
     SimpleForm,
     TextInput,
     useEditController,
-    useGetList,
 } from "react-admin";
-
-const scheduledValues = [
-    { name: true, id: true },
-    { name: false, id: false },
-];
-
-const strategyParams = [
-    { name: "full", id: "full" },
-    { name: "incremental", id: "incremental", disabled: true },
-];
-
-const Select = ({
-    id,
-    name,
-    resource,
-    setData,
-    label,
-}: {
-    id: number;
-    name: string;
-    resource: string;
-    setData?: ({ id, label }: { id: number; label: string }) => {};
-    label: string;
-}) => {
-    // TODO: since the backend sends a list page by page and not all elements at once,
-    //  if there are a large number of elements it may lose records
-    const { data, isLoading, error } = useGetList(resource, {
-        meta: { group_id: id, page_size: 200 },
-    });
-    const [currentConnection, setCurrentConnection] = useState();
-    if (isLoading) return <Loading />;
-    if (error) return <Error message={error} />;
-
-    return (
-        <SelectInput
-            name={name}
-            label={label}
-            source={name}
-            choices={data}
-            validate={required()}
-            value={currentConnection}
-            onChange={(event) => {
-                if (setData && data) {
-                    const label = data.filter(
-                        (connection) => connection.id === event.target.value,
-                    );
-                    setData({
-                        id: event.target.value,
-                        label: label[0].connection_data.type,
-                    });
-                }
-                setCurrentConnection(event.target.value);
-            }}
-        />
-    );
-};
 
 const TransferEditForm = ({ record }) => {
     const [currentGroup] = useLocalStoreCurrentGroup();
@@ -105,12 +49,12 @@ const TransferEditForm = ({ record }) => {
             <SimpleForm toolbar={<EditToolbar />} values={processedData}>
                 <TextInput source="name" name={"name"} />
                 <TextInput source="description" name={"description"} />
-                <Select
+                <Selector
                     id={currentGroup.id}
                     name={"queue_id"}
                     resource={"queues"}
                 />
-                <Select
+                <Selector
                     id={currentGroup.id}
                     name={"source_connection_id"}
                     resource={"connections"}
@@ -123,7 +67,7 @@ const TransferEditForm = ({ record }) => {
                     label={"Source"}
                     helperText={currentSourceType.label}
                 />
-                <Select
+                <Selector
                     id={currentGroup.id}
                     name={"target_connection_id"}
                     resource={"connections"}
