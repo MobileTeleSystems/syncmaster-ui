@@ -42,25 +42,25 @@ const TransferShow = () => {
                         <TextField source="name" />
                         <TextField source="description" />
                         <LinkedField
+                            id={data.queue_id}
+                            label="Queue"
+                            resource={"queues"}
+                        />
+                        <LinkedField
                             id={data.source_connection_id}
                             label="Source connection"
                             resource={"connections"}
                         />
+                        <TextField source="source_params" />
                         <LinkedField
                             id={data.target_connection_id}
                             label="Target connection"
                             resource={"connections"}
                         />
-                        <LinkedField
-                            id={data.queue_id}
-                            label="Queue"
-                            resource={"queues"}
-                        />
+                        <TextField source="target_params" />
                         <TextField source="is_scheduled" />
                         {data.is_scheduled && <TextField source="schedule" />}
                         <TextField source="is_scheduled" />
-                        <TextField source="source_params" />
-                        <TextField source="target_params" />
                         <TextField source="strategy_params" />
                         <RunList transferId={data.id} label={"Runs"} />
                     </SimpleShowLayout>
