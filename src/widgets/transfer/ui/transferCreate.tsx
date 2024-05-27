@@ -5,6 +5,7 @@ import Selector from "@widgets/selector";
 import { scheduledValues, strategyParams } from "@widgets/transfer/ui/types";
 import { useEffect, useState } from "react";
 import {
+    BooleanInput,
     Create,
     required,
     SelectInput,
@@ -78,14 +79,13 @@ const TransferCreate = () => {
                     label={"Target (schema.table)"}
                     helperText={currentTargetType.label}
                 />
-                <SelectInput
+                <BooleanInput
                     name="is_scheduled"
+                    label="Is scheduled"
                     source="is_scheduled"
-                    choices={scheduledValues}
-                    validate={required()}
-                    value={isScheduled}
+                    checked={isScheduled}
                     onChange={(event) => {
-                        setIsScheduled(event.target.value);
+                        setIsScheduled(event.target.checked);
                     }}
                 />
                 <TextInput
