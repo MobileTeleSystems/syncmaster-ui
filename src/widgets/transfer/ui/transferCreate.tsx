@@ -2,7 +2,7 @@ import EditTransferFormWrapper from "@entities/transfer/ui/edit/wrappers/editTra
 import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import ConnectionSelector from "@widgets/connectionSelector";
-import { scheduledValues, strategyParams } from "@widgets/transfer/ui/types";
+import { strategyParams } from "@widgets/transfer/ui/types";
 import { useEffect, useState } from "react";
 import {
     BooleanInput,
@@ -62,8 +62,7 @@ const TransferCreate = () => {
                 />
                 <EditTransferFormWrapper
                     transferType={currentSourceType.label}
-                    source={"source_params.table_name"}
-                    label={"Source (schema.table)"}
+                    sourceTargetType={"source"}
                 />
                 <ConnectionSelector
                     id={currentGroup.id}
@@ -74,8 +73,7 @@ const TransferCreate = () => {
                 />
                 <EditTransferFormWrapper
                     transferType={currentTargetType.label}
-                    source={"target_params.table_name"}
-                    label={"Target (schema.table)"}
+                    sourceTargetType={"target"}
                 />
                 <BooleanInput
                     name="is_scheduled"

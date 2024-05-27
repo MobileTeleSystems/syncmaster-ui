@@ -68,8 +68,7 @@ const TransferEditForm = ({ record }) => {
                 />
                 <EditTransferFormWrapper
                     transferType={currentSourceType.label}
-                    source={"source_params.table_name"}
-                    label={"Source (schema.table)"}
+                    sourceTargetType={"source"}
                 />
                 <ConnectionSelector
                     id={currentGroup.id}
@@ -80,8 +79,7 @@ const TransferEditForm = ({ record }) => {
                 />
                 <EditTransferFormWrapper
                     transferType={currentTargetType.label}
-                    source={"target_params.table_name"}
-                    label={"Target (schema.table)"}
+                    sourceTargetType={"target"}
                 />
                 <BooleanInput
                     name="is_scheduled"
