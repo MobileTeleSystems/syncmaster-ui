@@ -1,5 +1,7 @@
+import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
+import { useEffect } from "react";
 import {
     EditButton,
     Loading,
@@ -12,8 +14,12 @@ import {
 import { useParams } from "react-router";
 
 const QueueShow = () => {
+    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
+    useEffect(() => {
+        setCanChangeCurrentGroup(true);
+    }, []);
     const { id } = useParams();
-    if (id === undefined) return <Error message={"Undefined id"}/>;
+    if (id === undefined) return <Error message={"Undefined id"} />;
     const { data, isLoading, error } = useGetOne("queues", { id });
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;

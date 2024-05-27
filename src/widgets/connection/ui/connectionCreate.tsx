@@ -3,6 +3,7 @@ import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import dataProvider from "@shared/api/dataProvider";
 import Warning from "@shared/ui/warning";
 import type { ConnectionData } from "@widgets/connection/types";
+import { useEffect } from "react";
 import {
     Create,
     FormDataConsumer,
@@ -13,8 +14,14 @@ import {
     TextInput,
 } from "react-admin";
 import { useQuery } from "react-query";
+import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 
 const ConnectionCreate = () => {
+    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
+    useEffect(() => {
+        setCanChangeCurrentGroup(true);
+    }, []);
+
     const { data: connectionTypes, isLoading } = useQuery(
         ["connections", "getConnectionTypes"],
         () => dataProvider.getConnectionTypes(),

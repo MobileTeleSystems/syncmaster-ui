@@ -1,5 +1,6 @@
-import type { BaseList } from "@entities/types";
+import type { RunBaseList } from "@entities/types";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
+import { PlayArrow } from "@mui/icons-material";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
 import { useState } from "react";
@@ -12,17 +13,17 @@ import {
     useGetList,
 } from "react-admin";
 
-const BaseList = ({ type, title, element }: BaseList) => {
+const RunBaseList = ({ type, title, element, transferId }: RunBaseList) => {
     const [currentGroup] = useLocalStoreCurrentGroup();
     const [page, setPage] = useState(1);
-    const [perPage, setPerPage] = useState(10);
+    const [perPage, setPerPage] = useState(5);
     const { data, total, isLoading, error } = useGetList(type, {
-        meta: { group_id: currentGroup.id },
+        meta: { transfer_id: transferId },
         pagination: { page, perPage },
     });
 
     if (isLoading) return <Loading />;
-    if (error) return <Error message={error}/>;
+    if (error) return <Error message={error} />;
     const sort = { field: "name", order: "ASC" };
 
     return (
@@ -40,19 +41,12 @@ const BaseList = ({ type, title, element }: BaseList) => {
             >
                 {
                     <div>
-                        <Title title={title} />
-                        <div
-                            style={{
-                                display: "flex",
-                                justifyContent: "end",
-                                alignItems: "center",
-                                paddingTop: "0.5em",
-                                paddingBottom: "0.5em",
-                            }}
-                        >
-                            <CreateButton />
-                        </div>
                         <Card>{element}</Card>
+                        <Title title={title} />
+                        <CreateButton
+                            icon={<PlayArrow />}
+                            label={"Run transfer"}
+                        />
                         <Pagination />
                     </div>
                 }
@@ -61,4 +55,4 @@ const BaseList = ({ type, title, element }: BaseList) => {
     );
 };
 
-export default BaseList;
+export default RunBaseList;

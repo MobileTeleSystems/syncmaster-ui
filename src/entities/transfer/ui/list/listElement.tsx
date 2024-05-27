@@ -1,7 +1,7 @@
 import BaseDatagrid from "@entities/base/list/baseDatagrid";
 
-const QueueListElement = (): JSX.Element => {
+const TransferListElement = (): JSX.Element => {
     return <BaseDatagrid />;
 };
 
-export default QueueListElement;
+export default TransferListElement;

@@ -1,4 +1,4 @@
-import BaseDatagrid from "@entities/list/baseDatagrid";
+import BaseDatagrid from "@entities/base/list/baseDatagrid";
 import { TextField } from "react-admin";
 
 const ConnectionListElement = () => {

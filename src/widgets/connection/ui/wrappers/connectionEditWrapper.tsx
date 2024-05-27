@@ -1,4 +1,4 @@
-import ConnectionEdit from "@entities/connection/connectionEdit";
+import ConnectionEdit from "@widgets/connection/ui/connectionEdit";
 import Error from "@shared/ui/error";
 import Warning from "@shared/ui/warning";
 import { Loading, useGetOne } from "react-admin";

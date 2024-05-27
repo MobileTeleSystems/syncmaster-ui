@@ -3,7 +3,7 @@ import { Edit, SimpleForm, TextInput } from "react-admin";
 
 const QueueEdit = () => {
     return (
-        <Edit mutationMode="pessimistic">
+        <Edit mutationMode="pessimistic" redirect={"show"}>
             <SimpleForm toolbar={<EditToolbar />}>
                 <TextInput source="description" name={"description"} />
             </SimpleForm>

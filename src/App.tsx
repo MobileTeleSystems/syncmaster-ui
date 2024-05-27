@@ -1,16 +1,21 @@
-import ConnectionCreate from "@entities/connection/connectionCreate";
+import TransferList from "@entities/transfer/ui/list/transferList";
 import LayersRoundedIcon from "@mui/icons-material/LayersRounded";
+import MoveUpIcon from "@mui/icons-material/MoveUp";
 import authProvider from "@shared/api/authProvider";
 import dataProvider from "@shared/api/dataProvider";
 import { ThemeName, themes } from "@themes/themes";
+import ConnectionCreate from "@widgets/connection/ui/connectionCreate";
 import ConnectionEditWrapper from "@widgets/connection/ui/wrappers/connectionEditWrapper";
 import ConnectionListWrapper from "@widgets/connection/ui/wrappers/connectionListWrapper";
 import ConnectionShowWrapper from "@widgets/connection/ui/wrappers/connectionShowWrapper";
 import { Layout } from "@widgets/layout/ui";
+import QueueList from "@widgets/queue/ui/list/queueList";
 import QueueCreate from "@widgets/queue/ui/queueCreate";
 import QueueEdit from "@widgets/queue/ui/queueEdit";
-import QueueList from "@widgets/queue/ui/list/queueList";
 import QueueShow from "@widgets/queue/ui/queueShow";
+import TransferCreate from "@widgets/transfer/ui/transferCreate";
+import TransferEdit from "@widgets/transfer/ui/transferEdit";
+import TransferShow from "@widgets/transfer/ui/transferShow";
 import {
     Admin,
     localStorageStore,
@@ -39,6 +44,14 @@ const App = () => {
             darkTheme={darkTheme}
             defaultTheme="light"
         >
+            <Resource
+                name="transfers"
+                list={TransferList}
+                show={TransferShow}
+                edit={TransferEdit}
+                create={TransferCreate}
+                icon={MoveUpIcon}
+            />
             <Resource
                 name="connections"
                 list={ConnectionListWrapper}

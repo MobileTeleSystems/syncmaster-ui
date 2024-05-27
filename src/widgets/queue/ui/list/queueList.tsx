@@ -1,4 +1,4 @@
-import BaseList from "@entities/list/baseList";
+import BaseList from "@entities/base/list/baseList";
 import QueueListElement from "@widgets/queue/ui/list/listElement";
 
 const QueueList = () => {

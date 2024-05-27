@@ -143,6 +143,12 @@ const dataProvider: DataProvider = {
                 bodyObject = { description: params.data.description };
                 break;
             }
+            case "transfers": {
+                bodyObject = {
+                    ...params.data,
+                };
+                break;
+            }
             default: {
                 bodyObject = {};
                 break;
@@ -199,6 +205,13 @@ const dataProvider: DataProvider = {
                 };
                 break;
             }
+            case "transfers": {
+                bodyObject = {
+                    ...params.data,
+                };
+                break;
+            }
+
             default: {
                 bodyObject = {};
                 break;

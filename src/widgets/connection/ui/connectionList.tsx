@@ -1,4 +1,4 @@
-import BaseList from "@entities/list/baseList";
+import BaseList from "@entities/base/list/baseList";
 import Connections from "@widgets/connection/ui/connectionListElement";
 
 const ConnectionList = () => {
