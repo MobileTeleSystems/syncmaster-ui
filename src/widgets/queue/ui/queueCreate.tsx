@@ -4,9 +4,9 @@ import { Create, SimpleForm, TextInput } from "react-admin";
 import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 
 const QueueCreate = () => {
-    const [, setIsChange] = useLocalStoreChangeGroup();
+    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
     useEffect(() => {
-        setIsChange(true);
+        setCanChangeCurrentGroup(true);
     }, []);
 
     const [currentGroup] = useLocalStoreCurrentGroup();

@@ -6,7 +6,7 @@ const LinkedField = ({ id, resource }: { id: string, resource: string }) => {
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;
 
-    return <a href={"http://localhost:8888/#/" + resource + "/" + id +"/show"}>{data.name}</a>;
+    return <a href={"#/" + resource + "/" + id +"/show"}>{data.name}</a>;
 };
 
 export default LinkedField;

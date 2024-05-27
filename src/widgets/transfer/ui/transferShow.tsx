@@ -18,9 +18,9 @@ import {
 import { useParams } from "react-router";
 
 const TransferShow = () => {
-    const [, setIsChange] = useLocalStoreChangeGroup();
+    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
     useEffect(() => {
-        setIsChange(true);
+        setCanChangeCurrentGroup(true);
     }, []);
     const { id } = useParams();
     const { data, isLoading, error } = useGetOne("transfers", { id });

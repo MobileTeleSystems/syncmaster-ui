@@ -8,9 +8,9 @@ import { Loading, useGetOne } from "react-admin";
 import { useParams } from "react-router";
 
 const ConnectionShowWrapper = () => {
-    const [, setIsChange] = useLocalStoreChangeGroup();
+    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
     useEffect(() => {
-        setIsChange(true);
+        setCanChangeCurrentGroup(true);
     }, []);
     const { id } = useParams();
     if (id === undefined) return <Error message={"Undefined id"} />;

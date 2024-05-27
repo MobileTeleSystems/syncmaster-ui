@@ -17,9 +17,9 @@ import { useQuery } from "react-query";
 import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 
 const ConnectionCreate = () => {
-    const [, setIsChange] = useLocalStoreChangeGroup();
+    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
     useEffect(() => {
-        setIsChange(true);
+        setCanChangeCurrentGroup(true);
     }, []);
 
     const { data: connectionTypes, isLoading } = useQuery(

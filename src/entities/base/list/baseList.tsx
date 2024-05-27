@@ -14,7 +14,7 @@ import {
 } from "react-admin";
 
 const BaseList = ({ type, title, element }: BaseList) => {
-    const [, setIsChange] = useLocalStoreChangeGroup();
+    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
     const [currentGroup] = useLocalStoreCurrentGroup();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
@@ -24,7 +24,7 @@ const BaseList = ({ type, title, element }: BaseList) => {
     });
 
     useEffect(() => {
-        setIsChange(false);
+        setCanChangeCurrentGroup(false);
     }, []);
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;

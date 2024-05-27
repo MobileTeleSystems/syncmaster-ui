@@ -14,9 +14,9 @@ import {
 import { useParams } from "react-router";
 
 const QueueShow = () => {
-    const [, setIsChange] = useLocalStoreChangeGroup();
+    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
     useEffect(() => {
-        setIsChange(true);
+        setCanChangeCurrentGroup(true);
     }, []);
     const { id } = useParams();
     if (id === undefined) return <Error message={"Undefined id"} />;

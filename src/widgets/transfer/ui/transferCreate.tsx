@@ -14,9 +14,9 @@ import {
 } from "react-admin";
 
 const TransferCreate = () => {
-    const [, setIsChange] = useLocalStoreChangeGroup();
+    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
     useEffect(() => {
-        setIsChange(true);
+        setCanChangeCurrentGroup(true);
     }, []);
 
     const [currentGroup] = useLocalStoreCurrentGroup();
