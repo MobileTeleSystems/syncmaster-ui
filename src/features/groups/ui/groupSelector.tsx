@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 const Groups = () => {
     const [currentGroup, setCurrentGroup] = useLocalStoreCurrentGroup();
     const [groupList, _] = useLocalStoreGroupList();
-    const [isCanChange] = useLocalStoreChangeGroup();
+    const [currentGroupLocked] = useLocalStoreChangeGroup();
 
     return (
         <>
@@ -41,7 +41,7 @@ const Groups = () => {
                 noOptionsText={"No groups found"}
                 // Needed to save the display of the selected group when refreshing the page
                 value={{ label: currentGroup.label }}
-                disabled={isCanChange}
+                disabled={currentGroupLocked}
             />
         </>
     );
