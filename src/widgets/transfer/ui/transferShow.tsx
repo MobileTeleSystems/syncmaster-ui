@@ -1,4 +1,5 @@
-import ShowTransferParamsWrapper from "@entities/transfer/ui/show/wrappers/showTransferParamsWrapper";
+import DBSourceParamsShow from "@entities/transfer/ui/show/dbSourceParamsShow";
+import DBTargetParamsShow from "@entities/transfer/ui/show/dbTargetParamsShow";
 import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 import { Card } from "@mui/material";
 import LinkedField from "@shared/linkedField";
@@ -47,21 +48,13 @@ const TransferShow = () => {
                             label={`Source connection (${data.source_params.type})`}
                             resource={"connections"}
                         />
-                        <ShowTransferParamsWrapper
-                            label={"Source (schema.table)"}
-                            source={"source_params.table_name"}
-                            transferType={data.source_params.type}
-                        />
+                        <DBSourceParamsShow />
                         <LinkedField
                             id={data.target_connection_id}
                             label={`Target connection (${data.target_params.type})`}
                             resource={"connections"}
                         />
-                        <ShowTransferParamsWrapper
-                            label={"Target (schema.table)"}
-                            source={"target_params.table_name"}
-                            transferType={data.target_params.type}
-                        />
+                        <DBTargetParamsShow />
                         <BooleanField
                             name="is_scheduled"
                             label="Is scheduled"

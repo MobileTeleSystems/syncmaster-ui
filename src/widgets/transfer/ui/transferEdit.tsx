@@ -1,5 +1,4 @@
 import EditToolbar from "@entities/editToolbar";
-import EditTransferFormWrapper from "@entities/transfer/ui/edit/wrappers/editTransferFormWrapper";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import ConnectionSelector from "@widgets/connectionSelector";
 import { strategyParams } from "@widgets/transfer/ui/types";
@@ -14,6 +13,8 @@ import {
     TextInput,
     useEditController,
 } from "react-admin";
+import DBSourceParamsEdit from "@entities/transfer/ui/edit/DBSourceParamsEdit";
+import DBTargetParamsEdit from "@entities/transfer/ui/edit/DBTargetParamsEdit";
 
 const TransferEditForm = ({ record }) => {
     const [currentGroup] = useLocalStoreCurrentGroup();
@@ -66,10 +67,7 @@ const TransferEditForm = ({ record }) => {
                     setData={setCurrentSourceType}
                     label={`Source connection (${currentSourceType.label})`}
                 />
-                <EditTransferFormWrapper
-                    transferType={currentSourceType.label}
-                    sourceTargetType={"source"}
-                />
+                <DBSourceParamsEdit />
                 <ConnectionSelector
                     id={currentGroup.id}
                     name={"target_connection_id"}
@@ -77,10 +75,7 @@ const TransferEditForm = ({ record }) => {
                     setData={setCurrentTargetType}
                     label={`Target connection (${currentTargetType.label})`}
                 />
-                <EditTransferFormWrapper
-                    transferType={currentTargetType.label}
-                    sourceTargetType={"target"}
-                />
+                <DBTargetParamsEdit />
                 <BooleanInput
                     name="is_scheduled"
                     label="Is scheduled"
