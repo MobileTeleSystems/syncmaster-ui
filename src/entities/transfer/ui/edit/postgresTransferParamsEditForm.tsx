@@ -1,6 +1,6 @@
 import { TextInput } from "react-admin";
 
-const OracleTransferEditForm = ({
+const PostgresTransferParamsEditForm = ({
     source,
     label,
     helperText,
@@ -19,4 +19,4 @@ const OracleTransferEditForm = ({
     );
 };
 
-export default OracleTransferEditForm;
+export default PostgresTransferParamsEditForm;

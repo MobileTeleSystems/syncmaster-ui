@@ -23,7 +23,7 @@ export const ConnectionEdit = ({ data }: { data: ConnectionData }) => {
     if (isLoading) return <Loading />;
 
     return (
-        <Edit mutationMode="pessimistic">
+        <Edit mutationMode="pessimistic" redirect={"show"}>
             <SimpleForm toolbar={<EditToolbar />}>
                 <SelectInput
                     name="connection_data.type"

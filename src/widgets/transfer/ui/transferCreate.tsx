@@ -1,7 +1,8 @@
-import Selector from "@entities/selector";
+import EditTransferFormWrapper from "@entities/transfer/ui/edit/wrappers/editTransferFormWrapper";
 import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
-import EditTransferFormWrapper from "@entities/transfer/ui/edit/wrappers/editTransferFormWrapper";
+import Selector from "@widgets/selector";
+import { scheduledValues, strategyParams } from "@widgets/transfer/ui/types";
 import { useEffect, useState } from "react";
 import {
     Create,
@@ -10,7 +11,6 @@ import {
     SimpleForm,
     TextInput,
 } from "react-admin";
-import { scheduledValues, strategyParams } from "@widgets/transfer/ui/types";
 
 const TransferCreate = () => {
     const [, setIsChange] = useLocalStoreChangeGroup();
@@ -20,6 +20,7 @@ const TransferCreate = () => {
 
     const [currentGroup] = useLocalStoreCurrentGroup();
     const [isScheduled, setIsScheduled] = useState<true | false>();
+    // since the list of fields in the target and source parameters depends on the type of connection need to track the states
     const [currentSourceType, setCurrentSourceType] = useState<{
         id: number;
         label: string;
@@ -61,7 +62,7 @@ const TransferCreate = () => {
                 <EditTransferFormWrapper
                     transferType={currentSourceType.label}
                     source={"source_params.table_name"}
-                    label={"Source"}
+                    label={"Source (schema.table)"}
                     helperText={currentSourceType.label}
                 />
                 <Selector
@@ -74,7 +75,7 @@ const TransferCreate = () => {
                 <EditTransferFormWrapper
                     transferType={currentTargetType.label}
                     source={"target_params.table_name"}
-                    label={"Target"}
+                    label={"Target (schema.table)"}
                     helperText={currentTargetType.label}
                 />
                 <SelectInput

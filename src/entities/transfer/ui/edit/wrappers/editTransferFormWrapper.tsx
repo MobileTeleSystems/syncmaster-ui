@@ -1,6 +1,6 @@
 import Warning from "@shared/ui/warning";
-import OracleTransferEditForm from "@entities/transfer/ui/edit/oracleTransferEditForm";
-import PostgresTransferEditForm from "@entities/transfer/ui/edit/postgresTransferEditForm";
+import OracleTransferParamsEditForm from "@entities/transfer/ui/edit/oracleTransferParamsEditForm";
+import PostgresTransferParamsEditForm from "@entities/transfer/ui/edit/postgresTransferParamsEditForm";
 
 const EditTransferFormWrapper = ({
     transferType,
@@ -15,7 +15,7 @@ const EditTransferFormWrapper = ({
 }) => {
     if (transferType === "postgres") {
         return (
-            <PostgresTransferEditForm
+            <PostgresTransferParamsEditForm
                 source={source}
                 label={label}
                 helperText={helperText}
@@ -24,7 +24,7 @@ const EditTransferFormWrapper = ({
     }
     if (transferType === "oracle") {
         return (
-            <OracleTransferEditForm
+            <OracleTransferParamsEditForm
                 source={source}
                 label={label}
                 helperText={helperText}

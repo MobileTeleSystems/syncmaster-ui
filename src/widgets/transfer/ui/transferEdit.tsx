@@ -1,10 +1,11 @@
 import EditToolbar from "@entities/editToolbar";
-import Selector from "@entities/selector";
-import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import EditTransferFormWrapper from "@entities/transfer/ui/edit/wrappers/editTransferFormWrapper";
-import { scheduledValues, strategyParams } from "@widgets/transfer/ui/types";
+import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
+import Selector from "@widgets/selector";
+import { strategyParams } from "@widgets/transfer/ui/types";
 import { useState } from "react";
 import {
+    BooleanInput,
     Edit,
     Loading,
     required,
@@ -16,7 +17,7 @@ import {
 
 const TransferEditForm = ({ record }) => {
     const [currentGroup] = useLocalStoreCurrentGroup();
-    const [isScheduled, setIsScheduled] = useState<true | false>(
+    const [isScheduled, setIsScheduled] = useState<boolean>(
         record.is_scheduled,
     );
     const [currentSourceType, setCurrentSourceType] = useState({
@@ -45,7 +46,11 @@ const TransferEditForm = ({ record }) => {
         },
     });
     return (
-        <Edit mutationMode="pessimistic" transform={transform}>
+        <Edit
+            mutationMode="pessimistic"
+            transform={transform}
+            redirect={"show"}
+        >
             <SimpleForm toolbar={<EditToolbar />} values={processedData}>
                 <TextInput source="name" name={"name"} />
                 <TextInput source="description" name={"description"} />
@@ -64,7 +69,7 @@ const TransferEditForm = ({ record }) => {
                 <EditTransferFormWrapper
                     transferType={currentSourceType.label}
                     source={"source_params.table_name"}
-                    label={"Source"}
+                    label={"Source (schema.table)"}
                     helperText={currentSourceType.label}
                 />
                 <Selector
@@ -77,17 +82,16 @@ const TransferEditForm = ({ record }) => {
                 <EditTransferFormWrapper
                     transferType={currentTargetType.label}
                     source={"target_params.table_name"}
-                    label={"Target"}
+                    label={"Target (schema.table)"}
                     helperText={currentTargetType.label}
                 />
-                <SelectInput
+                <BooleanInput
                     name="is_scheduled"
+                    label="Is scheduled"
                     source="is_scheduled"
-                    choices={scheduledValues}
-                    validate={required()}
-                    value={isScheduled}
+                    checked={isScheduled}
                     onChange={(event) => {
-                        setIsScheduled(event.target.value);
+                        setIsScheduled(event.target.checked);
                     }}
                 />
                 <TextInput

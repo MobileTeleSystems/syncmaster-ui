@@ -1,3 +1,4 @@
+import ShowTransferParamsWrapper from "@entities/transfer/ui/show/wrappers/showTransferParamsWrapper";
 import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 import { Card } from "@mui/material";
 import LinkedField from "@shared/linkedField";
@@ -5,6 +6,7 @@ import Error from "@shared/ui/error";
 import RunList from "@widgets/run/ui/list/runList";
 import { useEffect } from "react";
 import {
+    BooleanField,
     EditButton,
     Loading,
     RecordContextProvider,
@@ -26,14 +28,8 @@ const TransferShow = () => {
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;
 
-    const processedData = {
-        ...data,
-        source_params: JSON.stringify(data.source_params),
-        target_params: JSON.stringify(data.target_params),
-        strategy_params: JSON.stringify(data.strategy_params),
-    };
     return (
-        <RecordContextProvider value={processedData}>
+        <RecordContextProvider value={data}>
             <div style={{ paddingTop: "1em" }}>
                 <Title title={"Transfer " + data.name} />
                 <Card>
@@ -48,20 +44,40 @@ const TransferShow = () => {
                         />
                         <LinkedField
                             id={data.source_connection_id}
-                            label="Source connection"
+                            label={`Source connection (${data.source_params.type})`}
                             resource={"connections"}
                         />
-                        <TextField source="source_params" />
+                        <ShowTransferParamsWrapper
+                            label={"Source (schema.table)"}
+                            source={"source_params.table_name"}
+                            transferType={data.source_params.type}
+                        />
                         <LinkedField
                             id={data.target_connection_id}
-                            label="Target connection"
+                            label={`Target connection (${data.target_params.type})`}
                             resource={"connections"}
                         />
-                        <TextField source="target_params" />
-                        <TextField source="is_scheduled" />
-                        {data.is_scheduled && <TextField source="schedule" />}
-                        <TextField source="is_scheduled" />
-                        <TextField source="strategy_params" />
+                        <ShowTransferParamsWrapper
+                            label={"Target (schema.table)"}
+                            source={"target_params.table_name"}
+                            transferType={data.target_params.type}
+                        />
+                        <BooleanField
+                            name="is_scheduled"
+                            label="Is scheduled"
+                            source="is_scheduled"
+                        />
+                        {data.is_scheduled && (
+                            <TextField
+                                source="schedule"
+                                name="is_scheduled"
+                                label={"Schedule"}
+                            />
+                        )}
+                        <TextField
+                            source="strategy_params.type"
+                            label={"Strategy params"}
+                        />
                         <RunList transferId={data.id} label={"Runs"} />
                     </SimpleShowLayout>
                 </Card>

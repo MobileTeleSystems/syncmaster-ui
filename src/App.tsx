@@ -1,10 +1,10 @@
-import ConnectionCreate from "@widgets/connection/ui/connectionCreate";
-import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
+import TransferList from "@entities/transfer/ui/list/transferList";
 import LayersRoundedIcon from "@mui/icons-material/LayersRounded";
 import MoveUpIcon from "@mui/icons-material/MoveUp";
 import authProvider from "@shared/api/authProvider";
 import dataProvider from "@shared/api/dataProvider";
 import { ThemeName, themes } from "@themes/themes";
+import ConnectionCreate from "@widgets/connection/ui/connectionCreate";
 import ConnectionEditWrapper from "@widgets/connection/ui/wrappers/connectionEditWrapper";
 import ConnectionListWrapper from "@widgets/connection/ui/wrappers/connectionListWrapper";
 import ConnectionShowWrapper from "@widgets/connection/ui/wrappers/connectionShowWrapper";
@@ -13,10 +13,8 @@ import QueueList from "@widgets/queue/ui/list/queueList";
 import QueueCreate from "@widgets/queue/ui/queueCreate";
 import QueueEdit from "@widgets/queue/ui/queueEdit";
 import QueueShow from "@widgets/queue/ui/queueShow";
-import RunShow from "@widgets/run/ui/runShow";
-import TransferEdit from "@widgets/transfer/ui/transferEdit";
-import TransferList from "@entities/transfer/ui/list/transferList";
 import TransferCreate from "@widgets/transfer/ui/transferCreate";
+import TransferEdit from "@widgets/transfer/ui/transferEdit";
 import TransferShow from "@widgets/transfer/ui/transferShow";
 import {
     Admin,
@@ -69,7 +67,6 @@ const App = () => {
                 create={QueueCreate}
                 icon={LayersRoundedIcon}
             />
-            <Resource name="runs" show={RunShow} icon={CompareArrowsIcon} />
         </Admin>
     );
 };
