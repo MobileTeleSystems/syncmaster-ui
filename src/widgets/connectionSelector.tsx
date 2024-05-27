@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Loading, required, SelectInput, useGetList } from "react-admin";
 import Error from "@shared/ui/error";
 
-const Selector = ({
+const ConnectionSelector = ({
     id,
     name,
     resource,
@@ -48,4 +48,4 @@ const Selector = ({
     );
 };
 
-export default Selector;
+export default ConnectionSelector;

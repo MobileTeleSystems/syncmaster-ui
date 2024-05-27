@@ -1,7 +1,7 @@
 import EditTransferFormWrapper from "@entities/transfer/ui/edit/wrappers/editTransferFormWrapper";
 import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
-import Selector from "@widgets/selector";
+import ConnectionSelector from "@widgets/connectionSelector";
 import { scheduledValues, strategyParams } from "@widgets/transfer/ui/types";
 import { useEffect, useState } from "react";
 import {
@@ -48,12 +48,12 @@ const TransferCreate = () => {
             <SimpleForm defaultValues={groupId()}>
                 <TextInput source="name" name={"name"} />
                 <TextInput source="description" name={"description"} />
-                <Selector
+                <ConnectionSelector
                     id={currentGroup.id}
                     name={"queue_id"}
                     resource={"queues"}
                 />
-                <Selector
+                <ConnectionSelector
                     id={currentGroup.id}
                     name={"source_connection_id"}
                     resource={"connections"}
@@ -66,7 +66,7 @@ const TransferCreate = () => {
                     label={"Source (schema.table)"}
                     helperText={currentSourceType.label}
                 />
-                <Selector
+                <ConnectionSelector
                     id={currentGroup.id}
                     name={"target_connection_id"}
                     resource={"connections"}

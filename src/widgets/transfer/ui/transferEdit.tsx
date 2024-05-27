@@ -1,7 +1,7 @@
 import EditToolbar from "@entities/editToolbar";
 import EditTransferFormWrapper from "@entities/transfer/ui/edit/wrappers/editTransferFormWrapper";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
-import Selector from "@widgets/selector";
+import ConnectionSelector from "@widgets/connectionSelector";
 import { strategyParams } from "@widgets/transfer/ui/types";
 import { useState } from "react";
 import {
@@ -54,12 +54,12 @@ const TransferEditForm = ({ record }) => {
             <SimpleForm toolbar={<EditToolbar />} values={processedData}>
                 <TextInput source="name" name={"name"} />
                 <TextInput source="description" name={"description"} />
-                <Selector
+                <ConnectionSelector
                     id={currentGroup.id}
                     name={"queue_id"}
                     resource={"queues"}
                 />
-                <Selector
+                <ConnectionSelector
                     id={currentGroup.id}
                     name={"source_connection_id"}
                     resource={"connections"}
@@ -72,7 +72,7 @@ const TransferEditForm = ({ record }) => {
                     label={"Source (schema.table)"}
                     helperText={currentSourceType.label}
                 />
-                <Selector
+                <ConnectionSelector
                     id={currentGroup.id}
                     name={"target_connection_id"}
                     resource={"connections"}
