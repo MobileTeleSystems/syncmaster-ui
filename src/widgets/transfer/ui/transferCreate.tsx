@@ -58,26 +58,24 @@ const TransferCreate = () => {
                     name={"source_connection_id"}
                     resource={"connections"}
                     setData={setCurrentSourceType}
-                    label={"Source connection"}
+                    label={`Source connection (${currentSourceType.label})`}
                 />
                 <EditTransferFormWrapper
                     transferType={currentSourceType.label}
                     source={"source_params.table_name"}
                     label={"Source (schema.table)"}
-                    helperText={currentSourceType.label}
                 />
                 <ConnectionSelector
                     id={currentGroup.id}
                     name={"target_connection_id"}
                     resource={"connections"}
                     setData={setCurrentTargetType}
-                    label={"Target connection"}
+                    label={`Target connection (${currentTargetType.label})`}
                 />
                 <EditTransferFormWrapper
                     transferType={currentTargetType.label}
                     source={"target_params.table_name"}
                     label={"Target (schema.table)"}
-                    helperText={currentTargetType.label}
                 />
                 <BooleanInput
                     name="is_scheduled"

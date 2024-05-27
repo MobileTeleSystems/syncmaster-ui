@@ -6,19 +6,16 @@ const EditTransferFormWrapper = ({
     transferType,
     source,
     label,
-    helperText,
 }: {
     transferType: string;
     source: string;
     label: string;
-    helperText: string;
 }) => {
     if (transferType === "postgres") {
         return (
             <PostgresTransferParamsEditForm
                 source={source}
                 label={label}
-                helperText={helperText}
             />
         );
     }
@@ -27,7 +24,6 @@ const EditTransferFormWrapper = ({
             <OracleTransferParamsEditForm
                 source={source}
                 label={label}
-                helperText={helperText}
             />
         );
     }

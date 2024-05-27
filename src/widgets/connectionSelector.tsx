@@ -1,6 +1,6 @@
+import Error from "@shared/ui/error";
 import { useState } from "react";
 import { Loading, required, SelectInput, useGetList } from "react-admin";
-import Error from "@shared/ui/error";
 
 const ConnectionSelector = ({
     id,
