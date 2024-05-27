@@ -6,6 +6,7 @@ const LinkedField = ({ id, resource }: { id: string, resource: string }) => {
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;
 
+    // TODO: replace with https://marmelab.com/react-admin/ReferenceField.html
     return <a href={"#/" + resource + "/" + id +"/show"}>{data.name}</a>;
 };
 
