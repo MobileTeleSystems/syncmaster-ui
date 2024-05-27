@@ -7,7 +7,7 @@ const EditTransferFormWrapper = ({
     sourceTargetType,
 }: {
     transferType: string;
-    sourceTargetType: string;
+    sourceTargetType: "source" | "target";
 }) => {
     let source = "";
     let label = "";
