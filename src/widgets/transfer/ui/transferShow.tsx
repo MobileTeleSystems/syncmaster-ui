@@ -71,7 +71,10 @@ const TransferShow = () => {
                             source="strategy_params.type"
                             label={"Strategy params"}
                         />
-                        <RunList transferId={data.id} />
+                        <RunList
+                            transferId={data.id}
+                            transferName={data.name}
+                        />
                     </SimpleShowLayout>
                 </Card>
                 <div

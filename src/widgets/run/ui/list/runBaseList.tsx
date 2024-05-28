@@ -13,7 +13,12 @@ import {
     useGetList,
 } from "react-admin";
 
-const RunBaseList = ({ type, element, transferId }: RunBaseList) => {
+const RunBaseList = ({
+    type,
+    element,
+    transferId,
+    transferName,
+}: RunBaseList) => {
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(5);
     const { data, total, isLoading, error } = useGetList(type, {
@@ -55,10 +60,17 @@ const RunBaseList = ({ type, element, transferId }: RunBaseList) => {
                             label={"Run transfer"}
                             onClick={handleRunTransfer}
                             children={<PlayArrow />}
+                            sx={{
+                                bgcolor: "background.paper",
+                                boxShadow: 1,
+                                borderRadius: 2,
+                                p: 2,
+                                mt: 1,
+                            }}
                         />
                         <Confirm
                             isOpen={open}
-                            title={`Run transfer #${transferId}`}
+                            title={`Run transfer ${transferName} (#${transferId})`}
                             content="Are you sure you want to run this transfer?"
                             onConfirm={handleConfirm}
                             onClose={handleDialogClose}

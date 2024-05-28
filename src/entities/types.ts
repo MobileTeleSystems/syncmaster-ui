@@ -8,6 +8,7 @@ export type RunBaseList = {
     type: string;
     element: JSX.Element;
     transferId: number;
+    transferName: string;
 };
 
 export type BaseListColumns = {
