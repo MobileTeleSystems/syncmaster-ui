@@ -24,10 +24,15 @@ const RunShow = () => {
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;
 
+    const processedData = {
+        ...data,
+        transfer_dump: JSON.stringify(data.transfer_dump)
+    }
+
     return (
-        <RecordContextProvider value={data}>
+        <RecordContextProvider value={processedData}>
             <div style={{ paddingTop: "1em" }}>
-                <Title title={"Transfer " + data.name} />
+                <Title title={"Run #" + id} />
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="started_at" />
