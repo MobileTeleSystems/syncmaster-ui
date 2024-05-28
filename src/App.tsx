@@ -24,6 +24,8 @@ import {
     StoreContextProvider,
     useStore,
 } from "react-admin";
+import RunList from "@widgets/run/ui/list/runList";
+import RunShow from "@widgets/run/ui/runShow";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -51,6 +53,11 @@ const App = () => {
                 edit={TransferEdit}
                 create={TransferCreate}
                 icon={MoveUpIcon}
+            />
+            <Resource
+                name="runs"
+                list={RunList}
+                show={RunShow}
             />
             <Resource
                 name="connections"

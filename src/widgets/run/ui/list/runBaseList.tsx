@@ -1,5 +1,4 @@
 import type { RunBaseList } from "@entities/types";
-import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import { PlayArrow } from "@mui/icons-material";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
@@ -14,7 +13,6 @@ import {
 } from "react-admin";
 
 const RunBaseList = ({ type, title, element, transferId }: RunBaseList) => {
-    const [currentGroup] = useLocalStoreCurrentGroup();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(5);
     const { data, total, isLoading, error } = useGetList(type, {
