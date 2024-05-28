@@ -287,5 +287,26 @@ const dataProvider: DataProvider = {
                 });
         });
     },
+    runTransfer: (id: string) => {
+        return new Promise((resolve, reject) => {
+            const url = new URL(apiUrl + "/" + apiVersion + "/runs");
+            return fetch(url.toString(), {
+                headers: getPOSTHeaders(),
+                method: "POST",
+                body: JSON.stringify({ transfer_id: id }),
+            })
+                .then(parseResponse)
+                .then(({ status, statusText, headers, body }) => {
+                    const json = parseJSON(
+                        status,
+                        statusText,
+                        headers,
+                        body,
+                        reject,
+                    );
+                    return resolve(json);
+                });
+        });
+    },
 };
 export default dataProvider;
