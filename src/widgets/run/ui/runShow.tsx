@@ -14,6 +14,7 @@ import {
     useGetOne,
 } from "react-admin";
 import { useParams } from "react-router";
+import LinkedField from "@shared/linkedField";
 
 const RunShow = () => {
     const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
@@ -48,6 +49,11 @@ const RunShow = () => {
                 <Title title={"Run #" + id} />
                 <Card>
                     <SimpleShowLayout>
+                        <LinkedField
+                            id={data.transfer_id}
+                            label="Transfer"
+                            resource={"transfers"}
+                        />
                         <TextField source="started_at" />
                         <TextField source="ended_at" />
                         <TextField source="status" />
