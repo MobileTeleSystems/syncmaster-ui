@@ -265,5 +265,27 @@ const dataProvider: DataProvider = {
                 });
         });
     },
+    stopRun: (id: string) => {
+        return new Promise((resolve, reject) => {
+            const url = new URL(
+                apiUrl + "/" + apiVersion + "/runs/" + id + "/stop",
+            );
+            return fetch(url.toString(), {
+                headers: getAuthHeaders(),
+                method: "POST",
+            })
+                .then(parseResponse)
+                .then(({ status, statusText, headers, body }) => {
+                    const json = parseJSON(
+                        status,
+                        statusText,
+                        headers,
+                        body,
+                        reject,
+                    );
+                    return resolve(json);
+                });
+        });
+    },
 };
 export default dataProvider;
