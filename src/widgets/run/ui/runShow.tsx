@@ -1,5 +1,7 @@
 import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
+import StopIcon from "@mui/icons-material/Stop";
 import { Card } from "@mui/material";
+import LinkedField from "@shared/linkedField";
 import Error from "@shared/ui/error";
 import { useEffect, useState } from "react";
 import {
@@ -14,7 +16,6 @@ import {
     useGetOne,
 } from "react-admin";
 import { useParams } from "react-router";
-import LinkedField from "@shared/linkedField";
 
 const RunShow = () => {
     const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
@@ -72,7 +73,18 @@ const RunShow = () => {
                             paddingBottom: "0.5em",
                         }}
                     >
-                        <Button label={"Stop"} onClick={handleStopRun} />
+                        <Button
+                            label={"Stop"}
+                            children={<StopIcon />}
+                            onClick={handleStopRun}
+                            sx={{
+                                bgcolor: "background.paper",
+                                boxShadow: 1,
+                                borderRadius: 2,
+                                p: 2,
+                                color: "crimson",
+                            }}
+                        />
                         <Confirm
                             isOpen={open}
                             title={`Stop run #${id}`}

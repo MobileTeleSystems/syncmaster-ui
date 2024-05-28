@@ -5,7 +5,6 @@ const RunList = ({ transferId }: { transferId: number }) => {
     return (
         <RunBaseList
             type={"runs"}
-            title={"Runs"}
             element={<RunListElement />}
             transferId={transferId}
         />

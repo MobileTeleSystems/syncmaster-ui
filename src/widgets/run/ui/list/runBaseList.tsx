@@ -9,12 +9,11 @@ import {
     ListContextProvider,
     Loading,
     Pagination,
-    Title,
     useDataProvider,
     useGetList,
 } from "react-admin";
 
-const RunBaseList = ({ type, title, element, transferId }: RunBaseList) => {
+const RunBaseList = ({ type, element, transferId }: RunBaseList) => {
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(5);
     const { data, total, isLoading, error } = useGetList(type, {
@@ -52,7 +51,6 @@ const RunBaseList = ({ type, title, element, transferId }: RunBaseList) => {
                 {
                     <div>
                         <Card>{element}</Card>
-                        <Title title={title} />
                         <Button
                             label={"Run transfer"}
                             onClick={handleRunTransfer}
