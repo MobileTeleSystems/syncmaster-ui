@@ -1,4 +1,5 @@
-import { Button, useRecordContext } from "react-admin";
+import { Chip } from "@mui/material";
+import { useRecordContext } from "react-admin";
 
 const StatusFieldElement = ({ source }: { source: string }) => {
     const record = useRecordContext();
@@ -23,21 +24,21 @@ const StatusFieldElement = ({ source }: { source: string }) => {
 };
 
 const CreatedField = () => {
-    return <Button label={"Created"} />;
+    return <Chip label={"Created"} color="primary" />;
 };
 const StartedField = () => {
-    return <Button label={"Started"} />;
+    return <Chip label={"Started"} color="primary" />;
 };
 const FinishedField = () => {
-    return <Button label={"Finished"} sx={{ color: "#03C03C" }} />;
+    return <Chip label={"Finished"} color="success" />;
 };
 const StoppedField = () => {
-    return <Button label={"Stopped"} sx={{ color: "crimson" }} />;
+    return <Chip label={"Stopped"} color="warning" />;
 };
 const SendStopField = () => {
-    return <Button label={"Sended stop signal"} sx={{ color: "crimson" }} />;
+    return <Chip label={"Sended stop signal"} color="error" />;
 };
 const FailedField = () => {
-    return <Button label={"Failed"} sx={{ color: "crimson" }} />;
+    return <Chip label={"Failed"} color="error" />;
 };
 export default StatusFieldElement;
