@@ -1,9 +1,3 @@
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import DoDisturbIcon from "@mui/icons-material/DoDisturb";
-import FeedbackIcon from "@mui/icons-material/Feedback";
-import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
-import StopCircleIcon from "@mui/icons-material/StopCircle";
 import { Button, useRecordContext } from "react-admin";
 
 const StatusFieldElement = ({ source }: { source: string }) => {
@@ -29,47 +23,21 @@ const StatusFieldElement = ({ source }: { source: string }) => {
 };
 
 const CreatedField = () => {
-    return <Button label={"Created"} children={<AddCircleIcon />} />;
+    return <Button label={"Created"} />;
 };
 const StartedField = () => {
-    return (
-        <Button label={"Started"} children={<PlayCircleFilledWhiteIcon />} />
-    );
+    return <Button label={"Started"} />;
 };
 const FinishedField = () => {
-    return (
-        <Button
-            label={"Finished"}
-            children={<CheckCircleOutlineIcon />}
-            sx={{ color: "#03C03C" }}
-        />
-    );
+    return <Button label={"Finished"} sx={{ color: "#03C03C" }} />;
 };
 const StoppedField = () => {
-    return (
-        <Button
-            label={"Stopped"}
-            children={<StopCircleIcon />}
-            sx={{ color: "crimson" }}
-        />
-    );
+    return <Button label={"Stopped"} sx={{ color: "crimson" }} />;
 };
 const SendStopField = () => {
-    return (
-        <Button
-            label={"Sended stop signal"}
-            children={<DoDisturbIcon />}
-            sx={{ color: "crimson" }}
-        />
-    );
+    return <Button label={"Sended stop signal"} sx={{ color: "crimson" }} />;
 };
 const FailedField = () => {
-    return (
-        <Button
-            label={"Failed"}
-            children={<FeedbackIcon />}
-            sx={{ color: "crimson" }}
-        />
-    );
+    return <Button label={"Failed"} sx={{ color: "crimson" }} />;
 };
 export default StatusFieldElement;
