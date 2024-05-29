@@ -35,7 +35,7 @@ const DumpTransferData = ({ data }) => {
                             label={"Source connection"}
                         />
                         <DBSourceParamsShow label={"Source (schema.table)"} />{" "}
-                        // TODO: without the label option it does not write the
+                        // TODO: without the label option it does not show the
                         field name
                         <DumpConnectionDataWrapper
                             data={{
