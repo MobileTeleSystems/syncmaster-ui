@@ -7,7 +7,6 @@ const RunListElement = (): JSX.Element => {
             <TextField source="started_at" />
             <TextField source="ended_at" />
             <StatusField source={"status"}/>
-            {/*<TextField source="status" />*/}
             <TextField source="log_url" />
         </Datagrid>
     );
