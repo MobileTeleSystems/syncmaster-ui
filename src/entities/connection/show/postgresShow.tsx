@@ -2,7 +2,15 @@ import BaseConnectionShow from "@entities/connection/show/baseShow";
 
 import { ConnectionData } from "@widgets/connection/types";
 
-const PostgresConnectionShow = ({ data }: { data: ConnectionData }) => {
+const PostgresConnectionShow = ({
+    data,
+    editable = true,
+    showTitle = true,
+}: {
+    data: ConnectionData;
+    editable?: boolean;
+    showTitle?: boolean;
+}) => {
     return (
         <BaseConnectionShow
             data={data}
@@ -19,6 +27,8 @@ const PostgresConnectionShow = ({ data }: { data: ConnectionData }) => {
                 { source: "connection_data.host", label: "Host" },
                 { source: "connection_data.port", label: "Port" },
             ]}
+            editable={editable}
+            showTitle={showTitle}
         />
     );
 };

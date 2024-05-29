@@ -13,7 +13,7 @@ import QueueCreate from "@widgets/queue/ui/queueCreate";
 import QueueEdit from "@widgets/queue/ui/queueEdit";
 import QueueShow from "@widgets/queue/ui/queueShow";
 import RunList from "@widgets/run/ui/list/runList";
-import RunShow from "@widgets/run/ui/runShow";
+import RunShow from "@widgets/run/ui/show/runShow";
 import TransferCreate from "@widgets/transfer/ui/transferCreate";
 import TransferEdit from "@widgets/transfer/ui/transferEdit";
 import TransferShow from "@widgets/transfer/ui/transferShow";

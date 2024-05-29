@@ -11,9 +11,13 @@ import {
 const BaseConnectionShow = ({
     data,
     connectionColumns,
+    editable = true,
+    showTitle = true,
 }: {
     data: ConnectionData;
     connectionColumns: { source: string; label: string }[];
+    editable: boolean;
+    showTitle: boolean;
 }) => {
     const processedData = {
         ...data,
@@ -28,21 +32,23 @@ const BaseConnectionShow = ({
     return (
         <RecordContextProvider value={processedData}>
             <div style={{ paddingTop: "1em" }}>
-                <Title
-                    title={
-                        <Typography
-                            variant={"inherit"}
-                            noWrap={false}
-                            sx={{
-                                overflowY: "auto",
-                                width: "500px",
-                                paddingRight: "50px"
-                            }}
-                        >
-                            Connection {data.name}
-                        </Typography>
-                    }
-                />
+                {showTitle && (
+                    <Title
+                        title={
+                            <Typography
+                                variant={"inherit"}
+                                noWrap={false}
+                                sx={{
+                                    overflowY: "auto",
+                                    width: "500px",
+                                    paddingRight: "50px",
+                                }}
+                            >
+                                Connection {data.name}
+                            </Typography>
+                        }
+                    />
+                )}
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="name" />
@@ -56,17 +62,19 @@ const BaseConnectionShow = ({
                         ))}
                     </SimpleShowLayout>
                 </Card>
-                <div
-                    style={{
-                        display: "flex",
-                        justifyContent: "end",
-                        alignItems: "center",
-                        paddingTop: "0.5em",
-                        paddingBottom: "0.5em",
-                    }}
-                >
-                    <EditButton />
-                </div>
+                {editable && (
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "end",
+                            alignItems: "center",
+                            paddingTop: "0.5em",
+                            paddingBottom: "0.5em",
+                        }}
+                    >
+                        <EditButton />
+                    </div>
+                )}
             </div>
         </RecordContextProvider>
     );

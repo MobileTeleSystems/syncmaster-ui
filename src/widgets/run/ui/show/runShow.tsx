@@ -1,8 +1,9 @@
 import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 import StopIcon from "@mui/icons-material/Stop";
 import { Card } from "@mui/material";
-import LinkedField from "@shared/linkedField";
 import Error from "@shared/ui/error";
+import StatusField from "@widgets/run/ui/list/statusField";
+import DumpTransferData from "@widgets/run/ui/show/dumpTransferData";
 import { useEffect, useState } from "react";
 import {
     Button,
@@ -16,7 +17,7 @@ import {
     useGetOne,
 } from "react-admin";
 import { useParams } from "react-router";
-import StatusField from "@widgets/run/ui/list/statusField";
+import LinkedField from "@shared/linkedField";
 
 const RunShow = () => {
     const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
@@ -53,22 +54,16 @@ const RunShow = () => {
                     <SimpleShowLayout>
                         <TextField source="started_at" />
                         <TextField source="ended_at" />
-                        <StatusField source={"status"}/>
+                        <StatusField source={"status"} />
                         <TextField source="log_url" />
                         <LinkedField
                             id={data.transfer_id}
-                            label="Transfer"
+                            label={"Transfer"}
                             resource={"transfers"}
                         />
-                        <LinkedField
-                            resource={"connections"}
-                            id={data.transfer_dump.source_connection.id}
-                            label="Source connection"
-                        />
-                        <LinkedField
-                            resource={"connections"}
-                            id={data.transfer_dump.target_connection.id}
-                            label="Target connection"
+                        <DumpTransferData
+                            data={data.transfer_dump}
+                            label="Transfer dump data"
                         />
                     </SimpleShowLayout>
                 </Card>
