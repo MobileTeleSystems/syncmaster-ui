@@ -1,3 +1,4 @@
+import TransferListWrapper from "@entities/transfer/ui/list/transferListWrapper";
 import LayersRoundedIcon from "@mui/icons-material/LayersRounded";
 import MoveUpIcon from "@mui/icons-material/MoveUp";
 import authProvider from "@shared/api/authProvider";
@@ -8,7 +9,6 @@ import ConnectionEditWrapper from "@widgets/connection/ui/wrappers/connectionEdi
 import ConnectionListWrapper from "@widgets/connection/ui/wrappers/connectionListWrapper";
 import ConnectionShowWrapper from "@widgets/connection/ui/wrappers/connectionShowWrapper";
 import { Layout } from "@widgets/layout/ui";
-import QueueList from "@widgets/queue/ui/list/queueList";
 import QueueCreate from "@widgets/queue/ui/queueCreate";
 import QueueEdit from "@widgets/queue/ui/queueEdit";
 import QueueShow from "@widgets/queue/ui/queueShow";
@@ -25,7 +25,7 @@ import {
     StoreContextProvider,
     useStore,
 } from "react-admin";
-import TransferListWrapper from "@entities/transfer/ui/list/transferListWrapper";
+import QueueListWrapper from "@widgets/queue/ui/list/queueListWrapper";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -64,7 +64,7 @@ const App = () => {
             />
             <Resource
                 name="queues"
-                list={QueueList}
+                list={QueueListWrapper}
                 show={QueueShow}
                 edit={QueueEdit}
                 create={QueueCreate}

@@ -50,16 +50,25 @@ const RunShow = () => {
                 <Title title={"Run #" + id} />
                 <Card>
                     <SimpleShowLayout>
+                        <TextField source="started_at" />
+                        <TextField source="ended_at" />
+                        <TextField source="status" />
+                        <TextField source="log_url" />
                         <LinkedField
                             id={data.transfer_id}
                             label="Transfer"
                             resource={"transfers"}
                         />
-                        <TextField source="started_at" />
-                        <TextField source="ended_at" />
-                        <TextField source="status" />
-                        <TextField source="log_url" />
-                        <TextField source="transfer_dump" />
+                        <LinkedField
+                            resource={"connections"}
+                            id={data.transfer_dump.source_connection.id}
+                            label="Source connection"
+                        />
+                        <LinkedField
+                            resource={"connections"}
+                            id={data.transfer_dump.target_connection.id}
+                            label="Target connection"
+                        />
                     </SimpleShowLayout>
                 </Card>
                 {(processedData.status == "STARTED" ||
