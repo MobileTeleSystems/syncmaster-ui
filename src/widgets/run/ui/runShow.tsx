@@ -16,6 +16,7 @@ import {
     useGetOne,
 } from "react-admin";
 import { useParams } from "react-router";
+import StatusField from "@widgets/run/ui/list/statusField";
 
 const RunShow = () => {
     const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
@@ -52,7 +53,7 @@ const RunShow = () => {
                     <SimpleShowLayout>
                         <TextField source="started_at" />
                         <TextField source="ended_at" />
-                        <TextField source="status" />
+                        <StatusField source={"status"}/>
                         <TextField source="log_url" />
                         <LinkedField
                             id={data.transfer_id}
