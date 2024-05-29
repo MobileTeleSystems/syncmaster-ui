@@ -45,7 +45,7 @@ const DumpTransferData = ({ data }) => {
                             label={"Target connection"}
                         />
                         <DBTargetParamsShow label={"Target (schema.table)"} />{" "}
-                        // TODO: without the label option it does not write the
+                        // TODO: without the label option it does not show the
                         field name
                         <BooleanField
                             name="is_scheduled"

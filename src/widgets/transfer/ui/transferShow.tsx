@@ -49,7 +49,7 @@ const TransferShow = () => {
                             resource={"connections"}
                         />
                         <DBSourceParamsShow label={"Source (schema.table)"} />{" "}
-                        // TODO: without the label option it does not write the
+                        // TODO: without the label option it does not show the
                         field name
                         <LinkedField
                             id={data.target_connection_id}
@@ -57,7 +57,7 @@ const TransferShow = () => {
                             resource={"connections"}
                         />
                         <DBTargetParamsShow label={"Target (schema.table)"} />{" "}
-                        // TODO: without the label option it does not write the
+                        // TODO: without the label option it does not show the
                         field name
                         <BooleanField
                             name="is_scheduled"
