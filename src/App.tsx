@@ -1,4 +1,3 @@
-import TransferList from "@entities/transfer/ui/list/transferList";
 import LayersRoundedIcon from "@mui/icons-material/LayersRounded";
 import MoveUpIcon from "@mui/icons-material/MoveUp";
 import authProvider from "@shared/api/authProvider";
@@ -13,6 +12,8 @@ import QueueList from "@widgets/queue/ui/list/queueList";
 import QueueCreate from "@widgets/queue/ui/queueCreate";
 import QueueEdit from "@widgets/queue/ui/queueEdit";
 import QueueShow from "@widgets/queue/ui/queueShow";
+import RunList from "@widgets/run/ui/list/runList";
+import RunShow from "@widgets/run/ui/runShow";
 import TransferCreate from "@widgets/transfer/ui/transferCreate";
 import TransferEdit from "@widgets/transfer/ui/transferEdit";
 import TransferShow from "@widgets/transfer/ui/transferShow";
@@ -24,8 +25,7 @@ import {
     StoreContextProvider,
     useStore,
 } from "react-admin";
-import RunList from "@widgets/run/ui/list/runList";
-import RunShow from "@widgets/run/ui/runShow";
+import TransferListWrapper from "@entities/transfer/ui/list/transferListWrapper";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -48,17 +48,13 @@ const App = () => {
         >
             <Resource
                 name="transfers"
-                list={TransferList}
+                list={TransferListWrapper}
                 show={TransferShow}
                 edit={TransferEdit}
                 create={TransferCreate}
                 icon={MoveUpIcon}
             />
-            <Resource
-                name="runs"
-                list={RunList}
-                show={RunShow}
-            />
+            <Resource name="runs" list={RunList} show={RunShow} />
             <Resource
                 name="connections"
                 list={ConnectionListWrapper}
