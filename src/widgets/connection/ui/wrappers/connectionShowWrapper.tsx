@@ -19,10 +19,10 @@ const ConnectionShowWrapper = () => {
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;
     if (data.connection_data.type === "postgres") {
-        return <PostgresConnectionShow id={data.id} data={data} />;
+        return <PostgresConnectionShow data={data} />;
     }
     if (data.connection_data.type === "oracle") {
-        return <OracleConnectionShow id={data.id} data={data} />;
+        return <OracleConnectionShow data={data} />;
     }
 
     return <Warning message="Connection type does not implemented yet" />;
