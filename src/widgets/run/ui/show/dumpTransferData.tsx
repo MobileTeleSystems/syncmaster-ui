@@ -2,8 +2,8 @@ import DBSourceParamsShow from "@entities/transfer/ui/show/dbSourceParamsShow";
 import DBTargetParamsShow from "@entities/transfer/ui/show/dbTargetParamsShow";
 import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 import { Card } from "@mui/material";
+import LinkedField from "@shared/linkedField";
 import DumpConnectionDataWrapper from "@widgets/run/ui/show/dumpConnectionDataWrapper";
-import DumpQueueData from "@widgets/run/ui/show/dumpQueueData";
 import { useEffect } from "react";
 import {
     BooleanField,
@@ -11,8 +11,9 @@ import {
     SimpleShowLayout,
     TextField,
 } from "react-admin";
+import type { TransferDump } from "src/widgets/types";
 
-const DumpTransferData = ({ data }) => {
+const DumpTransferData = ({ data }: {data: TransferDump}) => {
     const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
     useEffect(() => {
         setCanChangeCurrentGroup(true);
@@ -24,9 +25,13 @@ const DumpTransferData = ({ data }) => {
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="id" />
-                        <TextField source="name" />
+                        <TextField source="name" label={"Transfer"} />
                         <TextField source="description" />
-                        <DumpQueueData data={data} label={"Queue dump"} />
+                        <LinkedField
+                            label={"Queue"}
+                            resource={"queues"}
+                            id={data.queue_id}
+                        />
                         <DumpConnectionDataWrapper
                             data={{
                                 ...data.source_connection,
