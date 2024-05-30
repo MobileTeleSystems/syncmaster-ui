@@ -13,4 +13,5 @@ export type RunBaseList = {
 
 export type BaseListColumns = {
     additionColumns?: JSX.Element;
+    name?: string,
 };

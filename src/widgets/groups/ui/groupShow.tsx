@@ -2,6 +2,7 @@ import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 import { Card } from "@mui/material";
 import LinkedField from "@shared/linkedField";
 import Error from "@shared/ui/error";
+import UserList from "@widgets/users/ui/list/userList";
 import { useEffect } from "react";
 import {
     EditButton,
@@ -40,6 +41,7 @@ const GroupShow = () => {
                             resource={"users"}
                             field={"username"}
                         />
+                        <UserList group_id={data.group_id} />
                     </SimpleShowLayout>
                 </Card>
                 <div
