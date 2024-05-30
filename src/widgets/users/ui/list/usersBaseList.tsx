@@ -1,3 +1,4 @@
+import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
 import { useState } from "react";
@@ -5,25 +6,19 @@ import {
     ListContextProvider,
     Loading,
     Pagination,
-    useGetList,
+    useDataProvider,
 } from "react-admin";
+import { useQuery } from "react-query";
 
-const UsersBaseList = ({
-    type,
-    element,
-    group_id,
-}: {
-    type: string;
-    element: JSX.Element;
-    group_id: number;
-}) => {
+const UsersBaseList = ({ element }: { element: JSX.Element }) => {
+    const [currentGroup] = useLocalStoreCurrentGroup();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(5);
-    const { data, total, isLoading, error } = useGetList(type, {
-        meta: { group_id: group_id },
-        pagination: { page, perPage },
-    });
-
+    const dataProvider = useDataProvider();
+    const { data, isLoading, error } = useQuery(
+        ["connections", "getConnectionTypes"],
+        () => dataProvider.getGroupUsers(currentGroup.id),
+    );
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;
     const sort = { field: "name", order: "ASC" };
@@ -32,8 +27,8 @@ const UsersBaseList = ({
         <div style={{ paddingTop: "1em" }}>
             <ListContextProvider
                 value={{
-                    data: data || [],
-                    total: total || 0,
+                    data: data.items || [],
+                    total: data.meta.total || 0,
                     setPerPage: setPerPage,
                     page: page,
                     perPage: perPage,
@@ -41,12 +36,10 @@ const UsersBaseList = ({
                     sort: sort,
                 }}
             >
-                {
-                    <div>
-                        <Card>{element}</Card>
-                        <Pagination />
-                    </div>
-                }
+                <div>
+                    <Card>{element}</Card>
+                    <Pagination />
+                </div>
             </ListContextProvider>
         </div>
     );

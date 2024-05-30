@@ -1,4 +1,4 @@
-import type { ConnectionTypes } from "@shared/api/types";
+import type { ConnectionTypes, UserRoles } from "@shared/api/types";
 import { getAuthHeaders, getPOSTHeaders } from "@shared/api/utils";
 import { DataProvider, HttpError } from "react-admin";
 
@@ -294,6 +294,57 @@ const dataProvider: DataProvider = {
                 headers: getPOSTHeaders(),
                 method: "POST",
                 body: JSON.stringify({ transfer_id: id }),
+            })
+                .then(parseResponse)
+                .then(({ status, statusText, headers, body }) => {
+                    const json = parseJSON(
+                        status,
+                        statusText,
+                        headers,
+                        body,
+                        reject,
+                    );
+                    return resolve(json);
+                });
+        });
+    },
+    updateUserRole: (groupId: number, userId: number, role: UserRoles) => {
+        return new Promise((resolve, reject) => {
+            const url = new URL(
+                apiUrl +
+                    "/" +
+                    apiVersion +
+                    "/groups/" +
+                    groupId +
+                    "/users/" +
+                    userId,
+            );
+            return fetch(url.toString(), {
+                headers: getPOSTHeaders(),
+                method: "POST",
+                body: JSON.stringify({ role: role }),
+            })
+                .then(parseResponse)
+                .then(({ status, statusText, headers, body }) => {
+                    const json = parseJSON(
+                        status,
+                        statusText,
+                        headers,
+                        body,
+                        reject,
+                    );
+                    return resolve(json);
+                });
+        });
+    },
+    getGroupUsers: (groupId: number) => {
+        return new Promise((resolve, reject) => {
+            const url = new URL(
+                apiUrl + "/" + apiVersion + "/groups/" + groupId + "/users/",
+            );
+            return fetch(url.toString(), {
+                headers: getAuthHeaders(),
+                method: "GET",
             })
                 .then(parseResponse)
                 .then(({ status, statusText, headers, body }) => {
