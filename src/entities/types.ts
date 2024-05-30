@@ -12,7 +12,14 @@ export type RunBaseList = {
 };
 
 export type BaseListColumns = {
-    resource: string,
+    resource: string;
     additionColumns?: JSX.Element[];
-    name?: string,
+    name?: string;
+};
+
+export let DeleteButtonStyle = {
+    bgcolor: "background.paper",
+    boxShadow: 1,
+    borderRadius: 2,
+    p: 1,
 };

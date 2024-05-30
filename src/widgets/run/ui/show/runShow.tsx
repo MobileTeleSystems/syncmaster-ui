@@ -18,6 +18,7 @@ import {
 } from "react-admin";
 import { useParams } from "react-router";
 import LinkedField from "@shared/linkedField";
+import { DeleteButtonStyle } from "@entities/types";
 
 const RunShow = () => {
     const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
@@ -83,10 +84,7 @@ const RunShow = () => {
                             children={<StopIcon />}
                             onClick={handleStopRun}
                             sx={{
-                                bgcolor: "background.paper",
-                                boxShadow: 1,
-                                borderRadius: 2,
-                                p: 2,
+                                ...DeleteButtonStyle,
                                 color: "crimson",
                             }}
                         />
