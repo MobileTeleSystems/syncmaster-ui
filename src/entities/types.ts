@@ -6,9 +6,9 @@ export type BaseList = {
 
 export type RunBaseList = {
     type: string;
-    title: string;
     element: JSX.Element;
     transferId: number;
+    transferName: string;
 };
 
 export type BaseListColumns = {

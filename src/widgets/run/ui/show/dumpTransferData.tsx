@@ -3,58 +3,51 @@ import DBTargetParamsShow from "@entities/transfer/ui/show/dbTargetParamsShow";
 import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 import { Card } from "@mui/material";
 import LinkedField from "@shared/linkedField";
-import Error from "@shared/ui/error";
-import RunList from "@widgets/run/ui/list/runList";
+import DumpConnectionDataWrapper from "@widgets/run/ui/show/dumpConnectionDataWrapper";
 import { useEffect } from "react";
 import {
     BooleanField,
-    EditButton,
-    Loading,
     RecordContextProvider,
     SimpleShowLayout,
     TextField,
-    Title,
-    useGetOne,
 } from "react-admin";
-import { useParams } from "react-router";
+import type { TransferDump } from "src/widgets/types";
 
-const TransferShow = () => {
+const DumpTransferData = ({ data }: {data: TransferDump}) => {
     const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
     useEffect(() => {
         setCanChangeCurrentGroup(true);
     }, []);
-    const { id } = useParams();
-    const { data, isLoading, error } = useGetOne("transfers", { id });
-    if (id === undefined) return <Error message={"Undefined id"} />;
-    if (isLoading) return <Loading />;
-    if (error) return <Error message={error} />;
 
     return (
         <RecordContextProvider value={data}>
             <div style={{ paddingTop: "1em" }}>
-                <Title title={"Transfer " + data.name} />
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="id" />
-                        <TextField source="name" />
+                        <TextField source="name" label={"Transfer"} />
                         <TextField source="description" />
                         <LinkedField
-                            id={data.queue_id}
-                            label="Queue"
+                            label={"Queue"}
                             resource={"queues"}
+                            id={data.queue_id}
                         />
-                        <LinkedField
-                            id={data.source_connection_id}
-                            label={`Source connection (${data.source_params.type})`}
-                            resource={"connections"}
+                        <DumpConnectionDataWrapper
+                            data={{
+                                ...data.source_connection,
+                                connection_data: data.source_connection.data,
+                            }}
+                            label={"Source connection"}
                         />
                         <DBSourceParamsShow label={"Source (schema.table)"} />{" "}
                         // TODO: without the label option it does not show the
                         field name
-                        <LinkedField
-                            id={data.target_connection_id}
-                            label={`Target connection (${data.target_params.type})`}
-                            resource={"connections"}
+                        <DumpConnectionDataWrapper
+                            data={{
+                                ...data.target_connection,
+                                connection_data: data.target_connection.data,
+                            }}
+                            label={"Target connection"}
                         />
                         <DBTargetParamsShow label={"Target (schema.table)"} />{" "}
                         // TODO: without the label option it does not show the
@@ -75,26 +68,11 @@ const TransferShow = () => {
                             source="strategy_params.type"
                             label={"Strategy params"}
                         />
-                        <RunList
-                            transferId={data.id}
-                            transferName={data.name}
-                        />
                     </SimpleShowLayout>
                 </Card>
-                <div
-                    style={{
-                        display: "flex",
-                        justifyContent: "end",
-                        alignItems: "center",
-                        paddingTop: "0.5em",
-                        paddingBottom: "0.5em",
-                    }}
-                >
-                    <EditButton />
-                </div>
             </div>
         </RecordContextProvider>
     );
 };
 
-export default TransferShow;
+export default DumpTransferData;

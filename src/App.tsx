@@ -1,4 +1,4 @@
-import TransferList from "@entities/transfer/ui/list/transferList";
+import TransferListWrapper from "@entities/transfer/ui/list/transferListWrapper";
 import LayersRoundedIcon from "@mui/icons-material/LayersRounded";
 import MoveUpIcon from "@mui/icons-material/MoveUp";
 import authProvider from "@shared/api/authProvider";
@@ -9,10 +9,11 @@ import ConnectionEditWrapper from "@widgets/connection/ui/wrappers/connectionEdi
 import ConnectionListWrapper from "@widgets/connection/ui/wrappers/connectionListWrapper";
 import ConnectionShowWrapper from "@widgets/connection/ui/wrappers/connectionShowWrapper";
 import { Layout } from "@widgets/layout/ui";
-import QueueList from "@widgets/queue/ui/list/queueList";
 import QueueCreate from "@widgets/queue/ui/queueCreate";
 import QueueEdit from "@widgets/queue/ui/queueEdit";
 import QueueShow from "@widgets/queue/ui/queueShow";
+import RunList from "@widgets/run/ui/list/runList";
+import RunShow from "@widgets/run/ui/show/runShow";
 import TransferCreate from "@widgets/transfer/ui/transferCreate";
 import TransferEdit from "@widgets/transfer/ui/transferEdit";
 import TransferShow from "@widgets/transfer/ui/transferShow";
@@ -24,6 +25,7 @@ import {
     StoreContextProvider,
     useStore,
 } from "react-admin";
+import QueueListWrapper from "@widgets/queue/ui/list/queueListWrapper";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -46,12 +48,13 @@ const App = () => {
         >
             <Resource
                 name="transfers"
-                list={TransferList}
+                list={TransferListWrapper}
                 show={TransferShow}
                 edit={TransferEdit}
                 create={TransferCreate}
                 icon={MoveUpIcon}
             />
+            <Resource name="runs" list={RunList} show={RunShow} />
             <Resource
                 name="connections"
                 list={ConnectionListWrapper}
@@ -61,7 +64,7 @@ const App = () => {
             />
             <Resource
                 name="queues"
-                list={QueueList}
+                list={QueueListWrapper}
                 show={QueueShow}
                 edit={QueueEdit}
                 create={QueueCreate}

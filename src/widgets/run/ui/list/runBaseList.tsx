@@ -1,26 +1,40 @@
 import type { RunBaseList } from "@entities/types";
-import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import { PlayArrow } from "@mui/icons-material";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
 import { useState } from "react";
 import {
-    CreateButton,
+    Button,
+    Confirm,
     ListContextProvider,
     Loading,
     Pagination,
-    Title,
+    useDataProvider,
     useGetList,
 } from "react-admin";
 
-const RunBaseList = ({ type, title, element, transferId }: RunBaseList) => {
-    const [currentGroup] = useLocalStoreCurrentGroup();
+const RunBaseList = ({
+    type,
+    element,
+    transferId,
+    transferName,
+}: RunBaseList) => {
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(5);
     const { data, total, isLoading, error } = useGetList(type, {
         meta: { transfer_id: transferId },
         pagination: { page, perPage },
     });
+
+    const dataProvider = useDataProvider();
+    const [open, setOpen] = useState(false);
+
+    const handleRunTransfer = () => setOpen(true);
+    const handleDialogClose = () => setOpen(false);
+    const handleConfirm = () => {
+        dataProvider.runTransfer(transferId);
+        setOpen(false);
+    };
 
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;
@@ -42,10 +56,24 @@ const RunBaseList = ({ type, title, element, transferId }: RunBaseList) => {
                 {
                     <div>
                         <Card>{element}</Card>
-                        <Title title={title} />
-                        <CreateButton
-                            icon={<PlayArrow />}
+                        <Button
                             label={"Run transfer"}
+                            onClick={handleRunTransfer}
+                            children={<PlayArrow />}
+                            sx={{
+                                bgcolor: "background.paper",
+                                boxShadow: 1,
+                                borderRadius: 2,
+                                p: 2,
+                                mt: 1,
+                            }}
+                        />
+                        <Confirm
+                            isOpen={open}
+                            title={`Run transfer ${transferName} (#${transferId})`}
+                            content="Are you sure you want to run this transfer?"
+                            onConfirm={handleConfirm}
+                            onClose={handleDialogClose}
                         />
                         <Pagination />
                     </div>

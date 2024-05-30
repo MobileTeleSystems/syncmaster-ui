@@ -1,7 +1,15 @@
 import BaseConnectionShow from "@entities/connection/show/baseShow";
 import { ConnectionData } from "@widgets/connection/types";
 
-const OracleConnectionShow = ({ data }: { data: ConnectionData }) => {
+const OracleConnectionShow = ({
+    data,
+    editable = true,
+    showTitle = true,
+}: {
+    data: ConnectionData;
+    editable?: boolean;
+    showTitle?: boolean;
+}) => {
     return (
         <BaseConnectionShow
             data={data}
@@ -19,6 +27,8 @@ const OracleConnectionShow = ({ data }: { data: ConnectionData }) => {
                 { source: "connection_data.sid", label: "sid" },
                 { source: "connection_data.port", label: "Port" },
             ]}
+            editable={editable}
+            showTitle={showTitle}
         />
     );
 };

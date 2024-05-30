@@ -5,7 +5,7 @@ type UpdateTransferSchemaSourceTarget =
 type PostgresReadTransferSourceAndTarget = { type: "postgres" };
 type OracleReadTransferSourceAndTarget = { type: "oracle" };
 
-type StrategyParams = {
+export type StrategyParams = {
     type: "full" | "incremental";
 };
 
