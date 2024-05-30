@@ -10,6 +10,7 @@ const ConnectionListElement = () => {
                     label={"Connection Type"}
                 />
             }
+            resource={"connections"}
         />
     );
 };

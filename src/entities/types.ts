@@ -12,6 +12,7 @@ export type RunBaseList = {
 };
 
 export type BaseListColumns = {
+    resource: string,
     additionColumns?: JSX.Element;
     name?: string,
 };
