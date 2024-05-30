@@ -4,7 +4,6 @@ import type { BaseListColumns } from "@entities/types";
 const BaseDatagrid = ({ additionColumns, name = "name", resource }: BaseListColumns) => {
     return (
         <Datagrid rowClick="show" resource={resource}>
-            <TextField source="id" />
             <TextField source={name} />
             <TextField source="description" />
             {additionColumns}
