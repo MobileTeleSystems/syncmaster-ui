@@ -17,6 +17,7 @@ import RunShow from "@widgets/run/ui/show/runShow";
 import TransferCreate from "@widgets/transfer/ui/transferCreate";
 import TransferEdit from "@widgets/transfer/ui/transferEdit";
 import TransferShow from "@widgets/transfer/ui/transferShow";
+import GroupsIcon from "@mui/icons-material/Groups";
 import {
     Admin,
     localStorageStore,
@@ -26,6 +27,9 @@ import {
     useStore,
 } from "react-admin";
 import QueueListWrapper from "@widgets/queue/ui/list/queueListWrapper";
+import GroupListWrapper from "@widgets/groups/ui/list/groupListWrapper";
+import GroupShow from "@widgets/groups/ui/groupShow";
+import UserShow from "@widgets/users/ui/userShow";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -69,6 +73,18 @@ const App = () => {
                 edit={QueueEdit}
                 create={QueueCreate}
                 icon={LayersRoundedIcon}
+            />
+            <Resource
+                name="groups"
+                list={GroupListWrapper}
+                show={GroupShow}
+                // edit={TransferEdit}
+                // create={TransferCreate}
+                icon={GroupsIcon}
+            />
+            <Resource
+                name="users"
+                show={UserShow}
             />
         </Admin>
     );

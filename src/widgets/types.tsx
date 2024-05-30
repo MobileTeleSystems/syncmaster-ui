@@ -1,4 +1,4 @@
-import type { StrategyParams } from "src/entities/transfer/ui/edit/types";
+import type { StrategyParams } from "@entities/transfer/ui/edit/types";
 import type {
     OracleAuthData,
     OracleConnectionData,

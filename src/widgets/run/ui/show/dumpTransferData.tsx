@@ -11,7 +11,7 @@ import {
     SimpleShowLayout,
     TextField,
 } from "react-admin";
-import type { TransferDump } from "src/widgets/types";
+import type { TransferDump } from "@widgets/types";
 
 const DumpTransferData = ({ data }: {data: TransferDump}) => {
     const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
