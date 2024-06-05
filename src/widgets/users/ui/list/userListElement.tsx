@@ -1,4 +1,5 @@
 import { BaseButtonStyle } from "@entities/types";
+import Error from "@shared/ui/error";
 import UserRoleElement from "@widgets/users/ui/list/userRoleElement";
 import {
     Button,
@@ -7,8 +8,8 @@ import {
     TextField,
     useDelete,
     useRecordContext,
+    useRedirect,
 } from "react-admin";
-import Error from "@shared/ui/error";
 
 const DeleteButton = ({ group }: { group: string }) => {
     const record = useRecordContext();
@@ -17,20 +18,22 @@ const DeleteButton = ({ group }: { group: string }) => {
         previousData: record,
         meta: { group: group },
     });
+
     const handleClick = () => {
         deleteOne();
     };
+
     if (error) return <Error message={error} />;
     return (
-        <>
+        <div>
             <Button
                 variant="text"
                 disabled={isLoading}
                 onClick={handleClick}
-                label={"Delete"}
+                label={"Delete from group"}
                 sx={{ ...BaseButtonStyle, color: "crimson" }}
             ></Button>
-        </>
+        </div>
     );
 };
 
@@ -45,5 +48,4 @@ const UserListElement = ({ group }: { group: string }) => {
         </Datagrid>
     );
 };
-
 export default UserListElement;

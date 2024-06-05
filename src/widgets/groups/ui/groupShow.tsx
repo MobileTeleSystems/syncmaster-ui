@@ -1,4 +1,5 @@
 import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
+import useLocalStoreCurrentUserGroup from "@hooks/useLocalStoreCurrentUserGroup";
 import { Card } from "@mui/material";
 import LinkedField from "@shared/linkedField";
 import Error from "@shared/ui/error";
@@ -14,7 +15,6 @@ import {
     useGetOne,
 } from "react-admin";
 import { useParams } from "react-router";
-import useLocalStoreCurrentUserGroup from "@hooks/useLocalStoreCurrentUserGroup";
 
 const GroupShow = () => {
     const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
@@ -27,6 +27,7 @@ const GroupShow = () => {
         setCurrentUserGroup(id);
     }, []);
     const { data, isLoading, error } = useGetOne("groups", { id });
+
     if (id === undefined) return <Error message={"Undefined id"} />;
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;
@@ -46,7 +47,7 @@ const GroupShow = () => {
                             resource={"users"}
                             field={"username"}
                         />
-                        <UserList group={id}/>
+                        <UserList group={id} />
                     </SimpleShowLayout>
                 </Card>
                 <div
