@@ -32,7 +32,7 @@ import GroupShow from "@widgets/groups/ui/groupShow";
 import UserShow from "@widgets/users/ui/userShow";
 import GroupList from "@widgets/groups/ui/list/groupList";
 import GroupEdit from "@widgets/groups/ui/groupEdit";
-import UserEdit from "@widgets/users/ui/userEdit";
+import UserEditRole from "@widgets/users/ui/userEditRole";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -88,7 +88,7 @@ const App = () => {
             <Resource
                 name="users"
                 show={UserShow}
-                edit={UserEdit}
+                edit={UserEditRole}
             />
         </Admin>
     );

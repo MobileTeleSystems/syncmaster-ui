@@ -9,7 +9,7 @@ const roles = [
     { id: "Guest", name: "Guest" },
 ];
 
-const UserEdit = () => {
+const UserEditRole = () => {
     const { id: userID } = useParams();
     const [currentUserGroup] = useLocalStoreCurrentUserGroup();
 
@@ -38,4 +38,4 @@ const UserEdit = () => {
     );
 };
 
-export default UserEdit;
+export default UserEditRole;

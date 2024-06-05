@@ -8,7 +8,7 @@ const UserListElement = ({ group }: { group: string }) => {
             <TextField source={"username"} />
             <TextField source="description" />
             <UserRoleElement source="role" />
-            <EditButton resource={"users"} sx={BaseButtonStyle} />
+            <EditButton resource={"users"} sx={BaseButtonStyle} label={"Edit role"}/>
             <DeleteButton
                 mutationMode={"pessimistic"}
                 sx={BaseButtonStyle}
