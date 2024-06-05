@@ -17,7 +17,7 @@ export type BaseListColumns = {
     name?: string;
 };
 
-export let DeleteButtonStyle = {
+export let BaseButtonStyle = {
     bgcolor: "background.paper",
     boxShadow: 1,
     borderRadius: 2,

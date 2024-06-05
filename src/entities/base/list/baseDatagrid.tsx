@@ -1,4 +1,4 @@
-import { type BaseListColumns, DeleteButtonStyle } from "@entities/types";
+import { type BaseListColumns, BaseButtonStyle } from "@entities/types";
 import { Datagrid, DeleteButton, TextField } from "react-admin";
 
 const BaseDatagrid = ({
@@ -13,7 +13,7 @@ const BaseDatagrid = ({
             {additionColumns.map((column) => column)}
             <DeleteButton
                 mutationMode="pessimistic"
-                sx={DeleteButtonStyle}
+                sx={BaseButtonStyle}
             />
         </Datagrid>
     );

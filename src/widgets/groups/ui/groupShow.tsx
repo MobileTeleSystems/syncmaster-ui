@@ -14,6 +14,7 @@ import {
     useGetOne,
 } from "react-admin";
 import { useParams } from "react-router";
+import useLocalStoreCurrentUserGroup from "@hooks/useLocalStoreCurrentUserGroup";
 
 const GroupShow = () => {
     const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
@@ -21,6 +22,10 @@ const GroupShow = () => {
         setCanChangeCurrentGroup(true);
     }, []);
     const { id } = useParams();
+    const [, setCurrentUserGroup] = useLocalStoreCurrentUserGroup();
+    useEffect(() => {
+        setCurrentUserGroup(id);
+    }, []);
     const { data, isLoading, error } = useGetOne("groups", { id });
     if (id === undefined) return <Error message={"Undefined id"} />;
     if (isLoading) return <Loading />;

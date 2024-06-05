@@ -1,6 +1,6 @@
-import { DeleteButtonStyle } from "@entities/types";
+import { BaseButtonStyle } from "@entities/types";
 import UserRoleElement from "@widgets/users/ui/list/userRoleElement";
-import { Button, Datagrid, DeleteButton, TextField } from "react-admin";
+import { Datagrid, DeleteButton, EditButton, TextField } from "react-admin";
 
 const UserListElement = () => {
     return (
@@ -8,8 +8,8 @@ const UserListElement = () => {
             <TextField source={"username"} />
             <TextField source="description" />
             <UserRoleElement source="role" />
-            <Button label={"Change role"} sx={DeleteButtonStyle} />
-            <DeleteButton mutationMode="pessimistic" sx={DeleteButtonStyle} />
+            <EditButton resource={"users"} sx={BaseButtonStyle} />
+            <DeleteButton mutationMode="pessimistic" sx={BaseButtonStyle} resource={"users"}/>
         </Datagrid>
     );
 };

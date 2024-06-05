@@ -1,5 +1,5 @@
 import { DeleteButton, SaveButton, Toolbar } from "react-admin";
-import { DeleteButtonStyle } from "@entities/types";
+import { BaseButtonStyle } from "@entities/types";
 
 const EditToolbar = () => (
     <Toolbar
@@ -14,7 +14,7 @@ const EditToolbar = () => (
         <SaveButton type="button" />
         <DeleteButton
             mutationMode="pessimistic"
-            sx={DeleteButtonStyle}
+            sx={BaseButtonStyle}
         />
     </Toolbar>
 );

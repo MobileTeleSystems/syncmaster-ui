@@ -31,6 +31,8 @@ import GroupListWrapper from "@widgets/groups/ui/list/groupListWrapper";
 import GroupShow from "@widgets/groups/ui/groupShow";
 import UserShow from "@widgets/users/ui/userShow";
 import GroupList from "@widgets/groups/ui/list/groupList";
+import GroupEdit from "@widgets/groups/ui/groupEdit";
+import UserEdit from "@widgets/users/ui/userEdit";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -79,13 +81,14 @@ const App = () => {
                 name="groups"
                 list={GroupList}
                 show={GroupShow}
-                // edit={TransferEdit}
+                edit={GroupEdit}
                 // create={TransferCreate}
                 icon={GroupsIcon}
             />
             <Resource
                 name="users"
                 show={UserShow}
+                edit={UserEdit}
             />
         </Admin>
     );

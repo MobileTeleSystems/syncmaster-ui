@@ -97,8 +97,13 @@ const dataProvider: DataProvider = {
     },
     delete: (resource, params) => {
         const id = params.id;
+        let url: string = `${apiUrl}/${apiVersion}/${resource}/${id}`;
+        if (resource == "uesrs") {
+            url = `${apiUrl}/${apiVersion}/groups/${params}/${resource}/${params}`;
+        }
+        console.log(params)
         return new Promise((resolve, reject) => {
-            return fetch(`${apiUrl}/${apiVersion}/${resource}/${id}`, {
+            return fetch(url, {
                 headers: getPOSTHeaders(),
                 method: "DELETE",
             })
@@ -121,6 +126,7 @@ const dataProvider: DataProvider = {
     update: (resource, params) => {
         // rework the body processing logic for different resources
         let bodyObject: any;
+        let url: string = `${apiUrl}/${apiVersion}/${resource}/${params.id}`;
         switch (resource) {
             case "connections": {
                 bodyObject = {
@@ -149,13 +155,27 @@ const dataProvider: DataProvider = {
                 };
                 break;
             }
+            case "groups": {
+                bodyObject = {
+                    ...params.data,
+                };
+                break;
+            }
+            case "users": {
+                bodyObject = {
+                    role: params.data.role,
+                };
+                url = `${apiUrl}/${apiVersion}/groups/${params.data.currentUserGroup}/${resource}/${params.data.userId}`;
+                break;
+            }
             default: {
-                bodyObject = {};
+                bodyObject = { ...params.data };
                 break;
             }
         }
+
         return new Promise((resolve, reject) => {
-            return fetch(`${apiUrl}/${apiVersion}/${resource}/${params.id}`, {
+            return fetch(url, {
                 headers: getPOSTHeaders(),
                 method: "PATCH",
                 body: JSON.stringify(bodyObject),
@@ -169,6 +189,15 @@ const dataProvider: DataProvider = {
                         body,
                         reject,
                     );
+                    if (resource == "users") {
+                        return resolve({
+                            data: {
+                                ...json,
+                                id: params.data.userId,
+                                group: params.data.currentUserGroup,
+                            },
+                        });
+                    }
                     return resolve({
                         data: json,
                     });
