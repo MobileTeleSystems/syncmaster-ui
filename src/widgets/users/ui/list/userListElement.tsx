@@ -1,41 +1,6 @@
 import { BaseButtonStyle } from "@entities/types";
-import Error from "@shared/ui/error";
 import UserRoleElement from "@widgets/users/ui/list/userRoleElement";
-import {
-    Button,
-    Datagrid,
-    EditButton,
-    TextField,
-    useDelete,
-    useRecordContext,
-    useRedirect,
-} from "react-admin";
-
-const DeleteButton = ({ group }: { group: string }) => {
-    const record = useRecordContext();
-    const [deleteOne, { isLoading, error }] = useDelete("users", {
-        id: record.id,
-        previousData: record,
-        meta: { group: group },
-    });
-
-    const handleClick = () => {
-        deleteOne();
-    };
-
-    if (error) return <Error message={error} />;
-    return (
-        <div>
-            <Button
-                variant="text"
-                disabled={isLoading}
-                onClick={handleClick}
-                label={"Delete from group"}
-                sx={{ ...BaseButtonStyle, color: "crimson" }}
-            ></Button>
-        </div>
-    );
-};
+import { Datagrid, DeleteButton, EditButton, TextField } from "react-admin";
 
 const UserListElement = ({ group }: { group: string }) => {
     return (
@@ -44,7 +9,15 @@ const UserListElement = ({ group }: { group: string }) => {
             <TextField source="description" />
             <UserRoleElement source="role" />
             <EditButton resource={"users"} sx={BaseButtonStyle} />
-            <DeleteButton group={group} />
+            <DeleteButton
+                mutationMode={"pessimistic"}
+                sx={BaseButtonStyle}
+                mutationOptions={{ meta: { group: group } }}
+                redirect={"groups/" + group + "/show"}
+                resource={"users"}
+                confirmContent="Are you sure you would like to remove the user from the group?"
+                confirmTitle="Remove the user from the group"
+            />
         </Datagrid>
     );
 };

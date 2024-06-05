@@ -101,6 +101,7 @@ const dataProvider: DataProvider = {
         if (resource == "users") {
             url = `${apiUrl}/${apiVersion}/groups/${params.meta.group}/${resource}/${params.id}`;
         }
+        console.log(params)
         return new Promise((resolve, reject) => {
             return fetch(url, {
                 headers: getPOSTHeaders(),
