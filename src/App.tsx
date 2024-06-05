@@ -30,6 +30,7 @@ import QueueListWrapper from "@widgets/queue/ui/list/queueListWrapper";
 import GroupListWrapper from "@widgets/groups/ui/list/groupListWrapper";
 import GroupShow from "@widgets/groups/ui/groupShow";
 import UserShow from "@widgets/users/ui/userShow";
+import GroupList from "@widgets/groups/ui/list/groupList";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -76,7 +77,7 @@ const App = () => {
             />
             <Resource
                 name="groups"
-                list={GroupListWrapper}
+                list={GroupList}
                 show={GroupShow}
                 // edit={TransferEdit}
                 // create={TransferCreate}
