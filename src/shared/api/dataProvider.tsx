@@ -98,10 +98,9 @@ const dataProvider: DataProvider = {
     delete: (resource, params) => {
         const id = params.id;
         let url: string = `${apiUrl}/${apiVersion}/${resource}/${id}`;
-        if (resource == "uesrs") {
-            url = `${apiUrl}/${apiVersion}/groups/${params}/${resource}/${params}`;
+        if (resource == "users") {
+            url = `${apiUrl}/${apiVersion}/groups/${params.meta.group}/${resource}/${params.id}`;
         }
-        console.log(params)
         return new Promise((resolve, reject) => {
             return fetch(url, {
                 headers: getPOSTHeaders(),

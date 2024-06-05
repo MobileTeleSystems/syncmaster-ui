@@ -46,7 +46,7 @@ const GroupShow = () => {
                             resource={"users"}
                             field={"username"}
                         />
-                        <UserList />
+                        <UserList group={id}/>
                     </SimpleShowLayout>
                 </Card>
                 <div
