@@ -30,7 +30,6 @@ const UsersBaseList = ({
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;
     const sort = { field: "name", order: "ASC" };
-
     return (
         <div style={{ paddingTop: "1em" }}>
             <ListContextProvider

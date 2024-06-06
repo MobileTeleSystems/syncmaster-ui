@@ -1,3 +1,4 @@
+import TitleElement from "@entities/titleElement";
 import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
 import useLocalStoreCurrentMenuGroup from "@hooks/useLocalStoreCurrentMenuGroup";
 import { Card } from "@mui/material";
@@ -13,10 +14,8 @@ import {
     TextField,
     Title,
     useGetOne,
-    useRecordContext,
 } from "react-admin";
 import { useParams } from "react-router";
-import TitleElement from "@entities/titleElement";
 
 const GroupShow = () => {
     const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
