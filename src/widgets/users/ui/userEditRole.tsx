@@ -18,7 +18,8 @@ const UserEditRole = () => {
         userId: userID,
         currentUserGroup: currentUserGroup,
     });
-    const redirectTo = (resource, id, data) => "groups/" + data.group + "/show";
+    const redirectTo = (resource: string, id: string, data: any) =>
+        "groups/" + data.group + "/show";
     return (
         <Edit
             mutationMode="pessimistic"
