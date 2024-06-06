@@ -1,5 +1,5 @@
 import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
-import useLocalStoreCurrentUserGroup from "@hooks/useLocalStoreCurrentUserGroup";
+import useLocalStoreCurrentMenuGroup from "@hooks/useLocalStoreCurrentMenuGroup";
 import { Card } from "@mui/material";
 import LinkedField from "@shared/linkedField";
 import Error from "@shared/ui/error";
@@ -15,6 +15,7 @@ import {
     useGetOne,
 } from "react-admin";
 import { useParams } from "react-router";
+import TitleElement from "@entities/titleElement";
 
 const GroupShow = () => {
     const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
@@ -22,7 +23,7 @@ const GroupShow = () => {
         setCanChangeCurrentGroup(true);
     }, []);
     const { id } = useParams();
-    const [, setCurrentUserGroup] = useLocalStoreCurrentUserGroup();
+    const [, setCurrentUserGroup] = useLocalStoreCurrentMenuGroup();
     useEffect(() => {
         setCurrentUserGroup(id);
     }, []);
@@ -35,7 +36,7 @@ const GroupShow = () => {
     return (
         <RecordContextProvider value={data}>
             <div style={{ paddingTop: "1em" }}>
-                <Title title={"Group " + data.name} />
+                <Title title={<TitleElement title={`Group ${data.name}`} />} />
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="id" />

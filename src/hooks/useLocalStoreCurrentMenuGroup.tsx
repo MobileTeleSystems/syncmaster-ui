@@ -1,7 +1,7 @@
 import { useStore } from "react-admin";
 
-const useLocalStoreCurrentUserGroup = () => {
+const useLocalStoreCurrentMenuGroup = () => {
     return useStore<string | undefined>("currentUserGroup", undefined);
 };
 
-export default useLocalStoreCurrentUserGroup;
+export default useLocalStoreCurrentMenuGroup;

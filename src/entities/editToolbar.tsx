@@ -1,7 +1,7 @@
 import { DeleteButton, SaveButton, Toolbar } from "react-admin";
 import { BaseButtonStyle } from "@entities/types";
 
-const EditToolbar = () => (
+const EditToolbar = ({ isDeletable = true }: { isDeletable?: boolean }) => (
     <Toolbar
         style={{
             display: "flex",
@@ -12,11 +12,9 @@ const EditToolbar = () => (
         }}
     >
         <SaveButton type="button" />
-        <DeleteButton
-            mutationMode="pessimistic"
-            sx={BaseButtonStyle}
-        />
+        {isDeletable && (
+            <DeleteButton mutationMode="pessimistic" sx={BaseButtonStyle} />
+        )}
     </Toolbar>
 );
-
 export default EditToolbar;

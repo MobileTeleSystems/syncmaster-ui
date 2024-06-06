@@ -17,6 +17,7 @@ import {
     useGetOne,
 } from "react-admin";
 import { useParams } from "react-router";
+import TitleElement from "@entities/titleElement";
 
 const TransferShow = () => {
     const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
@@ -32,7 +33,7 @@ const TransferShow = () => {
     return (
         <RecordContextProvider value={data}>
             <div style={{ paddingTop: "1em" }}>
-                <Title title={"Transfer " + data.name} />
+                <Title title={<TitleElement title={`Transfer ${data.name}`} />} />
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="id" />

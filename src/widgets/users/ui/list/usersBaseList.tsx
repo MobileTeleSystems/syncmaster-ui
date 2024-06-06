@@ -2,6 +2,7 @@ import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
 import { useState } from "react";
 import {
+    CreateButton,
     ListContextProvider,
     Loading,
     Pagination,
@@ -16,7 +17,7 @@ const UsersBaseList = ({ element }: { element: JSX.Element }) => {
     const [perPage, setPerPage] = useState(5);
     const dataProvider = useDataProvider();
     const { data, isLoading, error } = useQuery(
-        ["connections", "getConnectionTypes"],
+        ["groups", "getGroupUsers"],
         () => dataProvider.getGroupUsers(id),
     );
     if (isLoading) return <Loading />;
@@ -37,6 +38,18 @@ const UsersBaseList = ({ element }: { element: JSX.Element }) => {
                 }}
             >
                 <div>
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "end",
+                            alignItems: "center",
+                            paddingTop: "0.5em",
+                            paddingBottom: "0.5em",
+                        }}
+                    >
+                        <CreateButton resource={"users"} label="Add user" />
+                    </div>
+
                     <Card>{element}</Card>
                     <Pagination />
                 </div>
