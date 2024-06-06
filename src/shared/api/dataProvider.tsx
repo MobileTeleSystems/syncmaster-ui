@@ -101,7 +101,6 @@ const dataProvider: DataProvider = {
         if (resource == "users") {
             url = `${apiUrl}/${apiVersion}/groups/${params.meta.group}/${resource}/${params.id}`;
         }
-        console.log(params);
         return new Promise((resolve, reject) => {
             return fetch(url, {
                 headers: getPOSTHeaders(),
@@ -380,11 +379,18 @@ const dataProvider: DataProvider = {
                 });
         });
     },
-    getGroupUsers: (groupId: number) => {
+    getGroupUsers: (groupId: number, params) => {
         return new Promise((resolve, reject) => {
             const url = new URL(
                 apiUrl + "/" + apiVersion + "/groups/" + groupId + "/users/",
             );
+
+            url.searchParams.append("page", params.pagination.page.toString());
+            url.searchParams.append(
+                "page_size",
+                params.pagination.perPage.toString(),
+            );
+
             return fetch(url.toString(), {
                 headers: getAuthHeaders(),
                 method: "GET",

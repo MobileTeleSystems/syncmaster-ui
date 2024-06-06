@@ -1,3 +1,4 @@
+import useLocalStoreCurrentMenuGroup from "@hooks/useLocalStoreCurrentMenuGroup";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
 import { useState } from "react";
@@ -9,16 +10,16 @@ import {
     useDataProvider,
 } from "react-admin";
 import { useQuery } from "react-query";
-import { useParams } from "react-router";
 
 const UsersBaseList = ({ element }: { element: JSX.Element }) => {
-    const { id } = useParams();
+    const [group] = useLocalStoreCurrentMenuGroup();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(5);
     const dataProvider = useDataProvider();
-    const { data, isLoading, error } = useQuery(
-        ["groups", "getGroupUsers"],
-        () => dataProvider.getGroupUsers(id),
+    const { data, isLoading, error } = useQuery([page, perPage], () =>
+        dataProvider.getGroupUsers(group, {
+            pagination: { page, perPage },
+        }),
     );
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;
