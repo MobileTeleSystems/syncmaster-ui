@@ -16,10 +16,12 @@ const UsersBaseList = ({ element }: { element: JSX.Element }) => {
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(5);
     const dataProvider = useDataProvider();
-    const { data, isLoading, error } = useQuery([page, perPage], () =>
-        dataProvider.getGroupUsers(group, {
-            pagination: { page, perPage },
-        }),
+    const { data, isLoading, error } = useQuery(
+        ["users", "getGroupUsers", page, perPage],
+        () =>
+            dataProvider.getGroupUsers(group, {
+                pagination: { page, perPage },
+            }),
     );
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;
