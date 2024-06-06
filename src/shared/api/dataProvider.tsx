@@ -101,7 +101,7 @@ const dataProvider: DataProvider = {
         if (resource == "users") {
             url = `${apiUrl}/${apiVersion}/groups/${params.meta.group}/${resource}/${params.id}`;
         }
-        console.log(params)
+        console.log(params);
         return new Promise((resolve, reject) => {
             return fetch(url, {
                 headers: getPOSTHeaders(),
@@ -207,6 +207,7 @@ const dataProvider: DataProvider = {
     create: (resource, params) => {
         // rework the body processing logic for different resources
         let bodyObject: any;
+        let url = `${apiUrl}/${apiVersion}/${resource}`;
         switch (resource) {
             case "connections": {
                 bodyObject = {
@@ -240,14 +241,22 @@ const dataProvider: DataProvider = {
                 };
                 break;
             }
+            case "users": {
+                bodyObject = {
+                    role: params.data.role,
+                };
+                url = `${apiUrl}/${apiVersion}/groups/${params.data.group_id}/${resource}/${params.data.user_id}`;
+                break;
+            }
 
             default: {
                 bodyObject = {};
                 break;
             }
         }
+
         return new Promise((resolve, reject) => {
-            return fetch(`${apiUrl}/${apiVersion}/${resource}`, {
+            return fetch(url, {
                 headers: getPOSTHeaders(),
                 method: "POST",
                 body: JSON.stringify(bodyObject),
@@ -261,6 +270,11 @@ const dataProvider: DataProvider = {
                         body,
                         reject,
                     );
+                    if (resource == "users") {
+                        return resolve({
+                            data: { ...json, id: params.data.group_id },
+                        });
+                    }
                     return resolve({
                         data: json,
                     });
