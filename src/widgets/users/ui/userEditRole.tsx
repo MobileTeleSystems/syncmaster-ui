@@ -1,33 +1,13 @@
 import EditToolbar from "@entities/editToolbar";
 import TitleElement from "@entities/titleElement";
 import useLocalStoreCurrentMenuGroup from "@hooks/useLocalStoreCurrentMenuGroup";
-import Error from "@shared/ui/error";
-import {
-    Edit,
-    Loading,
-    required,
-    SelectInput,
-    SimpleForm,
-    useDataProvider,
-} from "react-admin";
-import { useQuery } from "react-query";
-import { useParams } from "react-router";
 import { roles } from "@widgets/types";
-
+import { Edit, required, SelectInput, SimpleForm } from "react-admin";
+import { useParams } from "react-router";
 
 const UserEditRole = () => {
     const { id: userID } = useParams();
     const [currentUserGroup] = useLocalStoreCurrentMenuGroup();
-
-    const dataProvider = useDataProvider();
-    const { data, isLoading, error } = useQuery(
-        ["groups", "getGroupUsers"],
-        () => dataProvider.getGroupUsers(currentUserGroup),
-    );
-    if (isLoading) return <Loading />;
-    if (error) return <Error message={error} />;
-
-    const userToEdit = data.items.filter((item) => item.id == userID)[0];
 
     const transform = (data) => ({
         ...data,
@@ -41,9 +21,7 @@ const UserEditRole = () => {
             mutationMode="pessimistic"
             redirect={redirectTo}
             transform={transform}
-            title={
-                <TitleElement title={`Edit user ${userToEdit.username} role`} />
-            }
+            title={<TitleElement title={`Edit user role`} />}
         >
             <SimpleForm toolbar={<EditToolbar isDeletable={false} />}>
                 <SelectInput
@@ -52,7 +30,6 @@ const UserEditRole = () => {
                     label={"Role"}
                     choices={roles}
                     validate={required()}
-                    defaultValue={userToEdit.role}
                 />
             </SimpleForm>
         </Edit>

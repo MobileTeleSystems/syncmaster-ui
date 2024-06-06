@@ -2,33 +2,18 @@ import useLocalStoreCurrentMenuGroup from "@hooks/useLocalStoreCurrentMenuGroup"
 import { Card, TextField as Field } from "@mui/material";
 import Error from "@shared/ui/error";
 import { roles } from "@widgets/types";
+import UserListElementForCreate from "@widgets/users/ui/list/userListElementForCreate";
 import { useState } from "react";
 import {
     Create,
-    Datagrid,
     ListContextProvider,
     Loading,
     Pagination,
     required,
     SelectInput,
     SimpleForm,
-    TextField,
     useGetList,
 } from "react-admin";
-
-const UserListElementForCreate = ({ setUser, setUserId }) => {
-    return (
-        <Datagrid
-            rowClick={(id, resource, element) => {
-                setUser(element.username);
-                setUserId(id);
-            }}
-        >
-            <TextField source={"username"} name={"username"} />
-            <TextField source="description" name={"description"} />
-        </Datagrid>
-    );
-};
 
 const UserAddToGroup = () => {
     const [currentUserGroup] = useLocalStoreCurrentMenuGroup();

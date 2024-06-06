@@ -247,6 +247,12 @@ const dataProvider: DataProvider = {
                 url = `${apiUrl}/${apiVersion}/groups/${params.data.group_id}/${resource}/${params.data.user_id}`;
                 break;
             }
+            case "groups": {
+                bodyObject = {
+                    ...params.data,
+                };
+                break;
+            }
 
             default: {
                 bodyObject = {};
