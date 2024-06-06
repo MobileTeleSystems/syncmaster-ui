@@ -13,6 +13,7 @@ import {
     TextField,
     Title,
     useGetOne,
+    useRecordContext,
 } from "react-admin";
 import { useParams } from "react-router";
 import TitleElement from "@entities/titleElement";
@@ -26,7 +27,7 @@ const GroupShow = () => {
     const [, setCurrentUserGroup] = useLocalStoreCurrentMenuGroup();
     useEffect(() => {
         setCurrentUserGroup(id);
-    }, []);
+    }, [id]);
     const { data, isLoading, error } = useGetOne("groups", { id });
 
     if (id === undefined) return <Error message={"Undefined id"} />;
