@@ -1,4 +1,3 @@
-import useLocalStoreCurrentMenuGroup from "@hooks/useLocalStoreCurrentMenuGroup";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
 import { useState } from "react";
@@ -11,8 +10,13 @@ import {
 } from "react-admin";
 import { useQuery } from "react-query";
 
-const UsersBaseList = ({ element }: { element: JSX.Element }) => {
-    const [group] = useLocalStoreCurrentMenuGroup();
+const UsersBaseList = ({
+    element,
+    group,
+}: {
+    element: JSX.Element;
+    group: string;
+}) => {
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(5);
     const dataProvider = useDataProvider();
