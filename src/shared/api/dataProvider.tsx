@@ -2,7 +2,7 @@ import type { ConnectionTypes, UserRoles } from "@shared/api/types";
 import { getAuthHeaders, getPOSTHeaders } from "@shared/api/utils";
 import { DataProvider, HttpError } from "react-admin";
 
-// TODO:after dockerization pass host from env like 'const host = process.env.REACT_APP_HOST
+// TODO:after dockerization pass host from env like 'const host = process.env.REACT_APP_HOST'
 const apiUrl = "http://localhost:8000";
 const apiVersion = "v1";
 
