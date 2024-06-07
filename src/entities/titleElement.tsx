@@ -4,11 +4,8 @@ const TitleElement = ({ title }: { title: string }) => {
     return (
         <Typography
             variant={"inherit"}
-            noWrap={false}
             sx={{
-                overflowY: "auto",
-                width: "500px",
-                paddingRight: "50px",
+                inlineSize: "min-content",
             }}
         >
             {title}

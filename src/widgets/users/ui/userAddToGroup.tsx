@@ -56,16 +56,12 @@ const UserAddToGroup = () => {
                 <SimpleForm>
                     <Field
                         label="User"
+                        margin={'normal'}
                         value={
                             selectedUser === undefined
                                 ? "Select user"
                                 : selectedUser.user
                         }
-                        sx={{
-                            overflowY: "auto",
-                            width: "500px",
-                            paddingRight: "50px",
-                        }}
                     />
                     <SelectInput
                         source="role"

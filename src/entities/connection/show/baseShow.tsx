@@ -40,8 +40,7 @@ const BaseConnectionShow = ({
                                 noWrap={false}
                                 sx={{
                                     overflowY: "auto",
-                                    width: "500px",
-                                    paddingRight: "50px",
+                                    width: "20em",
                                 }}
                             >
                                 Connection {data.name}
