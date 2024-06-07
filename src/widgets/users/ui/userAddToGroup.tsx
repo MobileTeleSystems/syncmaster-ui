@@ -78,6 +78,7 @@ const UserAddToGroup = () => {
                             setSelectedRole(event.target.value);
                         }}
                     />
+                    {/* TODO: Replace with the Autocomplete component when filtering is implemented on the backend */}
                     <ListContextProvider
                         value={{
                             data: users || [],

@@ -126,6 +126,7 @@ const dataProvider: DataProvider = {
         // rework the body processing logic for different resources
         let bodyObject: any;
         let url: string = `${apiUrl}/${apiVersion}/${resource}/${params.id}`;
+        // TODO: break down into individual providers DOP-16610
         switch (resource) {
             case "connections": {
                 bodyObject = {
@@ -207,6 +208,7 @@ const dataProvider: DataProvider = {
         // rework the body processing logic for different resources
         let bodyObject: any;
         let url = `${apiUrl}/${apiVersion}/${resource}`;
+        // TODO: break down into individual providers DOP-16610
         switch (resource) {
             case "connections": {
                 bodyObject = {
