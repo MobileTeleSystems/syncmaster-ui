@@ -24,6 +24,7 @@ const UserEditRole = () => {
             title={<TitleElement title={`Edit user role`} />}
         >
             <SimpleForm toolbar={<EditToolbar isDeletable={false} />}>
+                {/* TODO: Implement automatic selection of the current role when filtering is implemented on the backend */}
                 <SelectInput
                     source="role"
                     name="role"

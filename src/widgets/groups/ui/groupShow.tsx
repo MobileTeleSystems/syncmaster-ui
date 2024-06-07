@@ -48,6 +48,7 @@ const GroupShow = () => {
                             resource={"users"}
                             field={"username"}
                         />
+                        {/* TODO: Replace with the Autocomplete component when filtering is implemented on the backend */}
                         <UserList group={id} />
                     </SimpleShowLayout>
                 </Card>

@@ -19,6 +19,7 @@ const UserListElement = ({ group }: { group: string }) => {
             <TextField source={"username"} />
             <TextField source="description" />
             <UserRoleElement source="role" />
+            {/* TODO: It is possible to implement the SelectInput component with role selection without opening a new window */}
             <EditButton
                 resource={"users"}
                 sx={BaseButtonStyle}

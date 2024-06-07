@@ -19,8 +19,10 @@ const UserAddToGroup = () => {
     const [currentUserGroup] = useLocalStoreCurrentMenuGroup();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
-    const [selectedUser, setSelectedUser] = useState();
-    const [selectedUserId, setSelectedUserId] = useState();
+    const [selectedUser, setSelectedUser] = useState<{
+        user: string;
+        id: number;
+    }>();
     const [selectedRole, setSelectedRole] = useState();
     const {
         data: users,
@@ -37,7 +39,7 @@ const UserAddToGroup = () => {
 
     const transform = (data) => ({
         group_id: currentUserGroup,
-        user_id: selectedUserId,
+        user_id: selectedUser.id,
         role: selectedRole,
     });
 
@@ -57,7 +59,7 @@ const UserAddToGroup = () => {
                         value={
                             selectedUser === undefined
                                 ? "Select user"
-                                : selectedUser
+                                : selectedUser.user
                         }
                         sx={{
                             overflowY: "auto",
@@ -91,7 +93,6 @@ const UserAddToGroup = () => {
                             <Card>
                                 <UserListElementForCreate
                                     setUser={setSelectedUser}
-                                    setUserId={setSelectedUserId}
                                 />
                             </Card>
                             <Pagination />
