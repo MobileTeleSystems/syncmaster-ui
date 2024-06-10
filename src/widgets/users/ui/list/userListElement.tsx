@@ -30,7 +30,7 @@ const UserListElement = () => {
             <DeleteButton
                 mutationMode={"pessimistic"}
                 sx={BaseButtonStyle}
-                mutationOptions={{ meta: { group: record.id } }}
+                mutationOptions={{ meta: { group_id: record.id } }}
                 redirect={redirectTo}
                 resource={"users"}
                 confirmContent="Are you sure you would like to remove the user from the group?"

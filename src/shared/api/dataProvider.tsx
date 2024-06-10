@@ -100,7 +100,7 @@ const dataProvider: DataProvider = {
         const id = params.id;
         let url: string = `${apiUrl}/${apiVersion}/${resource}/${id}`;
         if (resource == "users") {
-            url = `${apiUrl}/${apiVersion}/groups/${params.meta.group}/${resource}/${params.id}`;
+            url = `${apiUrl}/${apiVersion}/groups/${params.meta.group_id}/${resource}/${params.id}`;
         }
         return new Promise((resolve, reject) => {
             return fetch(url, {
@@ -166,7 +166,7 @@ const dataProvider: DataProvider = {
                 bodyObject = {
                     role: params.data.role,
                 };
-                url = `${apiUrl}/${apiVersion}/groups/${params.data.currentUserGroup}/${resource}/${params.data.userId}`;
+                url = `${apiUrl}/${apiVersion}/groups/${params.data.group_id}/${resource}/${params.data.user_id}`;
                 break;
             }
             default: {
@@ -194,8 +194,8 @@ const dataProvider: DataProvider = {
                         return resolve({
                             data: {
                                 ...json,
-                                id: params.data.userId,
-                                group: params.data.currentUserGroup,
+                                id: params.data.user_id,
+                                group_id: params.data.group_id,
                             },
                         });
                     }

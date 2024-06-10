@@ -6,15 +6,15 @@ import { Edit, required, SelectInput, SimpleForm } from "react-admin";
 import { useParams } from "react-router";
 
 const UserEditRole = () => {
-    const { id: userID } = useParams();
+    const { id: userId } = useParams();
     const [currentUserGroup] = useLocalStoreCurrentMenuGroup();
     const transform = (data) => ({
         ...data,
-        userId: userID,
-        currentUserGroup: currentUserGroup,
+        user_id: userId,
+        group_id: currentUserGroup,
     });
     const redirectTo = (resource: string, id: string, data: any) =>
-        "groups/" + data.group + "/show";
+        "groups/" + data.group_id + "/show";
     return (
         <Edit
             mutationMode="pessimistic"
