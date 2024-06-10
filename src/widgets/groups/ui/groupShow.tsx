@@ -34,7 +34,7 @@ const GroupShow = () => {
     if (error) return <Error message={error} />;
 
     return (
-        <RecordContextProvider value={{ ...data, currentUserGroup: id }}>
+        <RecordContextProvider value={data}>
             <div style={{ paddingTop: "1em" }}>
                 <Title title={<TitleElement title={`Group ${data.name}`} />} />
                 <Card>

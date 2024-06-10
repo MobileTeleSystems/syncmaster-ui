@@ -19,7 +19,7 @@ const UsersBaseList = ({ element }: { element: JSX.Element }) => {
     const { data, isLoading, error } = useQuery(
         ["users", "getGroupUsers", page, perPage],
         () =>
-            dataProvider.getGroupUsers(record.currentUserGroup, {
+            dataProvider.getGroupUsers(record.id, {
                 pagination: { page, perPage },
             }),
     );

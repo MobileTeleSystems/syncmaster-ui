@@ -14,7 +14,7 @@ const UserListElement = () => {
     const record = useRecordContext();
     const redirectTo = (resource: string, id: string, data: any) => {
         refresh();
-        return "groups/" + record.currentUserGroup + "/show";
+        return "groups/" + record.id+ "/show";
     };
     return (
         <Datagrid rowClick="show" resource={"users"}>
@@ -30,7 +30,7 @@ const UserListElement = () => {
             <DeleteButton
                 mutationMode={"pessimistic"}
                 sx={BaseButtonStyle}
-                mutationOptions={{ meta: { group: record.currentUserGroup } }}
+                mutationOptions={{ meta: { group: record.id } }}
                 redirect={redirectTo}
                 resource={"users"}
                 confirmContent="Are you sure you would like to remove the user from the group?"
