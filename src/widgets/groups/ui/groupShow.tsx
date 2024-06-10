@@ -1,6 +1,6 @@
 import TitleElement from "@entities/titleElement";
 import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
-import useLocalStoreCurrentMenuGroup from "@hooks/useLocalStoreCurrentMenuGroup";
+import useLocalStoreCurrentMenuGroupId from "@hooks/useLocalStoreCurrentMenuGroupId";
 import { Card } from "@mui/material";
 import LinkedField from "@shared/linkedField";
 import Error from "@shared/ui/error";
@@ -23,9 +23,9 @@ const GroupShow = () => {
         setCanChangeCurrentGroup(true);
     }, []);
     const { id } = useParams();
-    const [, setCurrentUserGroup] = useLocalStoreCurrentMenuGroup();
+    const [, setCurrentUserGroupId] = useLocalStoreCurrentMenuGroupId();
     useEffect(() => {
-        setCurrentUserGroup(id);
+        setCurrentUserGroupId(id);
     }, [id]);
     const { data, isLoading, error } = useGetOne("groups", { id });
 

@@ -1,17 +1,17 @@
 import EditToolbar from "@entities/editToolbar";
 import TitleElement from "@entities/titleElement";
-import useLocalStoreCurrentMenuGroup from "@hooks/useLocalStoreCurrentMenuGroup";
+import useLocalStoreCurrentMenuGroupId from "@hooks/useLocalStoreCurrentMenuGroupId";
 import { roles } from "@widgets/types";
 import { Edit, required, SelectInput, SimpleForm } from "react-admin";
 import { useParams } from "react-router";
 
 const UserEditRole = () => {
     const { id: userId } = useParams();
-    const [currentUserGroup] = useLocalStoreCurrentMenuGroup();
+    const [currentUserGroupId] = useLocalStoreCurrentMenuGroupId();
     const transform = (data) => ({
         ...data,
         user_id: userId,
-        group_id: currentUserGroup,
+        group_id: currentUserGroupId,
     });
     const redirectTo = (resource: string, id: string, data: any) =>
         "groups/" + data.group_id + "/show";

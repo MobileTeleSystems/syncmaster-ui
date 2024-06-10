@@ -1,4 +1,4 @@
-import useLocalStoreCurrentMenuGroup from "@hooks/useLocalStoreCurrentMenuGroup";
+import useLocalStoreCurrentMenuGroupId from "@hooks/useLocalStoreCurrentMenuGroupId";
 import { Card, TextField as Field } from "@mui/material";
 import Error from "@shared/ui/error";
 import { roles } from "@widgets/types";
@@ -16,7 +16,7 @@ import {
 } from "react-admin";
 
 const UserAddToGroup = () => {
-    const [currentUserGroup] = useLocalStoreCurrentMenuGroup();
+    const [currentUserGroupId] = useLocalStoreCurrentMenuGroupId();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
     const [selectedUser, setSelectedUser] = useState<{
@@ -38,13 +38,13 @@ const UserAddToGroup = () => {
     const sort = { field: "name", order: "ASC" };
 
     const transform = (data) => ({
-        group_id: currentUserGroup,
+        group_id: currentUserGroupId,
         user_id: selectedUser.id,
         role: selectedRole,
     });
 
     const redirectTo = (resource: string, id: string, data: any) =>
-        "groups/" + currentUserGroup + "/show";
+        "groups/" + currentUserGroupId + "/show";
 
     return (
         <div style={{ paddingTop: "1em" }}>
