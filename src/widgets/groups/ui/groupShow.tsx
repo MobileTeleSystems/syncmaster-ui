@@ -34,7 +34,7 @@ const GroupShow = () => {
     if (error) return <Error message={error} />;
 
     return (
-        <RecordContextProvider value={data}>
+        <RecordContextProvider value={{ ...data, currentUserGroup: id }}>
             <div style={{ paddingTop: "1em" }}>
                 <Title title={<TitleElement title={`Group ${data.name}`} />} />
                 <Card>
@@ -49,7 +49,7 @@ const GroupShow = () => {
                             field={"username"}
                         />
                         {/* TODO: Replace with the Autocomplete component when filtering is implemented on the backend */}
-                        <UserList group={id} />
+                        <UserList />
                     </SimpleShowLayout>
                 </Card>
                 <div

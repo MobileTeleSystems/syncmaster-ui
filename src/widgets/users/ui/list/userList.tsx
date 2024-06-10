@@ -1,11 +1,10 @@
 import UserListElement from "@widgets/users/ui/list/userListElement";
 import UsersBaseList from "@widgets/users/ui/list/usersBaseList";
 
-const UserList = ({ group }: { group: string }) => {
+const UserList = () => {
     return (
         <UsersBaseList
-            element={<UserListElement group={group} />}
-            group={group}
+            element={<UserListElement/>}
         />
     );
 };

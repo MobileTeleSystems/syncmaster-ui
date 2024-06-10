@@ -1,4 +1,3 @@
-import useLocalStoreCurrentMenuGroup from "@hooks/useLocalStoreCurrentMenuGroup";
 import { Card, TextField as Field } from "@mui/material";
 import Error from "@shared/ui/error";
 import { roles } from "@widgets/types";
@@ -14,6 +13,7 @@ import {
     SimpleForm,
     useGetList,
 } from "react-admin";
+import useLocalStoreCurrentMenuGroup from "@hooks/useLocalStoreCurrentMenuGroup";
 
 const UserAddToGroup = () => {
     const [currentUserGroup] = useLocalStoreCurrentMenuGroup();
@@ -56,7 +56,7 @@ const UserAddToGroup = () => {
                 <SimpleForm>
                     <Field
                         label="User"
-                        margin={'normal'}
+                        margin={"normal"}
                         value={
                             selectedUser === undefined
                                 ? "Select user"

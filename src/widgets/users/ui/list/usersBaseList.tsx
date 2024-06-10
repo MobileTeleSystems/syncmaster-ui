@@ -7,23 +7,19 @@ import {
     Loading,
     Pagination,
     useDataProvider,
+    useRecordContext,
 } from "react-admin";
 import { useQuery } from "react-query";
 
-const UsersBaseList = ({
-    element,
-    group,
-}: {
-    element: JSX.Element;
-    group: string;
-}) => {
+const UsersBaseList = ({ element }: { element: JSX.Element }) => {
     const [page, setPage] = useState(1);
+    const record = useRecordContext();
     const [perPage, setPerPage] = useState(5);
     const dataProvider = useDataProvider();
     const { data, isLoading, error } = useQuery(
         ["users", "getGroupUsers", page, perPage],
         () =>
-            dataProvider.getGroupUsers(group, {
+            dataProvider.getGroupUsers(record.currentUserGroup, {
                 pagination: { page, perPage },
             }),
     );

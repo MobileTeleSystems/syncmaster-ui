@@ -5,14 +5,16 @@ import {
     DeleteButton,
     EditButton,
     TextField,
+    useRecordContext,
     useRefresh,
 } from "react-admin";
 
-const UserListElement = ({ group }: { group: string }) => {
+const UserListElement = () => {
     const refresh = useRefresh();
+    const record = useRecordContext();
     const redirectTo = (resource: string, id: string, data: any) => {
         refresh();
-        return "groups/" + group + "/show";
+        return "groups/" + record.currentUserGroup + "/show";
     };
     return (
         <Datagrid rowClick="show" resource={"users"}>
@@ -28,7 +30,7 @@ const UserListElement = ({ group }: { group: string }) => {
             <DeleteButton
                 mutationMode={"pessimistic"}
                 sx={BaseButtonStyle}
-                mutationOptions={{ meta: { group: group } }}
+                mutationOptions={{ meta: { group: record.currentUserGroup } }}
                 redirect={redirectTo}
                 resource={"users"}
                 confirmContent="Are you sure you would like to remove the user from the group?"

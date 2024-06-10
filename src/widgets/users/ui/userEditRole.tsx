@@ -8,7 +8,6 @@ import { useParams } from "react-router";
 const UserEditRole = () => {
     const { id: userID } = useParams();
     const [currentUserGroup] = useLocalStoreCurrentMenuGroup();
-
     const transform = (data) => ({
         ...data,
         userId: userID,
