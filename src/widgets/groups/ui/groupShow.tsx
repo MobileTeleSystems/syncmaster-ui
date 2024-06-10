@@ -1,5 +1,5 @@
 import TitleElement from "@entities/titleElement";
-import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
+import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 import useLocalStoreCurrentMenuGroupId from "@hooks/useLocalStoreCurrentMenuGroupId";
 import { Card } from "@mui/material";
 import LinkedField from "@shared/linkedField";
@@ -18,9 +18,9 @@ import {
 import { useParams } from "react-router";
 
 const GroupShow = () => {
-    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
+    const [, setEnableGroupSelector] = useEnableGroupSelector();
     useEffect(() => {
-        setCanChangeCurrentGroup(true);
+        setEnableGroupSelector(true);
     }, []);
     const { id } = useParams();
     const [, setCurrentUserGroupId] = useLocalStoreCurrentMenuGroupId();

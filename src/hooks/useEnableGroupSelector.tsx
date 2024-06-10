@@ -1,7 +1,7 @@
 import { useStore } from "react-admin";
 
-const useLocalStoreChangeGroup = () => {
+const useEnableGroupSelector = () => {
     return useStore<true | false>("isChangeGroup", false);
 };
 
-export default useLocalStoreChangeGroup;
+export default useEnableGroupSelector;

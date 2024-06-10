@@ -1,6 +1,6 @@
 import DBSourceParamsEdit from "@entities/transfer/ui/edit/DBSourceParamsEdit";
 import DBTargetParamsEdit from "@entities/transfer/ui/edit/DBTargetParamsEdit";
-import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
+import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import ConnectionSelector from "@widgets/connectionSelector";
 import { strategyParams } from "@widgets/transfer/ui/types";
@@ -15,9 +15,9 @@ import {
 } from "react-admin";
 
 const TransferCreate = () => {
-    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
+    const [, setEnableGroupSelector] = useEnableGroupSelector();
     useEffect(() => {
-        setCanChangeCurrentGroup(true);
+        setEnableGroupSelector(true);
     }, []);
 
     const [currentGroup] = useLocalStoreCurrentGroup();

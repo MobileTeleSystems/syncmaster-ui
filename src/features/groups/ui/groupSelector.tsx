@@ -1,5 +1,5 @@
 import { GroupSelectorElement } from "@hooks/types";
-import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
+import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import useLocalStoreGroupList from "@hooks/useLocalStoreGroupList";
 import { Autocomplete } from "@mui/material";
@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 const Groups = () => {
     const [currentGroup, setCurrentGroup] = useLocalStoreCurrentGroup();
     const [groupList, _] = useLocalStoreGroupList();
-    const [currentGroupLocked] = useLocalStoreChangeGroup();
+    const [isEnabledGroupSelector] = useEnableGroupSelector();
 
     return (
         <>
@@ -41,7 +41,7 @@ const Groups = () => {
                 noOptionsText={"No groups found"}
                 // Needed to save the display of the selected group when refreshing the page
                 value={{ label: currentGroup.label }}
-                disabled={currentGroupLocked}
+                disabled={isEnabledGroupSelector}
             />
         </>
     );

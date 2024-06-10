@@ -1,4 +1,4 @@
-import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
+import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 import StopIcon from "@mui/icons-material/Stop";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
@@ -21,9 +21,9 @@ import LinkedField from "@shared/linkedField";
 import { BaseButtonStyle } from "@entities/types";
 
 const RunShow = () => {
-    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
+    const [, setEnableGroupSelector] = useEnableGroupSelector();
     useEffect(() => {
-        setCanChangeCurrentGroup(true);
+        setEnableGroupSelector(true);
     }, []);
     const { id } = useParams();
     const { data, isLoading, error } = useGetOne("runs", { id });

@@ -1,6 +1,6 @@
 import DBSourceParamsShow from "@entities/transfer/ui/show/dbSourceParamsShow";
 import DBTargetParamsShow from "@entities/transfer/ui/show/dbTargetParamsShow";
-import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
+import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 import { Card } from "@mui/material";
 import LinkedField from "@shared/linkedField";
 import DumpConnectionDataWrapper from "@widgets/run/ui/show/dumpConnectionDataWrapper";
@@ -14,9 +14,9 @@ import {
 import type { TransferDump } from "@widgets/types";
 
 const DumpTransferData = ({ data }: {data: TransferDump}) => {
-    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
+    const [, setEnableGroupSelector] = useEnableGroupSelector();
     useEffect(() => {
-        setCanChangeCurrentGroup(true);
+        setEnableGroupSelector(true);
     }, []);
 
     return (

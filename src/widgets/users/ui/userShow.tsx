@@ -1,4 +1,4 @@
-import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
+import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
 import { useEffect } from "react";
@@ -15,9 +15,9 @@ import { useParams } from "react-router";
 import TitleElement from "@entities/titleElement";
 
 const UserShow = () => {
-    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
+    const [, setEnableGroupSelector] = useEnableGroupSelector();
     useEffect(() => {
-        setCanChangeCurrentGroup(true);
+        setEnableGroupSelector(true);
     }, []);
     const { id } = useParams();
     const { data, isLoading, error } = useGetOne("users", { id });
