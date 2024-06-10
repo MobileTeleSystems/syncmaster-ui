@@ -15,6 +15,7 @@ export type BaseListColumns = {
     resource: string;
     additionColumns?: JSX.Element[];
     name?: string;
+    isDeletable?: boolean;
 };
 
 export let BaseButtonStyle = {
