@@ -1,4 +1,4 @@
-import useLocalStoreCurrentMenuGroupId from "@hooks/useLocalStoreCurrentMenuGroupId";
+import useGroupIdInGroupMenuPage from "@hooks/useGroupIdInGroupMenuPage";
 import { Card, TextField as Field } from "@mui/material";
 import Error from "@shared/ui/error";
 import { roles } from "@widgets/types";
@@ -16,7 +16,7 @@ import {
 } from "react-admin";
 
 const UserAddToGroup = () => {
-    const [currentUserGroupId] = useLocalStoreCurrentMenuGroupId();
+    const [currentUserGroupId] = useGroupIdInGroupMenuPage();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
     const [selectedUser, setSelectedUser] = useState<{
