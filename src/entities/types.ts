@@ -12,5 +12,15 @@ export type RunBaseList = {
 };
 
 export type BaseListColumns = {
-    additionColumns?: JSX.Element;
+    resource: string;
+    additionColumns?: JSX.Element[];
+    name?: string;
+    isDeletable?: boolean;
+};
+
+export let BaseButtonStyle = {
+    bgcolor: "background.paper",
+    boxShadow: 1,
+    borderRadius: 2,
+    p: 1,
 };

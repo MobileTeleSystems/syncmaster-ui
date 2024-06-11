@@ -1,22 +1,20 @@
+import { type BaseListColumns, BaseButtonStyle } from "@entities/types";
 import { Datagrid, DeleteButton, TextField } from "react-admin";
-import type { BaseListColumns } from "@entities/types";
 
-const BaseDatagrid = ({additionColumns}: BaseListColumns) => {
+const BaseDatagrid = ({
+    additionColumns = [],
+    name = "name",
+    resource,
+    isDeletable = true,
+}: BaseListColumns) => {
     return (
-        <Datagrid rowClick="show">
-            <TextField source="id" />
-            <TextField source="name" />
+        <Datagrid rowClick="show" resource={resource}>
+            <TextField source={name} />
             <TextField source="description" />
-            {additionColumns}
-            <DeleteButton
-                mutationMode="pessimistic"
-                sx={{
-                    bgcolor: "background.paper",
-                    boxShadow: 1,
-                    borderRadius: 2,
-                    p: 2,
-                }}
-            />
+            {additionColumns.map((column) => column)}
+            {isDeletable && (
+                <DeleteButton mutationMode="pessimistic" sx={BaseButtonStyle} />
+            )}
         </Datagrid>
     );
 };

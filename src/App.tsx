@@ -1,4 +1,5 @@
 import TransferListWrapper from "@entities/transfer/ui/list/transferListWrapper";
+import GroupsIcon from "@mui/icons-material/Groups";
 import LayersRoundedIcon from "@mui/icons-material/LayersRounded";
 import MoveUpIcon from "@mui/icons-material/MoveUp";
 import authProvider from "@shared/api/authProvider";
@@ -8,7 +9,12 @@ import ConnectionCreate from "@widgets/connection/ui/connectionCreate";
 import ConnectionEditWrapper from "@widgets/connection/ui/wrappers/connectionEditWrapper";
 import ConnectionListWrapper from "@widgets/connection/ui/wrappers/connectionListWrapper";
 import ConnectionShowWrapper from "@widgets/connection/ui/wrappers/connectionShowWrapper";
+import GroupCreate from "@widgets/groups/ui/groupCreate";
+import GroupEdit from "@widgets/groups/ui/groupEdit";
+import GroupShow from "@widgets/groups/ui/groupShow";
+import GroupList from "@widgets/groups/ui/list/groupList";
 import { Layout } from "@widgets/layout/ui";
+import QueueListWrapper from "@widgets/queue/ui/list/queueListWrapper";
 import QueueCreate from "@widgets/queue/ui/queueCreate";
 import QueueEdit from "@widgets/queue/ui/queueEdit";
 import QueueShow from "@widgets/queue/ui/queueShow";
@@ -17,6 +23,9 @@ import RunShow from "@widgets/run/ui/show/runShow";
 import TransferCreate from "@widgets/transfer/ui/transferCreate";
 import TransferEdit from "@widgets/transfer/ui/transferEdit";
 import TransferShow from "@widgets/transfer/ui/transferShow";
+import UserAddToGroup from "@widgets/users/ui/userAddToGroup";
+import UserEditRole from "@widgets/users/ui/userEditRole";
+import UserShow from "@widgets/users/ui/userShow";
 import {
     Admin,
     localStorageStore,
@@ -25,7 +34,6 @@ import {
     StoreContextProvider,
     useStore,
 } from "react-admin";
-import QueueListWrapper from "@widgets/queue/ui/list/queueListWrapper";
 
 const store = localStorageStore(undefined, "SyncMaster");
 
@@ -69,6 +77,20 @@ const App = () => {
                 edit={QueueEdit}
                 create={QueueCreate}
                 icon={LayersRoundedIcon}
+            />
+            <Resource
+                name="groups"
+                list={GroupList}
+                show={GroupShow}
+                edit={GroupEdit}
+                create={GroupCreate}
+                icon={GroupsIcon}
+            />
+            <Resource
+                name="users"
+                show={UserShow}
+                edit={UserEditRole}
+                create={UserAddToGroup}
             />
         </Admin>
     );

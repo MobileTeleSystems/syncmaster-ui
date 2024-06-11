@@ -1,10 +1,10 @@
-import type { StrategyParams } from "src/entities/transfer/ui/edit/types";
+import type { StrategyParams } from "@entities/transfer/ui/edit/types";
 import type {
     OracleAuthData,
     OracleConnectionData,
     PostgresAuthData,
     PostgresConnectionData,
-} from "src/widgets/connection/types";
+} from "@widgets/connection/types";
 
 type TransferParams = {
     table_name: string;
@@ -36,3 +36,9 @@ export type TransferDump = {
     target_connection_id: number;
     target_params: TransferParams;
 };
+
+export let roles = [
+    { id: "Maintainer", name: "Maintainer" },
+    { id: "Developer", name: "Developer" },
+    { id: "Guest", name: "Guest" },
+];

@@ -1,4 +1,4 @@
-import type { RunBaseList } from "@entities/types";
+import { BaseButtonStyle, type RunBaseList } from "@entities/types";
 import { PlayArrow } from "@mui/icons-material";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
@@ -61,10 +61,7 @@ const RunBaseList = ({
                             onClick={handleRunTransfer}
                             children={<PlayArrow />}
                             sx={{
-                                bgcolor: "background.paper",
-                                boxShadow: 1,
-                                borderRadius: 2,
-                                p: 2,
+                                ...BaseButtonStyle,
                                 mt: 1,
                             }}
                         />

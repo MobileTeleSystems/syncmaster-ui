@@ -1,7 +1,8 @@
-import type { ConnectionTypes } from "@shared/api/types";
+import type { ConnectionTypes, UserRoles } from "@shared/api/types";
 import { getAuthHeaders, getPOSTHeaders } from "@shared/api/utils";
 import { DataProvider, HttpError } from "react-admin";
 
+// TODO:after dockerization pass host from env like 'const host = process.env.REACT_APP_HOST'
 const apiUrl = "http://localhost:8000";
 const apiVersion = "v1";
 
@@ -97,8 +98,12 @@ const dataProvider: DataProvider = {
     },
     delete: (resource, params) => {
         const id = params.id;
+        let url: string = `${apiUrl}/${apiVersion}/${resource}/${id}`;
+        if (resource == "users") {
+            url = `${apiUrl}/${apiVersion}/groups/${params.meta.group_id}/${resource}/${params.id}`;
+        }
         return new Promise((resolve, reject) => {
-            return fetch(`${apiUrl}/${apiVersion}/${resource}/${id}`, {
+            return fetch(url, {
                 headers: getPOSTHeaders(),
                 method: "DELETE",
             })
@@ -121,6 +126,8 @@ const dataProvider: DataProvider = {
     update: (resource, params) => {
         // rework the body processing logic for different resources
         let bodyObject: any;
+        let url: string = `${apiUrl}/${apiVersion}/${resource}/${params.id}`;
+        // TODO: break down into individual providers DOP-16610
         switch (resource) {
             case "connections": {
                 bodyObject = {
@@ -149,13 +156,27 @@ const dataProvider: DataProvider = {
                 };
                 break;
             }
+            case "groups": {
+                bodyObject = {
+                    ...params.data,
+                };
+                break;
+            }
+            case "users": {
+                bodyObject = {
+                    role: params.data.role,
+                };
+                url = `${apiUrl}/${apiVersion}/groups/${params.data.group_id}/${resource}/${params.data.user_id}`;
+                break;
+            }
             default: {
-                bodyObject = {};
+                bodyObject = { ...params.data };
                 break;
             }
         }
+
         return new Promise((resolve, reject) => {
-            return fetch(`${apiUrl}/${apiVersion}/${resource}/${params.id}`, {
+            return fetch(url, {
                 headers: getPOSTHeaders(),
                 method: "PATCH",
                 body: JSON.stringify(bodyObject),
@@ -169,6 +190,15 @@ const dataProvider: DataProvider = {
                         body,
                         reject,
                     );
+                    if (resource == "users") {
+                        return resolve({
+                            data: {
+                                ...json,
+                                id: params.data.user_id,
+                                group_id: params.data.group_id,
+                            },
+                        });
+                    }
                     return resolve({
                         data: json,
                     });
@@ -178,6 +208,8 @@ const dataProvider: DataProvider = {
     create: (resource, params) => {
         // rework the body processing logic for different resources
         let bodyObject: any;
+        let url = `${apiUrl}/${apiVersion}/${resource}`;
+        // TODO: break down into individual providers DOP-16610
         switch (resource) {
             case "connections": {
                 bodyObject = {
@@ -211,14 +243,28 @@ const dataProvider: DataProvider = {
                 };
                 break;
             }
+            case "users": {
+                bodyObject = {
+                    role: params.data.role,
+                };
+                url = `${apiUrl}/${apiVersion}/groups/${params.data.group_id}/${resource}/${params.data.user_id}`;
+                break;
+            }
+            case "groups": {
+                bodyObject = {
+                    ...params.data,
+                };
+                break;
+            }
 
             default: {
                 bodyObject = {};
                 break;
             }
         }
+
         return new Promise((resolve, reject) => {
-            return fetch(`${apiUrl}/${apiVersion}/${resource}`, {
+            return fetch(url, {
                 headers: getPOSTHeaders(),
                 method: "POST",
                 body: JSON.stringify(bodyObject),
@@ -232,6 +278,11 @@ const dataProvider: DataProvider = {
                         body,
                         reject,
                     );
+                    if (resource == "users") {
+                        return resolve({
+                            data: { ...json, id: params.data.group_id },
+                        });
+                    }
                     return resolve({
                         data: json,
                     });
@@ -294,6 +345,64 @@ const dataProvider: DataProvider = {
                 headers: getPOSTHeaders(),
                 method: "POST",
                 body: JSON.stringify({ transfer_id: id }),
+            })
+                .then(parseResponse)
+                .then(({ status, statusText, headers, body }) => {
+                    const json = parseJSON(
+                        status,
+                        statusText,
+                        headers,
+                        body,
+                        reject,
+                    );
+                    return resolve(json);
+                });
+        });
+    },
+    updateUserRole: (groupId: number, userId: number, role: UserRoles) => {
+        return new Promise((resolve, reject) => {
+            const url = new URL(
+                apiUrl +
+                    "/" +
+                    apiVersion +
+                    "/groups/" +
+                    groupId +
+                    "/users/" +
+                    userId,
+            );
+            return fetch(url.toString(), {
+                headers: getPOSTHeaders(),
+                method: "POST",
+                body: JSON.stringify({ role: role }),
+            })
+                .then(parseResponse)
+                .then(({ status, statusText, headers, body }) => {
+                    const json = parseJSON(
+                        status,
+                        statusText,
+                        headers,
+                        body,
+                        reject,
+                    );
+                    return resolve(json);
+                });
+        });
+    },
+    getGroupUsers: (groupId: number, params) => {
+        return new Promise((resolve, reject) => {
+            const url = new URL(
+                apiUrl + "/" + apiVersion + "/groups/" + groupId + "/users/",
+            );
+
+            url.searchParams.append("page", params.pagination.page.toString());
+            url.searchParams.append(
+                "page_size",
+                params.pagination.perPage.toString(),
+            );
+
+            return fetch(url.toString(), {
+                headers: getAuthHeaders(),
+                method: "GET",
             })
                 .then(parseResponse)
                 .then(({ status, statusText, headers, body }) => {

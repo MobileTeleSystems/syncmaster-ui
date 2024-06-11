@@ -1,6 +1,6 @@
 import DBSourceParamsShow from "@entities/transfer/ui/show/dbSourceParamsShow";
 import DBTargetParamsShow from "@entities/transfer/ui/show/dbTargetParamsShow";
-import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
+import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 import { Card } from "@mui/material";
 import LinkedField from "@shared/linkedField";
 import Error from "@shared/ui/error";
@@ -17,11 +17,12 @@ import {
     useGetOne,
 } from "react-admin";
 import { useParams } from "react-router";
+import TitleElement from "@entities/titleElement";
 
 const TransferShow = () => {
-    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
+    const [, setEnableGroupSelector] = useEnableGroupSelector();
     useEffect(() => {
-        setCanChangeCurrentGroup(true);
+        setEnableGroupSelector(true);
     }, []);
     const { id } = useParams();
     const { data, isLoading, error } = useGetOne("transfers", { id });
@@ -32,7 +33,7 @@ const TransferShow = () => {
     return (
         <RecordContextProvider value={data}>
             <div style={{ paddingTop: "1em" }}>
-                <Title title={"Transfer " + data.name} />
+                <Title title={<TitleElement title={`Transfer ${data.name}`} />} />
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="id" />

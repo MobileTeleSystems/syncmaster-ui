@@ -1,12 +1,12 @@
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import { useEffect } from "react";
 import { Create, SimpleForm, TextInput } from "react-admin";
-import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
+import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 
 const QueueCreate = () => {
-    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
+    const [, setEnableGroupSelector] = useEnableGroupSelector();
     useEffect(() => {
-        setCanChangeCurrentGroup(true);
+        setEnableGroupSelector(true);
     }, []);
 
     const [currentGroup] = useLocalStoreCurrentGroup();

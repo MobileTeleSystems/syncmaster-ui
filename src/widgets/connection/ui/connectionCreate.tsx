@@ -14,12 +14,12 @@ import {
     TextInput,
 } from "react-admin";
 import { useQuery } from "react-query";
-import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
+import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 
 const ConnectionCreate = () => {
-    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
+    const [, setEnableGroupSelector] = useEnableGroupSelector();
     useEffect(() => {
-        setCanChangeCurrentGroup(true);
+        setEnableGroupSelector(true);
     }, []);
 
     const { data: connectionTypes, isLoading } = useQuery(

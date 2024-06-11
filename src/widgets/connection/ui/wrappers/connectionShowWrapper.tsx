@@ -1,6 +1,6 @@
 import OracleConnectionShow from "@entities/connection/show/oracleShow";
 import PostgresConnectionShow from "@entities/connection/show/postgresShow";
-import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
+import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 import Error from "@shared/ui/error";
 import Warning from "@shared/ui/warning";
 import { useEffect } from "react";
@@ -8,9 +8,9 @@ import { Loading, useGetOne } from "react-admin";
 import { useParams } from "react-router";
 
 const ConnectionShowWrapper = () => {
-    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
+    const [, setEnableGroupSelector] = useEnableGroupSelector();
     useEffect(() => {
-        setCanChangeCurrentGroup(true);
+        setEnableGroupSelector(true);
     }, []);
     const { id } = useParams();
     if (id === undefined) return <Error message={"Undefined id"} />;

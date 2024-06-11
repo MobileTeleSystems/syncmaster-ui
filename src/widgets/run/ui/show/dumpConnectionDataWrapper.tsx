@@ -1,14 +1,14 @@
 import OracleConnectionShow from "@entities/connection/show/oracleShow";
 import PostgresConnectionShow from "@entities/connection/show/postgresShow";
-import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
+import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 import Warning from "@shared/ui/warning";
 import { ConnectionData } from "@widgets/connection/types";
 import { useEffect } from "react";
 
 const DumpConnectionDataWrapper = ({ data }: { data: ConnectionData }) => {
-    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
+    const [, setEnableGroupSelector] = useEnableGroupSelector();
     useEffect(() => {
-        setCanChangeCurrentGroup(true);
+        setEnableGroupSelector(true);
     }, []);
     if (data.connection_data.type === "postgres") {
         return (

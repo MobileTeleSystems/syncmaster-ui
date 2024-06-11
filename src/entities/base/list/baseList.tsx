@@ -1,5 +1,5 @@
 import type { BaseList } from "@entities/types";
-import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
+import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
@@ -14,7 +14,7 @@ import {
 } from "react-admin";
 
 const BaseList = ({ type, title, element }: BaseList) => {
-    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
+    const [, setEnableGroupSelector] = useEnableGroupSelector();
     const [currentGroup] = useLocalStoreCurrentGroup();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
@@ -24,7 +24,7 @@ const BaseList = ({ type, title, element }: BaseList) => {
     });
 
     useEffect(() => {
-        setCanChangeCurrentGroup(false);
+        setEnableGroupSelector(false);
     }, []);
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;

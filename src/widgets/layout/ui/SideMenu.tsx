@@ -7,6 +7,7 @@ const SideMenu = () => (
         <Menu.ResourceItem name="transfers" />
         <Menu.ResourceItem name="connections" />
         <Menu.ResourceItem name="queues" />
+        <Menu.ResourceItem name="groups" />
     </Menu>
 );
 

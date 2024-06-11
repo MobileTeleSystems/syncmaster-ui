@@ -1,4 +1,4 @@
-import useLocalStoreChangeGroup from "@hooks/useLocalStoreChangeGroup";
+import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 import StopIcon from "@mui/icons-material/Stop";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
@@ -18,11 +18,12 @@ import {
 } from "react-admin";
 import { useParams } from "react-router";
 import LinkedField from "@shared/linkedField";
+import { BaseButtonStyle } from "@entities/types";
 
 const RunShow = () => {
-    const [, setCanChangeCurrentGroup] = useLocalStoreChangeGroup();
+    const [, setEnableGroupSelector] = useEnableGroupSelector();
     useEffect(() => {
-        setCanChangeCurrentGroup(true);
+        setEnableGroupSelector(true);
     }, []);
     const { id } = useParams();
     const { data, isLoading, error } = useGetOne("runs", { id });
@@ -83,10 +84,7 @@ const RunShow = () => {
                             children={<StopIcon />}
                             onClick={handleStopRun}
                             sx={{
-                                bgcolor: "background.paper",
-                                boxShadow: 1,
-                                borderRadius: 2,
-                                p: 2,
+                                ...BaseButtonStyle,
                                 color: "crimson",
                             }}
                         />
