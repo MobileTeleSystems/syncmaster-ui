@@ -7,6 +7,7 @@ import { useParams } from "react-router";
 
 const UserEditRole = () => {
     const { id: userId } = useParams();
+    // useRecordContext doesn't work so localStore is used
     const [currentUserGroupId] = useGroupIdInGroupMenuPage();
     const transform = (data) => ({
         ...data,

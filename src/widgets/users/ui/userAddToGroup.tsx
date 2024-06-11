@@ -16,6 +16,7 @@ import {
 } from "react-admin";
 
 const UserAddToGroup = () => {
+    // useRecordContext doesn't work so localStore is used
     const [currentUserGroupId] = useGroupIdInGroupMenuPage();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
