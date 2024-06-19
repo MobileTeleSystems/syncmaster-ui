@@ -9,16 +9,17 @@ const UserEditRole = () => {
     const { id: userId } = useParams();
     // useRecordContext doesn't work so localStore is used
     const [currentUserGroupId] = useGroupIdInGroupMenuPage();
-    const transform = (data) => ({
+    const transform = (data: { role: string }) => ({
         ...data,
         user_id: userId,
         group_id: currentUserGroupId,
     });
-    const redirectTo = (resource: string, id: string, data: any) =>
+    const redirectTo = ({ data }: { data: { group_id: number } }): string =>
         "groups/" + data.group_id + "/show";
     return (
         <Edit
             mutationMode="pessimistic"
+            // @ts-expect-error redirectTo type
             redirect={redirectTo}
             transform={transform}
             title={<TitleElement title={`Edit user role`} />}

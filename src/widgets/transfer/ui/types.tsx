@@ -1,4 +1,4 @@
-export let strategyParams = [
+export const strategyParams = [
     { name: "full", id: "full" },
     { name: "incremental", id: "incremental", disabled: true },
 ];

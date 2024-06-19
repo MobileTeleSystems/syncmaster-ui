@@ -12,9 +12,9 @@ import {
 const UserListElement = () => {
     const refresh = useRefresh();
     const record = useRecordContext();
-    const redirectTo = (resource: string, id: string, data: any) => {
+    const redirectTo = () => {
         refresh();
-        return "groups/" + record.id+ "/show";
+        return "groups/" + record.id + "/show";
     };
     return (
         <Datagrid rowClick="show" resource={"users"}>

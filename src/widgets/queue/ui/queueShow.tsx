@@ -23,6 +23,7 @@ const QueueShow = () => {
     if (id === undefined) return <Error message={"Undefined id"} />;
     const { data, isLoading, error } = useGetOne("queues", { id });
     if (isLoading) return <Loading />;
+    // @ts-expect-error error type
     if (error) return <Error message={error} />;
     return (
         <RecordContextProvider value={data}>

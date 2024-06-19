@@ -24,11 +24,16 @@ const UsersBaseList = ({ element }: { element: JSX.Element }) => {
             }),
     );
     if (isLoading) return <Loading />;
+    // @ts-expect-error error type
     if (error) return <Error message={error} />;
-    const sort = { field: "name", order: "ASC" };
+    const sort: { field: string; order: "ASC" | "DESC" } = {
+        field: "name",
+        order: "ASC",
+    };
     return (
         <div style={{ paddingTop: "1em" }}>
             <ListContextProvider
+                // @ts-expect-error must implement other fields
                 value={{
                     data: data.items || [],
                     total: data.meta.total || 0,

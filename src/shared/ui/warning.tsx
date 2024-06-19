@@ -1,6 +1,6 @@
 import { Alert } from "@mui/material";
 
-const Warning = ({ message}: {message: string}) => {
+const Warning = ({ message }: { message: Error | string }) => {
     return (
         <div style={{ paddingTop: "1em" }}>
             <Alert severity="warning">{message}</Alert>
@@ -8,4 +8,4 @@ const Warning = ({ message}: {message: string}) => {
     );
 };
 
-export default Warning
+export default Warning;

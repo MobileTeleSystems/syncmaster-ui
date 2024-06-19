@@ -53,6 +53,7 @@ const App = () => {
             lightTheme={lightTheme}
             darkTheme={darkTheme}
             defaultTheme="light"
+            requireAuth
         >
             <Resource
                 name="transfers"

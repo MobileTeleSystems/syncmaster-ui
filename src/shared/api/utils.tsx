@@ -7,7 +7,7 @@ export const getAuthHeaders = (): Headers => {
 };
 
 export const getPOSTHeaders = (): Headers => {
-    let headers: Headers = getAuthHeaders();
+    const headers: Headers = getAuthHeaders();
     headers.append("Content-Type", "application/json");
     return headers;
 };

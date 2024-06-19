@@ -1,10 +1,10 @@
 import useLocalStoreGroupList from "@hooks/useLocalStoreGroupList";
 import AppBar from "@widgets/layout/ui/bar/AppBar";
 import SideMenu from "@widgets/layout/ui/SideMenu";
-import * as React from "react";
 import { useEffect } from "react";
 import { Layout, LayoutProps, useGetList } from "react-admin";
 
+// eslint-disable-next-line react/display-name
 export default (props: LayoutProps) => {
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("username");

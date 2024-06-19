@@ -3,9 +3,11 @@ import { Card, TextField as Field } from "@mui/material";
 import Error from "@shared/ui/error";
 import { roles } from "@widgets/types";
 import UserListElementForCreate from "@widgets/users/ui/list/userListElementForCreate";
+import { object } from "prop-types";
 import { useState } from "react";
 import {
     Create,
+    Identifier,
     ListContextProvider,
     Loading,
     Pagination,
@@ -22,7 +24,7 @@ const UserAddToGroup = () => {
     const [perPage, setPerPage] = useState(10);
     const [selectedUser, setSelectedUser] = useState<{
         user: string;
-        id: number;
+        id: Identifier;
     }>();
     const [selectedRole, setSelectedRole] = useState();
     const {
@@ -31,21 +33,23 @@ const UserAddToGroup = () => {
         isLoading,
         error,
     } = useGetList("users", {
-        meta: {},
+        meta: object,
         pagination: { page, perPage },
     });
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;
-    const sort = { field: "name", order: "ASC" };
+    const sort: { field: string; order: "ASC" | "DESC" } = {
+        field: "name",
+        order: "ASC",
+    };
 
-    const transform = (data) => ({
+    const transform = () => ({
         group_id: currentUserGroupId,
-        user_id: selectedUser.id,
+        user_id: selectedUser?.id,
         role: selectedRole,
     });
 
-    const redirectTo = (resource: string, id: string, data: any) =>
-        "groups/" + currentUserGroupId + "/show";
+    const redirectTo = () => "groups/" + currentUserGroupId + "/show";
 
     return (
         <div style={{ paddingTop: "1em" }}>
@@ -77,6 +81,7 @@ const UserAddToGroup = () => {
                     />
                     {/* TODO: Replace with the Autocomplete component when filtering is implemented on the backend */}
                     <ListContextProvider
+                        // @ts-expect-error must implement other fields
                         value={{
                             data: users || [],
                             total: total || 0,

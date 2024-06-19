@@ -1,4 +1,6 @@
 import { AuthProvider } from "react-admin";
+import { getApiUrl } from "@shared/api/types";
+
 
 const authProvider: AuthProvider = {
     login: ({ username, password }) => {
@@ -10,8 +12,8 @@ const authProvider: AuthProvider = {
             body: formdata,
             redirect: "follow",
         };
-        // @ts-ignore
-        return fetch("http://localhost:8000/v1/auth/token", requestOptions)
+        // @ts-expect-error requestOptions
+        return fetch(getApiUrl() + "/v1/auth/token", requestOptions)
             .then((response) => {
                 if (response.status < 200 || response.status >= 300) {
                     throw new Error(response.statusText);

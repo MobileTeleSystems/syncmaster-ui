@@ -4,6 +4,7 @@ import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 import { Card } from "@mui/material";
 import LinkedField from "@shared/linkedField";
 import DumpConnectionDataWrapper from "@widgets/run/ui/show/dumpConnectionDataWrapper";
+import type { TransferDump } from "@widgets/types";
 import { useEffect } from "react";
 import {
     BooleanField,
@@ -11,9 +12,8 @@ import {
     SimpleShowLayout,
     TextField,
 } from "react-admin";
-import type { TransferDump } from "@widgets/types";
 
-const DumpTransferData = ({ data }: {data: TransferDump}) => {
+const DumpTransferData = ({ data }: { data: TransferDump }) => {
     const [, setEnableGroupSelector] = useEnableGroupSelector();
     useEffect(() => {
         setEnableGroupSelector(true);
@@ -28,6 +28,7 @@ const DumpTransferData = ({ data }: {data: TransferDump}) => {
                         <TextField source="name" label={"Transfer"} />
                         <TextField source="description" />
                         <LinkedField
+                            // @ts-expect-error label is react-admin magic field
                             label={"Queue"}
                             resource={"queues"}
                             id={data.queue_id}
@@ -37,20 +38,28 @@ const DumpTransferData = ({ data }: {data: TransferDump}) => {
                                 ...data.source_connection,
                                 connection_data: data.source_connection.data,
                             }}
+                            // @ts-expect-error label is react-admin magic field
                             label={"Source connection"}
                         />
-                        <DBSourceParamsShow label={"Source (schema.table)"} />{" "}
-                        // TODO: without the label option it does not show the
+                        <DBSourceParamsShow
+                            // @ts-expect-error  label is react-admin magic field
+                            label={"Source (schema.table)"}
+                        />{" "}
+                        {/** // TODO: without the label option it does not show the */}
                         field name
                         <DumpConnectionDataWrapper
                             data={{
                                 ...data.target_connection,
                                 connection_data: data.target_connection.data,
                             }}
+                            // @ts-expect-error  label is react-admin magic field
                             label={"Target connection"}
                         />
-                        <DBTargetParamsShow label={"Target (schema.table)"} />{" "}
-                        // TODO: without the label option it does not show the
+                        <DBTargetParamsShow
+                            // @ts-expect-error  label is react-admin magic field
+                            label={"Target (schema.table)"}
+                        />{" "}
+                        {/** // TODO: without the label option it does not show the */}
                         field name
                         <BooleanField
                             name="is_scheduled"
