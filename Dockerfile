@@ -17,4 +17,4 @@ FROM nginx:stable-alpine as prod
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=dev /syncmaster_ui/dist /usr/share/nginx/html
 
-EXPOSE 8888
+EXPOSE 3000
