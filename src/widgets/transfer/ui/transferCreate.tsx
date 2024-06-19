@@ -1,5 +1,5 @@
-import DBSourceParamsEdit from "@entities/transfer/ui/edit/DBSourceParamsEdit";
-import DBTargetParamsEdit from "@entities/transfer/ui/edit/DBTargetParamsEdit";
+import DBSourceParamsEdit from "@entities/transfer/ui/edit/dbSourceParamsEdit";
+import DBTargetParamsEdit from "@entities/transfer/ui/edit/dbTargetParamsEdit";
 import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import ConnectionSelector from "@widgets/connectionSelector";

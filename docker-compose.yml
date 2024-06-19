@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+    syncmaster-ui:
+        image: syncmaster_ui
+        build:
+            dockerfile: Dockerfile
+            context: .
+            network: host
+            target: prod
+        ports:
+            - "3000:3000"
