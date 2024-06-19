@@ -11,6 +11,7 @@ import {
     Pagination,
     useDataProvider,
     useGetList,
+    useRefresh,
 } from "react-admin";
 
 const RunBaseList = ({
@@ -19,6 +20,7 @@ const RunBaseList = ({
     transferId,
     transferName,
 }: RunBaseList) => {
+    const refresh = useRefresh();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(5);
     const { data, total, isLoading, error } = useGetList(type, {
@@ -34,6 +36,7 @@ const RunBaseList = ({
     const handleConfirm = () => {
         dataProvider.runTransfer(transferId);
         setOpen(false);
+        refresh();
     };
 
     if (isLoading) return <Loading />;
