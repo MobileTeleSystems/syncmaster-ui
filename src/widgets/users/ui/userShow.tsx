@@ -23,12 +23,15 @@ const UserShow = () => {
     const { data, isLoading, error } = useGetOne("users", { id });
     if (id === undefined) return <Error message={"Undefined id"} />;
     if (isLoading) return <Loading />;
+    // @ts-expect-error error type
     if (error) return <Error message={error} />;
 
     return (
         <RecordContextProvider value={data}>
             <div style={{ paddingTop: "1em" }}>
-                <Title title={<TitleElement title={`User ${data.username}`} />} />
+                <Title
+                    title={<TitleElement title={`User ${data.username}`} />}
+                />
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="id" />

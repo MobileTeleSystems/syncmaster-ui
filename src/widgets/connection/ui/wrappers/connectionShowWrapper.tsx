@@ -17,6 +17,7 @@ const ConnectionShowWrapper = () => {
 
     const { data, isLoading, error } = useGetOne("connections", { id });
     if (isLoading) return <Loading />;
+    // @ts-expect-error error type
     if (error) return <Error message={error} />;
     if (data.connection_data.type === "postgres") {
         return <PostgresConnectionShow data={data} />;

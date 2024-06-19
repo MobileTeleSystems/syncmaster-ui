@@ -28,12 +28,15 @@ const TransferShow = () => {
     const { data, isLoading, error } = useGetOne("transfers", { id });
     if (id === undefined) return <Error message={"Undefined id"} />;
     if (isLoading) return <Loading />;
+    // @ts-expect-error error type
     if (error) return <Error message={error} />;
 
     return (
         <RecordContextProvider value={data}>
             <div style={{ paddingTop: "1em" }}>
-                <Title title={<TitleElement title={`Transfer ${data.name}`} />} />
+                <Title
+                    title={<TitleElement title={`Transfer ${data.name}`} />}
+                />
                 <Card>
                     <SimpleShowLayout>
                         <TextField source="id" />
@@ -41,24 +44,33 @@ const TransferShow = () => {
                         <TextField source="description" />
                         <LinkedField
                             id={data.queue_id}
+                            // @ts-expect-error  label is react-admin magic field
                             label="Queue"
                             resource={"queues"}
                         />
                         <LinkedField
                             id={data.source_connection_id}
+                            // @ts-expect-error  label is react-admin magic field
                             label={`Source connection (${data.source_params.type})`}
                             resource={"connections"}
                         />
-                        <DBSourceParamsShow label={"Source (schema.table)"} />{" "}
-                        // TODO: without the label option it does not show the
+                        <DBSourceParamsShow
+                            // @ts-expect-error  label is react-admin magic field
+                            label={"Source (schema.table)"}
+                        />
+                        {/** // TODO: without the label option it does not show the */}
                         field name
                         <LinkedField
                             id={data.target_connection_id}
+                            // @ts-expect-error  label is react-admin magic field
                             label={`Target connection (${data.target_params.type})`}
                             resource={"connections"}
                         />
-                        <DBTargetParamsShow label={"Target (schema.table)"} />{" "}
-                        // TODO: without the label option it does not show the
+                        <DBTargetParamsShow
+                            // @ts-expect-error  label is react-admin magic field
+                            label={"Target (schema.table)"}
+                        />
+                        {/** // TODO: without the label option it does not show the */}
                         field name
                         <BooleanField
                             name="is_scheduled"

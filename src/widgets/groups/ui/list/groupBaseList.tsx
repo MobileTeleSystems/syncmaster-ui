@@ -1,6 +1,4 @@
-import type { BaseList } from "@entities/types";
 import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
-import useLocalStoreCurrentGroup from "@hooks/useLocalStoreCurrentGroup";
 import { Card } from "@mui/material";
 import Error from "@shared/ui/error";
 import { useEffect, useState } from "react";
@@ -13,13 +11,11 @@ import {
     useGetList,
 } from "react-admin";
 
-const BaseList = ({ type, title, element }: BaseList) => {
+const GroupBaseList = ({ element }: { element: JSX.Element }) => {
     const [, setEnableGroupSelector] = useEnableGroupSelector();
-    const [currentGroup] = useLocalStoreCurrentGroup();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
-    const { data, total, isLoading, error } = useGetList(type, {
-        meta: { group_id: currentGroup.id },
+    const { data, total, isLoading, error } = useGetList("groups", {
         pagination: { page, perPage },
     });
 
@@ -49,7 +45,7 @@ const BaseList = ({ type, title, element }: BaseList) => {
             >
                 {
                     <div>
-                        <Title title={title} />
+                        <Title title={"Groups"} />
                         <div
                             style={{
                                 display: "flex",
@@ -70,4 +66,4 @@ const BaseList = ({ type, title, element }: BaseList) => {
     );
 };
 
-export default BaseList;
+export default GroupBaseList;

@@ -8,6 +8,7 @@ const ConnectionListElement = () => {
                 <TextField
                     source="connection_data.type"
                     label={"Connection Type"}
+                    key={0}
                 />,
             ]}
             resource={"connections"}

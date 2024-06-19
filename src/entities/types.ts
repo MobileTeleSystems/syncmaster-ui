@@ -18,7 +18,7 @@ export type BaseListColumns = {
     isDeletable?: boolean;
 };
 
-export let BaseButtonStyle = {
+export const BaseButtonStyle = {
     bgcolor: "background.paper",
     boxShadow: 1,
     borderRadius: 2,

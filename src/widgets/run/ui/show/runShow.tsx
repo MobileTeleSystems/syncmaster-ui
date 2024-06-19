@@ -40,6 +40,7 @@ const RunShow = () => {
 
     if (id === undefined) return <Error message={"Undefined id"} />;
     if (isLoading) return <Loading />;
+    // @ts-expect-error error type
     if (error) return <Error message={error} />;
 
     const processedData = {
@@ -59,11 +60,13 @@ const RunShow = () => {
                         <TextField source="log_url" />
                         <LinkedField
                             id={data.transfer_id}
+                            // @ts-expect-error  label is react-admin magic field
                             label={"Transfer"}
                             resource={"transfers"}
                         />
                         <DumpTransferData
                             data={data.transfer_dump}
+                            // @ts-expect-error   label is react-admin magic field
                             label="Transfer dump data"
                         />
                     </SimpleShowLayout>
@@ -81,7 +84,7 @@ const RunShow = () => {
                     >
                         <Button
                             label={"Stop"}
-                            children={<StopIcon />}
+                            children={<StopIcon />} // eslint-disable-line react/no-children-prop
                             onClick={handleStopRun}
                             sx={{
                                 ...BaseButtonStyle,

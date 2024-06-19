@@ -32,7 +32,15 @@ const TransferCreate = () => {
         label: string;
     }>({ id: 0, label: "" });
     const groupId = () => ({ group_id: currentGroup.id });
-    const transform = (data) => ({
+    const transform = (data: {
+        name: string;
+        description: string;
+        queues: string;
+        strategy_params: "full" | "incremental";
+        schedule: string;
+        source_params: object;
+        target_params: object;
+    }) => ({
         ...data,
         strategy_params: { type: data.strategy_params },
         source_params: {

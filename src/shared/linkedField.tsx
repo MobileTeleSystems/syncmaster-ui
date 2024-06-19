@@ -6,12 +6,13 @@ const LinkedField = ({
     resource,
     field = "name",
 }: {
-    id: string;
+    id: number;
     resource: string;
     field?: string;
 }) => {
     const { data, isLoading, error } = useGetOne(resource, { id });
     if (isLoading) return <Loading />;
+    // @ts-expect-error error type
     if (error) return <Error message={error} />;
 
     // TODO: replace with https://marmelab.com/react-admin/ReferenceField.html

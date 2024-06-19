@@ -6,11 +6,12 @@ import { useParams } from "react-router";
 
 const ConnectionEditWrapper = () => {
     const { id } = useParams();
-    if (id === undefined) return <Error message={"Undefined id"}/>;
+    if (id === undefined) return <Error message={"Undefined id"} />;
 
     const { data, isLoading, error } = useGetOne("connections", { id });
     if (isLoading) return <Loading />;
-    if (error) return <Error message={error}/>;
+    // @ts-expect-error  error type
+    if (error) return <Error message={error} />;
     if (
         data.connection_data.type === "postgres" ||
         data.connection_data.type === "oracle"

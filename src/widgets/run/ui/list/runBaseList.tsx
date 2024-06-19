@@ -38,11 +38,15 @@ const RunBaseList = ({
 
     if (isLoading) return <Loading />;
     if (error) return <Error message={error} />;
-    const sort = { field: "name", order: "ASC" };
+    const sort: { field: string; order: "ASC" | "DESC" } = {
+        field: "name",
+        order: "ASC",
+    };
 
     return (
         <div style={{ paddingTop: "1em" }}>
             <ListContextProvider
+                // @ts-expect-error must implement other fields
                 value={{
                     data: data || [],
                     total: total || 0,
@@ -59,7 +63,7 @@ const RunBaseList = ({
                         <Button
                             label={"Run transfer"}
                             onClick={handleRunTransfer}
-                            children={<PlayArrow />}
+                            children={<PlayArrow />} // eslint-disable-line react/no-children-prop
                             sx={{
                                 ...BaseButtonStyle,
                                 mt: 1,

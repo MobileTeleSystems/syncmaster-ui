@@ -13,10 +13,21 @@ import {
     TextInput,
     useEditController,
 } from "react-admin";
-import DBSourceParamsEdit from "@entities/transfer/ui/edit/DBSourceParamsEdit";
-import DBTargetParamsEdit from "@entities/transfer/ui/edit/DBTargetParamsEdit";
+import DBSourceParamsEdit from "@entities/transfer/ui/edit/dbSourceParamsEdit";
+import DBTargetParamsEdit from "@entities/transfer/ui/edit/dbTargetParamsEdit";
 
-const TransferEditForm = ({ record }) => {
+const TransferEditForm = ({
+    record,
+}: {
+    record: {
+        is_scheduled: boolean;
+        source_connection_id: number;
+        target_connection_id: number;
+        source_params: { type: "postgres" | "oracle" };
+        target_params: { type: "postgres" | "oracle" };
+        strategy_params: { type: "full" | "incremental" };
+    };
+}) => {
     const [currentGroup] = useLocalStoreCurrentGroup();
     const [isScheduled, setIsScheduled] = useState<boolean>(
         record.is_scheduled,
@@ -33,7 +44,18 @@ const TransferEditForm = ({ record }) => {
         ...record,
         strategy_params: record.strategy_params.type,
     };
-    const transform = (data) => ({
+    const transform = (data: {
+        name: string;
+        description: string;
+        queue_id: number;
+        source_connection_id: number;
+        target_connection_id: number;
+        strategy_params: "full" | "incremental";
+        schedule: string;
+        is_scheduled: boolean;
+        source_params: object;
+        target_params: object;
+    }) => ({
         ...data,
         new_queue_id: data.queue_id,
         strategy_params: { type: data.strategy_params },

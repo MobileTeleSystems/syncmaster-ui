@@ -7,7 +7,7 @@ import TextField from "@mui/material/TextField";
 
 const Groups = () => {
     const [currentGroup, setCurrentGroup] = useLocalStoreCurrentGroup();
-    const [groupList, _] = useLocalStoreGroupList();
+    const [groupList] = useLocalStoreGroupList();
     const [isEnabledGroupSelector] = useEnableGroupSelector();
 
     return (

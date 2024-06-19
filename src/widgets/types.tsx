@@ -37,7 +37,7 @@ export type TransferDump = {
     target_params: TransferParams;
 };
 
-export let roles = [
+export const roles = [
     { id: "Maintainer", name: "Maintainer" },
     { id: "Developer", name: "Developer" },
     { id: "Guest", name: "Guest" },

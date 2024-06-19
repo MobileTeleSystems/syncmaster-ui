@@ -2,7 +2,7 @@ import { Create, SimpleForm, TextInput } from "react-admin";
 
 const GroupCreate = () => {
     return (
-        <Create redirect={"show"}>
+        <Create redirect={"show"} resource="groups">
             <SimpleForm>
                 <TextInput source="name" name="name" required={true} />
                 <TextInput

@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { useStore, useTranslate, ToggleThemeButton } from 'react-admin';
-import { IconButton, Menu, MenuItem, Tooltip } from '@mui/material';
-import ColorLensIcon from '@mui/icons-material/ColorLens';
+import { useState } from "react";
+import { useStore, useTranslate, ToggleThemeButton } from "react-admin";
+import { IconButton, Menu, MenuItem, Tooltip } from "@mui/material";
+import ColorLensIcon from "@mui/icons-material/ColorLens";
 
-import { themes, ThemeName } from '@themes/themes';
+import { themes, ThemeName } from "@themes/themes";
 
 export const ThemeSwapper = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -15,17 +15,17 @@ export const ThemeSwapper = () => {
         setAnchorEl(null);
     };
 
-    const [themeName, setThemeName] = useStore<ThemeName>('themeName', 'soft');
+    const [themeName, setThemeName] = useStore<ThemeName>("themeName", "soft");
     const handleChange = (_: React.MouseEvent<HTMLElement>, index: number) => {
         const newTheme = themes[index];
         setThemeName(newTheme.name);
         setAnchorEl(null);
     };
-    const currentTheme = themes.find(theme => theme.name === themeName);
+    const currentTheme = themes.find((theme) => theme.name === themeName);
 
     const translate = useTranslate();
-    const toggleThemeTitle = translate('pos.action.change_theme', {
-        _: 'Change Theme',
+    const toggleThemeTitle = translate("pos.action.change_theme", {
+        _: "Change Theme",
     });
 
     return (
@@ -43,7 +43,7 @@ export const ThemeSwapper = () => {
             <Menu open={open} onClose={handleClose} anchorEl={anchorEl}>
                 {themes.map((theme, index: number) => (
                     <MenuItem
-                        onClick={event => handleChange(event, index)}
+                        onClick={(event) => handleChange(event, index)}
                         value={theme.name}
                         key={theme.name}
                         selected={theme.name === themeName}

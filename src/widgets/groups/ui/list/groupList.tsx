@@ -1,14 +1,8 @@
-import BaseList from "@entities/base/list/baseList";
+import GroupBaseList from "@widgets/groups/ui/list/groupBaseList";
 import GroupListElement from "@widgets/groups/ui/list/groupListElement";
 
 const GroupList = () => {
-    return (
-        <BaseList
-            type={"groups"}
-            title={"Groups"}
-            element={<GroupListElement />}
-        />
-    );
+    return <GroupBaseList element={<GroupListElement />} />;
 };
 
 export default GroupList;

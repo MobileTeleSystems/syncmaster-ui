@@ -34,7 +34,7 @@ const Login = () => {
         setLoading(true);
         login(
             auth,
-            location.state ? (location.state as any).nextPathname : "/",
+            location.state ? (location.state as any).nextPathname : "/", // eslint-disable-line @typescript-eslint/no-explicit-any
         ).catch((error: Error) => {
             setLoading(false);
             notify(

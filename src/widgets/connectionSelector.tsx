@@ -9,11 +9,17 @@ const ConnectionSelector = ({
     setData,
     label,
 }: {
-    id: number;
+    id?: number;
     name: string;
     resource: string;
-    setData?: ({ id, label }: { id: number; label: string }) => {};
-    label: string;
+    setData?: ({
+        id,
+        label,
+    }: {
+        id: number;
+        label: "postgres" | "oracle";
+    }) => void;
+    label?: string;
 }) => {
     // TODO: since the backend sends a list page by page and not all elements at once,
     //  if there are a large number of elements it may lose records

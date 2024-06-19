@@ -31,6 +31,7 @@ const GroupShow = () => {
 
     if (id === undefined) return <Error message={"Undefined id"} />;
     if (isLoading) return <Loading />;
+    // @ts-expect-error error type
     if (error) return <Error message={error} />;
 
     return (
@@ -44,6 +45,7 @@ const GroupShow = () => {
                         <TextField source="description" />
                         <LinkedField
                             id={data.owner_id}
+                            // @ts-expect-error  label is react-admin magic field
                             label="Owner"
                             resource={"users"}
                             field={"username"}
