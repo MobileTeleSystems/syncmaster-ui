@@ -5,10 +5,11 @@ FROM node:22.3.0 as dev
 WORKDIR /syncmaster_ui
 
 # install app dependencies
-COPY package*.json .
 RUN npm cache clean --force \
     npm install --global yarn
-RUN npm install
+
+COPY package*.json .
+RUN npm ci
 COPY . .
 RUN yarn build
 CMD [ "yarn", "dev" ]
