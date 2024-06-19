@@ -1,4 +1,4 @@
-# SyncMaster
+# SyncMaster UI
 
 This interface is designed to work with the SyncMaster service.
 This interface contains 4 menu sections: Transfers, Connections, Queues, Groups.
