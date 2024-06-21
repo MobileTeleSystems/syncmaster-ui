@@ -31,7 +31,7 @@ jobs:
                       ${{ runner.os }}-npm-
 
             - name: Run ESLint
-              run: npx eslint
+              run: npx eslint .
 
             - name: Run Prettier
               id: prettier-run
