@@ -20,7 +20,7 @@ WORKDIR /syncmaster_ui
 
 # install app dependencies
 RUN npm cache clean --force \
-npm install --global yarn
+    npm install --global yarn
 
 COPY package*.json .
 RUN npm ci
