@@ -1,4 +1,4 @@
-.title
+.. title
 
 =============
 SyncMaster UI
