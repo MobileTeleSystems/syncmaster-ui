@@ -45,7 +45,8 @@
         "dev": "vite",
         "build": "tsc && vite build",
         "preview": "vite preview",
-        "prettier-format": "prettier --config .prettierrc 'src/**/*.tsx' 'src/**/*.ts' --write"
+        "prettier-format": "prettier --config .prettierrc 'src/**/*.tsx' 'src/**/*.ts' --write",
+        "prepare": "husky"
     },
     "devDependencies": {
         "@eslint/compat": "^1.1.0",
@@ -60,6 +61,8 @@
         "eslint": "^8.57.0",
         "eslint-plugin-react": "^7.34.2",
         "globals": "^15.6.0",
+        "husky": "^9.0.11",
+        "lint-staged": "^15.2.7",
         "prettier": "^3.3.2",
         "rewire": "^5.0.0",
         "rollup-plugin-visualizer": "^5.9.2",
@@ -70,5 +73,8 @@
     "prettier": {
         "tabWidth": 4,
         "printWidth": 80
+    },
+    "lint-staged": {
+        "**/*": "prettier --write --ignore-unknown"
     }
 }
