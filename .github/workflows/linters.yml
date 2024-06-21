@@ -1,0 +1,24 @@
+name: Code analysis
+
+on:
+    push:
+        branches:
+            - develop
+    pull_request:
+        branches-ignore:
+            - master
+    workflow_dispatch:
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Install modules
+              run: npm ci
+            - name: Run ESLint
+              run: npx eslint . --ext .js,.jsx,.ts,.tsx
