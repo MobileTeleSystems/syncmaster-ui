@@ -1,16 +1,16 @@
-import { RaThemeOptions } from 'react-admin';
+import { RaThemeOptions } from "react-admin";
 
 /** Just for fun */
 
 export const chiptuneTheme: RaThemeOptions = {
     palette: {
-        mode: 'dark' as const,
+        mode: "dark" as const,
         primary: {
-            main: '#0f0',
+            main: "#0f0",
         },
         background: {
-            default: '#111111',
-            paper: '#212121',
+            default: "#111111",
+            paper: "#212121",
         },
     },
     typography: {

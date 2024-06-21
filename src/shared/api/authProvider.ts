@@ -1,7 +1,6 @@
 import { AuthProvider } from "react-admin";
 import { getApiUrl } from "@shared/api/types";
 
-
 const authProvider: AuthProvider = {
     login: ({ username, password }) => {
         const formdata = new FormData();
