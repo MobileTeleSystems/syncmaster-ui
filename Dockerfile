@@ -16,7 +16,7 @@ CMD [ "yarn", "dev" ]
 
 FROM nginx:stable-alpine as prod
 # Replace URL in the prod image
-RUN sed -i "s#http://localhost:8000#/g" /syncmaster_ui/src/shared/api/types.ts
+RUN sed -i "s#http://localhost:8000#/#g" /syncmaster_ui/src/shared/api/types.ts
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=dev /syncmaster_ui/dist /usr/share/nginx/html
 
