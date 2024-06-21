@@ -5,16 +5,4 @@ export const getApiUrl = () => {
 };
 const _some_trash = "awddwa";
 
-
-
-
-
-
-
-
-
-
-
-
-
 console.log(_some_trash);
