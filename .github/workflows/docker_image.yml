@@ -4,8 +4,8 @@ on:
     push:
         branches:
             - develop
-        # tags:
-            # - "[0-9]+.[0-9]+.[0-9]+"
+        tags:
+            - "[0-9]+.[0-9]+.[0-9]+"
     workflow_dispatch:
 
 concurrency:
@@ -43,7 +43,7 @@ jobs:
                     echo "TAG=mtsrus/syncmaster-ui:latest,mtsrus/syncmaster-ui:${{ github.ref_name }}" >> $GITHUB_ENV
                   fi
 
-            - name: Build Backend image
+            - name: Build UI image
               uses: docker/build-push-action@v6
               with:
                   tags: ${{ env.TAG }}
