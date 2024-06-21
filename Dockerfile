@@ -15,17 +15,17 @@ RUN yarn build
 CMD [ "yarn", "dev" ]
 
 FROM nginx:stable-alpine as prod
-# Replace URL in the prod image
 # set working directory
 WORKDIR /syncmaster_ui
 
 # install app dependencies
 RUN npm cache clean --force \
-    npm install --global yarn
+npm install --global yarn
 
 COPY package*.json .
 RUN npm ci
 COPY . .
+# Replace URL in the prod image
 RUN sed -i "s#http://localhost:8000#/#g" /syncmaster_ui/src/shared/api/types.ts
 RUN yarn build
 COPY nginx.conf /etc/nginx/conf.d/default.conf
