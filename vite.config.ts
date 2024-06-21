@@ -2,7 +2,7 @@ import alias from "@rollup/plugin-alias";
 import react from "@vitejs/plugin-react";
 import visualizer from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
-import path from 'path';
+import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
