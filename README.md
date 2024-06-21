@@ -36,3 +36,7 @@ Run the following command at the root directory:
 ```sh
 npx eslint --fix
 ```
+
+## Install pre-commit hooks
+
+Follow the instructions [here](https://prettier.io/docs/en/install)
