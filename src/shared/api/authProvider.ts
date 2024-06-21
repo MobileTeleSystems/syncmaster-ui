@@ -1,5 +1,5 @@
 import { AuthProvider } from "react-admin";
-import { getApiUrl } from "@shared/api/types";
+import { getApiUrl } from "@shared/api/utils";
 
 const authProvider: AuthProvider = {
     login: ({ username, password }) => {
