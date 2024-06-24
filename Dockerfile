@@ -11,7 +11,7 @@ COPY package*.json .
 RUN npm ci
 COPY . .
 ARG API_URL
-RUN sed -i "s#http://localhost:8000#$API_URL#g" /syncmaster_ui/src/shared/api/utils.ts
+RUN sed -i "s#http://localhost:8000#${API_URL}#g" /syncmaster_ui/src/shared/api/utils.ts
 RUN yarn build
 CMD [ "yarn", "dev" ]
 
