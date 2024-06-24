@@ -4,8 +4,6 @@ import { DataProvider, HttpError } from "react-admin";
 import { getApiUrl } from "@shared/api/utils";
 
 const apiVersion = "v1";
-// TODO: rafactor later
-const base = window.location.toString();
 
 // @ts-expect-error  response type
 const parseResponse = (response) =>
@@ -41,6 +39,8 @@ const parseJSON = (
 // @ts-expect-error must implement other methods
 const dataProvider: DataProvider = {
     getList: (resource, params) => {
+        // TODO: rafactor later
+        const base = window.location.toString();
         const url = new URL(
             getApiUrl() + "/" + apiVersion + "/" + resource,
             base,
@@ -298,6 +298,8 @@ const dataProvider: DataProvider = {
     },
     getConnectionTypes: () => {
         return new Promise((resolve, reject) => {
+            // TODO: rafactor later
+            const base = window.location.toString();
             const url = new URL(
                 getApiUrl() + "/" + apiVersion + "/connections/known_types",
                 base,
@@ -326,6 +328,8 @@ const dataProvider: DataProvider = {
     },
     stopRun: (id: string) => {
         return new Promise((resolve, reject) => {
+            // TODO: rafactor later
+            const base = window.location.toString();
             const url = new URL(
                 getApiUrl() + "/" + apiVersion + "/runs/" + id + "/stop",
                 base,
@@ -349,6 +353,8 @@ const dataProvider: DataProvider = {
     },
     runTransfer: (id: string) => {
         return new Promise((resolve, reject) => {
+            // TODO: rafactor later
+            const base = window.location.toString();
             const url = new URL(getApiUrl() + "/" + apiVersion + "/runs", base);
             return fetch(url.toString(), {
                 headers: getPOSTHeaders(),
@@ -370,6 +376,8 @@ const dataProvider: DataProvider = {
     },
     updateUserRole: (groupId: number, userId: number, role: UserRoles) => {
         return new Promise((resolve, reject) => {
+            // TODO: rafactor later
+            const base = window.location.toString();
             const url = new URL(
                 getApiUrl() +
                     "/" +
@@ -403,6 +411,8 @@ const dataProvider: DataProvider = {
         params: { pagination: { page: number; perPage: number } },
     ) => {
         return new Promise((resolve, reject) => {
+            // TODO: rafactor later
+            const base = window.location.toString();
             const url = new URL(
                 getApiUrl() +
                     "/" +
