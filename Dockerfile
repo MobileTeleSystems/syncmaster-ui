@@ -3,33 +3,20 @@ FROM node:22.3.0 as dev
 
 # set working directory
 WORKDIR /syncmaster_ui
-
 # install app dependencies
 RUN npm cache clean --force \
-    npm install --global yarn
+npm install --global yarn
 
 COPY package*.json .
 RUN npm ci
 COPY . .
+ARG API_URL=/api
+RUN sed -i "s#http://localhost:8000#$API_URL#g" /syncmaster_ui/src/shared/api/utils.ts
 RUN yarn build
 CMD [ "yarn", "dev" ]
 
 FROM nginx:stable-alpine as prod
-# set working directory
-WORKDIR /syncmaster_ui
-
-# install app dependencies
-RUN npm cache clean --force \
-    npm install --global yarn
-
-COPY package*.json .
-RUN npm ci
-COPY . .
-# Replace URL in the prod image
-ARG API_URL=/api
-RUN sed -i "s#http://localhost:8000#$API_URL#g" /syncmaster_ui/src/shared/api/utils.ts
-RUN yarn build
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY /syncmaster_ui/dist /usr/share/nginx/html
+COPY --from=dev /syncmaster_ui/dist /usr/share/nginx/html
 
 EXPOSE 3000
