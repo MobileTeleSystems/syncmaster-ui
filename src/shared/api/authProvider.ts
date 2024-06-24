@@ -12,7 +12,7 @@ const authProvider: AuthProvider = {
             redirect: "follow",
         };
         // @ts-expect-error requestOptions
-        return fetch(getApiUrl() + "v1/auth/token", requestOptions)
+        return fetch(getApiUrl() + "/v1/auth/token", requestOptions)
             .then((response) => {
                 if (response.status < 200 || response.status >= 300) {
                     throw new Error(response.statusText);

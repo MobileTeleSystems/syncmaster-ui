@@ -39,7 +39,7 @@ const parseJSON = (
 // @ts-expect-error must implement other methods
 const dataProvider: DataProvider = {
     getList: (resource, params) => {
-        const url = new URL(getApiUrl() + apiVersion + "/" + resource);
+        const url = new URL(getApiUrl() + "/" + apiVersion + "/" + resource);
 
         for (const k in params.meta) {
             url.searchParams.append(k, params.meta[k]);
@@ -79,7 +79,7 @@ const dataProvider: DataProvider = {
     getOne: (resource, params) => {
         const id = params.id;
         return new Promise((resolve, reject) => {
-            return fetch(`${getApiUrl()}${apiVersion}/${resource}/${id}`, {
+            return fetch(`${getApiUrl()}/${apiVersion}/${resource}/${id}`, {
                 headers: getAuthHeaders(),
                 method: "GET",
             })
@@ -100,9 +100,9 @@ const dataProvider: DataProvider = {
     },
     delete: (resource, params) => {
         const id = params.id;
-        let url: string = `${getApiUrl()}${apiVersion}/${resource}/${id}`;
+        let url: string = `${getApiUrl()}/${apiVersion}/${resource}/${id}`;
         if (resource == "users") {
-            url = `${getApiUrl()}${apiVersion}/groups/${params.meta.group_id}/${resource}/${params.id}`;
+            url = `${getApiUrl()}/${apiVersion}/groups/${params.meta.group_id}/${resource}/${params.id}`;
         }
         return new Promise((resolve, reject) => {
             return fetch(url, {
@@ -128,7 +128,7 @@ const dataProvider: DataProvider = {
     update: (resource, params) => {
         // rework the body processing logic for different resources
         let bodyObject: object;
-        let url: string = `${getApiUrl()}${apiVersion}/${resource}/${params.id}`;
+        let url: string = `${getApiUrl()}/${apiVersion}/${resource}/${params.id}`;
         // TODO: break down into individual providers DOP-16610
         switch (resource) {
             case "connections": {
@@ -168,7 +168,7 @@ const dataProvider: DataProvider = {
                 bodyObject = {
                     role: params.data.role,
                 };
-                url = `${getApiUrl()}${apiVersion}/groups/${params.data.group_id}/${resource}/${params.data.user_id}`;
+                url = `${getApiUrl()}/${apiVersion}/groups/${params.data.group_id}/${resource}/${params.data.user_id}`;
                 break;
             }
             default: {
@@ -210,7 +210,7 @@ const dataProvider: DataProvider = {
     create: (resource, params) => {
         // rework the body processing logic for different resources
         let bodyObject: object;
-        let url = `${getApiUrl()}${apiVersion}/${resource}`;
+        let url = `${getApiUrl()}/${apiVersion}/${resource}`;
         // TODO: break down into individual providers DOP-16610
         switch (resource) {
             case "connections": {
@@ -249,7 +249,7 @@ const dataProvider: DataProvider = {
                 bodyObject = {
                     role: params.data.role,
                 };
-                url = `${getApiUrl()}${apiVersion}/groups/${params.data.group_id}/${resource}/${params.data.user_id}`;
+                url = `${getApiUrl()}/${apiVersion}/groups/${params.data.group_id}/${resource}/${params.data.user_id}`;
                 break;
             }
             case "groups": {
@@ -294,7 +294,7 @@ const dataProvider: DataProvider = {
     getConnectionTypes: () => {
         return new Promise((resolve, reject) => {
             const url = new URL(
-                getApiUrl() + apiVersion + "/connections/known_types",
+                getApiUrl() + "/" + apiVersion + "/connections/known_types",
             );
             return fetch(url.toString(), {
                 headers: getAuthHeaders(),
@@ -321,7 +321,7 @@ const dataProvider: DataProvider = {
     stopRun: (id: string) => {
         return new Promise((resolve, reject) => {
             const url = new URL(
-                getApiUrl() + apiVersion + "/runs/" + id + "/stop",
+                getApiUrl() + "/" + apiVersion + "/runs/" + id + "/stop",
             );
             return fetch(url.toString(), {
                 headers: getAuthHeaders(),
@@ -342,7 +342,7 @@ const dataProvider: DataProvider = {
     },
     runTransfer: (id: string) => {
         return new Promise((resolve, reject) => {
-            const url = new URL(getApiUrl() + apiVersion + "/runs");
+            const url = new URL(getApiUrl() + "/" + apiVersion + "/runs");
             return fetch(url.toString(), {
                 headers: getPOSTHeaders(),
                 method: "POST",
@@ -365,6 +365,7 @@ const dataProvider: DataProvider = {
         return new Promise((resolve, reject) => {
             const url = new URL(
                 getApiUrl() +
+                    "/" +
                     apiVersion +
                     "/groups/" +
                     groupId +
@@ -395,7 +396,12 @@ const dataProvider: DataProvider = {
     ) => {
         return new Promise((resolve, reject) => {
             const url = new URL(
-                getApiUrl() + apiVersion + "/groups/" + groupId + "/users",
+                getApiUrl() +
+                    "/" +
+                    apiVersion +
+                    "/groups/" +
+                    groupId +
+                    "/users",
             );
 
             url.searchParams.append("page", params.pagination.page.toString());

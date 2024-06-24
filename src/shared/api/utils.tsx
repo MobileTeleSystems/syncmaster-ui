@@ -13,5 +13,5 @@ export const getPOSTHeaders = (): Headers => {
 };
 
 export const getApiUrl = () => {
-    return "http://localhost:8000/";
+    return "http://localhost:8000";
 };
