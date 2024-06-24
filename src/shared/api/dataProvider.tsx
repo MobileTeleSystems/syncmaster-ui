@@ -39,7 +39,12 @@ const parseJSON = (
 // @ts-expect-error must implement other methods
 const dataProvider: DataProvider = {
     getList: (resource, params) => {
-        const url = new URL(getApiUrl() + "/" + apiVersion + "/" + resource);
+        // TODO: rafactor later
+        const base = window.location.toString();
+        const url = new URL(
+            getApiUrl() + "/" + apiVersion + "/" + resource,
+            base,
+        );
 
         for (const k in params.meta) {
             url.searchParams.append(k, params.meta[k]);
@@ -293,8 +298,11 @@ const dataProvider: DataProvider = {
     },
     getConnectionTypes: () => {
         return new Promise((resolve, reject) => {
+            // TODO: rafactor later
+            const base = window.location.toString();
             const url = new URL(
                 getApiUrl() + "/" + apiVersion + "/connections/known_types",
+                base,
             );
             return fetch(url.toString(), {
                 headers: getAuthHeaders(),
@@ -320,8 +328,11 @@ const dataProvider: DataProvider = {
     },
     stopRun: (id: string) => {
         return new Promise((resolve, reject) => {
+            // TODO: rafactor later
+            const base = window.location.toString();
             const url = new URL(
                 getApiUrl() + "/" + apiVersion + "/runs/" + id + "/stop",
+                base,
             );
             return fetch(url.toString(), {
                 headers: getAuthHeaders(),
@@ -342,7 +353,9 @@ const dataProvider: DataProvider = {
     },
     runTransfer: (id: string) => {
         return new Promise((resolve, reject) => {
-            const url = new URL(getApiUrl() + "/" + apiVersion + "/runs");
+            // TODO: rafactor later
+            const base = window.location.toString();
+            const url = new URL(getApiUrl() + "/" + apiVersion + "/runs", base);
             return fetch(url.toString(), {
                 headers: getPOSTHeaders(),
                 method: "POST",
@@ -363,6 +376,8 @@ const dataProvider: DataProvider = {
     },
     updateUserRole: (groupId: number, userId: number, role: UserRoles) => {
         return new Promise((resolve, reject) => {
+            // TODO: rafactor later
+            const base = window.location.toString();
             const url = new URL(
                 getApiUrl() +
                     "/" +
@@ -371,6 +386,7 @@ const dataProvider: DataProvider = {
                     groupId +
                     "/users/" +
                     userId,
+                base,
             );
             return fetch(url.toString(), {
                 headers: getPOSTHeaders(),
@@ -395,6 +411,8 @@ const dataProvider: DataProvider = {
         params: { pagination: { page: number; perPage: number } },
     ) => {
         return new Promise((resolve, reject) => {
+            // TODO: rafactor later
+            const base = window.location.toString();
             const url = new URL(
                 getApiUrl() +
                     "/" +
@@ -402,6 +420,7 @@ const dataProvider: DataProvider = {
                     "/groups/" +
                     groupId +
                     "/users",
+                base,
             );
 
             url.searchParams.append("page", params.pagination.page.toString());
