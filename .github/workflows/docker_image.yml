@@ -48,6 +48,8 @@ jobs:
               with:
                   tags: ${{ env.TAG }}
                   context: .
+                  build-args: |
+                      "API_URL=/api"
                   target: prod
                   file: Dockerfile
                   pull: true
