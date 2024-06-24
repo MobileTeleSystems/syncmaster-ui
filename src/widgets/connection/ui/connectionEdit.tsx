@@ -1,5 +1,5 @@
-import EditToolbar from "@entities/editToolbar";
 import EditFormWrapper from "@entities/connection/wrappers/editFormWrapper";
+import EditToolbar from "@entities/editToolbar";
 import dataProvider from "@shared/api/dataProvider";
 import Warning from "@shared/ui/warning";
 import type { ConnectionData } from "@widgets/connection/types";

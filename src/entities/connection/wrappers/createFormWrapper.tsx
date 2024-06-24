@@ -1,3 +1,4 @@
+import HiveCreateForm from "@entities/connection/create/hiveCreateForm";
 import OracleCreateForm from "@entities/connection/create/oracleCreateForm";
 import PostgresCreateForm from "@entities/connection/create/postgresCreateForm";
 import Warning from "@shared/ui/warning";
@@ -8,6 +9,9 @@ const CreateFormWrapper = ({ connectionType }: { connectionType: string }) => {
     }
     if (connectionType === "oracle") {
         return <OracleCreateForm />;
+    }
+    if (connectionType === "hive") {
+        return <HiveCreateForm />;
     }
 
     return <Warning message={"Unknown connection type"} />;

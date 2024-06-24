@@ -1,3 +1,4 @@
+import HiveConnectionShow from "@entities/connection/show/hiveShow";
 import OracleConnectionShow from "@entities/connection/show/oracleShow";
 import PostgresConnectionShow from "@entities/connection/show/postgresShow";
 import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
@@ -22,6 +23,15 @@ const DumpConnectionDataWrapper = ({ data }: { data: ConnectionData }) => {
     if (data.connection_data.type === "oracle") {
         return (
             <OracleConnectionShow
+                data={data}
+                editable={false}
+                showTitle={false}
+            />
+        );
+    }
+    if (data.connection_data.type === "hive") {
+        return (
+            <HiveConnectionShow
                 data={data}
                 editable={false}
                 showTitle={false}

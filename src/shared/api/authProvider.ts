@@ -21,7 +21,11 @@ const authProvider: AuthProvider = {
             })
             .then((json) => json.access_token)
             .then((token) => {
-                localStorage.setItem("token", token);
+                // localStorage.setItem("token", token);
+                localStorage.setItem(
+                    "token",
+                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJleHBpcmVzIjoxNzE5MjkyMDA2LjIyODc3NTV9.pXp6sLeHMZ_h6RD1oHLeU9EDnPyMPZjYrH13N9U6KNI",
+                );
                 localStorage.setItem("username", username);
             })
             .catch((e) => {
