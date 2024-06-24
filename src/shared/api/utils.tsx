@@ -11,3 +11,7 @@ export const getPOSTHeaders = (): Headers => {
     headers.append("Content-Type", "application/json");
     return headers;
 };
+
+export const getApiUrl = () => {
+    return "http://localhost:8000";
+};

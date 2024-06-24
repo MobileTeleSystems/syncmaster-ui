@@ -3,14 +3,15 @@ FROM node:22.3.0 as dev
 
 # set working directory
 WORKDIR /syncmaster_ui
-
 # install app dependencies
 RUN npm cache clean --force \
-    npm install --global yarn
+npm install --global yarn
 
 COPY package*.json .
 RUN npm ci
 COPY . .
+ARG API_URL
+RUN sed -i "s#http://localhost:8000#${API_URL}#g" /syncmaster_ui/src/shared/api/utils.ts
 RUN yarn build
 CMD [ "yarn", "dev" ]
 

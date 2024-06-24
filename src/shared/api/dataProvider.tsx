@@ -1,7 +1,7 @@
 import type { ConnectionTypes, UserRoles } from "@shared/api/types";
 import { getAuthHeaders, getPOSTHeaders } from "@shared/api/utils";
 import { DataProvider, HttpError } from "react-admin";
-import { getApiUrl } from "@shared/api/types";
+import { getApiUrl } from "@shared/api/utils";
 
 const apiVersion = "v1";
 
