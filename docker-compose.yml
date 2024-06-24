@@ -7,5 +7,8 @@ services:
             context: .
             network: host
             target: prod
+            args:
+                - API_URL=localhost:8000
+
         ports:
             - 3000:3000
