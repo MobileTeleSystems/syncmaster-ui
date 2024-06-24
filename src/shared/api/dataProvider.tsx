@@ -4,6 +4,8 @@ import { DataProvider, HttpError } from "react-admin";
 import { getApiUrl } from "@shared/api/utils";
 
 const apiVersion = "v1";
+// TODO: rafactor later
+const base = window.location.toString();
 
 // @ts-expect-error  response type
 const parseResponse = (response) =>
@@ -39,7 +41,10 @@ const parseJSON = (
 // @ts-expect-error must implement other methods
 const dataProvider: DataProvider = {
     getList: (resource, params) => {
-        const url = new URL(getApiUrl() + "/" + apiVersion + "/" + resource);
+        const url = new URL(
+            getApiUrl() + "/" + apiVersion + "/" + resource,
+            base,
+        );
 
         for (const k in params.meta) {
             url.searchParams.append(k, params.meta[k]);
@@ -295,6 +300,7 @@ const dataProvider: DataProvider = {
         return new Promise((resolve, reject) => {
             const url = new URL(
                 getApiUrl() + "/" + apiVersion + "/connections/known_types",
+                base,
             );
             return fetch(url.toString(), {
                 headers: getAuthHeaders(),
@@ -322,6 +328,7 @@ const dataProvider: DataProvider = {
         return new Promise((resolve, reject) => {
             const url = new URL(
                 getApiUrl() + "/" + apiVersion + "/runs/" + id + "/stop",
+                base,
             );
             return fetch(url.toString(), {
                 headers: getAuthHeaders(),
@@ -342,7 +349,7 @@ const dataProvider: DataProvider = {
     },
     runTransfer: (id: string) => {
         return new Promise((resolve, reject) => {
-            const url = new URL(getApiUrl() + "/" + apiVersion + "/runs");
+            const url = new URL(getApiUrl() + "/" + apiVersion + "/runs", base);
             return fetch(url.toString(), {
                 headers: getPOSTHeaders(),
                 method: "POST",
@@ -371,6 +378,7 @@ const dataProvider: DataProvider = {
                     groupId +
                     "/users/" +
                     userId,
+                base,
             );
             return fetch(url.toString(), {
                 headers: getPOSTHeaders(),
@@ -402,6 +410,7 @@ const dataProvider: DataProvider = {
                     "/groups/" +
                     groupId +
                     "/users",
+                base,
             );
 
             url.searchParams.append("page", params.pagination.page.toString());
