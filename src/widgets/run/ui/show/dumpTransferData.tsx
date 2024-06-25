@@ -44,9 +44,8 @@ const DumpTransferData = ({ data }: { data: TransferDump }) => {
                         <DBSourceParamsShow
                             // @ts-expect-error  label is react-admin magic field
                             label={"Source (schema.table)"}
-                        />{" "}
-                        {/** // TODO: without the label option it does not show the */}
-                        field name
+                        />
+                        {/** // TODO: without the label option it does not show the field name */}
                         <DumpConnectionDataWrapper
                             data={{
                                 ...data.target_connection,

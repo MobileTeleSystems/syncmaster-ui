@@ -8,12 +8,22 @@ export type OracleAuthData = {
     user: string;
 };
 
+export type HiveAuthData = {
+    type: "hive";
+    user: string;
+};
+
 export type PostgresConnectionData = {
     additional_params: string;
     database_name: string;
     host: string;
     port: number;
     type: "postgres";
+};
+
+export type HiveConnectionData = {
+    cluster: string;
+    type: "hive";
 };
 
 export type OracleConnectionData = {
@@ -30,6 +40,9 @@ export type ConnectionData = {
     group_id: number;
     description: string;
     name: string;
-    auth_data: PostgresAuthData | OracleAuthData;
-    connection_data: PostgresConnectionData | OracleConnectionData;
+    auth_data: PostgresAuthData | OracleAuthData | HiveAuthData;
+    connection_data:
+        | PostgresConnectionData
+        | OracleConnectionData
+        | HiveConnectionData;
 };

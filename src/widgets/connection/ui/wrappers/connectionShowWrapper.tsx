@@ -1,3 +1,4 @@
+import HiveConnectionShow from "@entities/connection/show/hiveShow";
 import OracleConnectionShow from "@entities/connection/show/oracleShow";
 import PostgresConnectionShow from "@entities/connection/show/postgresShow";
 import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
@@ -24,6 +25,9 @@ const ConnectionShowWrapper = () => {
     }
     if (data.connection_data.type === "oracle") {
         return <OracleConnectionShow data={data} />;
+    }
+    if (data.connection_data.type === "hive") {
+        return <HiveConnectionShow data={data} />;
     }
 
     return <Warning message="Connection type does not implemented yet" />;
