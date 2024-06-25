@@ -24,6 +24,7 @@ export type PostgresConnectionData = {
 export type HiveConnectionData = {
     cluster: string;
     type: "hive";
+    additional_params?: string;
 };
 
 export type OracleConnectionData = {
