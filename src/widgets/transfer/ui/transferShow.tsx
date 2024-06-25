@@ -85,7 +85,7 @@ const TransferShow = () => {
                                 label={"Target (schema.table)"}
                             />
                         )}
-                        {!dbTypes.includes(data.source_params.type) && (
+                        {!dbTypes.includes(data.target_params.type) && (
                             <FileTargetParamsShow
                                 // @ts-expect-error  label is react-admin magic field
                                 label={"Target params"}
