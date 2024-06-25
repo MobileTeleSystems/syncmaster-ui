@@ -18,9 +18,7 @@ const FileTargetParamsShow = ({
 }) => {
     const processedData = {
         ...data.target_params,
-        target_params: {
-            file_format: JSON.stringify(data.target_params.file_format),
-        },
+        file_format: JSON.stringify(data.target_params.file_format),
     };
     return (
         <RecordContextProvider value={processedData}>
@@ -28,20 +26,20 @@ const FileTargetParamsShow = ({
                 <SimpleShowLayout>
                     <Card>
                         <TextField
-                            source={"target_params.directory_path"}
+                            source={"directory_path"}
                             label={"Directory path"}
-                            name={"target_params.directory_path"}
+                            name={"directory_path"}
                         />
                         {/* TODO: the field with file_format is complex - there must be a type (drop-down list, like connection types), plus child fields (delimiter, quote, header, etc.) */}
                         <TextField
-                            source={"target_params.file_format"}
+                            source={"file_format"}
                             label={"File format"}
-                            name={"target_params.file_format"}
+                            name={"file_format"}
                         />
                         <TextField
-                            source={"target_params.df_schema"}
+                            source={"df_schema"}
                             label={"DF Schema"}
-                            name={"target_params.df_schema"}
+                            name={"df_schema"}
                         />
                     </Card>
                 </SimpleShowLayout>
