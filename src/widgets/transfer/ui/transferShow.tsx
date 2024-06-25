@@ -68,6 +68,7 @@ const TransferShow = () => {
                             <FileSourceParamsShow
                                 // @ts-expect-error  label is react-admin magic field
                                 label={"Source params"}
+                                data={data}
                             />
                         )}
                         {/** // TODO: without the label option it does not show the field name */}
@@ -88,6 +89,7 @@ const TransferShow = () => {
                             <FileTargetParamsShow
                                 // @ts-expect-error  label is react-admin magic field
                                 label={"Target params"}
+                                data={data}
                             />
                         )}
                         {/** // TODO: without the label option it does not show the field name */}
