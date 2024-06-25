@@ -1,6 +1,6 @@
 import TextField from "@mui/material/TextField";
 
-const FileTargetParamsShow = ({
+const FileSourceParamsShow = ({
     data,
 }: {
     data: {
@@ -49,4 +49,4 @@ const FileTargetParamsShow = ({
     );
 };
 
-export default FileTargetParamsShow;
+export default FileSourceParamsShow;
