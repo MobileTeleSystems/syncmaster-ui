@@ -1,3 +1,4 @@
+import HDFSEditForm from "@entities/connection/edit/hdfsEditForm";
 import HiveEditForm from "@entities/connection/edit/hiveEditForm";
 import OracleEditForm from "@entities/connection/edit/oracleEditForm";
 import PostgresEditForm from "@entities/connection/edit/postgresEditForm";
@@ -12,6 +13,9 @@ const EditFormWrapper = ({ connectionType }: { connectionType: string }) => {
     }
     if (connectionType === "hive") {
         return <HiveEditForm />;
+    }
+    if (connectionType === "hdfs") {
+        return <HDFSEditForm />;
     }
     return <Warning message={"Unknown connection type"} />;
 };
