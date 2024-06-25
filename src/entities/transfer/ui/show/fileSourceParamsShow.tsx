@@ -19,7 +19,6 @@ const FileSourceParamsShow = ({
     const processedData = {
         ...data.source_params,
         file_format: JSON.stringify(data.source_params.file_format),
-        },
     };
     return (
         <RecordContextProvider value={processedData}>
