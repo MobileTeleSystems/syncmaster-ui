@@ -1,8 +1,8 @@
-import DBFileTargetParamsShow from "@entities/transfer/ui/show/dbFileTargetParamsShow";
 import TitleElement from "@entities/titleElement";
-import DBFileSourceParamsShow from "@entities/transfer/ui/show/dbFileSourceParamsShow";
 import DBSourceParamsShow from "@entities/transfer/ui/show/dbSourceParamsShow";
 import DBTargetParamsShow from "@entities/transfer/ui/show/dbTargetParamsShow";
+import FileSourceParamsShow from "@entities/transfer/ui/show/fileSourceParamsShow";
+import FileTargetParamsShow from "@entities/transfer/ui/show/fileTargetParamsShow";
 import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 import { Card } from "@mui/material";
 import LinkedField from "@shared/linkedField";
@@ -65,7 +65,7 @@ const TransferShow = () => {
                             />
                         )}
                         {!dbType.includes(data.source_params.type) && (
-                            <DBFileSourceParamsShow
+                            <FileSourceParamsShow
                                 // @ts-expect-error  label is react-admin magic field
                                 label={"Source params"}
                             />
@@ -85,7 +85,7 @@ const TransferShow = () => {
                             />
                         )}
                         {!dbType.includes(data.source_params.type) && (
-                            <DBFileTargetParamsShow
+                            <FileTargetParamsShow
                                 // @ts-expect-error  label is react-admin magic field
                                 label={"Target params"}
                             />

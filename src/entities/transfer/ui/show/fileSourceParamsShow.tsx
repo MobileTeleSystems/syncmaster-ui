@@ -1,6 +1,6 @@
 import { TextField } from "react-admin";
 
-const DBFileSourceParamsShow = () => {
+const FileSourceParamsShow = () => {
     return (
         <>
             <TextField
@@ -22,4 +22,4 @@ const DBFileSourceParamsShow = () => {
     );
 };
 
-export default DBFileSourceParamsShow;
+export default FileSourceParamsShow;
