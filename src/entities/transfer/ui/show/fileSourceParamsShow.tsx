@@ -1,11 +1,6 @@
-import { Card } from "@mui/material";
-import {
-    RecordContextProvider,
-    SimpleShowLayout,
-    TextField,
-} from "react-admin";
+import TextField from "@mui/material/TextField";
 
-const FileSourceParamsShow = ({
+const FileTargetParamsShow = ({
     data,
 }: {
     data: {
@@ -17,35 +12,41 @@ const FileSourceParamsShow = ({
     };
 }) => {
     const processedData = {
-        ...data.source_params,
-        file_format: JSON.stringify(data.source_params.file_format),
+        ...data,
+        source_params: {
+            ...data.source_params,
+            file_format: JSON.stringify(data.source_params.file_format),
+        },
     };
     return (
-        <RecordContextProvider value={processedData}>
-            <div style={{ paddingTop: "1em" }}>
-                <SimpleShowLayout>
-                    <Card>
-                        <TextField
-                            source={"directory_path"}
-                            label={"Directory path"}
-                            name={"directory_path"}
-                        />
-                        {/* TODO: the field with file_format is complex - there must be a type (drop-down list, like connection types), plus child fields (delimiter, quote, header, etc.) */}
-                        <TextField
-                            source={"file_format"}
-                            label={"File format"}
-                            name={"file_format"}
-                        />
-                        <TextField
-                            source={"df_schema"}
-                            label={"DF Schema"}
-                            name={"df_schema"}
-                        />
-                    </Card>
-                </SimpleShowLayout>
-            </div>
-        </RecordContextProvider>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+            <TextField
+                InputProps={{ readOnly: true, disableUnderline: true }}
+                variant="standard"
+                style={{ width: "max-content" }}
+                label={"Directory path"}
+                name={"directory_path"}
+                value={processedData.source_params.directory_path}
+            />
+            {/* TODO: the field with file_format is complex - there must be a type (drop-down list, like connection types), plus child fields (delimiter, quote, header, etc.) */}
+            <TextField
+                InputProps={{ readOnly: true, disableUnderline: true }}
+                variant="standard"
+                style={{ width: "max-content" }}
+                label={"File format"}
+                name={"file_format"}
+                value={processedData.source_params.file_format}
+            />
+            <TextField
+                InputProps={{ readOnly: true, disableUnderline: true }}
+                variant="standard"
+                style={{ width: "max-content" }}
+                label={"DF Schema"}
+                name={"df_schema"}
+                value={processedData.source_params.df_schema}
+            />
+        </div>
     );
 };
 
-export default FileSourceParamsShow;
+export default FileTargetParamsShow;
