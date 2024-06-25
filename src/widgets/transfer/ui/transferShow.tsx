@@ -61,13 +61,13 @@ const TransferShow = () => {
                         {dbType.includes(data.source_params.type) && (
                             <DBSourceParamsShow
                                 // @ts-expect-error  label is react-admin magic field
-                                label={"Source params"}
+                                label={"Source (schema.table)"}
                             />
                         )}
                         {!dbType.includes(data.source_params.type) && (
                             <DBFileSourceParamsShow
                                 // @ts-expect-error  label is react-admin magic field
-                                label={"Source (schema.table)"}
+                                label={"Source params"}
                             />
                         )}
                         {/** // TODO: without the label option it does not show the field name */}
