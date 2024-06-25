@@ -13,6 +13,11 @@ export type HiveAuthData = {
     user: string;
 };
 
+export type HDFSAuthData = {
+    type: "hdfs";
+    user: string;
+};
+
 export type PostgresConnectionData = {
     additional_params: string;
     database_name: string;
@@ -24,6 +29,12 @@ export type PostgresConnectionData = {
 export type HiveConnectionData = {
     cluster: string;
     type: "hive";
+    additional_params?: string;
+};
+
+export type HDFSConnectionData = {
+    cluster: string;
+    type: "hdfs";
     additional_params?: string;
 };
 
@@ -45,5 +56,6 @@ export type ConnectionData = {
     connection_data:
         | PostgresConnectionData
         | OracleConnectionData
-        | HiveConnectionData;
+        | HiveConnectionData
+        | HDFSConnectionData;
 };

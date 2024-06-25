@@ -15,7 +15,8 @@ const ConnectionEditWrapper = () => {
     if (
         data.connection_data.type === "postgres" ||
         data.connection_data.type === "oracle" ||
-        data.connection_data.type === "hive"
+        data.connection_data.type === "hive" ||
+        data.connection_data.type === "hdfs"
     ) {
         return <ConnectionEdit data={data} />;
     }

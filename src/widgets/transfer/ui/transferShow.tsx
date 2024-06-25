@@ -1,10 +1,14 @@
+import TitleElement from "@entities/titleElement";
 import DBSourceParamsShow from "@entities/transfer/ui/show/dbSourceParamsShow";
 import DBTargetParamsShow from "@entities/transfer/ui/show/dbTargetParamsShow";
+import FileSourceParamsShow from "@entities/transfer/ui/show/fileSourceParamsShow";
+import FileTargetParamsShow from "@entities/transfer/ui/show/fileTargetParamsShow";
 import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
 import { Card } from "@mui/material";
 import LinkedField from "@shared/linkedField";
 import Error from "@shared/ui/error";
 import RunList from "@widgets/run/ui/list/runList";
+import { dbTypes } from "@widgets/transfer/ui/types";
 import { useEffect } from "react";
 import {
     BooleanField,
@@ -17,7 +21,6 @@ import {
     useGetOne,
 } from "react-admin";
 import { useParams } from "react-router";
-import TitleElement from "@entities/titleElement";
 
 const TransferShow = () => {
     const [, setEnableGroupSelector] = useEnableGroupSelector();
@@ -54,24 +57,42 @@ const TransferShow = () => {
                             label={`Source connection (${data.source_params.type})`}
                             resource={"connections"}
                         />
-                        <DBSourceParamsShow
-                            // @ts-expect-error  label is react-admin magic field
-                            label={"Source (schema.table)"}
-                        />
-                        {/** // TODO: without the label option it does not show the */}
-                        field name
+                        {/* if there is a file connection */}
+                        {dbTypes.includes(data.source_params.type) && (
+                            <DBSourceParamsShow
+                                // @ts-expect-error  label is react-admin magic field
+                                label={"Source (schema.table)"}
+                            />
+                        )}
+                        {!dbTypes.includes(data.source_params.type) && (
+                            <FileSourceParamsShow
+                                // @ts-expect-error  label is react-admin magic field
+                                label={"Source params"}
+                                data={data}
+                            />
+                        )}
+                        {/** // TODO: without the label option it does not show the field name */}
                         <LinkedField
                             id={data.target_connection_id}
                             // @ts-expect-error  label is react-admin magic field
                             label={`Target connection (${data.target_params.type})`}
                             resource={"connections"}
                         />
-                        <DBTargetParamsShow
-                            // @ts-expect-error  label is react-admin magic field
-                            label={"Target (schema.table)"}
-                        />
-                        {/** // TODO: without the label option it does not show the */}
-                        field name
+                        {/* if there is a file connection */}
+                        {dbTypes.includes(data.target_params.type) && (
+                            <DBTargetParamsShow
+                                // @ts-expect-error  label is react-admin magic field
+                                label={"Target (schema.table)"}
+                            />
+                        )}
+                        {!dbTypes.includes(data.source_params.type) && (
+                            <FileTargetParamsShow
+                                // @ts-expect-error  label is react-admin magic field
+                                label={"Target params"}
+                                data={data}
+                            />
+                        )}
+                        {/** // TODO: without the label option it does not show the field name */}
                         <BooleanField
                             name="is_scheduled"
                             label="Is scheduled"

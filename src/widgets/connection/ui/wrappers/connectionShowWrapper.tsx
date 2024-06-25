@@ -1,3 +1,4 @@
+import HDFSConnectionShow from "@entities/connection/show/hdfsShow";
 import HiveConnectionShow from "@entities/connection/show/hiveShow";
 import OracleConnectionShow from "@entities/connection/show/oracleShow";
 import PostgresConnectionShow from "@entities/connection/show/postgresShow";
@@ -28,6 +29,9 @@ const ConnectionShowWrapper = () => {
     }
     if (data.connection_data.type === "hive") {
         return <HiveConnectionShow data={data} />;
+    }
+    if (data.connection_data.type === "hdfs") {
+        return <HDFSConnectionShow data={data} />;
     }
 
     return <Warning message="Connection type does not implemented yet" />;
