@@ -32,6 +32,7 @@ const FileTargetParamsShow = ({
                             label={"Directory path"}
                             name={"target_params.directory_path"}
                         />
+                        {/* TODO: the field with file_format is complex - there must be a type (drop-down list, like connection types), plus child fields (delimiter, quote, header, etc.) */}
                         <TextField
                             source={"target_params.file_format"}
                             label={"File format"}

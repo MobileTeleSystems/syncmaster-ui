@@ -3,4 +3,4 @@ export const strategyParams = [
     { name: "incremental", id: "incremental", disabled: true },
 ];
 
-export const dbType = ["postgres", "hive", "oracle"];
+export const dbTypes = ["postgres", "hive", "oracle"];

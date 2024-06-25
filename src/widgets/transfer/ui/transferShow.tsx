@@ -8,7 +8,7 @@ import { Card } from "@mui/material";
 import LinkedField from "@shared/linkedField";
 import Error from "@shared/ui/error";
 import RunList from "@widgets/run/ui/list/runList";
-import { dbType } from "@widgets/transfer/ui/types";
+import { dbTypes } from "@widgets/transfer/ui/types";
 import { useEffect } from "react";
 import {
     BooleanField,
@@ -58,13 +58,13 @@ const TransferShow = () => {
                             resource={"connections"}
                         />
                         {/* if there is a file connection */}
-                        {dbType.includes(data.source_params.type) && (
+                        {dbTypes.includes(data.source_params.type) && (
                             <DBSourceParamsShow
                                 // @ts-expect-error  label is react-admin magic field
                                 label={"Source (schema.table)"}
                             />
                         )}
-                        {!dbType.includes(data.source_params.type) && (
+                        {!dbTypes.includes(data.source_params.type) && (
                             <FileSourceParamsShow
                                 // @ts-expect-error  label is react-admin magic field
                                 label={"Source params"}
@@ -79,13 +79,13 @@ const TransferShow = () => {
                             resource={"connections"}
                         />
                         {/* if there is a file connection */}
-                        {dbType.includes(data.target_params.type) && (
+                        {dbTypes.includes(data.target_params.type) && (
                             <DBTargetParamsShow
                                 // @ts-expect-error  label is react-admin magic field
                                 label={"Target (schema.table)"}
                             />
                         )}
-                        {!dbType.includes(data.source_params.type) && (
+                        {!dbTypes.includes(data.source_params.type) && (
                             <FileTargetParamsShow
                                 // @ts-expect-error  label is react-admin magic field
                                 label={"Target params"}

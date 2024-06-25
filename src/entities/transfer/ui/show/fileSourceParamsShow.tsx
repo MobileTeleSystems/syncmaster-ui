@@ -32,6 +32,7 @@ const FileSourceParamsShow = ({
                             label={"Directory path"}
                             name={"source_params.directory_path"}
                         />
+                        {/* TODO: the field with file_format is complex - there must be a type (drop-down list, like connection types), plus child fields (delimiter, quote, header, etc.) */}
                         <TextField
                             source={"source_params.file_format"}
                             label={"File format"}
