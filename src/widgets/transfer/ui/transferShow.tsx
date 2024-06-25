@@ -1,4 +1,6 @@
+import DBFileTargetParamsShow from "@entities/transfer/ui/show/dbFileTargetParamsShow";
 import TitleElement from "@entities/titleElement";
+import DBFileSourceParamsShow from "@entities/transfer/ui/show/dbFileSourceParamsShow";
 import DBSourceParamsShow from "@entities/transfer/ui/show/dbSourceParamsShow";
 import DBTargetParamsShow from "@entities/transfer/ui/show/dbTargetParamsShow";
 import useEnableGroupSelector from "@hooks/useEnableGroupSelector";
@@ -59,6 +61,12 @@ const TransferShow = () => {
                         {dbType.includes(data.source_params.type) && (
                             <DBSourceParamsShow
                                 // @ts-expect-error  label is react-admin magic field
+                                label={"Source params"}
+                            />
+                        )}
+                        {!dbType.includes(data.source_params.type) && (
+                            <DBFileSourceParamsShow
+                                // @ts-expect-error  label is react-admin magic field
                                 label={"Source (schema.table)"}
                             />
                         )}
@@ -74,6 +82,12 @@ const TransferShow = () => {
                             <DBTargetParamsShow
                                 // @ts-expect-error  label is react-admin magic field
                                 label={"Target (schema.table)"}
+                            />
+                        )}
+                        {!dbType.includes(data.source_params.type) && (
+                            <DBFileTargetParamsShow
+                                // @ts-expect-error  label is react-admin magic field
+                                label={"Target params"}
                             />
                         )}
                         {/** // TODO: without the label option it does not show the field name */}
