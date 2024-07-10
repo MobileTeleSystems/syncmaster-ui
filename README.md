@@ -1,8 +1,8 @@
-# SyncMaster UI
+# Data.SyncMaster UI
 
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
-This interface is designed to work with the SyncMaster service.
+This interface is designed to work with the Data.SyncMaster service.
 This interface contains 4 menu sections: Transfers, Connections, Queues, Groups.
 
 **Note**: service is under active development, and is not ready to use.
@@ -15,11 +15,11 @@ To explore the source code, start with [src/App.tsx](https://github.com/MobileTe
 
 After having cloned the SyncMaster repository, run the following commands at the root directory:
 
-```sh
-    npm install --global yarn
-    yarn install
-    yarn build
-    yarn dev
+```bash
+npm install --global yarn
+yarn install
+yarn build
+yarn dev
 ```
 
 These commands will install dependencies and launch the dev server, by going to localhost:3000 you can go to the Syncmaster UI interface.
@@ -28,16 +28,16 @@ These commands will install dependencies and launch the dev server, by going to 
 
 Run the following command at the root directory:
 
-```sh
-    npm run prettier-format
+```bash
+npm run prettier-format
 ```
 
 ### How to run linters
 
 Run the following command at the root directory:
 
-```sh
-    npx eslint --fix
+```bash
+npx eslint --fix
 ```
 
 ### Install pre-commit hooks
