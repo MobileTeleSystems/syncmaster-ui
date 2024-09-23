@@ -12,8 +12,10 @@
     "bundle:analyze": "cross-env BUNDLE_ANALYZER=true cross-env NODE_ENV=production webpack --progress"
   },
   "dependencies": {
+    "@tanstack/react-query": "5.56.2",
     "antd": "4.24.13",
     "axios": "1.7.7",
+    "dotenv-webpack": "8.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "6.22.3"
@@ -29,7 +31,6 @@
     "cross-env": "7.0.3",
     "css-loader": "6.10.0",
     "css-minimizer-webpack-plugin": "6.0.0",
-    "dotenv": "16.4.5",
     "eslint": "8.57.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-base": "15.0.0",
