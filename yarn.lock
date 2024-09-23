@@ -2083,6 +2083,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/js-cookie@npm:^3":
+  version: 3.0.6
+  resolution: "@types/js-cookie@npm:3.0.6::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2F%40types%2Fjs-cookie%2F-%2Fjs-cookie-3.0.6.tgz"
+  checksum: 10c0/173afaf5ea9d86c22395b9d2a00b6adb0006dcfef165d6dcb0395cdc32f5a5dcf9c3c60f97194119963a15849b8f85121e1ae730b03e40bc0c29b84396ba22f9
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:*, @types/json-schema@npm:^7.0.12, @types/json-schema@npm:^7.0.8, @types/json-schema@npm:^7.0.9":
   version: 7.0.15
   resolution: "@types/json-schema@npm:7.0.15::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2F%40types%2Fjson-schema%2F-%2Fjson-schema-7.0.15.tgz"
@@ -3011,6 +3018,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"asynckit@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "asynckit@npm:0.4.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fasynckit%2F-%2Fasynckit-0.4.0.tgz"
+  checksum: 10c0/d73e2ddf20c4eb9337e1b3df1a0f6159481050a5de457c55b14ea2e5cb6d90bb69e004c9af54737a5ee0917fcf2c9e25de67777bbe58261847846066ba75bc9d
+  languageName: node
+  linkType: hard
+
 "available-typed-arrays@npm:^1.0.7":
   version: 1.0.7
   resolution: "available-typed-arrays@npm:1.0.7::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Favailable-typed-arrays%2F-%2Favailable-typed-arrays-1.0.7.tgz"
@@ -3024,6 +3038,17 @@ __metadata:
   version: 4.7.0
   resolution: "axe-core@npm:4.7.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Faxe-core%2F-%2Faxe-core-4.7.0.tgz"
   checksum: 10c0/89ac5712b5932ac7d23398b4cb5ba081c394a086e343acc68ba49c83472706e18e0799804e8388c779dcdacc465377deb29f2714241d3fbb389cf3a6b275c9ba
+  languageName: node
+  linkType: hard
+
+"axios@npm:1.7.7":
+  version: 1.7.7
+  resolution: "axios@npm:1.7.7::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Faxios%2F-%2Faxios-1.7.7.tgz"
+  dependencies:
+    follow-redirects: "npm:^1.15.6"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10c0/4499efc89e86b0b49ffddc018798de05fab26e3bf57913818266be73279a6418c3ce8f9e934c7d2d707ab8c095e837fc6c90608fb7715b94d357720b5f568af7
   languageName: node
   linkType: hard
 
@@ -3442,6 +3467,15 @@ __metadata:
   version: 2.0.20
   resolution: "colorette@npm:2.0.20::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fcolorette%2F-%2Fcolorette-2.0.20.tgz"
   checksum: 10c0/e94116ff33b0ff56f3b83b9ace895e5bf87c2a7a47b3401b8c3f3226e050d5ef76cf4072fb3325f9dc24d1698f9b730baf4e05eeaf861d74a1883073f4c98a40
+  languageName: node
+  linkType: hard
+
+"combined-stream@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "combined-stream@npm:1.0.8::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fcombined-stream%2F-%2Fcombined-stream-1.0.8.tgz"
+  dependencies:
+    delayed-stream: "npm:~1.0.0"
+  checksum: 10c0/0dbb829577e1b1e839fa82b40c07ffaf7de8a09b935cadd355a73652ae70a88b4320db322f6634a4ad93424292fa80973ac6480986247f1734a1137debf271d5
   languageName: node
   linkType: hard
 
@@ -3994,6 +4028,13 @@ __metadata:
     has-property-descriptors: "npm:^1.0.0"
     object-keys: "npm:^1.1.1"
   checksum: 10c0/88a152319ffe1396ccc6ded510a3896e77efac7a1bfbaa174a7b00414a1747377e0bb525d303794a47cf30e805c2ec84e575758512c6e44a993076d29fd4e6c3
+  languageName: node
+  linkType: hard
+
+"delayed-stream@npm:~1.0.0":
+  version: 1.0.0
+  resolution: "delayed-stream@npm:1.0.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fdelayed-stream%2F-%2Fdelayed-stream-1.0.0.tgz"
+  checksum: 10c0/d758899da03392e6712f042bec80aa293bbe9e9ff1b2634baae6a360113e708b91326594c8a486d475c69d6259afb7efacdc3537bfcda1c6c648e390ce601b19
   languageName: node
   linkType: hard
 
@@ -5036,6 +5077,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"follow-redirects@npm:^1.15.6":
+  version: 1.15.9
+  resolution: "follow-redirects@npm:1.15.9::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Ffollow-redirects%2F-%2Ffollow-redirects-1.15.9.tgz"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 10c0/5829165bd112c3c0e82be6c15b1a58fa9dcfaede3b3c54697a82fe4a62dd5ae5e8222956b448d2f98e331525f05d00404aba7d696de9e761ef6e42fdc780244f
+  languageName: node
+  linkType: hard
+
 "for-each@npm:^0.3.3":
   version: 0.3.3
   resolution: "for-each@npm:0.3.3::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Ffor-each%2F-%2Ffor-each-0.3.3.tgz"
@@ -5075,6 +5126,17 @@ __metadata:
     typescript: ">3.6.0"
     webpack: ^5.11.0
   checksum: 10c0/37e11dadcc65d297f07882f1661795289f2bf16fa9dea0b90bcc438855d48787378bce4dfcd8e842782f220503438995efbb28cbe560126f6a744ff740e8cc38
+  languageName: node
+  linkType: hard
+
+"form-data@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "form-data@npm:4.0.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fform-data%2F-%2Fform-data-4.0.0.tgz"
+  dependencies:
+    asynckit: "npm:^0.4.0"
+    combined-stream: "npm:^1.0.8"
+    mime-types: "npm:^2.1.12"
+  checksum: 10c0/cb6f3ac49180be03ff07ba3ff125f9eba2ff0b277fb33c7fc47569fc5e616882c5b1c69b9904c4c4187e97dd0419dd03b134174756f296dec62041e6527e2c6e
   languageName: node
   linkType: hard
 
@@ -6202,6 +6264,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-cookie@npm:3.0.5":
+  version: 3.0.5
+  resolution: "js-cookie@npm:3.0.5::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fjs-cookie%2F-%2Fjs-cookie-3.0.5.tgz"
+  checksum: 10c0/04a0e560407b4489daac3a63e231d35f4e86f78bff9d792011391b49c59f721b513411cd75714c418049c8dc9750b20fcddad1ca5a2ca616c3aca4874cce5b3a
+  languageName: node
+  linkType: hard
+
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fjs-tokens%2F-%2Fjs-tokens-4.0.0.tgz"
@@ -6662,7 +6731,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mime-types@npm:^2.1.27, mime-types@npm:^2.1.31, mime-types@npm:~2.1.17, mime-types@npm:~2.1.24, mime-types@npm:~2.1.34":
+"mime-types@npm:^2.1.12, mime-types@npm:^2.1.27, mime-types@npm:^2.1.31, mime-types@npm:~2.1.17, mime-types@npm:~2.1.24, mime-types@npm:~2.1.34":
   version: 2.1.35
   resolution: "mime-types@npm:2.1.35::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fmime-types%2F-%2Fmime-types-2.1.35.tgz"
   dependencies:
@@ -7852,6 +7921,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"proxy-from-env@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "proxy-from-env@npm:1.1.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fproxy-from-env%2F-%2Fproxy-from-env-1.1.0.tgz"
+  checksum: 10c0/fe7dd8b1bdbbbea18d1459107729c3e4a2243ca870d26d34c2c1bcd3e4425b7bcc5112362df2d93cc7fb9746f6142b5e272fd1cc5c86ddf8580175186f6ad42b
+  languageName: node
+  linkType: hard
+
 "punycode@npm:^2.1.0":
   version: 2.3.1
   resolution: "punycode@npm:2.3.1::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fpunycode%2F-%2Fpunycode-2.3.1.tgz"
@@ -8519,6 +8595,7 @@ __metadata:
   resolution: "react_fork@workspace:."
   dependencies:
     "@svgr/webpack": "npm:8.1.0"
+    "@types/js-cookie": "npm:^3"
     "@types/node": "npm:20.12.2"
     "@types/react": "npm:18.2.73"
     "@types/react-dom": "npm:18.2.23"
@@ -8526,6 +8603,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:7.5.0"
     "@typescript-eslint/parser": "npm:7.5.0"
     antd: "npm:4.24.13"
+    axios: "npm:1.7.7"
     cross-env: "npm:7.0.3"
     css-loader: "npm:6.10.0"
     css-minimizer-webpack-plugin: "npm:6.0.0"
@@ -8542,6 +8620,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:4.6.0"
     fork-ts-checker-webpack-plugin: "npm:9.0.2"
     html-webpack-plugin: "npm:5.6.0"
+    js-cookie: "npm:3.0.5"
     lint-staged: "npm:15.2.2"
     mini-css-extract-plugin: "npm:2.8.1"
     prettier: "npm:3.2.5"
