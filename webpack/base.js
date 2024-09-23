@@ -57,6 +57,7 @@ module.exports = {
     alias: {
       '@src': resolveApp('src'),
       '@app': resolveApp('src/app'),
+      '@pages': resolveApp('src/pages'),
       '@widgets': resolveApp('src/widgets'),
       '@features': resolveApp('src/features'),
       '@entities': resolveApp('src/entities'),
