@@ -20,7 +20,7 @@
     "noImplicitAny": true,
     "paths": {
             "@*": ["./src/*"],
-            "@app/*": ["./src/shared/*"],
+            "@app/*": ["./src/app/*"],
             "@pages/*": ["./src/pages/*"],
             "@widgets/*": ["./src/widgets/*"],
             "@features/*": ["./src/features/*"],
