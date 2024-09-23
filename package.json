@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "5.56.2",
+    "@tanstack/react-query-devtools": "5.56.2",
     "antd": "4.24.13",
     "axios": "1.7.7",
     "dotenv-webpack": "8.1.0",
