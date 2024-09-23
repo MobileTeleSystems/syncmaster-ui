@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { requestInterceptor, responseSuccessInterceptor } from './interceptors';
 
 export const axiosInstance = axios.create({

@@ -1932,6 +1932,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:5.56.2":
+  version: 5.56.2
+  resolution: "@tanstack/query-core@npm:5.56.2::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2F%40tanstack%2Fquery-core%2F-%2Fquery-core-5.56.2.tgz"
+  checksum: 10c0/54ff55f02b01f6ba089f4965bfd46f430c18ce7e11d874de04c4d58cc8f698598b41e1c017ba029d08ae75e321e546b26f1ea7f788474db265eeba46e780f2f6
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:5.56.2":
+  version: 5.56.2
+  resolution: "@tanstack/react-query@npm:5.56.2::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2F%40tanstack%2Freact-query%2F-%2Freact-query-5.56.2.tgz"
+  dependencies:
+    "@tanstack/query-core": "npm:5.56.2"
+  peerDependencies:
+    react: ^18 || ^19
+  checksum: 10c0/6e883b4ca1948f990215b7bce194251faf13a79c6ecf3f3c660af6c6788ed113ab629cefdafb496dfb04866f12dd48d7314e936b75c881b6749127b6496ac8fd
+  languageName: node
+  linkType: hard
+
 "@trysound/sax@npm:0.2.0":
   version: 0.2.0
   resolution: "@trysound/sax@npm:0.2.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2F%40trysound%2Fsax%2F-%2Fsax-0.2.0.tgz"
@@ -4197,10 +4215,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:16.4.5":
-  version: 16.4.5
-  resolution: "dotenv@npm:16.4.5::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fdotenv%2F-%2Fdotenv-16.4.5.tgz"
-  checksum: 10c0/48d92870076832af0418b13acd6e5a5a3e83bb00df690d9812e94b24aff62b88ade955ac99a05501305b8dc8f1b0ee7638b18493deb6fe93d680e5220936292f
+"dotenv-defaults@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "dotenv-defaults@npm:2.0.2::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fdotenv-defaults%2F-%2Fdotenv-defaults-2.0.2.tgz"
+  dependencies:
+    dotenv: "npm:^8.2.0"
+  checksum: 10c0/14b7b8f6c21a30404106384398728746e63405bfeabe47ef7aadd0e81de49986d5896a612e5b1acddf655af6472a24947b7b113aa3ef3270a2877afa9c5bd287
+  languageName: node
+  linkType: hard
+
+"dotenv-webpack@npm:8.1.0":
+  version: 8.1.0
+  resolution: "dotenv-webpack@npm:8.1.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fdotenv-webpack%2F-%2Fdotenv-webpack-8.1.0.tgz"
+  dependencies:
+    dotenv-defaults: "npm:^2.0.2"
+  peerDependencies:
+    webpack: ^4 || ^5
+  checksum: 10c0/7a64587fc96eba8e4ffccf56d6af09606611a32bc5cf04a37057b8c2881bcd11bf43c3395404581be734ae7fd2788471ceac76cb3d0ba1283e675223f98e5816
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^8.2.0":
+  version: 8.6.0
+  resolution: "dotenv@npm:8.6.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fdotenv%2F-%2Fdotenv-8.6.0.tgz"
+  checksum: 10c0/6750431dea8efbd54b9f2d9681b04e1ccc7989486461dcf058bb708d9e3d63b04115fcdf8840e38ad1e24a4a2e1e7c1560626c5e3ac7bc09371b127c49e2d45f
   languageName: node
   linkType: hard
 
@@ -8581,6 +8619,7 @@ __metadata:
   resolution: "react_fork@workspace:."
   dependencies:
     "@svgr/webpack": "npm:8.1.0"
+    "@tanstack/react-query": "npm:5.56.2"
     "@types/node": "npm:20.12.2"
     "@types/react": "npm:18.2.73"
     "@types/react-dom": "npm:18.2.23"
@@ -8592,7 +8631,7 @@ __metadata:
     cross-env: "npm:7.0.3"
     css-loader: "npm:6.10.0"
     css-minimizer-webpack-plugin: "npm:6.0.0"
-    dotenv: "npm:16.4.5"
+    dotenv-webpack: "npm:8.1.0"
     eslint: "npm:8.57.0"
     eslint-config-airbnb: "npm:19.0.4"
     eslint-config-airbnb-base: "npm:15.0.0"
