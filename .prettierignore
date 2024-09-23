@@ -1,0 +1,8 @@
+public
+static
+yarn.lock
+*.html
+!public/upload*.html
+build
+*.d.ts
+*.json
