@@ -1,4 +1,4 @@
-interface IPaginationMeta {
+interface PaginationMeta {
   page: number;
   pages: number;
   total: number;
@@ -9,7 +9,7 @@ interface IPaginationMeta {
   previous_page: number;
 }
 
-export interface IPaginationResponse<T> {
+export interface PaginationResponse<T> {
   items: T[];
-  meta: IPaginationMeta;
+  meta: PaginationMeta;
 }

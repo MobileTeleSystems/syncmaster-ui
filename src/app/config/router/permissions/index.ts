@@ -1,2 +1,2 @@
-export * from './authRoutes';
-export * from './privateRoutes';
+export * from './authRoute';
+export * from './privateRoute';
