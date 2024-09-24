@@ -1,7 +1,9 @@
-import React, { FC } from 'react';
+import { AppRoutes } from '@app/config';
+import { TanstackQueryProvider } from '@shared/config';
+import React from 'react';
 
-export const App: FC = () => (
-  <>
-    <main>Hello</main>
-  </>
+export const App = () => (
+  <TanstackQueryProvider>
+    <AppRoutes />
+  </TanstackQueryProvider>
 );

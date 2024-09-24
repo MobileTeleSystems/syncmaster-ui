@@ -1932,6 +1932,43 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:5.56.2":
+  version: 5.56.2
+  resolution: "@tanstack/query-core@npm:5.56.2::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2F%40tanstack%2Fquery-core%2F-%2Fquery-core-5.56.2.tgz"
+  checksum: 10c0/54ff55f02b01f6ba089f4965bfd46f430c18ce7e11d874de04c4d58cc8f698598b41e1c017ba029d08ae75e321e546b26f1ea7f788474db265eeba46e780f2f6
+  languageName: node
+  linkType: hard
+
+"@tanstack/query-devtools@npm:5.56.1":
+  version: 5.56.1
+  resolution: "@tanstack/query-devtools@npm:5.56.1::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2F%40tanstack%2Fquery-devtools%2F-%2Fquery-devtools-5.56.1.tgz"
+  checksum: 10c0/4f50fccf9e731e0fee4b7d2344cd8bf73a9c45816d7361f54ca4ec2df0a0455bf400fa3b578279edc8a4d1013c52c0d90cd50dbffb133edcf52e55868468d6c3
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query-devtools@npm:5.56.2":
+  version: 5.56.2
+  resolution: "@tanstack/react-query-devtools@npm:5.56.2::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2F%40tanstack%2Freact-query-devtools%2F-%2Freact-query-devtools-5.56.2.tgz"
+  dependencies:
+    "@tanstack/query-devtools": "npm:5.56.1"
+  peerDependencies:
+    "@tanstack/react-query": ^5.56.2
+    react: ^18 || ^19
+  checksum: 10c0/2edebb04800585da1ca479f9289a9265cfcc26c5d8fb1db08e6fbe9fdf370a55a2007416b52f819c2faeab7b919cd51a4afca7731b50b6f3dd164057e4966741
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:5.56.2":
+  version: 5.56.2
+  resolution: "@tanstack/react-query@npm:5.56.2::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2F%40tanstack%2Freact-query%2F-%2Freact-query-5.56.2.tgz"
+  dependencies:
+    "@tanstack/query-core": "npm:5.56.2"
+  peerDependencies:
+    react: ^18 || ^19
+  checksum: 10c0/6e883b4ca1948f990215b7bce194251faf13a79c6ecf3f3c660af6c6788ed113ab629cefdafb496dfb04866f12dd48d7314e936b75c881b6749127b6496ac8fd
+  languageName: node
+  linkType: hard
+
 "@trysound/sax@npm:0.2.0":
   version: 0.2.0
   resolution: "@trysound/sax@npm:0.2.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2F%40trysound%2Fsax%2F-%2Fsax-0.2.0.tgz"
@@ -3011,6 +3048,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"asynckit@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "asynckit@npm:0.4.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fasynckit%2F-%2Fasynckit-0.4.0.tgz"
+  checksum: 10c0/d73e2ddf20c4eb9337e1b3df1a0f6159481050a5de457c55b14ea2e5cb6d90bb69e004c9af54737a5ee0917fcf2c9e25de67777bbe58261847846066ba75bc9d
+  languageName: node
+  linkType: hard
+
 "available-typed-arrays@npm:^1.0.7":
   version: 1.0.7
   resolution: "available-typed-arrays@npm:1.0.7::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Favailable-typed-arrays%2F-%2Favailable-typed-arrays-1.0.7.tgz"
@@ -3024,6 +3068,17 @@ __metadata:
   version: 4.7.0
   resolution: "axe-core@npm:4.7.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Faxe-core%2F-%2Faxe-core-4.7.0.tgz"
   checksum: 10c0/89ac5712b5932ac7d23398b4cb5ba081c394a086e343acc68ba49c83472706e18e0799804e8388c779dcdacc465377deb29f2714241d3fbb389cf3a6b275c9ba
+  languageName: node
+  linkType: hard
+
+"axios@npm:1.7.7":
+  version: 1.7.7
+  resolution: "axios@npm:1.7.7::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Faxios%2F-%2Faxios-1.7.7.tgz"
+  dependencies:
+    follow-redirects: "npm:^1.15.6"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10c0/4499efc89e86b0b49ffddc018798de05fab26e3bf57913818266be73279a6418c3ce8f9e934c7d2d707ab8c095e837fc6c90608fb7715b94d357720b5f568af7
   languageName: node
   linkType: hard
 
@@ -3442,6 +3497,15 @@ __metadata:
   version: 2.0.20
   resolution: "colorette@npm:2.0.20::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fcolorette%2F-%2Fcolorette-2.0.20.tgz"
   checksum: 10c0/e94116ff33b0ff56f3b83b9ace895e5bf87c2a7a47b3401b8c3f3226e050d5ef76cf4072fb3325f9dc24d1698f9b730baf4e05eeaf861d74a1883073f4c98a40
+  languageName: node
+  linkType: hard
+
+"combined-stream@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "combined-stream@npm:1.0.8::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fcombined-stream%2F-%2Fcombined-stream-1.0.8.tgz"
+  dependencies:
+    delayed-stream: "npm:~1.0.0"
+  checksum: 10c0/0dbb829577e1b1e839fa82b40c07ffaf7de8a09b935cadd355a73652ae70a88b4320db322f6634a4ad93424292fa80973ac6480986247f1734a1137debf271d5
   languageName: node
   linkType: hard
 
@@ -3997,6 +4061,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"delayed-stream@npm:~1.0.0":
+  version: 1.0.0
+  resolution: "delayed-stream@npm:1.0.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fdelayed-stream%2F-%2Fdelayed-stream-1.0.0.tgz"
+  checksum: 10c0/d758899da03392e6712f042bec80aa293bbe9e9ff1b2634baae6a360113e708b91326594c8a486d475c69d6259afb7efacdc3537bfcda1c6c648e390ce601b19
+  languageName: node
+  linkType: hard
+
 "depd@npm:2.0.0":
   version: 2.0.0
   resolution: "depd@npm:2.0.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fdepd%2F-%2Fdepd-2.0.0.tgz"
@@ -4163,10 +4234,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:16.4.5":
-  version: 16.4.5
-  resolution: "dotenv@npm:16.4.5::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fdotenv%2F-%2Fdotenv-16.4.5.tgz"
-  checksum: 10c0/48d92870076832af0418b13acd6e5a5a3e83bb00df690d9812e94b24aff62b88ade955ac99a05501305b8dc8f1b0ee7638b18493deb6fe93d680e5220936292f
+"dotenv-defaults@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "dotenv-defaults@npm:2.0.2::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fdotenv-defaults%2F-%2Fdotenv-defaults-2.0.2.tgz"
+  dependencies:
+    dotenv: "npm:^8.2.0"
+  checksum: 10c0/14b7b8f6c21a30404106384398728746e63405bfeabe47ef7aadd0e81de49986d5896a612e5b1acddf655af6472a24947b7b113aa3ef3270a2877afa9c5bd287
+  languageName: node
+  linkType: hard
+
+"dotenv-webpack@npm:8.1.0":
+  version: 8.1.0
+  resolution: "dotenv-webpack@npm:8.1.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fdotenv-webpack%2F-%2Fdotenv-webpack-8.1.0.tgz"
+  dependencies:
+    dotenv-defaults: "npm:^2.0.2"
+  peerDependencies:
+    webpack: ^4 || ^5
+  checksum: 10c0/7a64587fc96eba8e4ffccf56d6af09606611a32bc5cf04a37057b8c2881bcd11bf43c3395404581be734ae7fd2788471ceac76cb3d0ba1283e675223f98e5816
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^8.2.0":
+  version: 8.6.0
+  resolution: "dotenv@npm:8.6.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fdotenv%2F-%2Fdotenv-8.6.0.tgz"
+  checksum: 10c0/6750431dea8efbd54b9f2d9681b04e1ccc7989486461dcf058bb708d9e3d63b04115fcdf8840e38ad1e24a4a2e1e7c1560626c5e3ac7bc09371b127c49e2d45f
   languageName: node
   linkType: hard
 
@@ -5036,6 +5127,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"follow-redirects@npm:^1.15.6":
+  version: 1.15.9
+  resolution: "follow-redirects@npm:1.15.9::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Ffollow-redirects%2F-%2Ffollow-redirects-1.15.9.tgz"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 10c0/5829165bd112c3c0e82be6c15b1a58fa9dcfaede3b3c54697a82fe4a62dd5ae5e8222956b448d2f98e331525f05d00404aba7d696de9e761ef6e42fdc780244f
+  languageName: node
+  linkType: hard
+
 "for-each@npm:^0.3.3":
   version: 0.3.3
   resolution: "for-each@npm:0.3.3::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Ffor-each%2F-%2Ffor-each-0.3.3.tgz"
@@ -5075,6 +5176,17 @@ __metadata:
     typescript: ">3.6.0"
     webpack: ^5.11.0
   checksum: 10c0/37e11dadcc65d297f07882f1661795289f2bf16fa9dea0b90bcc438855d48787378bce4dfcd8e842782f220503438995efbb28cbe560126f6a744ff740e8cc38
+  languageName: node
+  linkType: hard
+
+"form-data@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "form-data@npm:4.0.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fform-data%2F-%2Fform-data-4.0.0.tgz"
+  dependencies:
+    asynckit: "npm:^0.4.0"
+    combined-stream: "npm:^1.0.8"
+    mime-types: "npm:^2.1.12"
+  checksum: 10c0/cb6f3ac49180be03ff07ba3ff125f9eba2ff0b277fb33c7fc47569fc5e616882c5b1c69b9904c4c4187e97dd0419dd03b134174756f296dec62041e6527e2c6e
   languageName: node
   linkType: hard
 
@@ -6662,7 +6774,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mime-types@npm:^2.1.27, mime-types@npm:^2.1.31, mime-types@npm:~2.1.17, mime-types@npm:~2.1.24, mime-types@npm:~2.1.34":
+"mime-types@npm:^2.1.12, mime-types@npm:^2.1.27, mime-types@npm:^2.1.31, mime-types@npm:~2.1.17, mime-types@npm:~2.1.24, mime-types@npm:~2.1.34":
   version: 2.1.35
   resolution: "mime-types@npm:2.1.35::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fmime-types%2F-%2Fmime-types-2.1.35.tgz"
   dependencies:
@@ -7852,6 +7964,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"proxy-from-env@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "proxy-from-env@npm:1.1.0::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fproxy-from-env%2F-%2Fproxy-from-env-1.1.0.tgz"
+  checksum: 10c0/fe7dd8b1bdbbbea18d1459107729c3e4a2243ca870d26d34c2c1bcd3e4425b7bcc5112362df2d93cc7fb9746f6142b5e272fd1cc5c86ddf8580175186f6ad42b
+  languageName: node
+  linkType: hard
+
 "punycode@npm:^2.1.0":
   version: 2.3.1
   resolution: "punycode@npm:2.3.1::__archiveUrl=https%3A%2F%2Fnexus-cache.services.mts.ru%2Frepository%2Fnpm-all%2Fpunycode%2F-%2Fpunycode-2.3.1.tgz"
@@ -8519,6 +8638,8 @@ __metadata:
   resolution: "react_fork@workspace:."
   dependencies:
     "@svgr/webpack": "npm:8.1.0"
+    "@tanstack/react-query": "npm:5.56.2"
+    "@tanstack/react-query-devtools": "npm:5.56.2"
     "@types/node": "npm:20.12.2"
     "@types/react": "npm:18.2.73"
     "@types/react-dom": "npm:18.2.23"
@@ -8526,10 +8647,11 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:7.5.0"
     "@typescript-eslint/parser": "npm:7.5.0"
     antd: "npm:4.24.13"
+    axios: "npm:1.7.7"
     cross-env: "npm:7.0.3"
     css-loader: "npm:6.10.0"
     css-minimizer-webpack-plugin: "npm:6.0.0"
-    dotenv: "npm:16.4.5"
+    dotenv-webpack: "npm:8.1.0"
     eslint: "npm:8.57.0"
     eslint-config-airbnb: "npm:19.0.4"
     eslint-config-airbnb-base: "npm:15.0.0"

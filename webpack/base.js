@@ -3,6 +3,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const { resolveApp } = require('./utils/paths');
 
@@ -46,6 +47,13 @@ module.exports = {
         ],
       },
       {
+        test: /\.css$/, 
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [isProdMode ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', 'sass-loader'],
       },
@@ -55,9 +63,12 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
       '@src': resolveApp('src'),
-      '@components': resolveApp('src/components'),
-      '@constants': resolveApp('src/constants'),
-      '@utils': resolveApp('src/utils'),
+      '@app': resolveApp('src/app'),
+      '@pages': resolveApp('src/pages'),
+      '@widgets': resolveApp('src/widgets'),
+      '@features': resolveApp('src/features'),
+      '@entities': resolveApp('src/entities'),
+      '@shared': resolveApp('src/shared'),
     },
   },
   output: {
@@ -75,6 +86,9 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: isProdMode ? '[name].[contenthash].css' : '[name].css',
+    }),
+    new Dotenv({
+      systemvars: true,
     }),
     ...(isNeedBundleAnalyzer ? [new BundleAnalyzerPlugin()] : []),
   ],
