@@ -5761,6 +5761,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"husky@npm:9.1.6":
+  version: 9.1.6
+  resolution: "husky@npm:9.1.6"
+  bin:
+    husky: bin.js
+  checksum: 10c0/705673db4a247c1febd9c5df5f6a3519106cf0335845027bb50a15fba9b1f542cb2610932ede96fd08008f6d9f49db0f15560509861808b0031cdc0e7c798bac
+  languageName: node
+  linkType: hard
+
 "hyperdyperid@npm:^1.2.0":
   version: 1.2.0
   resolution: "hyperdyperid@npm:1.2.0"
@@ -9815,6 +9824,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:4.6.0"
     fork-ts-checker-webpack-plugin: "npm:9.0.2"
     html-webpack-plugin: "npm:5.6.0"
+    husky: "npm:9.1.6"
     lint-staged: "npm:15.2.2"
     mini-css-extract-plugin: "npm:2.8.1"
     prettier: "npm:3.2.5"
