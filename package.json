@@ -1,5 +1,5 @@
 {
-  "name": "react_fork",
+  "name": "syncmaster_ui",
   "version": "1.0.0",
   "private": true,
   "description": "Initial settings for react app",
@@ -8,8 +8,13 @@
     "start": "cross-env NODE_ENV=development webpack serve",
     "start:prod": "cross-env NODE_ENV=production webpack serve",
     "build": "rimraf ./dist && cross-env NODE_OPTIONS=--max_old_space_size=8192 && cross-env NODE_ENV=production webpack",
-    "lint:types": "tsc --noEmit",
-    "bundle:analyze": "cross-env BUNDLE_ANALYZER=true cross-env NODE_ENV=production webpack --progress"
+    "lint": "eslint .",
+    "type-check": "tsc --noEmit",
+    "check": "yarn lint && yarn type-check",
+    "prettier:check": "prettier --check \"**/*.{ts,tsx}\"",
+    "prettier:write": "prettier --write \"**/*.{ts,tsx}\"",
+    "bundle:analyze": "cross-env BUNDLE_ANALYZER=true cross-env NODE_ENV=production webpack --progress",
+    "prepare": "husky"
   },
   "dependencies": {
     "@tanstack/react-query": "5.56.2",
@@ -26,7 +31,6 @@
     "@types/node": "20.12.2",
     "@types/react": "18.2.73",
     "@types/react-dom": "18.2.23",
-    "@types/react-router-dom": "5.3.3",
     "@typescript-eslint/eslint-plugin": "7.5.0",
     "@typescript-eslint/parser": "7.5.0",
     "cross-env": "7.0.3",
@@ -44,6 +48,7 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "fork-ts-checker-webpack-plugin": "9.0.2",
     "html-webpack-plugin": "5.6.0",
+    "husky": "9.1.6",
     "lint-staged": "15.2.2",
     "mini-css-extract-plugin": "2.8.1",
     "prettier": "3.2.5",
@@ -61,9 +66,10 @@
     "webpack-merge": "5.10.0"
   },
   "lint-staged": {
-    "*.(ts|tsx)": [
-      "prettier --write",
-      "eslint --fix --quiet"
+    "*.(ts|tsx|js|jsx)": [
+      "node tsc-check.js",
+      "eslint --fix",
+      "prettier --write"
     ]
   },
   "engines": {
