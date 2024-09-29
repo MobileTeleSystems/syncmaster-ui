@@ -10,6 +10,6 @@ export const axiosInstance = axios.create({
   },
 });
 
-axios.interceptors.request.use(requestInterceptor);
+axiosInstance.interceptors.request.use(requestInterceptor);
 
-axios.interceptors.response.use(responseSuccessInterceptor);
+axiosInstance.interceptors.response.use(responseSuccessInterceptor);

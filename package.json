@@ -17,6 +17,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@ant-design/icons": "5.5.1",
     "@tanstack/react-query": "5.56.2",
     "@tanstack/react-query-devtools": "5.56.2",
     "antd": "4.24.13",
@@ -24,6 +25,7 @@
     "dotenv-webpack": "8.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-error-boundary": "4.0.13",
     "react-router-dom": "6.22.3"
   },
   "devDependencies": {
@@ -49,12 +51,12 @@
     "fork-ts-checker-webpack-plugin": "9.0.2",
     "html-webpack-plugin": "5.6.0",
     "husky": "9.1.6",
+    "less": "4.2.0",
+    "less-loader": "12.2.0",
     "lint-staged": "15.2.2",
     "mini-css-extract-plugin": "2.8.1",
     "prettier": "3.2.5",
     "rimraf": "5.0.5",
-    "sass": "1.72.0",
-    "sass-loader": "14.1.1",
     "style-loader": "3.3.4",
     "terser-webpack-plugin": "5.3.10",
     "ts-loader": "9.5.1",
