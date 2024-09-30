@@ -13,3 +13,8 @@ export interface PaginationResponse<T> {
   items: T[];
   meta: PaginationMeta;
 }
+
+export interface PageParams {
+  page_size: number;
+  page: number;
+}
