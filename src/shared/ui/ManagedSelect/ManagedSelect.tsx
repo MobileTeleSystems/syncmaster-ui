@@ -1,19 +1,23 @@
 import React, { memo, UIEventHandler, useMemo } from 'react';
-import { Select, SelectProps, Spin } from 'antd';
-import { QueryKey } from '@tanstack/react-query';
+import { Select, Spin } from 'antd';
 import { useInfiniteRequest } from '@shared/config';
-import { PageParams, PaginationResponse } from '@shared/types';
 
 import { PAGE_DEFAULT, PAGE_SIZE_DEFAULT } from './constants';
 import { prepareOptionsForSelect } from './utils';
+import { ManagedSelectProps } from './types';
 
-interface ManagedSelectProps<T> extends Omit<SelectProps, 'options' | 'notFoundContent' | 'dropdownRender'> {
-  queryFunction: (params: PageParams) => Promise<PaginationResponse<T>>;
-  queryKey: QueryKey;
-  optionValue: keyof T;
-  optionLabel: keyof T | ((item: T) => string);
-}
-
+/**
+ * Select component for infinite pagination of data in a dropdown
+ *
+ * @template T - Data object type for select options.
+ *
+ * @param queryFunction - Function for request data
+ * @param queryKey - Query keys for requests cache
+ * @param optionValue - Value for option from data object
+ * @param optionLabel - Label for option from data object
+ *
+ * @returns Select component in Antd - {@link https://4x.ant.design/components/select/}
+ */
 function ManagedSelectDefault<T>({
   queryFunction,
   queryKey,

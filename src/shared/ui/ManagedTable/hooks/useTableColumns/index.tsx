@@ -6,19 +6,19 @@ import React, { useMemo, MouseEvent } from 'react';
 export interface UseTableColumnsProps<T> extends Pick<TableProps<T>, 'columns'> {
   onEditRowClick?: (record: T) => void;
   onDeleteRowClick?: (record: T) => void;
-  hiddenActions?: boolean;
+  isHiddenActions?: boolean;
 }
 
 export const useTableColumns = <T extends object>({
   onEditRowClick,
   onDeleteRowClick,
   columns: initialColumns = [],
-  hiddenActions = false,
+  isHiddenActions = false,
 }: UseTableColumnsProps<T>) => {
   const columns = useMemo(() => {
     const resultColumns = structuredClone(initialColumns);
 
-    if (hiddenActions) {
+    if (isHiddenActions) {
       return resultColumns;
     }
 
@@ -66,7 +66,7 @@ export const useTableColumns = <T extends object>({
       });
     }
     return resultColumns;
-  }, [initialColumns, hiddenActions, onEditRowClick, onDeleteRowClick]);
+  }, [initialColumns, isHiddenActions, onEditRowClick, onDeleteRowClick]);
 
   return { columns };
 };

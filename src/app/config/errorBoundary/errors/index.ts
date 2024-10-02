@@ -1,2 +1,2 @@
-export * from './notFoundError';
-export * from './serverError';
+export * from './NotFoundError';
+export * from './ServerError';

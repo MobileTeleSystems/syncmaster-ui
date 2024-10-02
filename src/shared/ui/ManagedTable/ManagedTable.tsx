@@ -17,14 +17,14 @@ export const ManagedTable = <T extends object>({
   columns: initialColumns,
   onEditRowClick,
   onDeleteRowClick,
-  hiddenActions,
+  isHiddenActions,
   ...props
 }: ManagedTableProps<T>) => {
   const { pagination, handleChangePagination } = useTablePagination();
 
   const { data, isFetching } = useTableQuery({ queryKey, queryFunction, pagination });
 
-  const { columns } = useTableColumns({ columns: initialColumns, onEditRowClick, onDeleteRowClick, hiddenActions });
+  const { columns } = useTableColumns({ columns: initialColumns, onEditRowClick, onDeleteRowClick, isHiddenActions });
 
   return (
     <Table
