@@ -1,14 +1,22 @@
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import { Button, TableProps } from 'antd';
+import { Button } from 'antd';
 import ButtonGroup from 'antd/lib/button/button-group';
 import React, { useMemo, MouseEvent } from 'react';
 
-export interface UseTableColumnsProps<T> extends Pick<TableProps<T>, 'columns'> {
-  onEditRowClick?: (record: T) => void;
-  onDeleteRowClick?: (record: T) => void;
-  isHiddenActions?: boolean;
-}
+import { UseTableColumnsProps } from './types';
 
+/**
+ * Hook for adding and handling edit and delete table row buttons
+ *
+ * @template T - Data object type for table row.
+ *
+ * @param onEditRowClick - Callback on click edit row button
+ * @param onDeleteRowClick - Callback on click delete row button
+ * @param columns - Initial array of table columns
+ * @param isHiddenActions - Flag prohibiting rendering of edit and delete row buttons
+ *
+ * @returns - Array of table columns
+ */
 export const useTableColumns = <T extends object>({
   onEditRowClick,
   onDeleteRowClick,
