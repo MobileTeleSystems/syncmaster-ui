@@ -6,18 +6,7 @@ import { PAGE_DEFAULT, PAGE_SIZE_DEFAULT } from './constants';
 import { prepareOptionsForSelect } from './utils';
 import { ManagedSelectProps } from './types';
 
-/**
- * Select component for infinite pagination of data in a dropdown
- *
- * @template T - Data object type for select options.
- *
- * @param queryFunction - Function for request data
- * @param queryKey - Query keys for requests cache
- * @param optionValue - Value for option from data object
- * @param optionLabel - Label for option from data object
- *
- * @returns Select component in Antd - {@link https://4x.ant.design/components/select/}
- */
+/** Select component for infinite pagination of data in a dropdown */
 function ManagedSelectDefault<T>({
   queryFunction,
   queryKey,
