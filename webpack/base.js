@@ -47,15 +47,26 @@ module.exports = {
         ],
       },
       {
-        test: /\.css$/, 
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.less$/,
         use: [
           'style-loader',
           'css-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                modifyVars: {
+                  hack: `true; @import "${path.resolve(__dirname, '../src/app/styles/variables.less')}";`,
+                },
+                javascriptEnabled: true,
+              },
+            },
+          },
         ],
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: [isProdMode ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },

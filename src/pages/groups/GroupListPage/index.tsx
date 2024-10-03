@@ -1,6 +1,6 @@
 import Title from 'antd/lib/typography/Title';
 import React, { memo } from 'react';
 
-export const UserListPage = memo(() => {
-  return <Title>Users</Title>;
+export const GroupListPage = memo(() => {
+  return <Title>Groups</Title>;
 });
