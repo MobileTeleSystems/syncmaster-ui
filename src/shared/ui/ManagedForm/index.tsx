@@ -15,7 +15,7 @@ const ManagedFormDefault = <T extends object, R extends object>({
   mutationFunction,
   onSuccess,
   keysInvalidateQueries = [],
-  isLeaveLoadingOnSuccess = false,
+  isHiddenLoadingOnSuccess = false,
   onError = () => undefined,
   ...props
 }: PropsWithChildren<ManagedFormProps<T, R>>) => {
@@ -33,7 +33,7 @@ const ManagedFormDefault = <T extends object, R extends object>({
         keysInvalidateQueries.forEach((params) => {
           queryClient.invalidateQueries(...params);
         });
-        if (!isLeaveLoadingOnSuccess) {
+        if (isHiddenLoadingOnSuccess) {
           setSubmitting(false);
         }
       },

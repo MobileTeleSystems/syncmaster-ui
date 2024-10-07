@@ -17,6 +17,6 @@ export interface ManagedFormProps<T, R> extends Omit<FormProps<T>, 'form' | 'onF
   onError?: (error: AxiosError) => void;
   /** Keys for invalidate cache of other requests */
   keysInvalidateQueries?: Parameters<QueryClient['invalidateQueries']>[];
-  /** Flag that leaves a spin if the request is successful  */
-  isLeaveLoadingOnSuccess?: boolean;
+  /** Flag that hides a spin if the request is successful  */
+  isHiddenLoadingOnSuccess?: boolean;
 }
