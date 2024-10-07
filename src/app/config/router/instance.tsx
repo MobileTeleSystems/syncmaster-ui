@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import { UserListPage } from '@pages/user';
+import { UserDetailPage, UserListPage } from '@pages/user';
 import { LoginPage } from '@pages/auth';
 import { AuthLayout, ErrorLayout, PrivateLayout } from '@app/layouts';
 import { GroupListPage } from '@pages/groups';
@@ -39,6 +39,10 @@ export const router = createBrowserRouter([
           {
             path: '/users',
             element: <UserListPage />,
+          },
+          {
+            path: '/users/:id',
+            element: <UserDetailPage />,
           },
           {
             path: '/groups',

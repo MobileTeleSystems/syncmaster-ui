@@ -13,7 +13,7 @@ export const useTableColumns = <T extends object>({
   isHiddenActions = false,
 }: UseTableColumnsProps<T>) => {
   const columns = useMemo(() => {
-    const resultColumns = structuredClone(initialColumns);
+    const resultColumns = [...initialColumns];
 
     if (isHiddenActions) {
       return resultColumns;

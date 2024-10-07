@@ -18,3 +18,5 @@ export interface PageParams {
   page_size: number;
   page: number;
 }
+
+export interface PaginationRequest extends PageParams {}

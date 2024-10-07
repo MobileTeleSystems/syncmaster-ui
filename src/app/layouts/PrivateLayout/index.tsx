@@ -1,7 +1,8 @@
-import React, { memo } from 'react';
+import React, { memo, Suspense } from 'react';
 import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
 import { Header, Sidebar } from '@widgets/layout';
+import { SpinOverlay } from '@shared/ui';
 
 import classes from './styles.module.less';
 
@@ -15,7 +16,9 @@ export const PrivateLayout = memo(() => {
         <Sidebar />
         <Layout>
           <Content className={classes.layout__content}>
-            <Outlet />
+            <Suspense fallback={<SpinOverlay />}>
+              <Outlet />
+            </Suspense>
           </Content>
         </Layout>
       </Layout>

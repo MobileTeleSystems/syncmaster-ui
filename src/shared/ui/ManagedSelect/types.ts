@@ -1,4 +1,4 @@
-import { PageParams, PaginationResponse } from '@shared/types';
+import { PaginationRequest, PaginationResponse } from '@shared/types';
 import { QueryKey } from '@tanstack/react-query';
 import { SelectProps } from 'antd';
 
@@ -9,7 +9,7 @@ import { SelectProps } from 'antd';
  */
 export interface ManagedSelectProps<T> extends Omit<SelectProps, 'options' | 'notFoundContent' | 'dropdownRender'> {
   /** Function for request data */
-  queryFunction: (params: PageParams) => Promise<PaginationResponse<T>>;
+  queryFunction: (params: PaginationRequest) => Promise<PaginationResponse<T>>;
   /** Query keys for requests cache */
   queryKey: QueryKey;
   /** Value for option from data object */
