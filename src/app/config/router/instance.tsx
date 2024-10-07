@@ -4,6 +4,7 @@ import { UserListPage } from '@pages/user';
 import { LoginPage } from '@pages/auth';
 import { AuthLayout, ErrorLayout, PrivateLayout } from '@app/layouts';
 import { GroupListPage } from '@pages/groups';
+import { AuthProvider } from '@entities/auth';
 
 import { ErrorBoundary, NotFoundError } from '../errorBoundary';
 
@@ -14,36 +15,34 @@ export const router = createBrowserRouter([
     element: <ErrorBoundary />,
     children: [
       {
-        element: <AuthLayout />,
+        element: (
+          <AuthRoute>
+            <AuthLayout />
+          </AuthRoute>
+        ),
         children: [
           {
             path: '/login',
-            element: (
-              <AuthRoute>
-                <LoginPage />
-              </AuthRoute>
-            ),
+            element: <LoginPage />,
           },
         ],
       },
       {
-        element: <PrivateLayout />,
+        element: (
+          <PrivateRoute>
+            <AuthProvider>
+              <PrivateLayout />
+            </AuthProvider>
+          </PrivateRoute>
+        ),
         children: [
           {
             path: '/users',
-            element: (
-              <PrivateRoute>
-                <UserListPage />
-              </PrivateRoute>
-            ),
+            element: <UserListPage />,
           },
           {
             path: '/groups',
-            element: (
-              <PrivateRoute>
-                <GroupListPage />
-              </PrivateRoute>
-            ),
+            element: <GroupListPage />,
           },
         ],
       },

@@ -1,4 +1,4 @@
-import { Storage } from '@shared/types';
+import { Storage } from '@shared/constants';
 import { InternalAxiosRequestConfig } from 'axios';
 
 export const requestInterceptor = (config: InternalAxiosRequestConfig) => {

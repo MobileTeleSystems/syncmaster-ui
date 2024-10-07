@@ -1,3 +1,4 @@
+import { Login } from '@features/auth';
 import React, { memo } from 'react';
 
-export const LoginPage = memo(() => <div>Login Page</div>);
+export const LoginPage = memo(() => <Login />);

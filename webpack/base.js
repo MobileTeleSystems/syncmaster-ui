@@ -60,7 +60,7 @@ module.exports = {
             options: {
               lessOptions: {
                 modifyVars: {
-                  hack: `true; @import "${path.resolve(__dirname, '../src/app/styles/variables.less')}";`,
+                  hack: `true; @import "${require.resolve('antd/es/style/themes/default.less')}"; @import "${path.resolve(__dirname, '../src/app/styles/variables.less')}";`,
                 },
                 javascriptEnabled: true,
               },

@@ -1,0 +1,25 @@
+@root: ~'.root';
+
+@{root} {
+  position: relative;
+
+  &[data-loading='true'] {
+    @{root}__loader {
+      display: block !important;
+    }
+
+    @{root}__form {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+
+  &__loader {
+    display: none !important;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+}

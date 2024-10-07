@@ -1,9 +1,11 @@
-import { AppRoutes } from '@app/config';
+import { AntdConfigProvider, AppRoutes } from '@app/config';
 import { TanstackQueryProvider } from '@shared/config';
 import React from 'react';
 
 export const App = () => (
   <TanstackQueryProvider>
-    <AppRoutes />
+    <AntdConfigProvider>
+      <AppRoutes />
+    </AntdConfigProvider>
   </TanstackQueryProvider>
 );
