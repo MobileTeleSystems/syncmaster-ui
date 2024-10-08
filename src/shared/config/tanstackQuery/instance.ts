@@ -1,4 +1,6 @@
 import { QueryClient } from '@tanstack/react-query';
+import axios from 'axios';
+import { Error } from '@shared/constants';
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -8,6 +10,10 @@ export const queryClient = new QueryClient({
       refetchOnWindowFocus: false,
       refetchOnReconnect: false,
       retry: false,
+      throwOnError: true,
+    },
+    mutations: {
+      throwOnError: (error) => axios.isAxiosError(error) && error.status === Error.AUTH,
     },
   },
 });

@@ -2,8 +2,9 @@ import axios from 'axios';
 import React from 'react';
 import { FallbackProps } from 'react-error-boundary';
 import { ErrorLayout } from '@app/layouts';
+import { Error } from '@shared/constants';
 
-import { NotFoundError, ServerError } from './errors';
+import { AuthError, NotFoundError, ServerError } from './errors';
 import { ErrorBoundaryContext } from './constants';
 
 export const Fallback = ({ error, resetErrorBoundary }: FallbackProps) => {
@@ -12,11 +13,10 @@ export const Fallback = ({ error, resetErrorBoundary }: FallbackProps) => {
       return <ServerError />;
     }
     switch (error.status) {
-      case 401:
-        //TODO: [DOP-19627] Need to add sign out logic in task [DOP-20245]
-        return 'User is unauthorized';
-      case 403:
-      case 404:
+      case Error.AUTH:
+        return <AuthError />;
+      case Error.ACCESS:
+      case Error.NOT_FOUND:
         return <NotFoundError />;
       default:
         return <ServerError />;
