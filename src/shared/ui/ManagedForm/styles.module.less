@@ -1,20 +1,18 @@
-@root: ~'.root';
-
-@{root} {
+.wrapper {
   position: relative;
 
   &[data-loading='true'] {
-    @{root}__loader {
+    .loader {
       display: block !important;
     }
 
-    @{root}__form {
+    .form {
       opacity: 0.5;
       pointer-events: none;
     }
   }
 
-  &__loader {
+  .loader {
     display: none !important;
     position: absolute !important;
     top: 50%;

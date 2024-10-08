@@ -17,10 +17,10 @@ export const Header = memo(() => {
     <AntdHeader className={classes.header}>
       {/* TODO: [DOP-20245] Need to add logo and group select in task [DOP-20026] */}
       <div className="logo" />
-      <div className={classes.header__user}>
-        <div className={classes['header__user-info']}>
-          <Avatar className={classes.header__avatar} size="large" icon={<UserOutlined />} />
-          <Text className={classes.header__username} ellipsis>
+      <div className={classes.user}>
+        <div className={classes['user-info']}>
+          <Avatar className={classes.avatar} size="large" icon={<UserOutlined />} />
+          <Text className={classes.username} ellipsis>
             {username}
           </Text>
         </div>

@@ -1,13 +1,13 @@
 import { axiosInstance } from '@shared/config';
 
-import { GetMeResponse, LoginRequest, LoginResponse } from './types';
+import { GetCurrentUserResponse, LoginRequest, LoginResponse } from './types';
 
 class AuthApi {
   login(data: LoginRequest): Promise<LoginResponse> {
     return axiosInstance.postForm('v1/auth/token', data);
   }
 
-  getMe(): Promise<GetMeResponse> {
+  getCurrentUserInfo(): Promise<GetCurrentUserResponse> {
     return axiosInstance.get('v1/users/me');
   }
 }

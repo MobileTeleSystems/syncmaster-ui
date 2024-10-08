@@ -7,5 +7,5 @@ export interface FormButtonsProps {
   /** Text content for cancel button  */
   cancelButtonText?: string;
   /** Flag that hides cancel button  */
-  isHiddenCancelButton?: boolean;
+  isCancelButtonHidden?: boolean;
 }

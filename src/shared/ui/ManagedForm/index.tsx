@@ -2,9 +2,9 @@ import React, { memo, useState } from 'react';
 import { Form, notification, Spin } from 'antd';
 import { PropsWithChildren } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { AxiosError } from 'axios';
-import { isErrorFormFields, isErrorMessage } from '@shared/guards';
+import axios from 'axios';
 import { clsx } from 'clsx';
+import { checkIsFormFieldsError, checkIsMessageError } from '@shared/guards';
 
 import classes from './styles.module.less';
 import { ManagedFormProps } from './types';
@@ -20,13 +20,13 @@ const ManagedFormDefault = <T extends object, R extends object>({
   ...props
 }: PropsWithChildren<ManagedFormProps<T, R>>) => {
   const [form] = Form.useForm<T>();
-  const [isSubmitting, setSubmitting] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const queryClient = useQueryClient();
 
-  const { mutate } = useMutation<R, AxiosError, T>({ mutationFn: mutationFunction });
+  const { mutate } = useMutation<R, unknown, T>({ mutationFn: mutationFunction });
 
   const onFinish = (values: T) => {
-    setSubmitting(true);
+    setLoading(true);
     mutate(values, {
       onSuccess: (response) => {
         onSuccess(response);
@@ -34,24 +34,24 @@ const ManagedFormDefault = <T extends object, R extends object>({
           queryClient.invalidateQueries(...params);
         });
         if (isHiddenLoadingOnSuccess) {
-          setSubmitting(false);
+          setLoading(false);
         }
       },
       onError: (error) => {
         onError(error);
-        setSubmitting(false);
+        setLoading(false);
         let message = 'An unexpected error occurred';
 
-        if (error.response && isErrorFormFields(error)) {
+        if (checkIsFormFieldsError(error) && error.response) {
           message = 'Form error has occurred';
           const fieldErrors = error.response.data.error.details.map((field) => ({
             name: field.location[1],
             errors: [field.message],
           }));
           form.setFields(fieldErrors);
-        } else if (error.response && isErrorMessage(error)) {
+        } else if (checkIsMessageError(error) && error.response) {
           message = error.response.data.error.message;
-        } else {
+        } else if (axios.isAxiosError(error)) {
           message = error.message;
         }
         notification.error({
@@ -78,12 +78,12 @@ const ManagedFormDefault = <T extends object, R extends object>({
   };
 
   return (
-    <div className={classes.root} data-loading={isSubmitting}>
-      <Spin className={classes.root__loader} size="default" />
+    <div className={classes.wrapper} data-loading={isLoading}>
+      <Spin className={classes.loader} size="default" />
       <Form
         onValuesChange={onValuesChange}
         layout="vertical"
-        className={clsx(classes.root__form, props.className)}
+        className={clsx(classes.form, props.className)}
         form={form}
         onFinish={onFinish}
         {...props}

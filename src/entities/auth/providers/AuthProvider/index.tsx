@@ -1,13 +1,13 @@
 import React, { memo, PropsWithChildren } from 'react';
 import { Spin } from 'antd';
 
-import { useMe } from '../../api';
+import { useCurrentUserInfo } from '../../api';
 import { AuthContext } from '../../constants';
 
 import classes from './styles.module.less';
 
 export const AuthProvider = memo(({ children }: PropsWithChildren) => {
-  const { data, isLoading } = useMe();
+  const { data, isLoading } = useCurrentUserInfo();
 
   if (isLoading || !data) {
     return (

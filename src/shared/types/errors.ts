@@ -1,20 +1,20 @@
-interface ErrorDefault {
+interface DefaultError {
   code: string;
   message: string;
 }
 
-type ErrorLocationType = 'body' | 'query';
+type LocationTypeError = 'body' | 'query';
 
-interface ErrorFormField extends ErrorDefault {
-  location: [Extract<ErrorLocationType, 'body'>, string];
+interface FormFieldError extends DefaultError {
+  location: [Extract<LocationTypeError, 'body'>, string];
 }
 
-export interface ErrorMessage {
-  error: ErrorDefault;
+export interface MessageError {
+  error: DefaultError;
 }
 
-export interface ErrorFormFields {
-  error: ErrorDefault & {
-    details: ErrorFormField[];
+export interface FormFieldsError {
+  error: DefaultError & {
+    details: FormFieldError[];
   };
 }

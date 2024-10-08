@@ -15,7 +15,7 @@ export const Login = memo(() => {
   };
 
   return (
-    <div className={classes.root}>
+    <div className={classes.wrapper}>
       <Title>Sign in</Title>
       <ManagedForm mutationFunction={authApi.login} onSuccess={onSuccess}>
         <Form.Item label="Username" name="username" rules={[{ required: true }]}>
@@ -26,7 +26,7 @@ export const Login = memo(() => {
           <Input.Password size="large" />
         </Form.Item>
 
-        <FormButtons isHiddenCancelButton />
+        <FormButtons isCancelButtonHidden />
       </ManagedForm>
     </div>
   );

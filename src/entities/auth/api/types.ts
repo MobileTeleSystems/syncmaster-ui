@@ -14,4 +14,4 @@ export interface LoginResponse {
   refresh_token: string;
 }
 
-export interface GetMeResponse extends User {}
+export interface GetCurrentUserResponse extends User {}

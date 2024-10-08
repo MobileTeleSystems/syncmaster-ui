@@ -1,2 +1,2 @@
-export * from './isErrorFormFields';
-export * from './isErrorMessage';
+export * from './checkIsFormFieldsError';
+export * from './checkIsMessageError';

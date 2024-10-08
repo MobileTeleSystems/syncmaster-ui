@@ -10,12 +10,12 @@ export const FormButtons = memo(
     onCancel = () => undefined,
     submitButtonText = 'Submit',
     cancelButtonText = 'Cancel',
-    isHiddenCancelButton = false,
+    isCancelButtonHidden = false,
   }: FormButtonsProps) => {
     return (
-      <Form.Item className={classes.root}>
-        <div className={classes.root__buttons}>
-          {!isHiddenCancelButton && (
+      <Form.Item className={classes.wrapper}>
+        <div className={classes.buttons}>
+          {!isCancelButtonHidden && (
             <Button type="default" size="large" onClick={onCancel}>
               {cancelButtonText}
             </Button>
