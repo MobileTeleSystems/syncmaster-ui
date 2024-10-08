@@ -1,3 +1,3 @@
-import { User } from './api';
+import { AuthUser } from './api';
 
-export interface AuthContextProps extends User {}
+export interface AuthContextProps extends AuthUser {}
