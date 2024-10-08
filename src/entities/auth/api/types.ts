@@ -1,4 +1,4 @@
-export interface User {
+export interface AuthUser {
   id: number;
   username: string;
   is_superuser: boolean;
@@ -13,5 +13,3 @@ export interface LoginResponse {
   access_token: string;
   refresh_token: string;
 }
-
-export interface GetCurrentUserResponse extends User {}
