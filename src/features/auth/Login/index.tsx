@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { FormButtons, ManagedForm } from '@shared/ui';
-import { AUTH_API, LoginResponse, useLogin } from '@entities/auth';
+import { authService, LoginResponse, useLogin } from '@entities/auth';
 import { Form, Input, Typography } from 'antd';
 
 import classes from './styles.module.less';
@@ -17,7 +17,7 @@ export const Login = memo(() => {
   return (
     <div className={classes.wrapper}>
       <Title>Sign in</Title>
-      <ManagedForm mutationFunction={AUTH_API.login} onSuccess={onSuccess}>
+      <ManagedForm mutationFunction={authService.login} onSuccess={onSuccess}>
         <Form.Item label="Username" name="username" rules={[{ required: true }]}>
           <Input size="large" />
         </Form.Item>

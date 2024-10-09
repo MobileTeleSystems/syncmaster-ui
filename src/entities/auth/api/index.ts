@@ -1,4 +1,4 @@
 export * from './types';
-export * from './authApi';
+export * from './authService';
 export * from './hooks';
 export * from './keys';

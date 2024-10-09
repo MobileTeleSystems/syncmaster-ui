@@ -3,7 +3,7 @@ import { PaginationResponse } from '@shared/types';
 
 import { GetUserRequest, User, GetUsersRequest } from './types';
 
-export const USER_API = {
+export const userService = {
   getUsers: (params: GetUsersRequest): Promise<PaginationResponse<User>> => {
     return axiosInstance.get('users', { params });
   },

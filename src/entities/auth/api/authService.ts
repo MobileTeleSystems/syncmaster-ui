@@ -2,7 +2,7 @@ import { axiosInstance } from '@shared/config';
 
 import { AuthUser, LoginRequest, LoginResponse } from './types';
 
-export const AUTH_API = {
+export const authService = {
   login: (data: LoginRequest): Promise<LoginResponse> => {
     return axiosInstance.postForm('auth/token', data);
   },
