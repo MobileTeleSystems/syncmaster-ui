@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { UserDetailInfo, useUser } from '@entities/user';
+import { UserDetailInfo, useGetUser } from '@entities/user';
 import { PageDetailParams } from '@shared/types';
 import { PageContentWrapper } from '@shared/ui';
 import { Typography } from 'antd';
@@ -9,7 +9,7 @@ const { Title } = Typography;
 
 export const UserDetailPage = memo(() => {
   const params = useParams<PageDetailParams>();
-  const { data: user } = useUser({ id: params.id! });
+  const { data: user } = useGetUser({ id: params.id! });
 
   if (!user) {
     return null;
