@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { UserDetailPage, UserListPage } from '@pages/user';
 import { LoginPage } from '@pages/auth';
 import { AuthLayout, ErrorLayout, PrivateLayout } from '@app/layouts';
-import { GroupListPage } from '@pages/groups';
+import { GroupDetailPage, GroupListPage } from '@pages/groups';
 import { AuthProvider } from '@entities/auth';
 
 import { ErrorBoundary, NotFoundError } from '../errorBoundary';
@@ -47,6 +47,10 @@ export const router = createBrowserRouter([
           {
             path: '/groups',
             element: <GroupListPage />,
+          },
+          {
+            path: '/groups/:id',
+            element: <GroupDetailPage />,
           },
         ],
       },
