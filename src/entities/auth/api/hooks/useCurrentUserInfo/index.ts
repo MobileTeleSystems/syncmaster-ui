@@ -1,7 +1,7 @@
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
 import { Storage } from '@shared/constants';
 
-import { authApi } from '../../authApi';
+import { authService } from '../../authService';
 import { AuthUser } from '../../types';
 import { AuthQueryKey } from '../../keys';
 
@@ -11,7 +11,7 @@ export const useCurrentUserInfo = (): UseQueryResult<AuthUser> => {
 
   return useQuery({
     queryKey: [AuthQueryKey.GET_CURRENT_USER_INFO],
-    queryFn: authApi.getCurrentUserInfo,
+    queryFn: authService.getCurrentUserInfo,
     enabled: !!accessToken,
   });
 };

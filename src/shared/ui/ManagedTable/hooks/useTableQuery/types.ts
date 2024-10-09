@@ -1,4 +1,4 @@
-import { PageParams, PaginationResponse } from '@shared/types';
+import { PaginationRequest, PaginationResponse } from '@shared/types';
 import { QueryKey } from '@tanstack/react-query';
 
 import { TablePagination } from '../../types';
@@ -10,7 +10,7 @@ import { TablePagination } from '../../types';
  */
 export interface UseTableQueryProps<T> {
   /** Function for request data for table */
-  queryFunction: (params: PageParams) => Promise<PaginationResponse<T>>;
+  queryFunction: (params: PaginationRequest) => Promise<PaginationResponse<T>>;
   /** Query keys for requests cache */
   queryKey: QueryKey;
   /** State of table data pagination */
