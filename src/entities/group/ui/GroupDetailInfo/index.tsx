@@ -4,21 +4,22 @@ import { Group } from '@entities/group/api';
 import { User } from '@entities/user';
 import { Link } from 'react-router-dom';
 
-interface GroupDetailInfoProps extends Omit<Group, 'owner_id'> {
+interface GroupDetailInfoProps {
+  group: Group;
   owner: User;
 }
 
-export const GroupDetailInfo = memo(({ id, name, description, owner }: GroupDetailInfoProps) => {
+export const GroupDetailInfo = memo(({ group, owner }: GroupDetailInfoProps) => {
   return (
     <Descriptions title="Group info" bordered>
       <Descriptions.Item label={'Id'} span={3}>
-        {id}
+        {group.id}
       </Descriptions.Item>
       <Descriptions.Item label={'Name'} span={3}>
-        {name}
+        {group.name}
       </Descriptions.Item>
       <Descriptions.Item label={'Description'} span={3}>
-        {description}
+        {group.description}
       </Descriptions.Item>
       <Descriptions.Item label={'Owner'} span={3}>
         <Link to={`/users/${owner.id}`}>{owner.username}</Link>

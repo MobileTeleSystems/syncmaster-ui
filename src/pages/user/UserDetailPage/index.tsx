@@ -18,7 +18,7 @@ export const UserDetailPage = memo(() => {
   return (
     <PageContentWrapper>
       <Title>{user.username}</Title>
-      <UserDetailInfo id={user.id} username={user.username} is_superuser={user.is_superuser} />
+      <UserDetailInfo user={user} />
     </PageContentWrapper>
   );
 });

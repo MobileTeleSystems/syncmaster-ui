@@ -11,5 +11,5 @@ export interface Group {
 export interface GetGroupsRequest extends PaginationRequest {}
 
 export interface GetGroupRequest {
-  id: string;
+  id: number | string;
 }

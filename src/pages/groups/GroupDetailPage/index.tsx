@@ -11,7 +11,7 @@ const { Title } = Typography;
 export const GroupDetailPage = memo(() => {
   const params = useParams<PageDetailParams>();
   const { data: group } = useGetGroup({ id: params.id! });
-  const { data: owner } = useGetUser({ id: group.owner_id.toString() });
+  const { data: owner } = useGetUser({ id: group.owner_id });
 
   if (!group || !owner) {
     return null;
@@ -20,7 +20,7 @@ export const GroupDetailPage = memo(() => {
   return (
     <PageContentWrapper>
       <Title>{group.name}</Title>
-      <GroupDetailInfo id={group.id} name={group.name} description={group.description} owner={owner} />
+      <GroupDetailInfo group={group} owner={owner} />
     </PageContentWrapper>
   );
 });
