@@ -31,6 +31,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/function-component-definition': 'off',
     'react/jsx-no-useless-fragment': 'off',
+    'react/jsx-curly-brace-presence': 'error',
     'react/prop-types': 'off',
     '@typescript-eslint/dot-notation': 'off',
     'no-underscore-dangle': ['error', { allow: ['__typename'] }],

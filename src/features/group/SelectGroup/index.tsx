@@ -5,7 +5,7 @@ import { ManagedSelect, OptionItem } from '@shared/ui';
 export const SelectGroup = memo(() => {
   const { selectGroup } = useSelectedGroup();
 
-  const handleSelectGroup = (_: string, option: OptionItem<Group>) => {
+  const handleSelectGroup = (value: string, option: OptionItem<Group>) => {
     selectGroup(option.data);
   };
 
@@ -16,7 +16,7 @@ export const SelectGroup = memo(() => {
       onSelect={handleSelectGroup}
       optionValue="id"
       optionLabel="name"
-      placeholder={'Select group'}
+      placeholder="Select group"
     />
   );
 });
