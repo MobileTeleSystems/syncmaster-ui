@@ -7,17 +7,18 @@ import { DefaultOptionType } from 'antd/lib/select';
  * Interface as Props for component "ManagedSelect"
  *
  * @template T - Data object type for select options.
+ * @template V - Value type for select options.
  */
-export interface ManagedSelectProps<T>
-  extends Omit<SelectProps<string, OptionItem<T>>, 'options' | 'notFoundContent' | 'dropdownRender'> {
+export interface ManagedSelectProps<T, V extends DefaultOptionType['value']>
+  extends Omit<SelectProps<V, OptionItem<T>>, 'options' | 'notFoundContent' | 'dropdownRender'> {
   /** Function for request data */
   queryFunction: (params: PaginationRequest) => Promise<PaginationResponse<T>>;
   /** Query keys for requests cache */
   queryKey: QueryKey;
-  /** Value for option from data object */
-  optionValue: keyof T;
-  /** Label for option from data object */
-  optionLabel: keyof T | ((item: T) => string);
+  /** Function render value for option from data object */
+  renderOptionValue: (item: T) => V;
+  /** Function render label for option from data object */
+  renderOptionLabel: (item: T) => DefaultOptionType['label'];
 }
 
 /**

@@ -10,6 +10,7 @@ export const UserList = memo(() => {
       queryKey={[UserQueryKey.GET_USERS]}
       queryFunction={userService.getUsers}
       columns={USER_LIST_COLUMNS}
+      isHiddenRowActions
       rowKey="id"
     />
   );

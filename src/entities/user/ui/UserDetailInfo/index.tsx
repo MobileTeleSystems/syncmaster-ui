@@ -1,10 +1,7 @@
 import React, { memo } from 'react';
 import { Descriptions } from 'antd';
-import { User } from '@entities/user';
 
-interface UserDetailInfoProps {
-  user: User;
-}
+import { UserDetailInfoProps } from './types';
 
 export const UserDetailInfo = memo(({ user }: UserDetailInfoProps) => {
   return (

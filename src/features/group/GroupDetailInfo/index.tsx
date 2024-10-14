@@ -1,17 +1,12 @@
 import React, { memo } from 'react';
 import { Descriptions } from 'antd';
-import { Group } from '@entities/group/api';
-import { User } from '@entities/user';
 import { Link } from 'react-router-dom';
 
-interface GroupDetailInfoProps {
-  group: Group;
-  owner: User;
-}
+import { GroupDetailInfoProps } from './types';
 
-export const GroupDetailInfo = memo(({ group, owner }: GroupDetailInfoProps) => {
+export const GroupDetailInfo = memo(({ group, owner, ...props }: GroupDetailInfoProps) => {
   return (
-    <Descriptions title="Group info" bordered>
+    <Descriptions title="Group info" bordered {...props}>
       <Descriptions.Item label="Id" span={3}>
         {group.id}
       </Descriptions.Item>

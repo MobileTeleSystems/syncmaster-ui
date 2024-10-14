@@ -7,7 +7,7 @@ const { Title } = Typography;
 
 export const UserListPage = memo(() => {
   return (
-    <PageContentWrapper>
+    <PageContentWrapper width="large">
       <Title>Users</Title>
       <UserList />
     </PageContentWrapper>

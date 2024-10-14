@@ -6,10 +6,14 @@ import { TableProps } from 'antd';
  * @template T - Data object type for table row.
  */
 export interface UseTableColumnsProps<T> extends Pick<TableProps<T>, 'columns'> {
+  /** Callback for permission to render update row button */
+  isRenderUpdateRowAction?: (record: T) => boolean;
+  /** Callback for permission to render delete row button */
+  isRenderDeleteRowAction?: (record: T) => boolean;
   /** Callback on click edit row button */
-  onEditRowClick?: (record: T) => void;
+  onUpdateRowClick?: (record: T) => void;
   /** Callback on click delete row button */
   onDeleteRowClick?: (record: T) => void;
   /** Flag prohibiting rendering of edit and delete row buttons */
-  isHiddenActions?: boolean;
+  isHiddenRowActions?: boolean;
 }

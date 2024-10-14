@@ -1,30 +1,34 @@
 import React from 'react';
 import { Table } from 'antd';
-import { TableProps } from 'antd/lib/table';
 
 import { PAGE_SIZES } from './constants';
-import { useTableColumns, UseTableColumnsProps, useTablePagination, useTableQuery, UseTableQueryProps } from './hooks';
+import { useTableColumns, useTablePagination, useTableQuery } from './hooks';
 import classes from './styles.module.less';
-
-interface ManagedTableProps<T>
-  extends TableProps<T>,
-    Omit<UseTableQueryProps<T>, 'pagination'>,
-    UseTableColumnsProps<T> {}
+import { ManagedTableProps } from './types';
 
 export const ManagedTable = <T extends object>({
   queryFunction,
   queryKey,
   columns: initialColumns,
-  onEditRowClick,
+  isRenderUpdateRowAction,
+  isRenderDeleteRowAction,
+  onUpdateRowClick,
   onDeleteRowClick,
-  isHiddenActions,
+  isHiddenRowActions,
   ...props
 }: ManagedTableProps<T>) => {
   const { pagination, handleChangePagination } = useTablePagination();
 
   const { data, isFetching } = useTableQuery({ queryKey, queryFunction, pagination });
 
-  const { columns } = useTableColumns({ columns: initialColumns, onEditRowClick, onDeleteRowClick, isHiddenActions });
+  const columns = useTableColumns({
+    columns: initialColumns,
+    isRenderUpdateRowAction,
+    isRenderDeleteRowAction,
+    onUpdateRowClick,
+    onDeleteRowClick,
+    isHiddenRowActions,
+  });
 
   return (
     <Table

@@ -2,26 +2,29 @@ import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import ButtonGroup from 'antd/lib/button/button-group';
 import React, { useMemo, MouseEvent } from 'react';
+import { ColumnType } from 'antd/lib/table';
 
 import { UseTableColumnsProps } from './types';
 
 /** Hook for adding and handling edit and delete table row buttons */
 export const useTableColumns = <T extends object>({
-  onEditRowClick,
+  isRenderUpdateRowAction = () => false,
+  isRenderDeleteRowAction = () => false,
+  onUpdateRowClick,
   onDeleteRowClick,
   columns: initialColumns = [],
-  isHiddenActions = false,
-}: UseTableColumnsProps<T>) => {
+  isHiddenRowActions = false,
+}: UseTableColumnsProps<T>): ColumnType<T>[] => {
   const columns = useMemo(() => {
     const resultColumns = [...initialColumns];
 
-    if (isHiddenActions) {
+    if (isHiddenRowActions) {
       return resultColumns;
     }
 
-    const handleEditRow = (event: MouseEvent, record: T) => {
+    const handleUpdateRow = (event: MouseEvent, record: T) => {
       event.stopPropagation();
-      onEditRowClick?.(record);
+      onUpdateRowClick?.(record);
     };
 
     const handleDeleteRow = (event: MouseEvent, record: T) => {
@@ -29,41 +32,46 @@ export const useTableColumns = <T extends object>({
       onDeleteRowClick?.(record);
     };
 
-    if (onEditRowClick || onDeleteRowClick) {
-      resultColumns.push({
-        title: 'Actions',
-        width: 100,
-        render: (_, record) => {
-          return (
-            <ButtonGroup style={{ gap: 16 }}>
-              {onEditRowClick && (
-                <Button
-                  type="link"
-                  size="small"
-                  icon={<EditOutlined />}
-                  onClick={(event) => handleEditRow(event, record)}
-                >
-                  Edit
-                </Button>
-              )}
-              {onDeleteRowClick && (
-                <Button
-                  type="link"
-                  size="small"
-                  danger
-                  icon={<DeleteOutlined />}
-                  onClick={(event) => handleDeleteRow(event, record)}
-                >
-                  Delete
-                </Button>
-              )}
-            </ButtonGroup>
-          );
-        },
-      });
-    }
+    resultColumns.push({
+      title: 'Actions',
+      width: 100,
+      render: (_, record) => {
+        return (
+          <ButtonGroup style={{ gap: 16 }}>
+            {isRenderUpdateRowAction(record) && (
+              <Button
+                type="link"
+                size="small"
+                icon={<EditOutlined />}
+                onClick={(event) => handleUpdateRow(event, record)}
+              >
+                Update
+              </Button>
+            )}
+            {isRenderDeleteRowAction(record) && (
+              <Button
+                type="link"
+                size="small"
+                danger
+                icon={<DeleteOutlined />}
+                onClick={(event) => handleDeleteRow(event, record)}
+              >
+                Delete
+              </Button>
+            )}
+          </ButtonGroup>
+        );
+      },
+    });
     return resultColumns;
-  }, [initialColumns, isHiddenActions, onEditRowClick, onDeleteRowClick]);
+  }, [
+    initialColumns,
+    isHiddenRowActions,
+    isRenderUpdateRowAction,
+    isRenderDeleteRowAction,
+    onUpdateRowClick,
+    onDeleteRowClick,
+  ]);
 
-  return { columns };
+  return columns;
 };

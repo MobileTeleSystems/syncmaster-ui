@@ -1,10 +1,11 @@
 import React, { memo, useState } from 'react';
 import { Form, notification, Spin } from 'antd';
 import { PropsWithChildren } from 'react';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { clsx } from 'clsx';
 import { checkIsFormFieldsError, checkIsMessageError } from '@shared/guards';
+import { invalidateQueries } from '@shared/config';
 
 import classes from './styles.module.less';
 import { ManagedFormProps } from './types';
@@ -21,7 +22,6 @@ const ManagedFormDefault = <T extends object, R extends object>({
 }: PropsWithChildren<ManagedFormProps<T, R>>) => {
   const [form] = Form.useForm<T>();
   const [isLoading, setLoading] = useState(false);
-  const queryClient = useQueryClient();
 
   const { mutate } = useMutation<R, unknown, T>({ mutationFn: mutationFunction });
 
@@ -31,7 +31,7 @@ const ManagedFormDefault = <T extends object, R extends object>({
       onSuccess: (response) => {
         onSuccess(response);
         keysInvalidateQueries.forEach((params) => {
-          queryClient.invalidateQueries(...params);
+          invalidateQueries(...params);
         });
         if (isHiddenLoadingOnSuccess) {
           setLoading(false);
