@@ -1,24 +1,26 @@
 import React, { memo } from 'react';
-import { UserDetailInfo, useGetUser } from '@entities/user';
 import { PageDetailParams } from '@shared/types';
 import { PageContentWrapper } from '@shared/ui';
 import { Typography } from 'antd';
 import { useParams } from 'react-router-dom';
+import { GroupDetailInfo, useGetGroup } from '@entities/group';
+import { useGetUser } from '@entities/user';
 
 const { Title } = Typography;
 
-export const UserDetailPage = memo(() => {
+export const GroupDetailPage = memo(() => {
   const params = useParams<PageDetailParams>();
-  const { data: user } = useGetUser({ id: params.id! });
+  const { data: group } = useGetGroup({ id: params.id! });
+  const { data: owner } = useGetUser({ id: group.owner_id });
 
-  if (!user) {
+  if (!group || !owner) {
     return null;
   }
 
   return (
     <PageContentWrapper>
-      <Title>{user.username}</Title>
-      <UserDetailInfo user={user} />
+      <Title>{group.name}</Title>
+      <GroupDetailInfo group={group} owner={owner} />
     </PageContentWrapper>
   );
 });

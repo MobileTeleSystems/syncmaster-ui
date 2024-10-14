@@ -21,7 +21,11 @@ function ManagedSelectDefault<T>({
   });
 
   const options = useMemo(() => {
-    return prepareOptionsForSelect({ data: data?.items, value: optionValue, label: optionLabel });
+    return prepareOptionsForSelect({
+      data: data?.items,
+      value: optionValue,
+      label: optionLabel,
+    });
   }, [data, optionValue, optionLabel]);
 
   const handlePopupScroll: UIEventHandler<HTMLDivElement> = (event) => {
