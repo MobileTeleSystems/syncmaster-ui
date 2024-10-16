@@ -1,0 +1,2 @@
+export const DEFAULT_MODAL_WIDTH = 500;
+export const DEFAULT_MODAL_DELETE_WIDTH = 400;
