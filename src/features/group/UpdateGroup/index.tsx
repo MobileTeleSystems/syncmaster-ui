@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormButtons, ManagedForm, ManagedSelect } from '@shared/ui';
+import { ControlButtons, ManagedForm, ManagedSelect } from '@shared/ui';
 import { Group, GroupQueryKey, groupService } from '@entities/group';
 import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
@@ -53,7 +53,7 @@ export const UpdateGroup = ({ group }: UpdateGroupProps) => {
         />
       </Form.Item>
 
-      <FormButtons onCancel={onCancel} />
+      <ControlButtons onCancel={onCancel} />
     </ManagedForm>
   );
 };

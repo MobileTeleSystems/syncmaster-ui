@@ -1,4 +1,4 @@
-/** Interface as Props for component "FormButtons" */
+/** Interface as Props for component "ControlButtons" */
 export interface ControlButtonsProps {
   /** Callback on submit button click */
   onSubmit?: () => void;

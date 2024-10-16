@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormButtons } from '@shared/ui';
+import { ControlButtons } from '@shared/ui';
 import { Typography } from 'antd';
 import { useDeleteUserFromGroup } from '@entities/group';
 import { WarningOutlined } from '@ant-design/icons';
@@ -24,7 +24,7 @@ export const DeleteUserFromGroup = ({ groupId, user, onSuccess, onCancel }: Dele
           Do you really want to delete user <b>«{user.username}»</b> from the group?
         </Text>
       </div>
-      <FormButtons isLoading={isPending} submitButtonText="Confirm" onSubmit={handleSubmit} onCancel={onCancel} />
+      <ControlButtons isLoading={isPending} submitButtonText="Confirm" onSubmit={handleSubmit} onCancel={onCancel} />
     </div>
   );
 };

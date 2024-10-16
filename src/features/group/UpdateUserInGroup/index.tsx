@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormButtons, ManagedForm, ManagedSelect } from '@shared/ui';
+import { ControlButtons, ManagedForm, ManagedSelect } from '@shared/ui';
 import { Form, Select } from 'antd';
 import { GroupQueryKey, groupService, USER_ROLE_IN_GROUP_SELECT_OPTIONS } from '@entities/group';
 import { UserQueryKey, userService } from '@entities/user';
@@ -33,7 +33,7 @@ export const UpdateUserInGroup = ({ groupId, user: userData, onSuccess, onCancel
         <Select size="large" options={USER_ROLE_IN_GROUP_SELECT_OPTIONS} />
       </Form.Item>
 
-      <FormButtons onCancel={onCancel} />
+      <ControlButtons onCancel={onCancel} />
     </ManagedForm>
   );
 };
