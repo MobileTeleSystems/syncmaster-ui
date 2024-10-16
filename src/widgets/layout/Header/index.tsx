@@ -1,5 +1,5 @@
 import { Button, Typography } from 'antd';
-import React, { memo } from 'react';
+import React from 'react';
 import { Avatar, Layout } from 'antd';
 import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { useAuth, useLogout } from '@entities/auth';
@@ -10,7 +10,7 @@ import classes from './styles.module.less';
 const { Header: AntdHeader } = Layout;
 const { Text } = Typography;
 
-export const Header = memo(() => {
+export const Header = () => {
   const { username } = useAuth();
   const logout = useLogout();
 
@@ -32,4 +32,4 @@ export const Header = memo(() => {
       </div>
     </AntdHeader>
   );
-});
+};

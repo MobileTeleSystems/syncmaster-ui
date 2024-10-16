@@ -1,11 +1,11 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary';
 import { Outlet } from 'react-router-dom';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
 
 import { Fallback } from './Fallback';
 
-export const ErrorBoundary = memo(() => {
+export const ErrorBoundary = () => {
   const handleError = (error: Error) => {
     console.error(error);
   };
@@ -19,4 +19,4 @@ export const ErrorBoundary = memo(() => {
       )}
     </QueryErrorResetBoundary>
   );
-});
+};

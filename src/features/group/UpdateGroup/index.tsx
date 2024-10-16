@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from 'react';
+import React from 'react';
 import { FormButtons, ManagedForm, ManagedSelect } from '@shared/ui';
 import { Group, GroupQueryKey, groupService } from '@entities/group';
 import { Form, Input } from 'antd';
@@ -8,12 +8,8 @@ import { UserQueryKey, userService } from '@entities/user';
 import { UpdateGroupForm, UpdateGroupProps } from './types';
 import { getUpdateGroupInitialValues } from './utils';
 
-export const UpdateGroup = memo(({ group }: UpdateGroupProps) => {
+export const UpdateGroup = ({ group }: UpdateGroupProps) => {
   const navigate = useNavigate();
-
-  const initialValues = useMemo(() => {
-    return getUpdateGroupInitialValues(group);
-  }, [group]);
 
   const handleUpdateGroup = (values: UpdateGroupForm) => {
     return groupService.updateGroup({ ...values, id: group.id });
@@ -30,7 +26,7 @@ export const UpdateGroup = memo(({ group }: UpdateGroupProps) => {
   return (
     <ManagedForm<UpdateGroupForm, Group>
       mutationFunction={handleUpdateGroup}
-      initialValues={initialValues}
+      initialValues={getUpdateGroupInitialValues(group)}
       onSuccess={onSuccess}
       keysInvalidateQueries={[
         [{ queryKey: [GroupQueryKey.GET_GROUPS] }],
@@ -60,4 +56,4 @@ export const UpdateGroup = memo(({ group }: UpdateGroupProps) => {
       <FormButtons onCancel={onCancel} />
     </ManagedForm>
   );
-});
+};

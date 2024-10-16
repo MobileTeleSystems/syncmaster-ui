@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { FormButtons, ManagedForm } from '@shared/ui';
 import { authService, LoginResponse, useLogin } from '@entities/auth';
 import { Form, Input, Typography } from 'antd';
@@ -7,7 +7,7 @@ import classes from './styles.module.less';
 
 const { Title } = Typography;
 
-export const Login = memo(() => {
+export const Login = () => {
   const login = useLogin();
 
   const onSuccess = (response: LoginResponse) => {
@@ -30,4 +30,4 @@ export const Login = memo(() => {
       </ManagedForm>
     </div>
   );
-});
+};

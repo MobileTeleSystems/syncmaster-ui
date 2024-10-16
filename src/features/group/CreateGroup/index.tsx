@@ -1,10 +1,10 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { FormButtons, ManagedForm } from '@shared/ui';
 import { Group, GroupQueryKey, groupService } from '@entities/group';
 import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
-export const CreateGroup = memo(() => {
+export const CreateGroup = () => {
   const navigate = useNavigate();
 
   const onSuccess = (response: Group) => {
@@ -32,4 +32,4 @@ export const CreateGroup = memo(() => {
       <FormButtons onCancel={onCancel} />
     </ManagedForm>
   );
-});
+};

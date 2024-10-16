@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { Typography } from 'antd';
 import { PageContentWrapper } from '@shared/ui';
 import { useParams } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { UpdateGroup } from '@features/group';
 
 const { Title } = Typography;
 
-export const UpdateGroupPage = memo(() => {
+export const UpdateGroupPage = () => {
   const params = useParams<PageDetailParams>();
   const { data: group } = useGetGroup({ id: params.id! });
 
@@ -22,4 +22,4 @@ export const UpdateGroupPage = memo(() => {
       <UpdateGroup group={group} />
     </PageContentWrapper>
   );
-});
+};

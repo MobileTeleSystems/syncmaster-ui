@@ -1,11 +1,11 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 import { isAuthenticated } from '../../router';
 import { useErrorBoundaryContext } from '../hooks';
 
-export const BackHome = memo(() => {
+export const BackHome = () => {
   const navigate = useNavigate();
   const { resetErrorBoundary } = useErrorBoundaryContext();
 
@@ -22,4 +22,4 @@ export const BackHome = memo(() => {
       Back Home
     </Button>
   );
-});
+};

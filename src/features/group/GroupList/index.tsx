@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { ManagedTable } from '@shared/ui';
 import { GroupFromList, GroupQueryKey, groupService } from '@entities/group';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { UserRole } from '@shared/types';
 
 import { GROUP_LIST_COLUMNS } from './constants';
 
-export const GroupList = memo(() => {
+export const GroupList = () => {
   const navigate = useNavigate();
 
   const handleUpdateRowClick = (record: GroupFromList) => {
@@ -24,4 +24,4 @@ export const GroupList = memo(() => {
       rowKey={(row) => row.data.id}
     />
   );
-});
+};

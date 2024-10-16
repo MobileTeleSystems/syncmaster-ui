@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { Layout, Menu } from 'antd';
 import { useLocation } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ import { SIDEBAR_ITEMS } from './constants';
 
 const { Sider } = Layout;
 
-export const Sidebar = memo(() => {
+export const Sidebar = () => {
   const { pathname } = useLocation();
 
   return (
@@ -20,4 +20,4 @@ export const Sidebar = memo(() => {
       />
     </Sider>
   );
-});
+};

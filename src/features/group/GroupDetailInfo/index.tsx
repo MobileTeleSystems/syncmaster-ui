@@ -1,10 +1,10 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { Descriptions } from 'antd';
 import { Link } from 'react-router-dom';
 
 import { GroupDetailInfoProps } from './types';
 
-export const GroupDetailInfo = memo(({ group, owner, ...props }: GroupDetailInfoProps) => {
+export const GroupDetailInfo = ({ group, owner, ...props }: GroupDetailInfoProps) => {
   return (
     <Descriptions title="Group info" bordered {...props}>
       <Descriptions.Item label="Id" span={3}>
@@ -21,4 +21,4 @@ export const GroupDetailInfo = memo(({ group, owner, ...props }: GroupDetailInfo
       </Descriptions.Item>
     </Descriptions>
   );
-});
+};

@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { PageDetailParams } from '@shared/types';
 import { PageContentWrapper } from '@shared/ui';
 import { Typography } from 'antd';
@@ -12,7 +12,7 @@ import { UpdateGroupButton } from './components';
 
 const { Title } = Typography;
 
-export const GroupDetailPage = memo(() => {
+export const GroupDetailPage = () => {
   const params = useParams<PageDetailParams>();
   const { data: group } = useGetGroup({ id: params.id! });
   const { data: owner } = useGetUser({ id: group.owner_id });
@@ -33,4 +33,4 @@ export const GroupDetailPage = memo(() => {
       </div>
     </PageContentWrapper>
   );
-});
+};

@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { useState } from 'react';
 import { Form, notification, Spin } from 'antd';
 import { PropsWithChildren } from 'react';
 import { useMutation } from '@tanstack/react-query';
@@ -11,7 +11,7 @@ import classes from './styles.module.less';
 import { ManagedFormProps } from './types';
 
 /** Form component to manage the request and results of a form request */
-const ManagedFormDefault = <T extends object, R extends object>({
+export const ManagedForm = <T extends object, R extends object>({
   children,
   mutationFunction,
   onSuccess,
@@ -93,5 +93,3 @@ const ManagedFormDefault = <T extends object, R extends object>({
     </div>
   );
 };
-
-export const ManagedForm = memo(ManagedFormDefault) as typeof ManagedFormDefault;

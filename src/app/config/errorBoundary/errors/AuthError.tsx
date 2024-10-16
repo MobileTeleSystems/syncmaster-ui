@@ -1,9 +1,9 @@
-import { memo, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLogout } from '@entities/auth';
 
 import { useErrorBoundaryContext } from '../hooks';
 
-export const AuthError = memo(() => {
+export const AuthError = () => {
   const logout = useLogout();
   const { resetErrorBoundary } = useErrorBoundaryContext();
 
@@ -13,4 +13,4 @@ export const AuthError = memo(() => {
   }, [logout, resetErrorBoundary]);
 
   return null;
-});
+};

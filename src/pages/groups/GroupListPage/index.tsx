@@ -1,14 +1,14 @@
 import { GroupList } from '@features/group';
 import { PageContentWrapper } from '@shared/ui';
 import { Button, Typography } from 'antd';
-import React, { memo } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import classes from './styles.module.less';
 
 const { Title } = Typography;
 
-export const GroupListPage = memo(() => {
+export const GroupListPage = () => {
   return (
     <PageContentWrapper width="large">
       <Title>Groups</Title>
@@ -20,4 +20,4 @@ export const GroupListPage = memo(() => {
       </div>
     </PageContentWrapper>
   );
-});
+};

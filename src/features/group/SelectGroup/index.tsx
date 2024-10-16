@@ -1,8 +1,8 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { GroupFromList, GroupQueryKey, groupService, useSelectedGroup } from '@entities/group';
 import { ManagedSelect, OptionItem } from '@shared/ui';
 
-export const SelectGroup = memo(() => {
+export const SelectGroup = () => {
   const { group: selectedGroup, selectGroup } = useSelectedGroup();
 
   const handleSelectGroup = (value: number, option: OptionItem<GroupFromList>) => {
@@ -20,4 +20,4 @@ export const SelectGroup = memo(() => {
       placeholder="Select group"
     />
   );
-});
+};
