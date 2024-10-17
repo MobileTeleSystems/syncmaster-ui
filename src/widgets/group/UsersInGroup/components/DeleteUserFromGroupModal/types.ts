@@ -3,6 +3,6 @@ import { ModalProps } from 'antd';
 
 export interface DeleteUserFromGroupModalProps extends ModalProps {
   groupId: number;
-  user?: UserInGroup;
   onClose: () => void;
+  user?: UserInGroup;
 }
