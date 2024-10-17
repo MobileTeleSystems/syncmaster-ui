@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormButtons, ManagedForm } from '@shared/ui';
+import { ControlButtons, ManagedForm } from '@shared/ui';
 import { authService, LoginResponse, useLogin } from '@entities/auth';
 import { Form, Input, Typography } from 'antd';
 
@@ -26,7 +26,7 @@ export const Login = () => {
           <Input.Password size="large" />
         </Form.Item>
 
-        <FormButtons isCancelButtonHidden />
+        <ControlButtons isCancelButtonHidden />
       </ManagedForm>
     </div>
   );

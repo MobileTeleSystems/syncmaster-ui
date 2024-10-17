@@ -3,3 +3,7 @@ export * from './SelectGroup';
 export * from './CreateGroup';
 export * from './UpdateGroup';
 export * from './GroupDetailInfo';
+export * from './UserListInGroup';
+export * from './AddUserToGroup';
+export * from './UpdateUserInGroup';
+export * from './DeleteUserFromGroup';
