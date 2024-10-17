@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { UserDetailInfo, useGetUser } from '@entities/user';
 import { PageDetailParams } from '@shared/types';
 import { PageContentWrapper } from '@shared/ui';
@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 
 const { Title } = Typography;
 
-export const UserDetailPage = memo(() => {
+export const UserDetailPage = () => {
   const params = useParams<PageDetailParams>();
   const { data: user } = useGetUser({ id: params.id! });
 
@@ -21,4 +21,4 @@ export const UserDetailPage = memo(() => {
       <UserDetailInfo user={user} />
     </PageContentWrapper>
   );
-});
+};

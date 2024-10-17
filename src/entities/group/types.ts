@@ -1,6 +1,6 @@
-import { Group } from './api';
+import { GroupFromList } from './api';
 
 export interface SelectedGroupContextProps {
-  group: Group | null;
-  selectGroup: (group: Group) => void;
+  group: GroupFromList | null;
+  selectGroup: (group: GroupFromList) => void;
 }

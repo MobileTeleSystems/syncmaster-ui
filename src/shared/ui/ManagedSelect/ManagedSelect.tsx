@@ -1,19 +1,20 @@
-import React, { memo, UIEventHandler, useMemo } from 'react';
+import React, { UIEventHandler, useMemo } from 'react';
 import { Select, Spin } from 'antd';
 import { useInfiniteRequest } from '@shared/config';
+import { DefaultOptionType } from 'antd/lib/select';
 
 import { PAGE_DEFAULT, PAGE_SIZE_DEFAULT } from './constants';
 import { prepareOptionsForSelect } from './utils';
 import { ManagedSelectProps } from './types';
 
 /** Select component for infinite pagination of data in a dropdown */
-function ManagedSelectDefault<T>({
+export const ManagedSelect = <T, V extends DefaultOptionType['value']>({
   queryFunction,
   queryKey,
-  optionValue,
-  optionLabel,
+  renderOptionValue,
+  renderOptionLabel,
   ...props
-}: ManagedSelectProps<T>) {
+}: ManagedSelectProps<T, V>) => {
   const { data, fetchNextPage, hasNextPage, isLoading } = useInfiniteRequest<T>({
     queryKey,
     queryFn: ({ pageParam }) => queryFunction(pageParam),
@@ -23,10 +24,10 @@ function ManagedSelectDefault<T>({
   const options = useMemo(() => {
     return prepareOptionsForSelect({
       data: data?.items,
-      value: optionValue,
-      label: optionLabel,
+      renderValue: renderOptionValue,
+      renderLabel: renderOptionLabel,
     });
-  }, [data, optionValue, optionLabel]);
+  }, [data, renderOptionValue, renderOptionLabel]);
 
   const handlePopupScroll: UIEventHandler<HTMLDivElement> = (event) => {
     const target = event.currentTarget;
@@ -43,6 +44,4 @@ function ManagedSelectDefault<T>({
       onPopupScroll={handlePopupScroll}
     />
   );
-}
-
-export const ManagedSelect = memo(ManagedSelectDefault) as typeof ManagedSelectDefault;
+};

@@ -1,11 +1,11 @@
-import React, { memo } from 'react';
-import { Group, GroupQueryKey, groupService, useSelectedGroup } from '@entities/group';
+import React from 'react';
+import { GroupFromList, GroupQueryKey, groupService, useSelectedGroup } from '@entities/group';
 import { ManagedSelect, OptionItem } from '@shared/ui';
 
-export const SelectGroup = memo(() => {
-  const { selectGroup } = useSelectedGroup();
+export const SelectGroup = () => {
+  const { group: selectedGroup, selectGroup } = useSelectedGroup();
 
-  const handleSelectGroup = (value: string, option: OptionItem<Group>) => {
+  const handleSelectGroup = (value: number, option: OptionItem<GroupFromList>) => {
     selectGroup(option.data);
   };
 
@@ -13,10 +13,11 @@ export const SelectGroup = memo(() => {
     <ManagedSelect
       queryKey={[GroupQueryKey.GET_GROUPS]}
       queryFunction={groupService.getGroups}
+      value={selectedGroup?.data.id}
       onSelect={handleSelectGroup}
-      optionValue="id"
-      optionLabel="name"
+      renderOptionLabel={(group) => group.data.name}
+      renderOptionValue={(group) => group.data.id}
       placeholder="Select group"
     />
   );
-});
+};
