@@ -24,12 +24,6 @@ export const ControlButtons = ({
         <Button type="primary" size="large" htmlType="submit" loading={isLoading} onClick={onSubmit}>
           {submitButtonText}
         </Button>
-        <Button type="primary" size="large" htmlType="submit" loading={isLoading} onClick={onSubmit}>
-          {submitButtonText}
-        </Button>
-        <Button type="primary" size="large" htmlType="submit">
-          {submitButtonText}
-        </Button>
       </div>
     </Form.Item>
   );
