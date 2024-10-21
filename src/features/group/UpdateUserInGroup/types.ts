@@ -1,6 +1,6 @@
 import { UpdateUserInGroupRequest, UserInGroup } from '@entities/group';
 
-export interface UpdateUserInGroupForm extends Omit<UpdateUserInGroupRequest, 'groupId'> {}
+export interface UpdateUserInGroupForm extends Pick<UpdateUserInGroupRequest, 'role'> {}
 
 export interface UpdateUserInGroupProps {
   groupId: number;
