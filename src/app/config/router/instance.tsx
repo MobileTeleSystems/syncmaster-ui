@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { UserDetailPage, UserListPage } from '@pages/user';
 import { LoginPage } from '@pages/auth';
 import { AuthLayout, ErrorLayout, PrivateLayout } from '@app/layouts';
-import { CreateGroupPage, GroupDetailPage, GroupListPage, UpdateGroupPage } from '@pages/groups';
+import { CreateGroupPage, GroupDetailPage, GroupListPage, UpdateGroupPage } from '@pages/group';
 import { AuthProvider } from '@entities/auth';
 
 import { ErrorBoundary, NotFoundError } from '../errorBoundary';

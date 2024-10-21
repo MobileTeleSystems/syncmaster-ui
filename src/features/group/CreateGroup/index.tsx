@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormButtons, ManagedForm } from '@shared/ui';
+import { ControlButtons, ManagedForm } from '@shared/ui';
 import { Group, GroupQueryKey, groupService } from '@entities/group';
 import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
@@ -29,7 +29,7 @@ export const CreateGroup = () => {
         <Input size="large" />
       </Form.Item>
 
-      <FormButtons onCancel={onCancel} />
+      <ControlButtons onCancel={onCancel} />
     </ManagedForm>
   );
 };

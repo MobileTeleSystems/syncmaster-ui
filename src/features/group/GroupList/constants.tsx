@@ -15,6 +15,7 @@ export const GROUP_LIST_COLUMNS: TableColumns<PaginationResponse<GroupFromList>>
     title: 'Name',
     dataIndex: 'name',
     render: (name, record) => <Link to={`/groups/${record.data.id}`}>{record.data.name}</Link>,
+    width: 500,
   },
   {
     title: 'Description',

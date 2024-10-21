@@ -2,12 +2,17 @@ import { axiosInstance } from '@shared/config';
 import { PaginationResponse } from '@shared/types';
 
 import {
+  AddGroupUserRequest,
   CreateGroupRequest,
+  DeleteGroupUserRequest,
   GetGroupRequest,
   GetGroupsRequest,
+  GetGroupUsersRequest,
   Group,
   GroupFromList,
+  GroupUser,
   UpdateGroupRequest,
+  UpdateGroupUserRequest,
 } from './types';
 
 export const groupService = {
@@ -25,5 +30,21 @@ export const groupService = {
 
   updateGroup: ({ id, ...data }: UpdateGroupRequest): Promise<Group> => {
     return axiosInstance.patch(`groups/${id}`, data);
+  },
+
+  getGroupUsers: ({ id }: GetGroupUsersRequest): Promise<PaginationResponse<GroupUser>> => {
+    return axiosInstance.get(`groups/${id}/users`);
+  },
+
+  addGroupUser: ({ groupId, userId, ...data }: AddGroupUserRequest): Promise<null> => {
+    return axiosInstance.post(`groups/${groupId}/users/${userId}`, data);
+  },
+
+  updateGroupUser: ({ groupId, userId, ...data }: UpdateGroupUserRequest): Promise<null> => {
+    return axiosInstance.patch(`groups/${groupId}/users/${userId}`, data);
+  },
+
+  deleteGroupUser: ({ groupId, userId }: DeleteGroupUserRequest): Promise<null> => {
+    return axiosInstance.delete(`groups/${groupId}/users/${userId}`);
   },
 };

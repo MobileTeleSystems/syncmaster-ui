@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useGetGroup } from '@entities/group';
 import { useGetUser } from '@entities/user';
 import { GroupDetailInfo } from '@features/group';
+import { GroupUsers } from '@widgets/group';
 
 import classes from './styles.module.less';
 import { UpdateGroupButton } from './components';
@@ -22,15 +23,16 @@ export const GroupDetailPage = () => {
   }
 
   return (
-    <PageContentWrapper>
-      <Title>{group.name}</Title>
-      <div className={classes.wrapper}>
+    <div className={classes.root}>
+      <PageContentWrapper>
+        <Title>{group.name}</Title>
         <GroupDetailInfo
           group={group}
           owner={owner}
           extra={<UpdateGroupButton groupId={group.id} ownerId={owner.id} />}
         />
-      </div>
-    </PageContentWrapper>
+      </PageContentWrapper>
+      <GroupUsers group={group} />
+    </div>
   );
 };

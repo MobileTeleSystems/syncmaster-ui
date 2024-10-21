@@ -30,3 +30,25 @@ export interface UpdateGroupRequest {
   description: string;
   owner_id: number;
 }
+
+export interface GetGroupUsersRequest extends PaginationRequest {
+  id: number | string;
+}
+
+export interface GroupUser {
+  id: number;
+  username: string;
+  role: keyof typeof UserRole;
+}
+
+export interface AddGroupUserRequest {
+  groupId: number | string;
+  userId: number | string;
+  role: keyof typeof UserRole;
+}
+
+export interface UpdateGroupUserRequest extends AddGroupUserRequest {}
+export interface DeleteGroupUserRequest {
+  groupId: number | string;
+  userId: number | string;
+}
