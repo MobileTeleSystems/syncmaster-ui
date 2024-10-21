@@ -31,24 +31,24 @@ export interface UpdateGroupRequest {
   owner_id: number;
 }
 
-export interface GetUsersInGroupRequest extends PaginationRequest {
+export interface GetGroupUsersRequest extends PaginationRequest {
   id: number | string;
 }
 
-export interface UserInGroup {
+export interface GroupUser {
   id: number;
   username: string;
   role: keyof typeof UserRole;
 }
 
-export interface AddUserToGroupRequest {
+export interface AddGroupUserRequest {
   groupId: number | string;
   userId: number | string;
   role: keyof typeof UserRole;
 }
 
-export interface UpdateUserInGroupRequest extends AddUserToGroupRequest {}
-export interface DeleteUserFromGroupRequest {
+export interface UpdateGroupUserRequest extends AddGroupUserRequest {}
+export interface DeleteGroupUserRequest {
   groupId: number | string;
   userId: number | string;
 }

@@ -1,2 +1,2 @@
 export * from './useGetGroup';
-export * from './useDeleteUserFromGroup';
+export * from './useDeleteGroupUser';

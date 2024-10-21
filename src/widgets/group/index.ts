@@ -1,1 +1,1 @@
-export * from './UsersInGroup';
+export * from './GroupUsers';

@@ -2,17 +2,17 @@ import { axiosInstance } from '@shared/config';
 import { PaginationResponse } from '@shared/types';
 
 import {
-  AddUserToGroupRequest,
+  AddGroupUserRequest,
   CreateGroupRequest,
-  DeleteUserFromGroupRequest,
+  DeleteGroupUserRequest,
   GetGroupRequest,
   GetGroupsRequest,
-  GetUsersInGroupRequest,
+  GetGroupUsersRequest,
   Group,
   GroupFromList,
+  GroupUser,
   UpdateGroupRequest,
-  UpdateUserInGroupRequest,
-  UserInGroup,
+  UpdateGroupUserRequest,
 } from './types';
 
 export const groupService = {
@@ -32,19 +32,19 @@ export const groupService = {
     return axiosInstance.patch(`groups/${id}`, data);
   },
 
-  getUsersInGroup: ({ id }: GetUsersInGroupRequest): Promise<PaginationResponse<UserInGroup>> => {
+  getGroupUsers: ({ id }: GetGroupUsersRequest): Promise<PaginationResponse<GroupUser>> => {
     return axiosInstance.get(`groups/${id}/users`);
   },
 
-  addUserToGroup: ({ groupId, userId, ...data }: AddUserToGroupRequest): Promise<null> => {
+  addGroupUser: ({ groupId, userId, ...data }: AddGroupUserRequest): Promise<null> => {
     return axiosInstance.post(`groups/${groupId}/users/${userId}`, data);
   },
 
-  updateUserInGroup: ({ groupId, userId, ...data }: UpdateUserInGroupRequest): Promise<null> => {
+  updateGroupUser: ({ groupId, userId, ...data }: UpdateGroupUserRequest): Promise<null> => {
     return axiosInstance.patch(`groups/${groupId}/users/${userId}`, data);
   },
 
-  deleteUserFromGroup: ({ groupId, userId }: DeleteUserFromGroupRequest): Promise<null> => {
+  deleteGroupUser: ({ groupId, userId }: DeleteGroupUserRequest): Promise<null> => {
     return axiosInstance.delete(`groups/${groupId}/users/${userId}`);
   },
 };
