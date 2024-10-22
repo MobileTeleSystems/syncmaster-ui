@@ -3,7 +3,6 @@ import { Table } from 'antd';
 
 import { PAGE_SIZES } from './constants';
 import { useTableColumns, useTablePagination, useTableQuery } from './hooks';
-import classes from './styles.module.less';
 import { ManagedTableProps } from './types';
 
 export const ManagedTable = <T extends object>({
@@ -32,7 +31,6 @@ export const ManagedTable = <T extends object>({
 
   return (
     <Table
-      rowClassName={classes.row}
       dataSource={data?.items}
       columns={columns}
       loading={isFetching}
