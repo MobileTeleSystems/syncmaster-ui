@@ -1,5 +1,5 @@
-import { GroupFromList } from '@entities/group';
+import { Group } from '@entities/group';
 
 export interface QueueListWrapperProps {
-  group: GroupFromList;
+  group: Group;
 }

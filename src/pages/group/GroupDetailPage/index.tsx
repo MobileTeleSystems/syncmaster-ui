@@ -1,6 +1,6 @@
 import React from 'react';
-import { PageDetailParams } from '@shared/types';
-import { PageContentWrapper } from '@shared/ui';
+import { PageDetailParams, UserRole } from '@shared/types';
+import { AccessWrapper, PageContentWrapper } from '@shared/ui';
 import { Typography } from 'antd';
 import { useParams } from 'react-router-dom';
 import { useGetGroup } from '@entities/group';
@@ -16,7 +16,7 @@ const { Title } = Typography;
 export const GroupDetailPage = () => {
   const params = useParams<PageDetailParams>();
   const { data: group } = useGetGroup({ id: Number(params.id) });
-  const { data: owner } = useGetUser({ id: group.owner_id });
+  const { data: owner } = useGetUser({ id: group.data.owner_id });
 
   if (!group || !owner) {
     return null;
@@ -25,11 +25,15 @@ export const GroupDetailPage = () => {
   return (
     <div className={classes.root}>
       <PageContentWrapper>
-        <Title>{group.name}</Title>
+        <Title>{group.data.name}</Title>
         <GroupDetailInfo
-          group={group}
+          group={group.data}
           owner={owner}
-          extra={<UpdateGroupButton groupId={group.id} ownerId={owner.id} />}
+          extra={
+            <AccessWrapper accessRole={UserRole.Owner} currentRole={group.role}>
+              <UpdateGroupButton groupId={group.data.id} />
+            </AccessWrapper>
+          }
         />
       </PageContentWrapper>
       <GroupUsers group={group} />

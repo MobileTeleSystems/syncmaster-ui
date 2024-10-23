@@ -1,14 +1,14 @@
 import { PaginationRequest, UserRole } from '@shared/types';
 
-export interface Group {
+export interface GroupData {
   id: number;
   name: string;
   description: string;
   owner_id: number;
 }
 
-export interface GroupFromList {
-  data: Group;
+export interface Group {
+  data: GroupData;
   role: keyof typeof UserRole;
 }
 

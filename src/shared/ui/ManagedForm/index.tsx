@@ -3,8 +3,7 @@ import { Form, notification, Spin } from 'antd';
 import { PropsWithChildren } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { clsx } from 'clsx';
-import { checkIsFormFieldsError } from '@shared/guards';
-import { getErrorMessage } from '@shared/utils';
+import { checkIsFormFieldsError, getErrorMessage } from '@shared/config';
 
 import classes from './styles.module.less';
 import { ManagedFormProps } from './types';

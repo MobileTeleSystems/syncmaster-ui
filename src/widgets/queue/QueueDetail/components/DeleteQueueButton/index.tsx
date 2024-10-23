@@ -4,21 +4,15 @@ import { useModalState } from '@shared/hooks';
 import { ModalWrapper } from '@shared/ui';
 import { Button } from 'antd';
 import React from 'react';
-import { UserRole } from '@shared/types';
-import { hasAccessByUserRole } from '@shared/utils';
 
 import { DeleteQueueButtonProps } from './types';
 
-export const DeleteQueueButton = ({ queue, groupUserRole }: DeleteQueueButtonProps) => {
+export const DeleteQueueButton = ({ queue }: DeleteQueueButtonProps) => {
   const {
     isOpened: isOpenedDeleteQueueModal,
     handleOpen: handleOpenDeleteQueueModal,
     handleClose: handleCloseDeleteQueueModal,
   } = useModalState();
-
-  if (!hasAccessByUserRole(UserRole.Maintainer, groupUserRole)) {
-    return null;
-  }
 
   return (
     <>
