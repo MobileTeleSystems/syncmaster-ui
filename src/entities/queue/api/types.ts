@@ -14,3 +14,19 @@ export interface GetQueuesRequest extends PaginationRequest {
 export interface GetQueueRequest {
   id: number | string;
 }
+
+export interface CreateQueueRequest {
+  group_id: number | string;
+  name: string;
+  description: string;
+}
+
+export interface UpdateQueueRequest {
+  id: number | string;
+  name: string;
+  description: string;
+}
+
+export interface DeleteQueueRequest {
+  id: number | string;
+}

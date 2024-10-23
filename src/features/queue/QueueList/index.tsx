@@ -1,26 +1,23 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { ManagedTable } from '@shared/ui';
 import { QueueQueryKey, queueService } from '@entities/queue';
-import { useSelectedGroup } from '@entities/group';
-import { Alert } from 'antd';
+import { hasAccessByUserRole } from '@shared/utils';
+import { UserRole } from '@shared/types';
 
 import { QUEUE_LIST_COLUMNS } from './constants';
+import { QueueListProps } from './types';
 
-export const QueueList = () => {
-  const { group } = useSelectedGroup();
-
-  if (!group?.data.id) {
-    return (
-      <Alert message="Warning" description="You need to select a group to see queue list" type="warning" showIcon />
-    );
-  }
-
+export const QueueList = memo(({ group, onUpdateRowClick, onDeleteRowClick }: QueueListProps) => {
   return (
     <ManagedTable
       queryKey={[QueueQueryKey.GET_QUEUES, group.data.id]}
       queryFunction={(params) => queueService.getQueues({ ...params, group_id: group.data.id })}
       columns={QUEUE_LIST_COLUMNS}
+      isRenderUpdateRowAction={() => hasAccessByUserRole(UserRole.Maintainer, group.role)}
+      isRenderDeleteRowAction={() => hasAccessByUserRole(UserRole.Maintainer, group.role)}
+      onUpdateRowClick={onUpdateRowClick}
+      onDeleteRowClick={onDeleteRowClick}
       rowKey="id"
     />
   );
-};
+});

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Form, notification, Spin } from 'antd';
 import { PropsWithChildren } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
 import { clsx } from 'clsx';
-import { checkIsFormFieldsError, checkIsMessageError } from '@shared/guards';
+import { checkIsFormFieldsError } from '@shared/guards';
+import { getErrorMessage } from '@shared/utils';
 
 import classes from './styles.module.less';
 import { ManagedFormProps } from './types';
@@ -40,7 +40,7 @@ export const ManagedForm = <T extends object, R>({
       onError: (error) => {
         onError(error);
         setLoading(false);
-        let message = 'An unexpected error occurred';
+        let message = getErrorMessage(error);
 
         if (checkIsFormFieldsError(error) && error.response) {
           message = 'Form error has occurred';
@@ -49,11 +49,8 @@ export const ManagedForm = <T extends object, R>({
             errors: [field.message],
           }));
           form.setFields(fieldErrors);
-        } else if (checkIsMessageError(error) && error.response) {
-          message = error.response.data.error.message;
-        } else if (axios.isAxiosError(error)) {
-          message = error.message;
         }
+
         notification.error({
           message,
         });

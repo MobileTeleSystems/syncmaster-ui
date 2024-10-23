@@ -1,3 +1,3 @@
 export const VALIDATE_MESSAGES = {
-  required: 'field is required!',
+  required: '${label} is required!',
 };

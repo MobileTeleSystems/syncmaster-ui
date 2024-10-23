@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
-import { Modal } from 'antd';
 import { DeleteGroupUser } from '@features/group';
 import { DEFAULT_MODAL_DELETE_WIDTH } from '@shared/constants';
+import { ModalWrapper } from '@shared/ui';
 
 import { DeleteGroupUserModalProps } from './types';
 
@@ -11,16 +11,8 @@ export const DeleteGroupUserModal = memo(({ groupId, user, onClose, ...props }: 
   }
 
   return (
-    <Modal
-      title="Delete user from group"
-      centered
-      footer={false}
-      width={DEFAULT_MODAL_DELETE_WIDTH}
-      onCancel={onClose}
-      destroyOnClose
-      {...props}
-    >
+    <ModalWrapper title="Delete user from group" width={DEFAULT_MODAL_DELETE_WIDTH} onCancel={onClose} {...props}>
       <DeleteGroupUser groupId={groupId} user={user} onSuccess={onClose} onCancel={onClose} />
-    </Modal>
+    </ModalWrapper>
   );
 });
