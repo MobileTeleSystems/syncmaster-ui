@@ -8,7 +8,7 @@ export const USER_LIST_COLUMNS: TableColumns<PaginationResponse<User>> = [
   {
     title: 'Id',
     dataIndex: 'id',
-    width: 250,
+    width: 150,
   },
   {
     title: 'Username',
