@@ -4,8 +4,8 @@ import { PageContentWrapper } from '@shared/ui';
 import { Typography } from 'antd';
 import { useParams } from 'react-router-dom';
 import { useGetQueue } from '@entities/queue';
-import { QueueDetailInfo } from '@features/queue';
 import { useGetGroup } from '@entities/group';
+import { QueueDetail } from '@widgets/queue';
 
 const { Title } = Typography;
 
@@ -21,7 +21,7 @@ export const QueueDetailPage = () => {
   return (
     <PageContentWrapper>
       <Title>{queue.name}</Title>
-      <QueueDetailInfo queue={queue} group={group} />
+      <QueueDetail queue={queue} group={group} />
     </PageContentWrapper>
   );
 };
