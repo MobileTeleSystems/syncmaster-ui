@@ -1,6 +1,6 @@
 import { useMutation, UseMutationResult, useQueryClient } from '@tanstack/react-query';
 import { notification } from 'antd';
-import { getErrorMessage } from '@shared/utils';
+import { getErrorMessage } from '@shared/config';
 
 import { groupService } from '../../groupService';
 import { GroupQueryKey } from '../../keys';

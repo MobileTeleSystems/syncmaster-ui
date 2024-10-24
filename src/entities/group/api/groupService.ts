@@ -9,14 +9,13 @@ import {
   GetGroupsRequest,
   GetGroupUsersRequest,
   Group,
-  GroupFromList,
   GroupUser,
   UpdateGroupRequest,
   UpdateGroupUserRequest,
 } from './types';
 
 export const groupService = {
-  getGroups: (params: GetGroupsRequest): Promise<PaginationResponse<GroupFromList>> => {
+  getGroups: (params: GetGroupsRequest): Promise<PaginationResponse<Group>> => {
     return axiosInstance.get('groups', { params });
   },
 

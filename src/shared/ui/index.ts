@@ -6,3 +6,4 @@ export * from './PageContentWrapper';
 export * from './SpinOverlay';
 export * from './FormCurrentGroupDescription';
 export * from './ModalWrapper';
+export * from './AccessWrapper';

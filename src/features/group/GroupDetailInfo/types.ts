@@ -1,8 +1,8 @@
-import { Group } from '@entities/group';
+import { GroupData } from '@entities/group';
 import { User } from '@entities/user';
 import { DescriptionsProps } from 'antd';
 
 export interface GroupDetailInfoProps extends DescriptionsProps {
-  group: Group;
+  group: GroupData;
   owner: User;
 }

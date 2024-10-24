@@ -1,11 +1,11 @@
 import React from 'react';
-import { GroupFromList, GroupQueryKey, groupService, useSelectedGroup } from '@entities/group';
+import { Group, GroupQueryKey, groupService, useSelectedGroup } from '@entities/group';
 import { ManagedSelect, OptionItem } from '@shared/ui';
 
 export const SelectGroup = () => {
   const { group: selectedGroup, selectGroup } = useSelectedGroup();
 
-  const handleSelectGroup = (value: number, option: OptionItem<GroupFromList>) => {
+  const handleSelectGroup = (value: number, option: OptionItem<Group>) => {
     selectGroup(option.data);
   };
 

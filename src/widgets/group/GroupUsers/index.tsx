@@ -1,24 +1,19 @@
 import React, { useCallback, useState } from 'react';
-import { PageContentWrapper } from '@shared/ui';
+import { AccessWrapper, PageContentWrapper } from '@shared/ui';
 import { GroupUser } from '@entities/group';
 import { GroupUserList } from '@features/group';
-import { Button, Typography } from 'antd';
+import { Typography } from 'antd';
 import { useModalState } from '@shared/hooks';
+import { UserRole } from '@shared/types';
 
 import { GroupUsersProps } from './types';
-import { AddGroupUserModal, DeleteGroupUserModal, UpdateGroupUserModal } from './components';
+import { AddGroupUserButton, DeleteGroupUserModal, UpdateGroupUserModal } from './components';
 import classes from './styles.module.less';
 
 const { Text } = Typography;
 
 export const GroupUsers = ({ group }: GroupUsersProps) => {
   const [selectedUser, setSelectedUser] = useState<GroupUser>();
-
-  const {
-    isOpened: isOpenedAddUserModal,
-    handleOpen: handleOpenAddUserModal,
-    handleClose: handleCloseAddUserModal,
-  } = useModalState();
 
   const {
     isOpened: isOpenedUpdateUserModal,
@@ -50,28 +45,29 @@ export const GroupUsers = ({ group }: GroupUsersProps) => {
 
   return (
     <PageContentWrapper>
-      <AddGroupUserModal groupId={group.id} open={isOpenedAddUserModal} onClose={handleCloseAddUserModal} />
-      <UpdateGroupUserModal
-        groupId={group.id}
-        user={selectedUser}
-        open={isOpenedUpdateUserModal}
-        onClose={handleCloseUpdateUserModal}
-      />
-      <DeleteGroupUserModal
-        groupId={group.id}
-        user={selectedUser}
-        open={isOpenedDeleteUserModal}
-        onClose={handleCloseDeleteUserModal}
-      />
+      <AccessWrapper accessRole={UserRole.Owner} currentRole={group.role}>
+        <UpdateGroupUserModal
+          groupId={group.data.id}
+          user={selectedUser}
+          open={isOpenedUpdateUserModal}
+          onClose={handleCloseUpdateUserModal}
+        />
+        <DeleteGroupUserModal
+          groupId={group.data.id}
+          user={selectedUser}
+          open={isOpenedDeleteUserModal}
+          onClose={handleCloseDeleteUserModal}
+        />
+      </AccessWrapper>
 
       <PageContentWrapper>
         <div className={classes.header}>
           <Text className={classes.subtitle} strong>
             Group members
           </Text>
-          <Button className={classes.addUserButton} type="primary" size="large" onClick={handleOpenAddUserModal}>
-            Add user
-          </Button>
+          <AccessWrapper accessRole={UserRole.Owner} currentRole={group.role}>
+            <AddGroupUserButton groupId={group.data.id} />
+          </AccessWrapper>
         </div>
         <GroupUserList
           group={group}

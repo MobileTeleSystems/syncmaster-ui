@@ -1,3 +1,3 @@
-export * from './AddGroupUserModal';
+export * from './AddGroupUserButton';
 export * from './UpdateGroupUserModal';
 export * from './DeleteGroupUserModal';

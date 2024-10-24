@@ -8,7 +8,7 @@ export const CreateGroup = () => {
   const navigate = useNavigate();
 
   const onSuccess = (response: Group) => {
-    navigate(`/groups/${response.id}`);
+    navigate(`/groups/${response.data.id}`);
   };
 
   const onCancel = () => {
