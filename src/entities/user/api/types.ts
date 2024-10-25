@@ -10,5 +10,5 @@ export interface User {
 export interface GetUsersRequest extends PaginationRequest {}
 
 export interface GetUserRequest {
-  id: number | string;
+  id: number;
 }

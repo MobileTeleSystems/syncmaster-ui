@@ -16,7 +16,7 @@ export interface GroupFromList {
 export interface GetGroupsRequest extends PaginationRequest {}
 
 export interface GetGroupRequest {
-  id: number | string;
+  id: number;
 }
 
 export interface CreateGroupRequest {
@@ -25,14 +25,14 @@ export interface CreateGroupRequest {
 }
 
 export interface UpdateGroupRequest {
-  id: number | string;
+  id: number;
   name: string;
   description: string;
   owner_id: number;
 }
 
 export interface GetGroupUsersRequest extends PaginationRequest {
-  id: number | string;
+  id: number;
 }
 
 export interface GroupUser {
@@ -42,13 +42,13 @@ export interface GroupUser {
 }
 
 export interface AddGroupUserRequest {
-  groupId: number | string;
-  userId: number | string;
+  groupId: number;
+  userId: number;
   role: keyof typeof UserRole;
 }
 
 export interface UpdateGroupUserRequest extends AddGroupUserRequest {}
 export interface DeleteGroupUserRequest {
-  groupId: number | string;
-  userId: number | string;
+  groupId: number;
+  userId: number;
 }

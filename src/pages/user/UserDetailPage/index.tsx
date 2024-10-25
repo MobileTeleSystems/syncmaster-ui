@@ -9,7 +9,7 @@ const { Title } = Typography;
 
 export const UserDetailPage = () => {
   const params = useParams<PageDetailParams>();
-  const { data: user } = useGetUser({ id: params.id! });
+  const { data: user } = useGetUser({ id: Number(params.id) });
 
   if (!user) {
     return null;
