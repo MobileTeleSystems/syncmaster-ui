@@ -10,7 +10,7 @@ const { Title } = Typography;
 
 export const UpdateGroupPage = () => {
   const params = useParams<PageDetailParams>();
-  const { data: group } = useGetGroup({ id: params.id! });
+  const { data: group } = useGetGroup({ id: Number(params.id) });
 
   if (!group) {
     return null;

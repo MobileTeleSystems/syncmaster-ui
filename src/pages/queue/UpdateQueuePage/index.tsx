@@ -11,7 +11,7 @@ const { Title } = Typography;
 
 export const UpdateQueuePage = () => {
   const params = useParams<PageDetailParams>();
-  const { data: queue } = useGetQueue({ id: params.id! });
+  const { data: queue } = useGetQueue({ id: Number(params.id) });
   const { data: group } = useGetGroup({ id: queue.group_id });
 
   if (!queue || !group) {

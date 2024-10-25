@@ -15,7 +15,7 @@ const { Title } = Typography;
 
 export const GroupDetailPage = () => {
   const params = useParams<PageDetailParams>();
-  const { data: group } = useGetGroup({ id: params.id! });
+  const { data: group } = useGetGroup({ id: Number(params.id) });
   const { data: owner } = useGetUser({ id: group.owner_id });
 
   if (!group || !owner) {
