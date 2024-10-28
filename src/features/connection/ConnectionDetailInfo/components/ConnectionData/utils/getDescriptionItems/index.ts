@@ -68,7 +68,7 @@ export const getDescriptionItems = ({ data }: GetDescriptionItemsProps): Descrip
         },
         {
           label: 'Region',
-          content: data.region,
+          content: data.region || '',
         },
       ];
     default:
