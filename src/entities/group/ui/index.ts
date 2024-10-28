@@ -1,1 +1,1 @@
-export * from './EmptyGroupAlert';
+export * from './GroupWarningAlert';

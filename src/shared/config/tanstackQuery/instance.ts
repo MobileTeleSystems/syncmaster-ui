@@ -1,6 +1,7 @@
 import { QueryClient } from '@tanstack/react-query';
 import axios from 'axios';
-import { Error } from '@shared/constants';
+
+import { Error } from '../errors';
 
 export const queryClient = new QueryClient({
   defaultOptions: {

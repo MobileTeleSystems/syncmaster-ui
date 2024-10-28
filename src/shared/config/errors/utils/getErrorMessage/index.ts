@@ -1,4 +1,4 @@
-import { checkIsMessageError } from '@shared/guards';
+import { checkIsMessageError } from '@shared/config';
 import axios from 'axios';
 
 /**

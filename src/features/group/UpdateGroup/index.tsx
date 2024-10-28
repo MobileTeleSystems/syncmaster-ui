@@ -16,7 +16,7 @@ export const UpdateGroup = ({ group }: UpdateGroupProps) => {
   };
 
   const onSuccess = (response: Group) => {
-    navigate(`/groups/${response.id}`);
+    navigate(`/groups/${response.data.id}`);
   };
 
   const onCancel = () => {

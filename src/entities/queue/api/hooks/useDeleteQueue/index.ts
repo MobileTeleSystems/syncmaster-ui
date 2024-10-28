@@ -1,6 +1,6 @@
 import { useMutation, UseMutationResult, useQueryClient } from '@tanstack/react-query';
 import { notification } from 'antd';
-import { getErrorMessage } from '@shared/utils';
+import { getErrorMessage } from '@shared/config';
 
 import { queueService } from '../../queueService';
 import { DeleteQueueRequest } from '../../types';

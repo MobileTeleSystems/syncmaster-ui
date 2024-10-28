@@ -1,9 +1,10 @@
-import { PageContentWrapper } from '@shared/ui';
+import { AccessWrapper, PageContentWrapper } from '@shared/ui';
 import { Button, Typography } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { EmptyGroupAlert, useSelectedGroup } from '@entities/group';
-import { QueueListWrapper } from '@widgets/queue/QueueListWrapper';
+import { GroupWarningAlert, useSelectedGroup } from '@entities/group';
+import { QueueListWrapper } from '@widgets/queue';
+import { UserRole } from '@shared/types';
 
 import classes from './styles.module.less';
 
@@ -14,14 +15,16 @@ export const QueueListPage = () => {
 
   const renderContent = () => {
     if (!group?.data.id) {
-      return <EmptyGroupAlert description="You need to select a group to see queue list" />;
+      return <GroupWarningAlert description="You need to select a group to see queue list" />;
     }
 
     return (
       <PageContentWrapper width="large">
-        <Button className={classes.createButton} type="primary" size="large">
-          <Link to="/queues/create">Create Queue</Link>
-        </Button>
+        <AccessWrapper accessRole={UserRole.Maintainer} currentRole={group.role}>
+          <Button className={classes.createButton} type="primary" size="large">
+            <Link to="/queues/create">Create Queue</Link>
+          </Button>
+        </AccessWrapper>
         <QueueListWrapper group={group} />
       </PageContentWrapper>
     );
