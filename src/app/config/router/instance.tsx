@@ -6,6 +6,7 @@ import { AuthLayout, ErrorLayout, PrivateLayout } from '@app/layouts';
 import { CreateGroupPage, GroupDetailPage, GroupListPage, UpdateGroupPage } from '@pages/group';
 import { AuthProvider } from '@entities/auth';
 import { CreateQueuePage, QueueDetailPage, QueueListPage, UpdateQueuePage } from '@pages/queue';
+import { ConnectionDetailPage, ConnectionListPage } from '@pages/connection';
 
 import { ErrorBoundary, NotFoundError } from '../errorBoundary';
 
@@ -76,6 +77,14 @@ export const router = createBrowserRouter([
           {
             path: '/queues/:id/update',
             element: <UpdateQueuePage />,
+          },
+          {
+            path: '/connections',
+            element: <ConnectionListPage />,
+          },
+          {
+            path: '/connections/:id',
+            element: <ConnectionDetailPage />,
           },
         ],
       },
