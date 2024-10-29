@@ -7,7 +7,7 @@ import { queueService } from '../../queueService';
 /** Hook for getting queue info from backend */
 export const useGetQueue = ({ id }: GetQueueRequest): UseSuspenseQueryResult<Queue> => {
   return useSuspenseQuery({
-    queryKey: [QueueQueryKey.GET_QUEUE, Number(id)],
+    queryKey: [QueueQueryKey.GET_QUEUE, id],
     queryFn: () => queueService.getQueue({ id }),
   });
 };

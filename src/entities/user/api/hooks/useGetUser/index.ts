@@ -7,7 +7,7 @@ import { userService } from '../../userService';
 /** Hook for getting user info from backend */
 export const useGetUser = ({ id }: GetUserRequest): UseSuspenseQueryResult<User> => {
   return useSuspenseQuery({
-    queryKey: [UserQueryKey.GET_USER, Number(id)],
+    queryKey: [UserQueryKey.GET_USER, id],
     queryFn: () => userService.getUser({ id }),
   });
 };
