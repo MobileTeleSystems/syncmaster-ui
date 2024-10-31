@@ -6,7 +6,7 @@ import { getDescriptionItems } from './utils';
 
 export const ConnectionAuthData = ({ data, ...props }: ConnectionAuthDataProps) => {
   return (
-    <Descriptions title="Connection auth data" bordered {...props}>
+    <Descriptions {...props}>
       <Descriptions.Item label="Type" span={3}>
         {data.type}
       </Descriptions.Item>

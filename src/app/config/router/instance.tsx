@@ -7,6 +7,7 @@ import { CreateGroupPage, GroupDetailPage, GroupListPage, UpdateGroupPage } from
 import { AuthProvider } from '@entities/auth';
 import { CreateQueuePage, QueueDetailPage, QueueListPage, UpdateQueuePage } from '@pages/queue';
 import { ConnectionDetailPage, ConnectionListPage } from '@pages/connection';
+import { TransferDetailPage, TransferListPage } from '@pages/transfer';
 
 import { ErrorBoundary, NotFoundError } from '../errorBoundary';
 
@@ -85,6 +86,14 @@ export const router = createBrowserRouter([
           {
             path: '/connections/:id',
             element: <ConnectionDetailPage />,
+          },
+          {
+            path: '/transfers',
+            element: <TransferListPage />,
+          },
+          {
+            path: '/transfers/:id',
+            element: <TransferDetailPage />,
           },
         ],
       },

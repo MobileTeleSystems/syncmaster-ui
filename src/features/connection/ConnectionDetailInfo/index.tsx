@@ -22,10 +22,13 @@ export const ConnectionDetailInfo = ({ connection, group, ...props }: Connection
         <Descriptions.Item label="Group" span={3}>
           <Link to={`/groups/${group.id}`}>{group.name}</Link>
         </Descriptions.Item>
+        <Descriptions.Item className={classes.subDescription} label="Auth data" span={3}>
+          <ConnectionAuthData data={connection.auth_data} />
+        </Descriptions.Item>
+        <Descriptions.Item className={classes.subDescription} label="Connection data" span={3}>
+          <ConnectionData data={connection.connection_data} />
+        </Descriptions.Item>
       </Descriptions>
-
-      <ConnectionAuthData data={connection.auth_data} />
-      <ConnectionData data={connection.connection_data} />
     </div>
   );
 };
