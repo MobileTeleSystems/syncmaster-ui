@@ -1,4 +1,4 @@
-import { PaginationRequest } from '@shared/types';
+import { ConnectionType, PaginationRequest } from '@shared/types';
 
 export type Connection = {
   id: number;
@@ -11,33 +11,33 @@ type ConnectionData = ConnectionHive | ConnectionHdfs | ConnectionOracle | Conne
 
 interface ConnectionHive {
   auth_data: {
-    type: 'hive';
+    type: ConnectionType.HIVE;
     user: string;
   };
   connection_data: {
-    type: 'hive';
+    type: ConnectionType.HIVE;
     cluster: string;
   };
 }
 
 interface ConnectionHdfs {
   auth_data: {
-    type: 'hdfs';
+    type: ConnectionType.HDFS;
     user: string;
   };
   connection_data: {
-    type: 'hdfs';
+    type: ConnectionType.HDFS;
     cluster: string;
   };
 }
 
 interface ConnectionOracle {
   auth_data: {
-    type: 'oracle';
+    type: ConnectionType.ORACLE;
     user: string;
   };
   connection_data: {
-    type: 'oracle';
+    type: ConnectionType.ORACLE;
     host: string;
     port: number;
     service_name: string | null;
@@ -48,11 +48,11 @@ interface ConnectionOracle {
 
 interface ConnectionPostgres {
   auth_data: {
-    type: 'postgres';
+    type: ConnectionType.POSTGRES;
     user: string;
   };
   connection_data: {
-    type: 'postgres';
+    type: ConnectionType.POSTGRES;
     host: string;
     port: number;
     database_name: string;
@@ -62,11 +62,11 @@ interface ConnectionPostgres {
 
 interface ConnectionS3 {
   auth_data: {
-    type: 's3';
+    type: ConnectionType.S3;
     access_key: string;
   };
   connection_data: {
-    type: 's3';
+    type: ConnectionType.S3;
     host: string;
     bucket: string;
     bucket_style: 'domain' | 'path';

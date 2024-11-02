@@ -1,10 +1,10 @@
 import React from 'react';
 import { Descriptions } from 'antd';
 
-import { ConnectionDataProps } from './types';
+import { TransferParamsProps } from './types';
 import { getDescriptionItems } from './utils';
 
-export const ConnectionData = ({ data, ...props }: ConnectionDataProps) => {
+export const TransferParams = ({ data, ...props }: TransferParamsProps) => {
   return (
     <Descriptions {...props}>
       <Descriptions.Item label="Type" span={3}>

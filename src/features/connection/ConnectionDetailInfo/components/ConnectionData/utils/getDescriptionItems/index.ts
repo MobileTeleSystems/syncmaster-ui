@@ -1,11 +1,11 @@
-import { DescriptionItem } from '@shared/types';
+import { ConnectionType, DescriptionItem } from '@shared/types';
 
 import { GetDescriptionItemsProps } from './types';
 
 /** Util for mapping data for Description component depends on connection type */
 export const getDescriptionItems = ({ data }: GetDescriptionItemsProps): DescriptionItem[] => {
   switch (data.type) {
-    case 'oracle':
+    case ConnectionType.ORACLE:
       return [
         {
           label: 'Host',
@@ -24,7 +24,7 @@ export const getDescriptionItems = ({ data }: GetDescriptionItemsProps): Descrip
           content: data.sid || '',
         },
       ];
-    case 'postgres':
+    case ConnectionType.POSTGRES:
       return [
         {
           label: 'Host',
@@ -39,7 +39,7 @@ export const getDescriptionItems = ({ data }: GetDescriptionItemsProps): Descrip
           content: data.database_name,
         },
       ];
-    case 's3':
+    case ConnectionType.S3:
       return [
         {
           label: 'Host',
@@ -66,7 +66,8 @@ export const getDescriptionItems = ({ data }: GetDescriptionItemsProps): Descrip
           content: data.region || '',
         },
       ];
-    default:
+    case ConnectionType.HIVE:
+    case ConnectionType.HDFS:
       return [
         {
           label: 'Cluster',
