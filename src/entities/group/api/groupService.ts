@@ -9,6 +9,7 @@ import {
   GetGroupsRequest,
   GetGroupUsersRequest,
   Group,
+  GroupData,
   GroupUser,
   UpdateGroupRequest,
   UpdateGroupUserRequest,
@@ -23,11 +24,11 @@ export const groupService = {
     return axiosInstance.get(`groups/${id}`);
   },
 
-  createGroup: (data: CreateGroupRequest): Promise<Group> => {
+  createGroup: (data: CreateGroupRequest): Promise<GroupData> => {
     return axiosInstance.post(`groups`, data);
   },
 
-  updateGroup: ({ id, ...data }: UpdateGroupRequest): Promise<Group> => {
+  updateGroup: ({ id, ...data }: UpdateGroupRequest): Promise<GroupData> => {
     return axiosInstance.patch(`groups/${id}`, data);
   },
 

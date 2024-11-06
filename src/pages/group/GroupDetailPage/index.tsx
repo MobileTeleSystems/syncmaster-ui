@@ -25,7 +25,7 @@ export const GroupDetailPage = () => {
   return (
     <div className={classes.root}>
       <PageContentWrapper>
-        <Title>{group.data.name}</Title>
+        <Title>Group: {group.data.name}</Title>
         <GroupDetailInfo
           group={group.data}
           owner={owner}

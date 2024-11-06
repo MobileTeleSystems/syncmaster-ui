@@ -8,6 +8,7 @@ import { AuthProvider } from '@entities/auth';
 import { CreateQueuePage, QueueDetailPage, QueueListPage, UpdateQueuePage } from '@pages/queue';
 import { ConnectionDetailPage, ConnectionListPage } from '@pages/connection';
 import { TransferDetailPage, TransferListPage } from '@pages/transfer';
+import { RunDetailPage } from '@pages/run';
 
 import { ErrorBoundary, NotFoundError } from '../errorBoundary';
 
@@ -94,6 +95,10 @@ export const router = createBrowserRouter([
           {
             path: '/transfers/:id',
             element: <TransferDetailPage />,
+          },
+          {
+            path: '/transfers/runs/:id',
+            element: <RunDetailPage />,
           },
         ],
       },

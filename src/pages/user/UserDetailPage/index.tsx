@@ -17,7 +17,7 @@ export const UserDetailPage = () => {
 
   return (
     <PageContentWrapper>
-      <Title>{user.username}</Title>
+      <Title>User: {user.username}</Title>
       <UserDetailInfo user={user} />
     </PageContentWrapper>
   );

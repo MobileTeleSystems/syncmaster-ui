@@ -35,7 +35,7 @@ export const TransferDetailInfo = ({
         <Descriptions.Item label="Target connection" span={3}>
           <Link to={`/connections/${connectionTarget.id}`}>{connectionTarget.name}</Link>
         </Descriptions.Item>
-        <Descriptions.Item label="Group" span={3}>
+        <Descriptions.Item label="Queue" span={3}>
           <Link to={`/queues/${queue.id}`}>{queue.name}</Link>
         </Descriptions.Item>
         <Descriptions.Item className={classes.subDescription} label="Source params" span={3}>
