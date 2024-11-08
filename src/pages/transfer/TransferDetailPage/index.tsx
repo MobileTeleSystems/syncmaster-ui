@@ -8,6 +8,9 @@ import { useGetTransfer } from '@entities/transfer';
 import { TransferDetail } from '@widgets/transfer';
 import { useGetConnection } from '@entities/connection';
 import { useGetQueue } from '@entities/queue';
+import { TransferRuns } from '@widgets/run';
+
+import classes from './styles.module.less';
 
 const { Title } = Typography;
 
@@ -24,15 +27,18 @@ export const TransferDetailPage = () => {
   }
 
   return (
-    <PageContentWrapper>
-      <Title>{transfer.name}</Title>
-      <TransferDetail
-        transfer={transfer}
-        group={group}
-        connectionSource={connectionSource}
-        connectionTarget={connectionTarget}
-        queue={queue}
-      />
-    </PageContentWrapper>
+    <div className={classes.root}>
+      <PageContentWrapper>
+        <Title>Transfer: {transfer.name}</Title>
+        <TransferDetail
+          transfer={transfer}
+          group={group}
+          connectionSource={connectionSource}
+          connectionTarget={connectionTarget}
+          queue={queue}
+        />
+      </PageContentWrapper>
+      <TransferRuns group={group} transferId={transfer.id} transferName={transfer.name} />
+    </div>
   );
 };

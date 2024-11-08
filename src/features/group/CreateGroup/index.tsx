@@ -1,14 +1,14 @@
 import React from 'react';
 import { ControlButtons, ManagedForm } from '@shared/ui';
-import { Group, GroupQueryKey, groupService } from '@entities/group';
+import { GroupData, GroupQueryKey, groupService } from '@entities/group';
 import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 export const CreateGroup = () => {
   const navigate = useNavigate();
 
-  const onSuccess = (response: Group) => {
-    navigate(`/groups/${response.data.id}`);
+  const onSuccess = (response: GroupData) => {
+    navigate(`/groups/${response.id}`);
   };
 
   const onCancel = () => {

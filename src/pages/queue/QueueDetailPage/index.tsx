@@ -20,7 +20,7 @@ export const QueueDetailPage = () => {
 
   return (
     <PageContentWrapper>
-      <Title>{queue.name}</Title>
+      <Title>Queue: {queue.name}</Title>
       <QueueDetail queue={queue} group={group} />
     </PageContentWrapper>
   );

@@ -20,7 +20,7 @@ export const ConnectionDetailPage = () => {
 
   return (
     <PageContentWrapper>
-      <Title>{connection.name}</Title>
+      <Title>Connection: {connection.name}</Title>
       <ConnectionDetail connection={connection} group={group} />
     </PageContentWrapper>
   );

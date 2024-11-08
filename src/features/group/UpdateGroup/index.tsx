@@ -1,6 +1,6 @@
 import React from 'react';
 import { ControlButtons, ManagedForm, ManagedSelect } from '@shared/ui';
-import { Group, GroupQueryKey, groupService } from '@entities/group';
+import { GroupData, GroupQueryKey, groupService } from '@entities/group';
 import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { UserQueryKey, userService } from '@entities/user';
@@ -15,8 +15,8 @@ export const UpdateGroup = ({ group }: UpdateGroupProps) => {
     return groupService.updateGroup({ ...values, id: group.id });
   };
 
-  const onSuccess = (response: Group) => {
-    navigate(`/groups/${response.data.id}`);
+  const onSuccess = (response: GroupData) => {
+    navigate(`/groups/${response.id}`);
   };
 
   const onCancel = () => {
@@ -24,7 +24,7 @@ export const UpdateGroup = ({ group }: UpdateGroupProps) => {
   };
 
   return (
-    <ManagedForm<UpdateGroupForm, Group>
+    <ManagedForm<UpdateGroupForm, GroupData>
       mutationFunction={handleUpdateGroup}
       initialValues={getUpdateGroupInitialValues(group)}
       onSuccess={onSuccess}
