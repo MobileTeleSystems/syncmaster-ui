@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Badge } from 'antd';
-import { RunStatus } from '@entities/run/api';
+import { RunStatus } from '@entities/run';
 
 import { RunStatusBadgeProps } from './types';
 import { getRunStatusColor } from './utils';
