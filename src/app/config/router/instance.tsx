@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { UserDetailPage, UserListPage } from '@pages/user';
 import { LoginPage } from '@pages/auth';
 import { AuthLayout, ErrorLayout, PrivateLayout } from '@app/layouts';
@@ -40,6 +40,10 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         children: [
+          {
+            path: '/',
+            element: <Navigate to="/users" replace />,
+          },
           {
             path: '/users',
             element: <UserListPage />,
