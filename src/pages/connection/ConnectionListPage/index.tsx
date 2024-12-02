@@ -1,8 +1,12 @@
 import React from 'react';
-import { PageContentWrapper } from '@shared/ui';
-import { Typography } from 'antd';
+import { AccessWrapper, PageContentWrapper } from '@shared/ui';
+import { Button, Typography } from 'antd';
 import { GroupWarningAlert, useSelectedGroup } from '@entities/group';
 import { ConnectionListWrapper } from '@widgets/connection';
+import { UserRole } from '@shared/types';
+import { Link } from 'react-router-dom';
+
+import classes from './styles.module.less';
 
 const { Title } = Typography;
 
@@ -16,6 +20,11 @@ export const ConnectionListPage = () => {
 
     return (
       <PageContentWrapper width="large">
+        <AccessWrapper accessRole={UserRole.Maintainer} currentRole={group.role}>
+          <Button className={classes.createButton} type="primary" size="large">
+            <Link to="/connections/create">Create Connection</Link>
+          </Button>
+        </AccessWrapper>
         <ConnectionListWrapper group={group} />
       </PageContentWrapper>
     );

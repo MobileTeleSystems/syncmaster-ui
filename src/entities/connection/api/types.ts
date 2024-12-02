@@ -9,10 +9,15 @@ export type Connection = {
 
 type ConnectionData = ConnectionHive | ConnectionHdfs | ConnectionOracle | ConnectionPostgres | ConnectionS3;
 
+export type ConnectionBucketStyle = 'domain' | 'path';
+
+export type ConnectionProtocol = 'https' | 'http';
+
 interface ConnectionHive {
   auth_data: {
     type: ConnectionType.HIVE;
     user: string;
+    password?: string;
   };
   connection_data: {
     type: ConnectionType.HIVE;
@@ -24,6 +29,7 @@ interface ConnectionHdfs {
   auth_data: {
     type: ConnectionType.HDFS;
     user: string;
+    password?: string;
   };
   connection_data: {
     type: ConnectionType.HDFS;
@@ -35,6 +41,7 @@ interface ConnectionOracle {
   auth_data: {
     type: ConnectionType.ORACLE;
     user: string;
+    password?: string;
   };
   connection_data: {
     type: ConnectionType.ORACLE;
@@ -42,7 +49,6 @@ interface ConnectionOracle {
     port: number;
     service_name: string | null;
     sid: string | null;
-    additional_params: object;
   };
 }
 
@@ -50,13 +56,13 @@ interface ConnectionPostgres {
   auth_data: {
     type: ConnectionType.POSTGRES;
     user: string;
+    password?: string;
   };
   connection_data: {
     type: ConnectionType.POSTGRES;
     host: string;
     port: number;
     database_name: string;
-    additional_params: object;
   };
 }
 
@@ -64,15 +70,16 @@ interface ConnectionS3 {
   auth_data: {
     type: ConnectionType.S3;
     access_key: string;
+    secret_key?: string;
   };
   connection_data: {
     type: ConnectionType.S3;
     host: string;
     bucket: string;
-    bucket_style: 'domain' | 'path';
+    bucket_style: ConnectionBucketStyle;
     port: number | null;
     region: string | null;
-    protocol: 'http' | 'https';
+    protocol: ConnectionProtocol;
   };
 }
 
@@ -81,5 +88,21 @@ export interface GetConnectionsRequest extends PaginationRequest {
 }
 
 export interface GetConnectionRequest {
+  id: number;
+}
+
+export type CreateConnectionRequest = {
+  group_id: number;
+  name: string;
+  description: string;
+} & ConnectionData;
+
+export type UpdateConnectionRequest = {
+  id: number;
+  name: string;
+  description: string;
+} & ConnectionData;
+
+export interface DeleteConnectionRequest {
   id: number;
 }

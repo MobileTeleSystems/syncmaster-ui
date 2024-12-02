@@ -6,7 +6,12 @@ import { AuthLayout, ErrorLayout, PrivateLayout } from '@app/layouts';
 import { CreateGroupPage, GroupDetailPage, GroupListPage, UpdateGroupPage } from '@pages/group';
 import { AuthProvider } from '@entities/auth';
 import { CreateQueuePage, QueueDetailPage, QueueListPage, UpdateQueuePage } from '@pages/queue';
-import { ConnectionDetailPage, ConnectionListPage } from '@pages/connection';
+import {
+  ConnectionDetailPage,
+  ConnectionListPage,
+  CreateConnectionPage,
+  UpdateConnectionPage,
+} from '@pages/connection';
 import { TransferDetailPage, TransferListPage } from '@pages/transfer';
 import { RunDetailPage } from '@pages/run';
 
@@ -91,6 +96,14 @@ export const router = createBrowserRouter([
           {
             path: '/connections/:id',
             element: <ConnectionDetailPage />,
+          },
+          {
+            path: '/connections/create',
+            element: <CreateConnectionPage />,
+          },
+          {
+            path: '/connections/:id/update',
+            element: <UpdateConnectionPage />,
           },
           {
             path: '/transfers',
