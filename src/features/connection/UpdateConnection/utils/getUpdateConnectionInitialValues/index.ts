@@ -10,7 +10,7 @@ export const getUpdateConnectionInitialValues = (connection: Connection): Update
     description: connection.description,
     id: connection.id,
   };
-  // TODO: Temporary solution until backend takes ConnectionType up a level in response.
+  // TODO: [DOP-21832] Temporary solution until backend takes ConnectionType up a level in response.
   if (connection.auth_data.type === ConnectionType.HDFS && connection.connection_data.type === ConnectionType.HDFS) {
     return Object.assign(baseFormData, {
       ...connection.connection_data,
