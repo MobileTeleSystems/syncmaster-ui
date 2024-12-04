@@ -11,32 +11,28 @@ import { DeleteConnectionButtonProps } from './types';
 export const DeleteConnectionButton = ({ connection }: DeleteConnectionButtonProps) => {
   const navigate = useNavigate();
 
-  const {
-    isOpened: isOpenedDeleteConnectionModal,
-    handleOpen: handleOpenDeleteConnectionModal,
-    handleClose: handleCloseDeleteConnectionModal,
-  } = useModalState();
+  const { isOpened: isOpenedModal, handleOpen: handleOpenModal, handleClose: handleCloseModal } = useModalState();
 
   const handleSuccessDeleteConnection = () => {
     navigate('/connections');
-    handleCloseDeleteConnectionModal();
+    handleCloseModal();
   };
 
   return (
     <>
-      <Button type="primary" size="large" danger onClick={handleOpenDeleteConnectionModal}>
+      <Button type="primary" size="large" danger onClick={handleOpenModal}>
         Delete connection
       </Button>
       <ModalWrapper
         title="Delete connection"
         width={DEFAULT_MODAL_DELETE_WIDTH}
-        open={isOpenedDeleteConnectionModal}
-        onCancel={handleCloseDeleteConnectionModal}
+        open={isOpenedModal}
+        onCancel={handleCloseModal}
       >
         <DeleteConnection
           connection={connection}
           onSuccess={handleSuccessDeleteConnection}
-          onCancel={handleCloseDeleteConnectionModal}
+          onCancel={handleCloseModal}
         />
       </ModalWrapper>
     </>
