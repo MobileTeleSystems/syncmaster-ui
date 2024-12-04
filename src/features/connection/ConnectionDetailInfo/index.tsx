@@ -3,32 +3,36 @@ import { Descriptions } from 'antd';
 import { Link } from 'react-router-dom';
 
 import { ConnectionDetailInfoProps } from './types';
-import classes from './styles.module.less';
-import { ConnectionAuthData, ConnectionData } from './components';
+import { getConnectionAuthData, getConnectionData } from './utils';
 
 export const ConnectionDetailInfo = ({ connection, group, ...props }: ConnectionDetailInfoProps) => {
   return (
-    <div className={classes.root}>
-      <Descriptions title="Connection info" bordered {...props}>
-        <Descriptions.Item label="Id" span={3}>
-          {connection.id}
+    <Descriptions title="Connection info" bordered {...props}>
+      <Descriptions.Item label="Id" span={3}>
+        {connection.id}
+      </Descriptions.Item>
+      <Descriptions.Item label="Name" span={3}>
+        {connection.name}
+      </Descriptions.Item>
+      <Descriptions.Item label="Description" span={3}>
+        {connection.description}
+      </Descriptions.Item>
+      <Descriptions.Item label="Group" span={3}>
+        <Link to={`/groups/${group.id}`}>{group.name}</Link>
+      </Descriptions.Item>
+      <Descriptions.Item label="Type" span={3}>
+        {connection.connection_data.type}
+      </Descriptions.Item>
+      {getConnectionAuthData({ data: connection.auth_data }).map((item, index) => (
+        <Descriptions.Item label={item.label} span={3} key={index}>
+          {item.content}
         </Descriptions.Item>
-        <Descriptions.Item label="Name" span={3}>
-          {connection.name}
+      ))}
+      {getConnectionData({ data: connection.connection_data }).map((item, index) => (
+        <Descriptions.Item label={item.label} span={3} key={index}>
+          {item.content}
         </Descriptions.Item>
-        <Descriptions.Item label="Description" span={3}>
-          {connection.description}
-        </Descriptions.Item>
-        <Descriptions.Item label="Group" span={3}>
-          <Link to={`/groups/${group.id}`}>{group.name}</Link>
-        </Descriptions.Item>
-        <Descriptions.Item className={classes.subDescription} label="Auth data" span={3}>
-          <ConnectionAuthData data={connection.auth_data} />
-        </Descriptions.Item>
-        <Descriptions.Item className={classes.subDescription} label="Connection data" span={3}>
-          <ConnectionData data={connection.connection_data} />
-        </Descriptions.Item>
-      </Descriptions>
-    </div>
+      ))}
+    </Descriptions>
   );
 };

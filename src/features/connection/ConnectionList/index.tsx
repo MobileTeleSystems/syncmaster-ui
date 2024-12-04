@@ -7,7 +7,7 @@ import { ConnectionQueryKey, connectionService } from '@entities/connection';
 import { CONNECTION_LIST_COLUMNS } from './constants';
 import { ConnectionListProps } from './types';
 
-export const ConnectionList = memo(({ group }: ConnectionListProps) => {
+export const ConnectionList = memo(({ group, onUpdateRowClick, onDeleteRowClick }: ConnectionListProps) => {
   return (
     <ManagedTable
       queryKey={[ConnectionQueryKey.GET_CONNECTIONS, group.data.id]}
@@ -15,6 +15,8 @@ export const ConnectionList = memo(({ group }: ConnectionListProps) => {
       columns={CONNECTION_LIST_COLUMNS}
       isRenderUpdateRowAction={() => hasAccessByUserRole(UserRole.Developer, group.role)}
       isRenderDeleteRowAction={() => hasAccessByUserRole(UserRole.Maintainer, group.role)}
+      onUpdateRowClick={onUpdateRowClick}
+      onDeleteRowClick={onDeleteRowClick}
       rowKey="id"
     />
   );

@@ -6,4 +6,6 @@ window.env = {
 };
 EOF
 
+sed -i '/<\/head>/i \    <script src="/env-config.js"></script>' /usr/share/nginx/html/index.html
+
 exec "$@"

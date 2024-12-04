@@ -1,14 +1,27 @@
 import React from 'react';
-import { PageContentWrapper } from '@shared/ui';
+import { AccessWrapper, PageContentWrapper } from '@shared/ui';
 import { ConnectionDetailInfo } from '@features/connection';
+import { UserRole } from '@shared/types';
 
 import { ConnectionDetailProps } from './types';
+import { DeleteConnectionButton, UpdateConnectionButton } from './components';
+import classes from './styles.module.less';
 
 export const ConnectionDetail = ({ connection, group }: ConnectionDetailProps) => {
   return (
     <PageContentWrapper>
-      {/* //TODO: [DOP-20043] add update and delete actions for connection */}
-      <ConnectionDetailInfo connection={connection} group={group.data} />
+      <ConnectionDetailInfo
+        connection={connection}
+        group={group.data}
+        extra={
+          <AccessWrapper accessRole={UserRole.Maintainer} currentRole={group.role}>
+            <div className={classes.actions}>
+              <UpdateConnectionButton connectionId={connection.id} />
+              <DeleteConnectionButton connection={connection} />
+            </div>
+          </AccessWrapper>
+        }
+      />
     </PageContentWrapper>
   );
 };

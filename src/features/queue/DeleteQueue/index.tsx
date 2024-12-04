@@ -2,7 +2,7 @@ import React from 'react';
 import { ControlButtons } from '@shared/ui';
 import { Typography } from 'antd';
 import { WarningOutlined } from '@ant-design/icons';
-import { useDeleteQueue } from '@entities/queue/api/hooks/useDeleteQueue';
+import { useDeleteQueue } from '@entities/queue';
 
 import classes from './styles.module.less';
 import { DeleteQueueProps } from './types';
