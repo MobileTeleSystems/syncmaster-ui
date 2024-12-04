@@ -4,15 +4,18 @@ import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { Connection, ConnectionQueryKey, connectionService, ConnectionTypeForm } from '@entities/connection';
 
+import { adaptConnectionTypeRequest } from '../utils';
+
 import { UpdateConnectionForm, UpdateConnectionProps } from './types';
 import { getUpdateConnectionInitialValues } from './utils';
-import { adaptUpdateConnectionRequest } from './utils/adaptUpdateConnectionRequest';
 
 export const UpdateConnection = ({ connection, group }: UpdateConnectionProps) => {
   const navigate = useNavigate();
 
-  const handleUpdateConnection = (values: UpdateConnectionForm) => {
-    return connectionService.updateConnection(adaptUpdateConnectionRequest(values, connection.id));
+  const handleUpdateConnection = ({ name, description, ...values }: UpdateConnectionForm) => {
+    return connectionService.updateConnection(
+      Object.assign({ id: connection.id, name, description }, adaptConnectionTypeRequest(values)),
+    );
   };
 
   const onSuccess = (response: Connection) => {

@@ -7,13 +7,13 @@ export type Connection = {
   description: string;
 } & ConnectionData;
 
-type ConnectionData = ConnectionHive | ConnectionHdfs | ConnectionOracle | ConnectionPostgres | ConnectionS3;
+export type ConnectionData = ConnectionHive | ConnectionHdfs | ConnectionOracle | ConnectionPostgres | ConnectionS3;
 
 export type ConnectionBucketStyle = 'domain' | 'path';
 
 export type ConnectionProtocol = 'https' | 'http';
 
-interface ConnectionHive {
+export interface ConnectionHive {
   auth_data: {
     type: ConnectionType.HIVE;
     user: string;
@@ -25,7 +25,7 @@ interface ConnectionHive {
   };
 }
 
-interface ConnectionHdfs {
+export interface ConnectionHdfs {
   auth_data: {
     type: ConnectionType.HDFS;
     user: string;
@@ -37,7 +37,7 @@ interface ConnectionHdfs {
   };
 }
 
-interface ConnectionOracle {
+export interface ConnectionOracle {
   auth_data: {
     type: ConnectionType.ORACLE;
     user: string;
@@ -52,7 +52,7 @@ interface ConnectionOracle {
   };
 }
 
-interface ConnectionPostgres {
+export interface ConnectionPostgres {
   auth_data: {
     type: ConnectionType.POSTGRES;
     user: string;
@@ -66,7 +66,7 @@ interface ConnectionPostgres {
   };
 }
 
-interface ConnectionS3 {
+export interface ConnectionS3 {
   auth_data: {
     type: ConnectionType.S3;
     access_key: string;

@@ -50,7 +50,6 @@ export const getUpdateConnectionInitialValues = (connection: Connection): Update
   return {
     name: connection.name,
     description: connection.description,
-    id: connection.id,
     type: ConnectionType.HDFS,
     cluster: '',
     user: '',

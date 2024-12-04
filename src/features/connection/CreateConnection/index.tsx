@@ -4,14 +4,17 @@ import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { Connection, ConnectionQueryKey, connectionService, ConnectionTypeForm } from '@entities/connection';
 
+import { adaptConnectionTypeRequest } from '../utils';
+
 import { CreateConnectionForm, CreateConnectionProps } from './types';
-import { adaptCreateConnectionRequest } from './utils';
 
 export const CreateConnection = ({ group }: CreateConnectionProps) => {
   const navigate = useNavigate();
 
-  const handleCreateConnection = (values: CreateConnectionForm) => {
-    return connectionService.createConnection(adaptCreateConnectionRequest(values, group.id));
+  const handleCreateConnection = ({ name, description, ...values }: CreateConnectionForm) => {
+    return connectionService.createConnection(
+      Object.assign({ group_id: group.id, name, description }, adaptConnectionTypeRequest(values)),
+    );
   };
 
   const onSuccess = (response: Connection) => {
