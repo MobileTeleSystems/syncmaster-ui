@@ -7,7 +7,7 @@ import { TransferQueryKey, transferService } from '@entities/transfer';
 import { TRANSFER_LIST_COLUMNS } from './constants';
 import { TransferListProps } from './types';
 
-export const TransferList = memo(({ group }: TransferListProps) => {
+export const TransferList = memo(({ group, onDeleteRowClick }: TransferListProps) => {
   return (
     <ManagedTable
       queryKey={[TransferQueryKey.GET_TRANSFERS, group.data.id]}
@@ -15,6 +15,7 @@ export const TransferList = memo(({ group }: TransferListProps) => {
       columns={TRANSFER_LIST_COLUMNS}
       isRenderUpdateRowAction={() => hasAccessByUserRole(UserRole.Developer, group.role)}
       isRenderDeleteRowAction={() => hasAccessByUserRole(UserRole.Maintainer, group.role)}
+      onDeleteRowClick={onDeleteRowClick}
       rowKey="id"
     />
   );
