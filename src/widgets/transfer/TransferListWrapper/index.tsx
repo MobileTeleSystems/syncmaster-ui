@@ -40,7 +40,7 @@ export const TransferListWrapper = ({ group }: TransferListWrapperProps) => {
           />
         </ModalWrapper>
       )}
-      <TransferList group={group} onDeleteRowClick={handleDeleteUserClick} />;
+      <TransferList group={group} onDeleteRowClick={handleDeleteUserClick} />
     </>
   );
 };
