@@ -4,10 +4,12 @@ import { Transfer } from '@entities/transfer';
 import { useModalState } from '@shared/hooks';
 import { ModalWrapper } from '@shared/ui';
 import { DEFAULT_MODAL_DELETE_WIDTH } from '@shared/constants';
+import { useNavigate } from 'react-router-dom';
 
 import { TransferListWrapperProps } from './types';
 
 export const TransferListWrapper = ({ group }: TransferListWrapperProps) => {
+  const navigate = useNavigate();
   const [selectedTransfer, setSelectedTransfer] = useState<Transfer>();
 
   const {
@@ -24,11 +26,18 @@ export const TransferListWrapper = ({ group }: TransferListWrapperProps) => {
     [handleOpenDeleteTransferModal],
   );
 
+  const handleUpdateRowClick = useCallback(
+    (record: Transfer) => {
+      navigate(`/transfers/${record.id}/update`);
+    },
+    [navigate],
+  );
+
   return (
     <>
       {selectedTransfer && (
         <ModalWrapper
-          title="Delete transfer"
+          title="Delete Transfer"
           width={DEFAULT_MODAL_DELETE_WIDTH}
           open={isOpenedDeleteTransferModal}
           onCancel={handleCloseDeleteTransferModal}
@@ -40,7 +49,7 @@ export const TransferListWrapper = ({ group }: TransferListWrapperProps) => {
           />
         </ModalWrapper>
       )}
-      <TransferList group={group} onDeleteRowClick={handleDeleteUserClick} />
+      <TransferList group={group} onUpdateRowClick={handleUpdateRowClick} onDeleteRowClick={handleDeleteUserClick} />
     </>
   );
 };

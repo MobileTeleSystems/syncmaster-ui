@@ -25,10 +25,10 @@ export const DeleteQueueButton = ({ queue }: DeleteQueueButtonProps) => {
   return (
     <>
       <Button type="primary" size="large" danger onClick={handleOpenDeleteQueueModal}>
-        Delete queue
+        Delete Queue
       </Button>
       <ModalWrapper
-        title="Delete queue"
+        title="Delete Queue"
         width={DEFAULT_MODAL_DELETE_WIDTH}
         open={isOpenedDeleteQueueModal}
         onCancel={handleCloseDeleteQueueModal}

@@ -21,10 +21,10 @@ export const DeleteConnectionButton = ({ connection }: DeleteConnectionButtonPro
   return (
     <>
       <Button type="primary" size="large" danger onClick={handleOpenModal}>
-        Delete connection
+        Delete Connection
       </Button>
       <ModalWrapper
-        title="Delete connection"
+        title="Delete Connection"
         width={DEFAULT_MODAL_DELETE_WIDTH}
         open={isOpenedModal}
         onCancel={handleCloseModal}

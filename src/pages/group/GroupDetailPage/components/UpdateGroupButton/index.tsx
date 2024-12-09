@@ -8,7 +8,7 @@ import { UpdateGroupButtonProps } from './types';
 export const UpdateGroupButton = ({ groupId }: UpdateGroupButtonProps) => {
   return (
     <Button className={classes.button} type="primary" size="large">
-      <Link to={`/groups/${groupId}/update`}>Update group</Link>
+      <Link to={`/groups/${groupId}/update`}>Update Group</Link>
     </Button>
   );
 };

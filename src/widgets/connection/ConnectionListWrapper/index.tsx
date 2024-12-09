@@ -37,7 +37,7 @@ export const ConnectionListWrapper = ({ group }: ConnectionListWrapperProps) => 
     <>
       {selectedConnection && (
         <ModalWrapper
-          title="Delete connection"
+          title="Delete Connection"
           width={DEFAULT_MODAL_DELETE_WIDTH}
           open={isOpenedDeleteConnectionModal}
           onCancel={handleCloseDeleteConnectionModal}
