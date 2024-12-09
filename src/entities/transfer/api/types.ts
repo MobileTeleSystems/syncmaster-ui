@@ -79,3 +79,7 @@ export interface GetTransfersRequest extends PaginationRequest {
 export interface GetTransferRequest {
   id: number;
 }
+
+export interface DeleteTransferRequest {
+  id: number;
+}
