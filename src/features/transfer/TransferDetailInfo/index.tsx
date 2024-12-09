@@ -29,14 +29,20 @@ export const TransferDetailInfo = ({
         <Descriptions.Item label="Group" span={3}>
           <Link to={`/groups/${group.id}`}>{group.name}</Link>
         </Descriptions.Item>
+        <Descriptions.Item label="Queue" span={3}>
+          <Link to={`/queues/${queue.id}`}>{queue.name}</Link>
+        </Descriptions.Item>
+        <Descriptions.Item label="Is scheduled" span={3}>
+          {transfer.is_scheduled ? 'Yes' : 'No'}
+        </Descriptions.Item>
+        <Descriptions.Item label="Schedule" span={3}>
+          {transfer.schedule}
+        </Descriptions.Item>
         <Descriptions.Item label="Source connection" span={3}>
           <Link to={`/connections/${connectionSource.id}`}>{connectionSource.name}</Link>
         </Descriptions.Item>
         <Descriptions.Item label="Target connection" span={3}>
           <Link to={`/connections/${connectionTarget.id}`}>{connectionTarget.name}</Link>
-        </Descriptions.Item>
-        <Descriptions.Item label="Queue" span={3}>
-          <Link to={`/queues/${queue.id}`}>{queue.name}</Link>
         </Descriptions.Item>
         <Descriptions.Item className={classes.subDescription} label="Source params" span={3}>
           <TransferParams data={transfer.source_params} />

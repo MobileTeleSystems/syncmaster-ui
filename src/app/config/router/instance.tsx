@@ -12,7 +12,7 @@ import {
   CreateConnectionPage,
   UpdateConnectionPage,
 } from '@pages/connection';
-import { TransferDetailPage, TransferListPage } from '@pages/transfer';
+import { CreateTransferPage, TransferDetailPage, TransferListPage } from '@pages/transfer';
 import { RunDetailPage } from '@pages/run';
 
 import { ErrorBoundary, NotFoundError } from '../errorBoundary';
@@ -116,6 +116,10 @@ export const router = createBrowserRouter([
           {
             path: '/transfers/runs/:id',
             element: <RunDetailPage />,
+          },
+          {
+            path: '/transfers/create',
+            element: <CreateTransferPage />,
           },
         ],
       },

@@ -7,8 +7,6 @@ export interface Transfer {
   source_connection_id: number;
   target_connection_id: number;
   description: string;
-  is_scheduled: boolean;
-  schedule: string;
   queue_id: number;
   source_params:
     | TransferParamsHive
@@ -23,9 +21,13 @@ export interface Transfer {
     | TransferTargetParamsHdfs
     | TransferTargetParamsS3;
   strategy_params: TransferStrategyParams;
+  is_scheduled: boolean;
+  schedule: string;
 }
 
-interface TransferStrategyParams {
+export type TransferConnectionParamFieldName = 'source_params' | 'target_params';
+
+export interface TransferStrategyParams {
   type: 'full' | 'incremental';
 }
 
@@ -47,7 +49,6 @@ interface TransferParamsPostgres {
 interface TransferParamsHdfs {
   type: ConnectionType.HDFS;
   directory_path: string;
-  options: object;
 }
 
 interface TransferSourceParamsHdfs extends TransferParamsHdfs {
@@ -61,7 +62,6 @@ interface TransferTargetParamsHdfs extends TransferParamsHdfs {
 interface TransferParamsS3 {
   type: ConnectionType.S3;
   directory_path: string;
-  options: object;
 }
 
 interface TransferSourceParamsS3 extends TransferParamsS3 {
@@ -79,6 +79,8 @@ export interface GetTransfersRequest extends PaginationRequest {
 export interface GetTransferRequest {
   id: number;
 }
+
+export interface CreateTransferRequest extends Omit<Transfer, 'id'> {}
 
 export interface DeleteTransferRequest {
   id: number;
