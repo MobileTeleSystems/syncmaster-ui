@@ -12,7 +12,7 @@ import {
   CreateConnectionPage,
   UpdateConnectionPage,
 } from '@pages/connection';
-import { CreateTransferPage, TransferDetailPage, TransferListPage } from '@pages/transfer';
+import { CreateTransferPage, TransferDetailPage, TransferListPage, UpdateTransferPage } from '@pages/transfer';
 import { RunDetailPage } from '@pages/run';
 
 import { ErrorBoundary, NotFoundError } from '../errorBoundary';
@@ -114,12 +114,16 @@ export const router = createBrowserRouter([
             element: <TransferDetailPage />,
           },
           {
-            path: '/transfers/runs/:id',
-            element: <RunDetailPage />,
-          },
-          {
             path: '/transfers/create',
             element: <CreateTransferPage />,
+          },
+          {
+            path: '/transfers/:id/update',
+            element: <UpdateTransferPage />,
+          },
+          {
+            path: '/transfers/runs/:id',
+            element: <RunDetailPage />,
           },
         ],
       },

@@ -82,6 +82,8 @@ export interface GetTransferRequest {
 
 export interface CreateTransferRequest extends Omit<Transfer, 'id'> {}
 
+export interface UpdateTransferRequest extends Omit<Transfer, 'group_id'> {}
+
 export interface DeleteTransferRequest {
   id: number;
 }

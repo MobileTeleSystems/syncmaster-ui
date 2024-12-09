@@ -11,7 +11,7 @@ export const TransferSchedule = () => {
 
   return (
     <>
-      <Form.Item label="Is scheduled" name="is_scheduled">
+      <Form.Item label="Is scheduled" name="is_scheduled" valuePropName="checked">
         <Switch onChange={handleChangeScheduled} />
       </Form.Item>
       {isScheduled && (

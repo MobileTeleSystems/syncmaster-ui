@@ -7,7 +7,7 @@ import { UpdateQueueButtonProps } from './types';
 export const UpdateQueueButton = ({ queueId }: UpdateQueueButtonProps) => {
   return (
     <Button type="primary" size="large">
-      <Link to={`/queues/${queueId}/update`}>Update queue</Link>
+      <Link to={`/queues/${queueId}/update`}>Update Queue</Link>
     </Button>
   );
 };

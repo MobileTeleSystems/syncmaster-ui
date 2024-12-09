@@ -37,7 +37,7 @@ export const QueueListWrapper = ({ group }: QueueListWrapperProps) => {
     <>
       {selectedQueue && (
         <ModalWrapper
-          title="Delete queue"
+          title="Delete Queue"
           width={DEFAULT_MODAL_DELETE_WIDTH}
           open={isOpenedDeleteQueueModal}
           onCancel={handleCloseDeleteQueueModal}

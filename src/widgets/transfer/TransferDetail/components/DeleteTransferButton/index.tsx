@@ -21,10 +21,10 @@ export const DeleteTransferButton = ({ transfer }: DeleteTransferButtonProps) =>
   return (
     <>
       <Button type="primary" size="large" danger onClick={handleOpenModal}>
-        Delete transfer
+        Delete Transfer
       </Button>
       <ModalWrapper
-        title="Delete transfer"
+        title="Delete Transfer"
         width={DEFAULT_MODAL_DELETE_WIDTH}
         open={isOpenedModal}
         onCancel={handleCloseModal}

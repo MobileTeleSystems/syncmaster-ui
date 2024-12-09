@@ -7,7 +7,7 @@ import { UpdateConnectionButtonProps } from './types';
 export const UpdateConnectionButton = ({ connectionId }: UpdateConnectionButtonProps) => {
   return (
     <Button type="primary" size="large">
-      <Link to={`/connections/${connectionId}/update`}>Update connection</Link>
+      <Link to={`/connections/${connectionId}/update`}>Update Connection</Link>
     </Button>
   );
 };

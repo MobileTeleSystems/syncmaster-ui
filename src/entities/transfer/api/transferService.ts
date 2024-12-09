@@ -7,6 +7,7 @@ import {
   GetTransferRequest,
   GetTransfersRequest,
   Transfer,
+  UpdateTransferRequest,
 } from './types';
 
 export const transferService = {
@@ -20,6 +21,10 @@ export const transferService = {
 
   createTransfer: (data: CreateTransferRequest): Promise<Transfer> => {
     return axiosInstance.post(`transfers`, data);
+  },
+
+  updateTransfer: ({ id, ...data }: UpdateTransferRequest): Promise<Transfer> => {
+    return axiosInstance.patch(`transfers/${id}`, data);
   },
 
   deleteTransfer: ({ id }: DeleteTransferRequest): Promise<null> => {
