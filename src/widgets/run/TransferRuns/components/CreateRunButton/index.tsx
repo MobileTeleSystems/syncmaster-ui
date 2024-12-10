@@ -7,22 +7,18 @@ import classes from './styles.module.less';
 import { CreateRunButtonProps } from './types';
 
 export const CreateRunButton = memo(({ transferId, transferName }: CreateRunButtonProps) => {
-  const {
-    isOpened: isOpenedCreateRunModal,
-    handleOpen: handleOpenCreateRunModal,
-    handleClose: handleCloseCreateRunModal,
-  } = useModalState();
+  const { isOpened: isOpenedModal, handleOpen: handleOpenModal, handleClose: handleCloseModal } = useModalState();
 
   return (
     <>
-      <Button className={classes.button} type="primary" size="large" onClick={handleOpenCreateRunModal}>
-        Run transfer
+      <Button className={classes.button} type="primary" size="large" onClick={handleOpenModal}>
+        Run Transfer
       </Button>
       <CreateRunModal
         transferId={transferId}
         transferName={transferName}
-        open={isOpenedCreateRunModal}
-        onClose={handleCloseCreateRunModal}
+        open={isOpenedModal}
+        onClose={handleCloseModal}
       />
     </>
   );
