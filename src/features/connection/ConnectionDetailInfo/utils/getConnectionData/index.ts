@@ -21,6 +21,9 @@ export const getConnectionData = ({ data }: GetDescriptionItemsProps): Descripti
         },
       ];
     case ConnectionType.POSTGRES:
+    case ConnectionType.CLICKHOUSE:
+    case ConnectionType.MY_SQL:
+    case ConnectionType.MS_SQL:
       return [
         {
           label: 'Database name',

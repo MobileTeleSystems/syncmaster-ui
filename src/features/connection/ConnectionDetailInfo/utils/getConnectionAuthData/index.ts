@@ -16,6 +16,9 @@ export const getConnectionAuthData = ({ data }: GetDescriptionItemsProps): Descr
     case ConnectionType.HDFS:
     case ConnectionType.ORACLE:
     case ConnectionType.POSTGRES:
+    case ConnectionType.CLICKHOUSE:
+    case ConnectionType.MY_SQL:
+    case ConnectionType.MS_SQL:
       return [
         {
           label: 'User',
