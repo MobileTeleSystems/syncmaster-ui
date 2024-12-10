@@ -19,7 +19,9 @@ export const Header = () => {
       {/* TODO: [DOP-20026] Need to add logo */}
       <div className={classes.main}>
         <div className={classes.logo} />
-        <SelectGroup />
+        <div className={classes.select}>
+          <SelectGroup />
+        </div>
       </div>
       <div className={classes.user}>
         <div className={classes['user-info']}>
