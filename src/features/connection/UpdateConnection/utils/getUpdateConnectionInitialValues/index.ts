@@ -47,6 +47,33 @@ export const getUpdateConnectionInitialValues = (connection: Connection): Update
       ...connection.auth_data,
     });
   }
+  if (
+    connection.auth_data.type === ConnectionType.MS_SQL &&
+    connection.connection_data.type === ConnectionType.MS_SQL
+  ) {
+    return Object.assign(baseFormData, {
+      ...connection.connection_data,
+      ...connection.auth_data,
+    });
+  }
+  if (
+    connection.auth_data.type === ConnectionType.MY_SQL &&
+    connection.connection_data.type === ConnectionType.MY_SQL
+  ) {
+    return Object.assign(baseFormData, {
+      ...connection.connection_data,
+      ...connection.auth_data,
+    });
+  }
+  if (
+    connection.auth_data.type === ConnectionType.CLICKHOUSE &&
+    connection.connection_data.type === ConnectionType.CLICKHOUSE
+  ) {
+    return Object.assign(baseFormData, {
+      ...connection.connection_data,
+      ...connection.auth_data,
+    });
+  }
   return {
     name: connection.name,
     description: connection.description,

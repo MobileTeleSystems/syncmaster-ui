@@ -23,6 +23,9 @@ export const getDescriptionItems = ({ data }: GetDescriptionItemsProps): Descrip
     case ConnectionType.HIVE:
     case ConnectionType.ORACLE:
     case ConnectionType.POSTGRES:
+    case ConnectionType.CLICKHOUSE:
+    case ConnectionType.MY_SQL:
+    case ConnectionType.MS_SQL:
       return [
         {
           label: 'Table name',

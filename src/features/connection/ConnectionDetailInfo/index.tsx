@@ -1,6 +1,7 @@
 import React from 'react';
 import { Descriptions } from 'antd';
 import { Link } from 'react-router-dom';
+import { CONNECTION_TYPE_NAMES } from '@entities/connection';
 
 import { ConnectionDetailInfoProps } from './types';
 import { getConnectionAuthData, getConnectionData } from './utils';
@@ -21,7 +22,7 @@ export const ConnectionDetailInfo = ({ connection, group, ...props }: Connection
         <Link to={`/groups/${group.id}`}>{group.name}</Link>
       </Descriptions.Item>
       <Descriptions.Item label="Type" span={3}>
-        {connection.connection_data.type}
+        {CONNECTION_TYPE_NAMES[connection.connection_data.type]}
       </Descriptions.Item>
       {getConnectionAuthData({ data: connection.auth_data }).map((item, index) => (
         <Descriptions.Item label={item.label} span={3} key={index}>

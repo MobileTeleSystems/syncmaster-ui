@@ -2,7 +2,7 @@ import React from 'react';
 import { PaginationResponse } from '@shared/types';
 import { TableColumns } from '@shared/ui';
 import { Link } from 'react-router-dom';
-import { Connection } from '@entities/connection';
+import { Connection, CONNECTION_TYPE_NAMES } from '@entities/connection';
 
 export const CONNECTION_LIST_COLUMNS: TableColumns<PaginationResponse<Connection>> = [
   {
@@ -19,8 +19,8 @@ export const CONNECTION_LIST_COLUMNS: TableColumns<PaginationResponse<Connection
   {
     title: 'Type',
     dataIndex: 'connection_data',
-    render: (data, record) => record.connection_data.type,
-    width: 100,
+    render: (data, record) => CONNECTION_TYPE_NAMES[record.connection_data.type],
+    width: 150,
   },
   {
     title: 'Description',

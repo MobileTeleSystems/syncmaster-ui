@@ -12,12 +12,18 @@ export interface Transfer {
     | TransferParamsHive
     | TransferParamsOracle
     | TransferParamsPostgres
+    | TransferParamsClickhouse
+    | TransferParamsMsSql
+    | TransferParamsMySql
     | TransferSourceParamsHdfs
     | TransferSourceParamsS3;
   target_params:
     | TransferParamsHive
     | TransferParamsOracle
     | TransferParamsPostgres
+    | TransferParamsClickhouse
+    | TransferParamsMsSql
+    | TransferParamsMySql
     | TransferTargetParamsHdfs
     | TransferTargetParamsS3;
   strategy_params: TransferStrategyParams;
@@ -43,6 +49,21 @@ interface TransferParamsOracle {
 
 interface TransferParamsPostgres {
   type: ConnectionType.POSTGRES;
+  table_name: string;
+}
+
+interface TransferParamsMySql {
+  type: ConnectionType.MY_SQL;
+  table_name: string;
+}
+
+interface TransferParamsMsSql {
+  type: ConnectionType.MS_SQL;
+  table_name: string;
+}
+
+interface TransferParamsClickhouse {
+  type: ConnectionType.CLICKHOUSE;
   table_name: string;
 }
 
