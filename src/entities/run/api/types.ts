@@ -18,3 +18,7 @@ export interface GetRunsRequest extends PaginationRequest {
 export interface GetRunRequest {
   id: number;
 }
+
+export interface CreateRunRequest {
+  transfer_id: number;
+}
