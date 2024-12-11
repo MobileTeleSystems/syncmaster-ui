@@ -7,7 +7,15 @@ export type Connection = {
   description: string;
 } & ConnectionData;
 
-export type ConnectionData = ConnectionHive | ConnectionHdfs | ConnectionOracle | ConnectionPostgres | ConnectionS3;
+export type ConnectionData =
+  | ConnectionHive
+  | ConnectionHdfs
+  | ConnectionOracle
+  | ConnectionPostgres
+  | ConnectionClickhouse
+  | ConnectionMySql
+  | ConnectionMsSql
+  | ConnectionS3;
 
 export type ConnectionBucketStyle = 'domain' | 'path';
 
@@ -60,6 +68,48 @@ export interface ConnectionPostgres {
   };
   connection_data: {
     type: ConnectionType.POSTGRES;
+    host: string;
+    port: number;
+    database_name: string;
+  };
+}
+
+export interface ConnectionClickhouse {
+  auth_data: {
+    type: ConnectionType.CLICKHOUSE;
+    user: string;
+    password?: string;
+  };
+  connection_data: {
+    type: ConnectionType.CLICKHOUSE;
+    host: string;
+    port: number;
+    database_name: string;
+  };
+}
+
+export interface ConnectionMySql {
+  auth_data: {
+    type: ConnectionType.MY_SQL;
+    user: string;
+    password?: string;
+  };
+  connection_data: {
+    type: ConnectionType.MY_SQL;
+    host: string;
+    port: number;
+    database_name: string;
+  };
+}
+
+export interface ConnectionMsSql {
+  auth_data: {
+    type: ConnectionType.MS_SQL;
+    user: string;
+    password?: string;
+  };
+  connection_data: {
+    type: ConnectionType.MS_SQL;
     host: string;
     port: number;
     database_name: string;

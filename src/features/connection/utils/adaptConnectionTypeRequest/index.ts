@@ -1,7 +1,10 @@
 import { ConnectionType } from '@shared/types';
 import {
+  adaptConnectionClickhouse,
   adaptConnectionHdfs,
   adaptConnectionHive,
+  adaptConnectionMsSql,
+  adaptConnectionMySql,
   adaptConnectionOracle,
   adaptConnectionPostgres,
   adaptConnectionS3,
@@ -21,6 +24,12 @@ export const adaptConnectionTypeRequest = (values: AdaptConnectionTypeRequestPro
       return adaptConnectionOracle(values);
     case ConnectionType.POSTGRES:
       return adaptConnectionPostgres(values);
+    case ConnectionType.CLICKHOUSE:
+      return adaptConnectionClickhouse(values);
+    case ConnectionType.MY_SQL:
+      return adaptConnectionMySql(values);
+    case ConnectionType.MS_SQL:
+      return adaptConnectionMsSql(values);
     case ConnectionType.S3:
       return adaptConnectionS3(values);
   }
