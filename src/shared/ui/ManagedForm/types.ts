@@ -12,6 +12,8 @@ export interface ManagedFormProps<T, R> extends Omit<FormProps<T>, 'form' | 'onF
   mutationFunction: (params: T) => Promise<R>;
   /** Callback on success response from request */
   onSuccess: (response: R) => void;
+  /** Notification message text on success response from request */
+  successMessage?: string;
   /** Callback on error response from request */
   onError?: (error: unknown) => void;
   /** Keys for invalidate cache of other requests */

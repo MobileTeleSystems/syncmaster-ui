@@ -27,6 +27,7 @@ export const UpdateQueue = ({ queue, group }: UpdateQueueProps) => {
       mutationFunction={handleUpdateQueue}
       initialValues={getUpdateQueueInitialValues(queue)}
       onSuccess={onSuccess}
+      successMessage="Queue was updated successfully"
       keysInvalidateQueries={[
         [{ queryKey: [QueueQueryKey.GET_QUEUES, group.id] }],
         [{ queryKey: [QueueQueryKey.GET_QUEUE, queue.id] }],

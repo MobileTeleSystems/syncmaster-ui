@@ -27,6 +27,7 @@ export const UpdateTransfer = ({ transfer, group }: UpdateTransferProps) => {
       initialValues={transferInitialValues}
       mutationFunction={handleUpdateTransfer}
       onSuccess={onSuccess}
+      successMessage="Transfer was updated successfully"
       keysInvalidateQueries={[
         [{ queryKey: [TransferQueryKey.GET_TRANSFERS, group.id] }],
         [{ queryKey: [TransferQueryKey.GET_TRANSFER, transfer.id] }],

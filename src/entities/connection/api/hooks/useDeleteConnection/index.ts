@@ -15,6 +15,9 @@ export const useDeleteConnection = (data: DeleteConnectionRequest): UseMutationR
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [ConnectionQueryKey.GET_CONNECTIONS] });
       queryClient.removeQueries({ queryKey: [ConnectionQueryKey.GET_CONNECTION, data.id] });
+      notification.success({
+        message: 'Connection was deleted successfully',
+      });
     },
     onError: (error) => {
       notification.error({

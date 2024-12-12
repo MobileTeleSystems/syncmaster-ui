@@ -28,6 +28,7 @@ export const UpdateGroup = ({ group }: UpdateGroupProps) => {
       mutationFunction={handleUpdateGroup}
       initialValues={getUpdateGroupInitialValues(group)}
       onSuccess={onSuccess}
+      successMessage="Group was updated successfully"
       keysInvalidateQueries={[
         [{ queryKey: [GroupQueryKey.GET_GROUPS] }],
         [{ queryKey: [GroupQueryKey.GET_GROUP, group.id] }],
@@ -37,7 +38,7 @@ export const UpdateGroup = ({ group }: UpdateGroupProps) => {
         <Input size="large" />
       </Form.Item>
 
-      <Form.Item label="Description" name="description">
+      <Form.Item label="Description" name="description" rules={[{ required: true }]}>
         <Input size="large" />
       </Form.Item>
 

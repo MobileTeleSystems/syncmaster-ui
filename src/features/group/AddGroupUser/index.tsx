@@ -15,6 +15,7 @@ export const AddGroupUser = ({ groupId, onSuccess, onCancel }: AddGroupUserProps
     <ManagedForm<AddGroupUserForm, null>
       mutationFunction={handleAddGroupUser}
       onSuccess={onSuccess}
+      successMessage="User was added to group successfully"
       keysInvalidateQueries={[[{ queryKey: [GroupQueryKey.GET_GROUP_USERS, groupId] }]]}
     >
       <Form.Item label="User" name="userId" rules={[{ required: true }]}>

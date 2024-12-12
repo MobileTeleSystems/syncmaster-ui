@@ -29,6 +29,7 @@ export const CreateConnection = ({ group }: CreateConnectionProps) => {
     <ManagedForm<CreateConnectionForm, Connection>
       mutationFunction={handleCreateConnection}
       onSuccess={onSuccess}
+      successMessage="Connection was created successfully"
       keysInvalidateQueries={[[{ queryKey: [ConnectionQueryKey.GET_CONNECTIONS, group.id] }]]}
     >
       <FormCurrentGroupDescription groupName={group.name} />
