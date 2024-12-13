@@ -3,6 +3,7 @@ import { Descriptions } from 'antd';
 import { Link } from 'react-router-dom';
 import { RunStatusBadge } from '@entities/run';
 import { Typography } from 'antd';
+import dayjs from 'dayjs';
 
 const { Text } = Typography;
 
@@ -18,12 +19,10 @@ export const RunDetailInfo = ({ run, transfer, ...props }: RunDetailInfoProps) =
         <RunStatusBadge status={run.status} />
       </Descriptions.Item>
       <Descriptions.Item label="Started at" span={3}>
-        {/* //TODO: [DOP-20067] Rewrite on dayjs when "started_at" field will have not null value */}
-        {run.started_at || ''}
+        {run.started_at ? dayjs(run.started_at).format('DD-MM-YYYY HH:mm:ss') : ''}
       </Descriptions.Item>
       <Descriptions.Item label="Ended at" span={3}>
-        {/* //TODO: [DOP-20067] Rewrite on dayjs when "ended_at" field will have not null value */}
-        {run.ended_at || ''}
+        {run.ended_at ? dayjs(run.ended_at).format('DD-MM-YYYY HH:mm:ss') : ''}
       </Descriptions.Item>
       <Descriptions.Item label="Log url" span={3}>
         {run.log_url ? (

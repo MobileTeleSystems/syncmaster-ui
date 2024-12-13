@@ -4,6 +4,7 @@ import { TableColumns } from '@shared/ui';
 import { Run, RunStatusBadge } from '@entities/run';
 import { Typography } from 'antd';
 import { Link } from 'react-router-dom';
+import dayjs from 'dayjs';
 
 const { Text } = Typography;
 
@@ -12,7 +13,7 @@ export const RUN_LIST_COLUMNS: TableColumns<PaginationResponse<Run>> = [
     title: 'Id',
     dataIndex: 'id',
     render: (id, record) => <Link to={`/transfers/runs/${record.id}`}>{id}</Link>,
-    width: 150,
+    width: 80,
   },
   {
     title: 'Status',
@@ -23,14 +24,14 @@ export const RUN_LIST_COLUMNS: TableColumns<PaginationResponse<Run>> = [
   {
     title: 'Started at',
     dataIndex: 'started_at',
-    //TODO: [DOP-20067] Rewrite on dayjs when "started_at" field will have not null value
-    width: 150,
+    render: (value, record) => (record.started_at ? dayjs(record.started_at).format('DD-MM-YYYY HH:mm:ss') : ''),
+    width: 180,
   },
   {
     title: 'Ended at',
     dataIndex: 'ended_at',
-    //TODO: [DOP-20067] Rewrite on dayjs when "ended_at" field will have not null value
-    width: 150,
+    render: (value, record) => (record.ended_at ? dayjs(record.ended_at).format('DD-MM-YYYY HH:mm:ss') : ''),
+    width: 180,
   },
   {
     title: 'Log url',
