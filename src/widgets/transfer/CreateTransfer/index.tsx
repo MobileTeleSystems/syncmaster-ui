@@ -27,6 +27,7 @@ export const CreateTransfer = ({ group }: CreateTransferProps) => {
       initialValues={CREATE_TRANSFER_INITIAL_VALUES}
       mutationFunction={handleCreateTransfer}
       onSuccess={onSuccess}
+      successMessage="Transfer was created successfully"
       keysInvalidateQueries={[[{ queryKey: [TransferQueryKey.GET_TRANSFERS, group.id] }]]}
     >
       <MutateTransferForm group={group} onCancel={onCancel} />

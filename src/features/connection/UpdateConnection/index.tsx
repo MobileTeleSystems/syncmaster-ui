@@ -31,6 +31,7 @@ export const UpdateConnection = ({ connection, group }: UpdateConnectionProps) =
       mutationFunction={handleUpdateConnection}
       initialValues={getUpdateConnectionInitialValues(connection)}
       onSuccess={onSuccess}
+      successMessage="Connection was updated successfully"
       keysInvalidateQueries={[
         [{ queryKey: [ConnectionQueryKey.GET_CONNECTIONS, group.id] }],
         [{ queryKey: [ConnectionQueryKey.GET_CONNECTION, connection.id] }],

@@ -15,7 +15,7 @@ export const ConnectionTypeForm = ({ initialType, isRequiredSensitiveFields = tr
 
   return (
     <>
-      <Form.Item label="type" name="type" rules={[{ required: true }]}>
+      <Form.Item label="Type" name="type" rules={[{ required: true }]}>
         <Select
           size="large"
           options={CONNECTION_TYPE_SELECT_OPTIONS}

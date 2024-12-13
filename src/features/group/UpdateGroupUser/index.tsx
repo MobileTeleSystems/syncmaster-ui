@@ -19,6 +19,7 @@ export const UpdateGroupUser = ({ groupId, user, onSuccess, onCancel }: UpdateGr
       initialValues={getUpdateGroupUserInitialValues(user)}
       mutationFunction={handleUpdateGroupUser}
       onSuccess={onSuccess}
+      successMessage="User role was updated successfully"
       keysInvalidateQueries={[[{ queryKey: [GroupQueryKey.GET_GROUP_USERS, groupId] }]]}
     >
       <div className={classes.formMain}>

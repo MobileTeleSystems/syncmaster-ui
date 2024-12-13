@@ -19,13 +19,14 @@ export const CreateGroup = () => {
     <ManagedForm
       mutationFunction={groupService.createGroup}
       onSuccess={onSuccess}
+      successMessage="Group was created successfully"
       keysInvalidateQueries={[[{ queryKey: [GroupQueryKey.GET_GROUPS] }]]}
     >
       <Form.Item label="Name" name="name" rules={[{ required: true }]}>
         <Input size="large" />
       </Form.Item>
 
-      <Form.Item label="Description" name="description">
+      <Form.Item label="Description" name="description" rules={[{ required: true }]}>
         <Input size="large" />
       </Form.Item>
 

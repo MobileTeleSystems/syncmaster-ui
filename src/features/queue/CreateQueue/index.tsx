@@ -25,6 +25,7 @@ export const CreateQueue = ({ group }: CreateQueueProps) => {
     <ManagedForm<CreateQueueForm, Queue>
       mutationFunction={handleCreateQueue}
       onSuccess={onSuccess}
+      successMessage="Queue was created successfully"
       keysInvalidateQueries={[[{ queryKey: [QueueQueryKey.GET_QUEUES, group.id] }]]}
     >
       <FormCurrentGroupDescription groupName={group.name} />

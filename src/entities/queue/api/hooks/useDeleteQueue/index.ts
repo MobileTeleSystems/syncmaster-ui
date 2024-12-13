@@ -15,6 +15,9 @@ export const useDeleteQueue = (data: DeleteQueueRequest): UseMutationResult => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [QueueQueryKey.GET_QUEUES] });
       queryClient.removeQueries({ queryKey: [QueueQueryKey.GET_QUEUE, data.id] });
+      notification.success({
+        message: 'Queue was deleted successfully',
+      });
     },
     onError: (error) => {
       notification.error({

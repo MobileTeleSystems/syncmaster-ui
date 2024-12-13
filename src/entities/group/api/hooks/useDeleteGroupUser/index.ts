@@ -14,6 +14,9 @@ export const useDeleteGroupUser = (data: DeleteGroupUserRequest): UseMutationRes
     mutationFn: () => groupService.deleteGroupUser(data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [GroupQueryKey.GET_GROUP_USERS, data.groupId] });
+      notification.success({
+        message: 'Group was deleted successfully',
+      });
     },
     onError: (error) => {
       notification.error({

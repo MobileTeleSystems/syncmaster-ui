@@ -14,6 +14,9 @@ export const useCreateRun = (data: CreateRunRequest): UseMutationResult => {
     mutationFn: () => runService.createRun(data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [RunQueryKey.GET_RUNS, data.transfer_id] });
+      notification.success({
+        message: 'Transfer run was created successfully',
+      });
     },
     onError: (error) => {
       notification.error({

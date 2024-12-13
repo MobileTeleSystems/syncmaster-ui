@@ -13,6 +13,7 @@ export const ManagedForm = <T extends object, R>({
   children,
   mutationFunction,
   onSuccess,
+  successMessage,
   keysInvalidateQueries = [],
   isHiddenLoadingOnSuccess = false,
   onError = () => undefined,
@@ -34,6 +35,11 @@ export const ManagedForm = <T extends object, R>({
         });
         if (isHiddenLoadingOnSuccess) {
           setLoading(false);
+        }
+        if (successMessage) {
+          notification.success({
+            message: successMessage,
+          });
         }
       },
       onError: (error) => {

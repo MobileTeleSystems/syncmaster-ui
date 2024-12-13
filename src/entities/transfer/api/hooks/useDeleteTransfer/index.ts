@@ -15,6 +15,9 @@ export const useDeleteTransfer = (data: DeleteTransferRequest): UseMutationResul
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [TransferQueryKey.GET_TRANSFERS] });
       queryClient.removeQueries({ queryKey: [TransferQueryKey.GET_TRANSFER, data.id] });
+      notification.success({
+        message: 'Transfer was deleted successfully',
+      });
     },
     onError: (error) => {
       notification.error({
