@@ -38,6 +38,9 @@ export const TransferDetailInfo = ({
         <Descriptions.Item label="Schedule" span={3}>
           {transfer.schedule}
         </Descriptions.Item>
+        <Descriptions.Item label="Strategy params" span={3}>
+          {transfer.strategy_params.type}
+        </Descriptions.Item>
         <Descriptions.Item label="Source connection" span={3}>
           <Link to={`/connections/${connectionSource.id}`}>{connectionSource.name}</Link>
         </Descriptions.Item>

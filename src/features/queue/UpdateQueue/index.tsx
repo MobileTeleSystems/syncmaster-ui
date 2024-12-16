@@ -36,7 +36,7 @@ export const UpdateQueue = ({ queue, group }: UpdateQueueProps) => {
       <FormCurrentGroupDescription groupName={group.name} />
 
       <Form.Item label="Name" name="name" rules={[{ required: true, pattern: QUEUE_NAME_REGEXP }]}>
-        <Input size="large" />
+        <Input size="large" disabled />
       </Form.Item>
 
       <Form.Item label="Description" name="description">
