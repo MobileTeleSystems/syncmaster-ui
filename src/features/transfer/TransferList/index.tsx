@@ -13,6 +13,7 @@ export const TransferList = memo(({ group, onUpdateRowClick, onDeleteRowClick }:
       queryKey={[TransferQueryKey.GET_TRANSFERS, group.data.id]}
       queryFunction={(params) => transferService.getTransfers({ ...params, group_id: group.data.id })}
       columns={TRANSFER_LIST_COLUMNS}
+      isHiddenRowActions={!hasAccessByUserRole(UserRole.Developer, group.role)}
       isRenderUpdateRowAction={() => hasAccessByUserRole(UserRole.Developer, group.role)}
       isRenderDeleteRowAction={() => hasAccessByUserRole(UserRole.Maintainer, group.role)}
       onUpdateRowClick={onUpdateRowClick}
