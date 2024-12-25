@@ -6,7 +6,7 @@ export const useLogin = () => {
 
   const login = (token: string) => {
     localStorage.setItem(Storage.ACCESS_TOKEN, token);
-    navigate('/users');
+    navigate('/connections');
   };
 
   return login;
