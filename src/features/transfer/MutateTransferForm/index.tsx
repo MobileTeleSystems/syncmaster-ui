@@ -30,6 +30,8 @@ export const MutateTransferForm = ({
           queryFunction={(params) => queueService.getQueues({ group_id: group.id, ...params })}
           renderOptionValue={(queue) => queue.id}
           renderOptionLabel={(queue) => queue.name}
+          detailQueryKey={[QueueQueryKey.GET_QUEUE]}
+          detailQueryFunction={(value) => queueService.getQueue({ id: value })}
           placeholder="Select queue"
         />
       </Form.Item>

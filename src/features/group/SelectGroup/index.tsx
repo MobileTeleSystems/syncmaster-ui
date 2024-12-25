@@ -17,6 +17,8 @@ export const SelectGroup = () => {
       onSelect={handleSelectGroup}
       renderOptionLabel={(group) => group.data.name}
       renderOptionValue={(group) => group.data.id}
+      detailQueryKey={[GroupQueryKey.GET_GROUP]}
+      detailQueryFunction={(value) => groupService.getGroup({ id: value })}
       placeholder="Select group"
     />
   );
