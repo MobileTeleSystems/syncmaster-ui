@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
-import { ConnectionType } from '@shared/types';
+import React from 'react';
 import { Form, Select } from 'antd';
 import { CONNECTION_TYPE_SELECT_OPTIONS } from '@entities/connection';
 
 import { ConnectionTypeFormProps } from './types';
 import { CONNECTION_TYPE_COMPONENT, SensitiveFieldsContext } from './constants';
+import { useSelectConnectionType } from './hooks';
 
 export const ConnectionTypeForm = ({ initialType, isRequiredSensitiveFields = true }: ConnectionTypeFormProps) => {
-  const [selectedConnectionType, setConnectionType] = useState<ConnectionType | undefined>(initialType);
-
-  const handleSelectConnectionType = (type: ConnectionType) => {
-    setConnectionType(type);
-  };
+  const { selectedConnectionType, handleSelectConnectionType } = useSelectConnectionType({ initialType });
 
   return (
     <>

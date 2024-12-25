@@ -19,7 +19,7 @@ export const CONNECTION_LIST_COLUMNS: TableColumns<PaginationResponse<Connection
   {
     title: 'Type',
     dataIndex: 'connection_data',
-    render: (data, record) => CONNECTION_TYPE_NAMES[record.connection_data.type],
+    render: (data, record) => CONNECTION_TYPE_NAMES[record.type],
     width: 150,
   },
   {

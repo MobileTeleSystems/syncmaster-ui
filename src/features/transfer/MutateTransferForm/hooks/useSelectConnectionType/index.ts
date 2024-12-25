@@ -15,7 +15,7 @@ export const useSelectConnectionType = ({
   const [selectedConnectionType, setConnectionType] = useState<ConnectionType | undefined>(initialConnectionType);
 
   const handleSelectConnection = (value: string | number, connection: OptionItem<Connection>) => {
-    const connectionType = connection.data.auth_data.type;
+    const connectionType = connection.data.type;
     setConnectionType(connectionType);
     formInstance.setFieldValue([connectionParamFieldName, 'type'], connectionType);
   };

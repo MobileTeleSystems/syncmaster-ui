@@ -22,14 +22,14 @@ export const ConnectionDetailInfo = ({ connection, group, ...props }: Connection
         <Link to={`/groups/${group.id}`}>{group.name}</Link>
       </Descriptions.Item>
       <Descriptions.Item label="Type" span={3}>
-        {CONNECTION_TYPE_NAMES[connection.connection_data.type]}
+        {CONNECTION_TYPE_NAMES[connection.type]}
       </Descriptions.Item>
-      {getConnectionAuthData({ data: connection.auth_data }).map((item, index) => (
+      {getConnectionAuthData(connection).map((item, index) => (
         <Descriptions.Item label={item.label} span={3} key={index}>
           {item.content}
         </Descriptions.Item>
       ))}
-      {getConnectionData({ data: connection.connection_data }).map((item, index) => (
+      {getConnectionData(connection).map((item, index) => (
         <Descriptions.Item label={item.label} span={3} key={index}>
           {item.content}
         </Descriptions.Item>
