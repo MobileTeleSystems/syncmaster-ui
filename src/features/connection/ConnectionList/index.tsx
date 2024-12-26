@@ -13,6 +13,7 @@ export const ConnectionList = memo(({ group, onUpdateRowClick, onDeleteRowClick 
       queryKey={[ConnectionQueryKey.GET_CONNECTIONS, group.data.id]}
       queryFunction={(params) => connectionService.getConnections({ ...params, group_id: group.data.id })}
       columns={CONNECTION_LIST_COLUMNS}
+      isHiddenRowActions={!hasAccessByUserRole(UserRole.Developer, group.role)}
       isRenderUpdateRowAction={() => hasAccessByUserRole(UserRole.Developer, group.role)}
       isRenderDeleteRowAction={() => hasAccessByUserRole(UserRole.Maintainer, group.role)}
       onUpdateRowClick={onUpdateRowClick}

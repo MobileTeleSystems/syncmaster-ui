@@ -21,6 +21,7 @@ export const GroupUserList = memo(({ group, onUpdateRowClick, onDeleteRowClick }
       queryKey={[GroupQueryKey.GET_GROUP_USERS, group.data.id]}
       queryFunction={handleGetGroupUsers}
       columns={GROUP_USER_LIST_COLUMNS}
+      isHiddenRowActions={!hasAccessByUserRole(UserRole.Owner, group.role)}
       isRenderUpdateRowAction={isRenderRowAction}
       isRenderDeleteRowAction={isRenderRowAction}
       onUpdateRowClick={onUpdateRowClick}

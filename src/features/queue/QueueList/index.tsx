@@ -13,6 +13,7 @@ export const QueueList = memo(({ group, onUpdateRowClick, onDeleteRowClick }: Qu
       queryKey={[QueueQueryKey.GET_QUEUES, group.data.id]}
       queryFunction={(params) => queueService.getQueues({ ...params, group_id: group.data.id })}
       columns={QUEUE_LIST_COLUMNS}
+      isHiddenRowActions={!hasAccessByUserRole(UserRole.Maintainer, group.role)}
       isRenderUpdateRowAction={() => hasAccessByUserRole(UserRole.Maintainer, group.role)}
       isRenderDeleteRowAction={() => hasAccessByUserRole(UserRole.Maintainer, group.role)}
       onUpdateRowClick={onUpdateRowClick}
