@@ -7,6 +7,7 @@ import { checkIsFormFieldsError, getErrorMessage } from '@shared/config';
 
 import classes from './styles.module.less';
 import { ManagedFormProps } from './types';
+import { cleanErrors, showErrorsInFields } from './utils';
 
 /** Form component to manage the request and results of a form request */
 export const ManagedForm = <T extends object, R>({
@@ -49,11 +50,7 @@ export const ManagedForm = <T extends object, R>({
 
         if (checkIsFormFieldsError(error) && error.response) {
           message = 'Form error has occurred';
-          const fieldErrors = error.response.data.error.details.map((field) => ({
-            name: field.location[1],
-            errors: [field.message],
-          }));
-          form.setFields(fieldErrors);
+          showErrorsInFields(form, error.response.data.error.details);
         }
 
         notification.error({
@@ -63,20 +60,8 @@ export const ManagedForm = <T extends object, R>({
     });
   };
 
-  // Clean error from backend after field change value
   const onValuesChange = (values: T) => {
-    Object.keys(values).forEach((field) => {
-      const error = form.getFieldError(field);
-      if (!error.length) {
-        return;
-      }
-      form.setFields([
-        {
-          name: field,
-          errors: [],
-        },
-      ]);
-    });
+    cleanErrors(form, values);
   };
 
   return (
