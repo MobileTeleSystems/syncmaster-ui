@@ -1,15 +1,16 @@
 import { ConnectionType, DescriptionItem } from '@shared/types';
-
-import { GetDescriptionItemsProps } from './types';
+import { Connection } from '@entities/connection';
 
 /** Util for mapping connection auth data for Description component depends on connection type */
-export const getConnectionAuthData = ({ data }: GetDescriptionItemsProps): DescriptionItem[] => {
-  switch (data.type) {
+export const getConnectionAuthData = (connection: Connection): DescriptionItem[] => {
+  const { type, auth_data } = connection;
+
+  switch (type) {
     case ConnectionType.S3:
       return [
         {
           label: 'Access key',
-          content: data.access_key,
+          content: auth_data.access_key,
         },
       ];
     case ConnectionType.HIVE:
@@ -22,7 +23,7 @@ export const getConnectionAuthData = ({ data }: GetDescriptionItemsProps): Descr
       return [
         {
           label: 'User',
-          content: data.user,
+          content: auth_data.user,
         },
       ];
   }

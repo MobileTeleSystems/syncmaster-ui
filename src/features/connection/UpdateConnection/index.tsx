@@ -4,18 +4,14 @@ import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { Connection, ConnectionQueryKey, connectionService, ConnectionTypeForm } from '@entities/connection';
 
-import { adaptConnectionTypeRequest } from '../utils';
-
 import { UpdateConnectionForm, UpdateConnectionProps } from './types';
-import { getUpdateConnectionInitialValues } from './utils';
 
 export const UpdateConnection = ({ connection, group }: UpdateConnectionProps) => {
+  const { id: connectionId, group_id, ...connectionInitialValues } = connection;
   const navigate = useNavigate();
 
-  const handleUpdateConnection = ({ name, description, ...values }: UpdateConnectionForm) => {
-    return connectionService.updateConnection(
-      Object.assign({ id: connection.id, name, description }, adaptConnectionTypeRequest(values)),
-    );
+  const handleUpdateConnection = (values: UpdateConnectionForm) => {
+    return connectionService.updateConnection(Object.assign({ id: connectionId, ...values }));
   };
 
   const onSuccess = (response: Connection) => {
@@ -29,12 +25,12 @@ export const UpdateConnection = ({ connection, group }: UpdateConnectionProps) =
   return (
     <ManagedForm<UpdateConnectionForm, Connection>
       mutationFunction={handleUpdateConnection}
-      initialValues={getUpdateConnectionInitialValues(connection)}
+      initialValues={connectionInitialValues}
       onSuccess={onSuccess}
       successMessage="Connection was updated successfully"
       keysInvalidateQueries={[
         [{ queryKey: [ConnectionQueryKey.GET_CONNECTIONS, group.id] }],
-        [{ queryKey: [ConnectionQueryKey.GET_CONNECTION, connection.id] }],
+        [{ queryKey: [ConnectionQueryKey.GET_CONNECTION, connectionId] }],
       ]}
     >
       <FormCurrentGroupDescription groupName={group.name} />
@@ -47,7 +43,7 @@ export const UpdateConnection = ({ connection, group }: UpdateConnectionProps) =
         <Input size="large" />
       </Form.Item>
 
-      <ConnectionTypeForm initialType={connection.auth_data.type} isRequiredSensitiveFields={false} />
+      <ConnectionTypeForm initialType={connectionInitialValues.type} isRequiredSensitiveFields={false} />
 
       <ControlButtons onCancel={onCancel} />
     </ManagedForm>

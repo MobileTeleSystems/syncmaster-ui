@@ -21,38 +21,43 @@ export type ConnectionBucketStyle = 'domain' | 'path';
 
 export type ConnectionProtocol = 'https' | 'http';
 
+export enum ConnectionAuthType {
+  BASIC = 'basic',
+  S3 = 's3',
+}
+
+interface ConnectionAuthBasic {
+  type: ConnectionAuthType.BASIC;
+  user: string;
+  password?: string;
+}
+
+interface ConnectionAuthS3 {
+  type: ConnectionAuthType.S3;
+  access_key: string;
+  secret_key?: string;
+}
+
 export interface ConnectionHive {
-  auth_data: {
-    type: ConnectionType.HIVE;
-    user: string;
-    password?: string;
-  };
+  type: ConnectionType.HIVE;
+  auth_data: ConnectionAuthBasic;
   connection_data: {
-    type: ConnectionType.HIVE;
     cluster: string;
   };
 }
 
 export interface ConnectionHdfs {
-  auth_data: {
-    type: ConnectionType.HDFS;
-    user: string;
-    password?: string;
-  };
+  type: ConnectionType.HDFS;
+  auth_data: ConnectionAuthBasic;
   connection_data: {
-    type: ConnectionType.HDFS;
     cluster: string;
   };
 }
 
 export interface ConnectionOracle {
-  auth_data: {
-    type: ConnectionType.ORACLE;
-    user: string;
-    password?: string;
-  };
+  type: ConnectionType.ORACLE;
+  auth_data: ConnectionAuthBasic;
   connection_data: {
-    type: ConnectionType.ORACLE;
     host: string;
     port: number;
     service_name: string | null;
@@ -61,13 +66,9 @@ export interface ConnectionOracle {
 }
 
 export interface ConnectionPostgres {
-  auth_data: {
-    type: ConnectionType.POSTGRES;
-    user: string;
-    password?: string;
-  };
+  type: ConnectionType.POSTGRES;
+  auth_data: ConnectionAuthBasic;
   connection_data: {
-    type: ConnectionType.POSTGRES;
     host: string;
     port: number;
     database_name: string;
@@ -75,13 +76,9 @@ export interface ConnectionPostgres {
 }
 
 export interface ConnectionClickhouse {
-  auth_data: {
-    type: ConnectionType.CLICKHOUSE;
-    user: string;
-    password?: string;
-  };
+  type: ConnectionType.CLICKHOUSE;
+  auth_data: ConnectionAuthBasic;
   connection_data: {
-    type: ConnectionType.CLICKHOUSE;
     host: string;
     port: number;
     database_name: string;
@@ -89,13 +86,9 @@ export interface ConnectionClickhouse {
 }
 
 export interface ConnectionMySql {
-  auth_data: {
-    type: ConnectionType.MY_SQL;
-    user: string;
-    password?: string;
-  };
+  type: ConnectionType.MY_SQL;
+  auth_data: ConnectionAuthBasic;
   connection_data: {
-    type: ConnectionType.MY_SQL;
     host: string;
     port: number;
     database_name: string;
@@ -103,13 +96,9 @@ export interface ConnectionMySql {
 }
 
 export interface ConnectionMsSql {
-  auth_data: {
-    type: ConnectionType.MS_SQL;
-    user: string;
-    password?: string;
-  };
+  type: ConnectionType.MS_SQL;
+  auth_data: ConnectionAuthBasic;
   connection_data: {
-    type: ConnectionType.MS_SQL;
     host: string;
     port: number;
     database_name: string;
@@ -117,13 +106,9 @@ export interface ConnectionMsSql {
 }
 
 export interface ConnectionS3 {
-  auth_data: {
-    type: ConnectionType.S3;
-    access_key: string;
-    secret_key?: string;
-  };
+  type: ConnectionType.S3;
+  auth_data: ConnectionAuthS3;
   connection_data: {
-    type: ConnectionType.S3;
     host: string;
     bucket: string;
     bucket_style: ConnectionBucketStyle;

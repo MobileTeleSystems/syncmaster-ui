@@ -1,22 +1,15 @@
 import React from 'react';
 import { Form, Input } from 'antd';
 
-import { useSensitiveFields } from '../../hooks';
+import { ConnectionAuthBasic } from '../ConnectionAuthBasic';
 
 export const ConnectionHdfs = () => {
-  const { isRequired } = useSensitiveFields();
-
   return (
     <>
-      <Form.Item label="Cluster" name="cluster" rules={[{ required: true }]}>
+      <Form.Item label="Cluster" name={['connection_data', 'cluster']} rules={[{ required: true }]}>
         <Input size="large" />
       </Form.Item>
-      <Form.Item label="User" name="user" rules={[{ required: true }]}>
-        <Input size="large" />
-      </Form.Item>
-      <Form.Item label="Password" name="password" rules={[{ required: isRequired }]}>
-        <Input.Password size="large" />
-      </Form.Item>
+      <ConnectionAuthBasic />
     </>
   );
 };
