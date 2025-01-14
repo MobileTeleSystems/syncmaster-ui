@@ -12,6 +12,8 @@ const SELECTED_GROUP_CONTEXT_INITIAL_VALUE: SelectedGroupContextProps = {
 
 export const SelectedGroupContext = createContext<SelectedGroupContextProps>(SELECTED_GROUP_CONTEXT_INITIAL_VALUE);
 
+export const SELECTED_GROUP_LOCAL_STORAGE_KEY = 'SELECTED_GROUP';
+
 export const USER_ROLE_IN_GROUP_SELECT_OPTIONS = prepareOptionsForSelect<keyof typeof UserRole>({
   data: ['Guest', 'Developer', 'Maintainer'],
   renderLabel: (data) => data,
