@@ -19,14 +19,14 @@ export const ManagedSelect = <T, V extends DefaultOptionType['value']>({
   onSearch,
   ...props
 }: ManagedSelectProps<T, V>) => {
-  const [touched, setTouched] = useState(false);
+  const [hasTouched, setTouched] = useState(false);
 
   const { searchValue, setSearchValue, handleSearch } = useSearch({ onSearch });
 
   const { data, hasNextPage, fetchNextPage, isLoading, isFetching } = useGetList({
     queryKey,
     queryFunction,
-    touched,
+    hasTouched,
     searchValue,
   });
 

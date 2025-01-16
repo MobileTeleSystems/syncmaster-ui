@@ -8,7 +8,7 @@ import { QueryKey } from '@tanstack/react-query';
  */
 export interface UseGetListProps<T> {
   /** Select was in focus one time at least */
-  touched: boolean;
+  hasTouched: boolean;
   /** Query keys for requests cache of entity list data */
   queryKey: QueryKey;
   /** Function for request entity list data */

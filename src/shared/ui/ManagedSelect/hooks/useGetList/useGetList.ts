@@ -5,7 +5,7 @@ import { PAGE_DEFAULT, PAGE_SIZE_DEFAULT, REQUEST_FIRST_PAGE_DELAY } from '../..
 import { UseGetListProps } from './types';
 
 /** Hook for getting option list data for Select */
-export const useGetList = <T>({ queryKey, queryFunction, searchValue, touched }: UseGetListProps<T>) => {
+export const useGetList = <T>({ queryKey, queryFunction, searchValue, hasTouched }: UseGetListProps<T>) => {
   return useInfiniteRequest<T>({
     queryKey: [...queryKey, searchValue],
     queryFn: async ({ pageParam }) => {
@@ -18,6 +18,6 @@ export const useGetList = <T>({ queryKey, queryFunction, searchValue, touched }:
     },
     initialPageParam: { page: PAGE_DEFAULT, page_size: PAGE_SIZE_DEFAULT },
     // Show first page of options when user touches select
-    enabled: touched,
+    enabled: hasTouched,
   });
 };
