@@ -1,6 +1,7 @@
 import React from 'react';
 import { Descriptions } from 'antd';
 import { Link } from 'react-router-dom';
+import { CronService } from '@shared/services';
 
 import { TransferDetailInfoProps } from './types';
 import classes from './styles.module.less';
@@ -32,12 +33,11 @@ export const TransferDetailInfo = ({
         <Descriptions.Item label="Queue" span={3}>
           <Link to={`/queues/${queue.id}`}>{queue.name}</Link>
         </Descriptions.Item>
-        <Descriptions.Item label="Is scheduled" span={3}>
-          {transfer.is_scheduled ? 'Yes' : 'No'}
-        </Descriptions.Item>
-        <Descriptions.Item label="Schedule" span={3}>
-          {transfer.schedule}
-        </Descriptions.Item>
+        {transfer.is_scheduled && (
+          <Descriptions.Item label="Schedule" span={3}>
+            {new CronService(transfer.schedule).getSchedule()}
+          </Descriptions.Item>
+        )}
         <Descriptions.Item label="Strategy params" span={3}>
           {transfer.strategy_params.type}
         </Descriptions.Item>

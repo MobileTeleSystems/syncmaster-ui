@@ -1,4 +1,5 @@
-import { Form, Input, Switch } from 'antd';
+import { CronSelect } from '@shared/ui';
+import { Form, Switch } from 'antd';
 import React, { useState } from 'react';
 
 export const TransferSchedule = () => {
@@ -16,7 +17,7 @@ export const TransferSchedule = () => {
       </Form.Item>
       {isScheduled && (
         <Form.Item label="Schedule" name="schedule" rules={[{ required: true }]}>
-          <Input size="large" />
+          <CronSelect />
         </Form.Item>
       )}
     </>
