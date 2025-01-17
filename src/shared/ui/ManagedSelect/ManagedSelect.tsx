@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Select, Spin } from 'antd';
 import { DefaultOptionType } from 'antd/lib/select';
+import { useDebouncedState } from '@shared/hooks';
 
 import { ManagedSelectProps } from './types';
-import { useGetList, useGetSelectedItem, useHandleSelectEvents, usePrepareOptions, useSearch } from './hooks';
+import { useGetList, useGetSelectedItem, useHandleSelectEvents, usePrepareOptions } from './hooks';
+import { SEARCH_VALUE_CHANGE_DELAY, SEARCH_VALUE_DEFAULT } from './constants';
 
 /** Select component for infinite pagination of data in a dropdown */
 export const ManagedSelect = <T, V extends DefaultOptionType['value']>({
@@ -21,7 +23,11 @@ export const ManagedSelect = <T, V extends DefaultOptionType['value']>({
 }: ManagedSelectProps<T, V>) => {
   const [hasTouched, setTouched] = useState(false);
 
-  const { searchValue, setSearchValue, handleSearch } = useSearch({ onSearch });
+  const {
+    value: searchValue,
+    setValue: setSearchValue,
+    setDebouncedValue: handleDebouncedSearchValue,
+  } = useDebouncedState({ initialValue: SEARCH_VALUE_DEFAULT, delay: SEARCH_VALUE_CHANGE_DELAY, onDebounce: onSearch });
 
   const { data, hasNextPage, fetchNextPage, isLoading, isFetching } = useGetList({
     queryKey,
@@ -62,7 +68,7 @@ export const ManagedSelect = <T, V extends DefaultOptionType['value']>({
       showSearch
       onDropdownVisibleChange={handleOpenDropdown}
       onSelect={handleSelect}
-      onSearch={handleSearch}
+      onSearch={handleDebouncedSearchValue}
       filterOption={false}
       // render notFoundContent when first request data is in progress
       options={isLoading ? [] : options}

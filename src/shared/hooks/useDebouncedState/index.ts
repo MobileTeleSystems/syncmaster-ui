@@ -1,12 +1,9 @@
-import { SetStateAction, useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
-/**
- * Hook for handling debounced state
- *
- * @param initialValue - initial state
- * @param delay - state change timeout
- */
-export function useDebouncedState<T>(initialValue: T, delay: number) {
+import { UseDebouncedStateProps } from './types';
+
+/** Hook for handling debounced state */
+export function useDebouncedState<T>({ initialValue, delay, onDebounce = () => undefined }: UseDebouncedStateProps<T>) {
   const [value, setValue] = useState(initialValue);
   const timeoutRef = useRef<number | null>(null);
 
@@ -14,18 +11,20 @@ export function useDebouncedState<T>(initialValue: T, delay: number) {
   useEffect(() => clearTimeout, []);
 
   const setDebouncedValue = useCallback(
-    (newValue: SetStateAction<T>) => {
+    (newValue: T) => {
       clearTimeout();
       timeoutRef.current = window.setTimeout(() => {
         setValue(newValue);
+        onDebounce(newValue);
       }, delay);
     },
-    [delay],
+    [delay, onDebounce],
   );
 
   const setValueImmediately = (newValue: T) => {
     clearTimeout();
     setValue(newValue);
+    onDebounce(newValue);
   };
 
   return { value, setValue: setValueImmediately, setDebouncedValue };
