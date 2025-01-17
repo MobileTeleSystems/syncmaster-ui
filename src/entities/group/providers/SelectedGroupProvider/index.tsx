@@ -1,20 +1,29 @@
-import React, { PropsWithChildren, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 
-import { getInitialSelectedGroup } from '../../utils';
-import { Group } from '../../api';
-import { SELECTED_GROUP_LOCAL_STORAGE_KEY, SelectedGroupContext } from '../../constants';
+import { Group, useGetInitialGroup } from '../../api';
+import { SELECTED_GROUP_ID_LOCAL_STORAGE_KEY, SelectedGroupContext } from '../../constants';
 
 export const SelectedGroupProvider = ({ children }: PropsWithChildren) => {
-  const [selectedGroup, setSelectedGroup] = useState<Group | null>(() => getInitialSelectedGroup());
+  const { data: initialGroup } = useGetInitialGroup({
+    id: Number(localStorage.getItem(SELECTED_GROUP_ID_LOCAL_STORAGE_KEY)),
+  });
+
+  const [selectedGroup, setSelectedGroup] = useState<Group | null>(null);
+
+  useEffect(() => {
+    if (initialGroup) {
+      setSelectedGroup(initialGroup);
+    }
+  }, [initialGroup]);
 
   const handleSelectGroup = (group: Group) => {
     setSelectedGroup(group);
-    localStorage.setItem(SELECTED_GROUP_LOCAL_STORAGE_KEY, JSON.stringify(group));
+    localStorage.setItem(SELECTED_GROUP_ID_LOCAL_STORAGE_KEY, group.data.id.toString());
   };
 
   const handleCleanGroup = () => {
     setSelectedGroup(null);
-    localStorage.removeItem(SELECTED_GROUP_LOCAL_STORAGE_KEY);
+    localStorage.removeItem(SELECTED_GROUP_ID_LOCAL_STORAGE_KEY);
   };
 
   const contextValue = {
