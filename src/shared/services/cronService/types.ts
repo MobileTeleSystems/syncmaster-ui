@@ -2,6 +2,12 @@ export type CronSegmentValue = number | null;
 
 export type CronSegmentKey = 'date' | 'day' | 'hour' | 'minute';
 
+export enum Period {
+  DAY = 'day',
+  WEEK = 'week',
+  MONTH = 'month',
+}
+
 export enum DayOfWeek {
   SUNDAY,
   MONDAY,

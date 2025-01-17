@@ -1,7 +1,5 @@
-import { DayOfWeek, DayOfWeekName } from '@shared/services';
+import { DayOfWeek, DayOfWeekName, Period } from '@shared/services';
 import { prepareOptionsForSelect } from '@shared/ui';
-
-import { Period } from './types';
 
 export const PERIOD_SELECT_OPTIONS = prepareOptionsForSelect({
   data: Object.values(Period),

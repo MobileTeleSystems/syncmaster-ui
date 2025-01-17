@@ -1,16 +1,17 @@
 import React, { memo } from 'react';
 import { Select } from 'antd';
 import { TimePicker } from '@shared/ui';
+import { Period } from '@shared/services';
 
 import { PERIOD_SELECT_OPTIONS } from './constants';
-import { CronSelectProps, Period } from './types';
+import { CronSelectProps } from './types';
 import classes from './styles.module.less';
 import { useCron } from './hooks';
 import { DynamicSelect } from './components';
 
 export const CronSelect = memo(({ value, onChange }: CronSelectProps) => {
   const {
-    periodSelectValue,
+    period,
     weekDay,
     monthDay,
     time,
@@ -28,16 +29,16 @@ export const CronSelect = memo(({ value, onChange }: CronSelectProps) => {
           className={classes.period}
           size="large"
           onChange={handleChangePeriod}
-          value={periodSelectValue}
+          value={period}
           options={PERIOD_SELECT_OPTIONS}
         />
       </div>
 
-      {periodSelectValue !== Period.DAY && (
+      {period !== Period.DAY && (
         <div className={classes.segment}>
           <span>On:</span>
           <DynamicSelect
-            periodSelectValue={periodSelectValue}
+            period={period}
             weekDay={weekDay}
             monthDay={monthDay}
             onChangeWeekDay={handleChangeWeekDay}

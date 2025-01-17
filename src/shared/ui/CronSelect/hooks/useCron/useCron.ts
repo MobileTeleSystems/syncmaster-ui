@@ -1,7 +1,5 @@
-import { CronSegmentValue, CronService } from '@shared/services';
+import { CronSegmentValue, CronService, Period } from '@shared/services';
 import dayjs, { Dayjs } from 'dayjs';
-
-import { Period } from '../../types';
 
 import { UseCronProps } from './types';
 
@@ -12,18 +10,7 @@ export const useCron = ({ value, onChange = () => undefined }: UseCronProps) => 
   const handleChange = () => onChange(cronService.toString());
 
   const handleChangePeriod = (period: Period) => {
-    switch (period) {
-      case Period.DAY:
-        cronService.setMonthDay(null);
-        cronService.setWeekDay(null);
-        break;
-      case Period.WEEK:
-        cronService.setWeekDay(dayjs().day());
-        break;
-      case Period.MONTH:
-        cronService.setMonthDay(dayjs().date());
-        break;
-    }
+    cronService.setPeriod(period);
     handleChange();
   };
 
@@ -38,23 +25,12 @@ export const useCron = ({ value, onChange = () => undefined }: UseCronProps) => 
   };
 
   const handleChangeTime = (time: Dayjs | null) => {
-    cronService.setMinute(time?.minute() ?? dayjs().minute());
-    cronService.setHour(time?.hour() ?? dayjs().hour());
+    cronService.setTime(time?.hour(), time?.minute());
     handleChange();
   };
 
-  const getPeriodSelectValue = () => {
-    if (cronService.getMonthDay() === null && cronService.getWeekDay() === null) {
-      return Period.DAY;
-    }
-    if (cronService.getMonthDay()) {
-      return Period.MONTH;
-    }
-    return Period.WEEK;
-  };
-
   return {
-    periodSelectValue: getPeriodSelectValue(),
+    period: cronService.getPeriod(),
     weekDay: cronService.getWeekDay(),
     monthDay: cronService.getMonthDay(),
     time: dayjs(cronService.getTime(), 'HH:mm'),

@@ -1,16 +1,19 @@
 import { getOrdinalNumber } from '@shared/utils';
 
 import { CRON_VALUE_DEFAULT, DAYS_OF_WEEK } from './constants';
-import { CronSegmentKey, CronSegmentValue } from './types';
+import { CronSegmentKey, CronSegmentValue, Period } from './types';
 
 /** Class for convenient handling cron settings */
 export class CronService {
   private initialValueLength = 5;
 
+  private period: Period;
+
   private value: Map<CronSegmentKey, CronSegmentValue>;
 
   constructor(initialValue?: string) {
     this.value = this.transformInitialValueToMap(initialValue);
+    this.period = this.initPeriod();
   }
 
   private transformInitialValueToMap(initialValue?: string) {
@@ -35,12 +38,30 @@ export class CronService {
     ]);
   }
 
+  private initPeriod() {
+    if (this.getMonthDay() === null && this.getWeekDay() === null) {
+      return Period.DAY;
+    }
+    if (this.getMonthDay()) {
+      return Period.MONTH;
+    }
+    return Period.WEEK;
+  }
+
+  getPeriod() {
+    return this.period;
+  }
+
   getMinute(): number {
     return this.value.get('minute')!;
   }
 
   getHour(): number {
     return this.value.get('hour')!;
+  }
+
+  getTime() {
+    return `${this.getHour()}:${this.getMinute()}`;
   }
 
   getMonthDay(): CronSegmentValue {
@@ -51,24 +72,40 @@ export class CronService {
     return this.value.get('day') ?? null;
   }
 
-  getTime() {
-    return `${this.getHour()}:${this.getMinute()}`;
+  setPeriod(period: Period) {
+    this.period = period;
+    switch (period) {
+      case Period.DAY:
+        this.setMonthDay(null);
+        this.setWeekDay(null);
+        break;
+      case Period.WEEK:
+        this.setWeekDay(new Date().getDay());
+        this.setMonthDay(null);
+        break;
+      case Period.MONTH:
+        this.setWeekDay(null);
+        this.setMonthDay(new Date().getDate());
+    }
   }
 
   setMinute(value: number) {
     if (value < 0 || value > 59) {
-      this.value.set('minute', new Date().getMinutes());
-    } else {
-      this.value.set('minute', value);
+      throw new Error('Invalid value');
     }
+    this.value.set('minute', value);
   }
 
   setHour(value: number) {
     if (value < 0 || value > 23) {
-      this.value.set('hour', new Date().getHours());
-    } else {
-      this.value.set('hour', value);
+      throw new Error('Invalid value');
     }
+    this.value.set('hour', value);
+  }
+
+  setTime(hour?: number, minute?: number) {
+    this.setHour(hour ?? new Date().getHours());
+    this.setMinute(minute ?? new Date().getMinutes());
   }
 
   setMonthDay(value: CronSegmentValue) {
@@ -77,11 +114,9 @@ export class CronService {
       return;
     }
     if (value < 1 || value > 31) {
-      this.value.set('date', new Date().getDate());
-    } else {
-      this.value.set('date', value);
+      throw new Error('Invalid value');
     }
-    this.setWeekDay(null);
+    this.value.set('date', value);
   }
 
   setWeekDay(value: CronSegmentValue) {
@@ -90,11 +125,9 @@ export class CronService {
       return;
     }
     if (value < 0 || value > 6) {
-      this.value.set('day', new Date().getDay());
-    } else {
-      this.value.set('day', value);
+      throw new Error('Invalid value');
     }
-    this.setMonthDay(null);
+    this.value.set('day', value);
   }
 
   toString() {
@@ -110,15 +143,7 @@ export class CronService {
     const day = this.getWeekDay();
     const date = this.getMonthDay();
 
-    let schedule = 'Every ';
-
-    if (day === null && !date) {
-      schedule += 'day ';
-    } else if (day !== null && !date) {
-      schedule += 'week ';
-    } else {
-      schedule += 'month ';
-    }
+    let schedule = `Every ${this.period} `;
 
     if (day !== null) {
       schedule += `on ${DAYS_OF_WEEK[day]} `;
