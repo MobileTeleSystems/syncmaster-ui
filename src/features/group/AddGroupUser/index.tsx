@@ -23,8 +23,10 @@ export const AddGroupUser = ({ groupId, onSuccess, onCancel }: AddGroupUserProps
           size="large"
           queryKey={[UserQueryKey.GET_USERS]}
           queryFunction={userService.getUsers}
-          renderOptionValue={(user) => user.id}
           renderOptionLabel={(user) => user.username}
+          renderOptionValue={(user) => user.id}
+          detailQueryKey={[UserQueryKey.GET_USER]}
+          detailQueryFunction={(value) => userService.getUser({ id: value })}
         />
       </Form.Item>
 

@@ -19,4 +19,8 @@ export interface PageParams {
   page: number;
 }
 
-export interface PaginationRequest extends PageParams {}
+export interface SearchParams {
+  search_query?: string;
+}
+
+export interface PaginationRequest extends PageParams, SearchParams {}

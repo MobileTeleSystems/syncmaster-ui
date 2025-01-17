@@ -1,47 +1,81 @@
-import React, { UIEventHandler, useMemo } from 'react';
+import React, { useState } from 'react';
 import { Select, Spin } from 'antd';
-import { useInfiniteRequest } from '@shared/config';
 import { DefaultOptionType } from 'antd/lib/select';
+import { useDebouncedState } from '@shared/hooks';
 
-import { PAGE_DEFAULT, PAGE_SIZE_DEFAULT } from './constants';
-import { prepareOptionsForSelect } from './utils';
 import { ManagedSelectProps } from './types';
+import { useGetList, useGetSelectedItem, useHandleSelectEvents, usePrepareOptions } from './hooks';
+import { SEARCH_VALUE_CHANGE_DELAY, SEARCH_VALUE_DEFAULT } from './constants';
 
 /** Select component for infinite pagination of data in a dropdown */
 export const ManagedSelect = <T, V extends DefaultOptionType['value']>({
   queryFunction,
   queryKey,
+  detailQueryFunction,
+  detailQueryKey,
   renderOptionValue,
   renderOptionLabel,
+  value,
+  onBlur,
+  onSelect,
+  onSearch,
   ...props
 }: ManagedSelectProps<T, V>) => {
-  const { data, fetchNextPage, hasNextPage, isLoading } = useInfiniteRequest<T>({
+  const [hasTouched, setTouched] = useState(false);
+
+  const {
+    value: searchValue,
+    setValue: setSearchValue,
+    setDebouncedValue: handleDebouncedSearchValue,
+  } = useDebouncedState({ initialValue: SEARCH_VALUE_DEFAULT, delay: SEARCH_VALUE_CHANGE_DELAY, onDebounce: onSearch });
+
+  const { data, hasNextPage, fetchNextPage, isLoading, isFetching } = useGetList({
     queryKey,
-    queryFn: ({ pageParam }) => queryFunction(pageParam),
-    initialPageParam: { page: PAGE_DEFAULT, page_size: PAGE_SIZE_DEFAULT },
+    queryFunction,
+    hasTouched,
+    searchValue,
   });
 
-  const options = useMemo(() => {
-    return prepareOptionsForSelect({
-      data: data?.items,
-      renderValue: renderOptionValue,
-      renderLabel: renderOptionLabel,
-    });
-  }, [data, renderOptionValue, renderOptionLabel]);
+  const { data: selectedItem } = useGetSelectedItem({
+    detailQueryKey,
+    detailQueryFunction,
+    // 'as' is needed to pass an existing initial value to the useGetSelectedItem.
+    // It will always be of type V, since useGetSelectedItem checks for this
+    value: value as V,
+  });
 
-  const handlePopupScroll: UIEventHandler<HTMLDivElement> = (event) => {
-    const target = event.currentTarget;
-    if (hasNextPage && target.scrollTop + target.offsetHeight === target.scrollHeight) {
-      fetchNextPage();
-    }
-  };
+  const { handleSelect, handleBlur, handleOpenDropdown, handlePopupScroll } = useHandleSelectEvents({
+    onBlur,
+    onSelect,
+    setTouched,
+    setSearchValue,
+    hasNextPage,
+    fetchNextPage,
+  });
+
+  const options = usePrepareOptions({
+    dataList: data,
+    searchValue,
+    selectedItem,
+    renderOptionValue,
+    renderOptionLabel,
+  });
 
   return (
     <Select
-      {...props}
-      options={options}
-      notFoundContent={isLoading ? <Spin size="small" /> : null}
+      // Do not transform value to option if there are not any options
+      value={options.length ? value : undefined}
+      showSearch
+      onDropdownVisibleChange={handleOpenDropdown}
+      onSelect={handleSelect}
+      onSearch={handleDebouncedSearchValue}
+      filterOption={false}
+      // render notFoundContent when first request data is in progress
+      options={isLoading ? [] : options}
+      notFoundContent={isFetching ? <Spin size="small" /> : undefined}
       onPopupScroll={handlePopupScroll}
+      onBlur={handleBlur}
+      {...props}
     />
   );
 };

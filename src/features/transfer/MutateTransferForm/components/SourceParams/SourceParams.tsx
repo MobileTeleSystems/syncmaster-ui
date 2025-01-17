@@ -25,6 +25,8 @@ export const SourceParams = ({ groupId, initialSourceConnectionType }: SourcePar
           renderOptionValue={(connection) => connection.id}
           renderOptionLabel={(connection) => connection.name}
           onSelect={handleSelectConnection}
+          detailQueryKey={[ConnectionQueryKey.GET_CONNECTION]}
+          detailQueryFunction={(value) => connectionService.getConnection({ id: value })}
           placeholder="Select source connection"
         />
       </Form.Item>

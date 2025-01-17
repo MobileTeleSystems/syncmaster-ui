@@ -1,7 +1,7 @@
-import { PaginationRequest, PaginationResponse } from '@shared/types';
-import { QueryKey } from '@tanstack/react-query';
 import { SelectProps } from 'antd';
 import { DefaultOptionType } from 'antd/lib/select';
+
+import { UseGetListProps, UseGetSelectedItemProps, UsePrepareOptionsProps } from './hooks';
 
 /**
  * Interface as Props for component "ManagedSelect"
@@ -10,16 +10,13 @@ import { DefaultOptionType } from 'antd/lib/select';
  * @template V - Value type for select options.
  */
 export interface ManagedSelectProps<T, V extends DefaultOptionType['value']>
-  extends Omit<SelectProps<V, OptionItem<T>>, 'options' | 'notFoundContent' | 'dropdownRender'> {
-  /** Function for request data */
-  queryFunction: (params: PaginationRequest) => Promise<PaginationResponse<T>>;
-  /** Query keys for requests cache */
-  queryKey: QueryKey;
-  /** Function render value for option from data object */
-  renderOptionValue: (item: T) => V;
-  /** Function render label for option from data object */
-  renderOptionLabel: (item: T) => DefaultOptionType['label'];
-}
+  extends Omit<
+      SelectProps<V, OptionItem<T>>,
+      'options' | 'notFoundContent' | 'dropdownRender' | 'onDropdownVisibleChange' | 'onPopupScroll' | 'filterOption'
+    >,
+    Pick<UseGetListProps<T>, 'queryKey' | 'queryFunction'>,
+    Omit<UseGetSelectedItemProps<T, V>, 'value'>,
+    Pick<UsePrepareOptionsProps<T, V>, 'renderOptionValue' | 'renderOptionLabel'> {}
 
 /**
  * Interface that adding extra field with full data object from option
