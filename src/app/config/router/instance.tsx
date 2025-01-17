@@ -1,6 +1,5 @@
 import React from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import { UserDetailPage, UserListPage } from '@pages/user';
 import { LoginPage } from '@pages/auth';
 import { AuthLayout, ErrorLayout, PrivateLayout } from '@app/layouts';
 import { CreateGroupPage, GroupDetailPage, GroupListPage, UpdateGroupPage } from '@pages/group';
@@ -47,15 +46,7 @@ export const router = createBrowserRouter([
         children: [
           {
             path: '/',
-            element: <Navigate to="/users" replace />,
-          },
-          {
-            path: '/users',
-            element: <UserListPage />,
-          },
-          {
-            path: '/users/:id',
-            element: <UserDetailPage />,
+            element: <Navigate to="/connections" replace />,
           },
           {
             path: '/groups',

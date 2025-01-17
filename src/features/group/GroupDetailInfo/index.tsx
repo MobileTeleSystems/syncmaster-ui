@@ -1,6 +1,5 @@
 import React from 'react';
 import { Descriptions } from 'antd';
-import { Link } from 'react-router-dom';
 
 import { GroupDetailInfoProps } from './types';
 
@@ -17,7 +16,7 @@ export const GroupDetailInfo = ({ group, owner, ...props }: GroupDetailInfoProps
         {group.description}
       </Descriptions.Item>
       <Descriptions.Item label="Owner" span={3}>
-        <Link to={`/users/${owner.id}`}>{owner.username}</Link>
+        {owner.username}
       </Descriptions.Item>
     </Descriptions>
   );

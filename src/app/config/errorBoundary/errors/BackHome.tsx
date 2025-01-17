@@ -12,7 +12,7 @@ export const BackHome = () => {
   const handleClick = () => {
     resetErrorBoundary();
     if (isAuthenticated()) {
-      return navigate('/users');
+      return navigate('/connections');
     }
     navigate('/login');
   };
