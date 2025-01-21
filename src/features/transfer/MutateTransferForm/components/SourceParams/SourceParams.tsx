@@ -19,6 +19,8 @@ export const SourceParams = ({ groupId, initialSourceConnectionType }: SourcePar
       <Divider>Source params</Divider>
       <Form.Item label="Source connection" name="source_connection_id" rules={[{ required: true }]}>
         <ManagedSelect
+          /** className "nodrag" for opening dropdown in select in custom node React Flow https://github.com/xyflow/xyflow/discussions/2694 */
+          className="nodrag"
           size="large"
           queryKey={[ConnectionQueryKey.GET_CONNECTIONS, groupId]}
           queryFunction={(params) => connectionService.getConnections({ group_id: groupId, ...params })}

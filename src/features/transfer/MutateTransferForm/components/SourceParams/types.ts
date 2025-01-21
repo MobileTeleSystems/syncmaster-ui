@@ -1,6 +1,6 @@
 import { ConnectionType } from '@shared/types';
 
-export interface SourceParamsProps {
+export type SourceParamsProps = {
   groupId: number;
   initialSourceConnectionType?: ConnectionType;
-}
+};
