@@ -6,9 +6,9 @@ import {
 } from '@entities/transfer';
 import { ABSOLUTE_PATH_REGEXP } from '@shared/constants';
 
-import { TransferConnectionS3Props } from './types';
+import { TransferConnectionHdfsProps } from './types';
 
-export const TransferConnectionS3 = ({ name }: TransferConnectionS3Props) => {
+export const TransferConnectionHdfs = ({ name }: TransferConnectionHdfsProps) => {
   return (
     <>
       <Form.Item
@@ -20,6 +20,8 @@ export const TransferConnectionS3 = ({ name }: TransferConnectionS3Props) => {
       </Form.Item>
       <Form.Item label="File format" name={[name, 'file_format', 'type']} rules={[{ required: true }]}>
         <Select
+          /** className "nodrag" for opening dropdown in select in custom node React Flow https://github.com/xyflow/xyflow/discussions/2694 */
+          className="nodrag"
           size="large"
           options={
             name === 'source_params'
