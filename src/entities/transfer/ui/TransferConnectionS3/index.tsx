@@ -1,14 +1,15 @@
 import React from 'react';
 import { Form, Input, Select } from 'antd';
+import { ABSOLUTE_PATH_REGEXP } from '@shared/constants';
+
 import {
   TRANSFER_SOURCE_CONNECTION_FILE_FORMAT_SELECT_OPTIONS,
   TRANSFER_TARGET_CONNECTION_FILE_FORMAT_SELECT_OPTIONS,
-} from '@entities/transfer';
-import { ABSOLUTE_PATH_REGEXP } from '@shared/constants';
+} from '../../constants';
 
-import { TransferConnectionHdfsProps } from './types';
+import { TransferConnectionS3Props } from './types';
 
-export const TransferConnectionHdfs = ({ name }: TransferConnectionHdfsProps) => {
+export const TransferConnectionS3 = ({ name }: TransferConnectionS3Props) => {
   return (
     <>
       <Form.Item
@@ -20,6 +21,8 @@ export const TransferConnectionHdfs = ({ name }: TransferConnectionHdfsProps) =>
       </Form.Item>
       <Form.Item label="File format" name={[name, 'file_format', 'type']} rules={[{ required: true }]}>
         <Select
+          /** className "nodrag" for opening dropdown in select in custom node React Flow https://github.com/xyflow/xyflow/discussions/2694 */
+          className="nodrag"
           size="large"
           options={
             name === 'source_params'

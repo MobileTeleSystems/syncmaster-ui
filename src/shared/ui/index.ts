@@ -11,3 +11,4 @@ export * from './DatePicker';
 export * from './TimePicker';
 export * from './Calendar';
 export * from './CronSelect';
+export * from './Canvas';

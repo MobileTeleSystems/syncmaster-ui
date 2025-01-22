@@ -1,14 +1,15 @@
 import React from 'react';
 import { ConnectionType } from '@shared/types';
-
-import { TransferConnectionHdfs } from '../TransferConnectionHdfs';
-import { TransferConnectionHive } from '../TransferConnectionHive';
-import { TransferConnectionOracle } from '../TransferConnectionOracle';
-import { TransferConnectionPostgres } from '../TransferConnectionPostgres';
-import { TransferConnectionS3 } from '../TransferConnectionS3';
-import { TransferConnectionClickhouse } from '../TransferConnectionClickhouse';
-import { TransferConnectionMySql } from '../TransferConnectionMySql';
-import { TransferConnectionMsSql } from '../TransferConnectionMsSql';
+import {
+  TransferConnectionHdfs,
+  TransferConnectionHive,
+  TransferConnectionOracle,
+  TransferConnectionPostgres,
+  TransferConnectionClickhouse,
+  TransferConnectionMySql,
+  TransferConnectionMsSql,
+  TransferConnectionS3,
+} from '@entities/transfer';
 
 export const TRANSFER_TARGET_CONNECTION_TYPE_COMPONENT = {
   [ConnectionType.HDFS]: <TransferConnectionHdfs name="target_params" />,
