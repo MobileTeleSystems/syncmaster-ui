@@ -1,7 +1,8 @@
 import React from 'react';
-import { Form, Select } from 'antd';
+import { Form } from 'antd';
 import { CONNECTION_TYPE_SELECT_OPTIONS } from '@entities/connection';
 import { Fieldset } from '@shared/ui';
+import { Select } from '@shared/ui';
 
 import { ConnectionTypeFormProps } from './types';
 import { CONNECTION_TYPE_COMPONENT, SensitiveFieldsContext } from './constants';

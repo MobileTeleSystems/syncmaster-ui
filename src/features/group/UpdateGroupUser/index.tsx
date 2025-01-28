@@ -1,6 +1,6 @@
 import React from 'react';
-import { ControlButtons, ManagedForm } from '@shared/ui';
-import { Form, Select, Typography } from 'antd';
+import { ControlButtons, ManagedForm, Select } from '@shared/ui';
+import { Form, Typography } from 'antd';
 import { GroupQueryKey, groupService, USER_ROLE_IN_GROUP_SELECT_OPTIONS } from '@entities/group';
 
 import { UpdateGroupUserForm, UpdateGroupUserProps } from './types';

@@ -1,8 +1,8 @@
 import { Node, NodeProps } from '@xyflow/react';
 
 import { TargetParamsProps } from '../TargetParams';
+import { TransferCanvasNode } from '../TransferConnectionsCanvas';
 
-//TODO: [DOP-22354] change 'targetParams' to NodeType.TARGET
-export interface TargetParamsNodeData extends Node<TargetParamsProps, 'targetParams'> {}
+export interface TargetParamsNodeData extends Node<TargetParamsProps, TransferCanvasNode.TARGET> {}
 
 export interface TargetParamsNodeProps extends NodeProps<TargetParamsNodeData> {}

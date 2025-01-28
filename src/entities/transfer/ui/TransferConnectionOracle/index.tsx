@@ -6,7 +6,7 @@ import { TransferConnectionOracleProps } from './types';
 export const TransferConnectionOracle = ({ name }: TransferConnectionOracleProps) => {
   return (
     <Form.Item label="Table name" name={[name, 'table_name']} rules={[{ required: true }]}>
-      <Input size="large" />
+      <Input className="nodrag" size="large" />
     </Form.Item>
   );
 };

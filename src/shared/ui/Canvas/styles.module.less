@@ -1,0 +1,41 @@
+.root {
+  :global(.react-flow__minimap) {
+    transform: scale(70%);
+  }
+
+  :global(.react-flow__node) {
+    width: fit-content;
+    background-color: @white;
+    border: 1px solid fade(@black, 25%);
+    border-radius: 16px;
+    transition: border-color 0.3s;
+
+    &:hover {
+      border-color: @primary-color;
+    }
+
+    &:focus-within {
+      border-color: @primary-color;
+      box-shadow: @card-shadow;
+    }
+  }
+
+  :global(.react-flow__handle) {
+    width: 12px;
+    height: 12px;
+    background-color: @blue-7;
+  }
+
+  :global(.react-flow__handle.target) {
+    left: -4px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid @blue-7;
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  :global(.react-flow__edge-path) {
+    stroke: @layout-header-background;
+  }
+}

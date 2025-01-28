@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Select, Spin } from 'antd';
+import { Spin } from 'antd';
 import { DefaultOptionType } from 'antd/lib/select';
 import { useDebouncedState } from '@shared/hooks';
+
+import { Select } from '../Select';
 
 import { ManagedSelectProps } from './types';
 import { useGetList, useGetSelectedItem, useHandleSelectEvents, usePrepareOptions } from './hooks';

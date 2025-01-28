@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
-import { Select } from 'antd';
-import { TimePicker } from '@shared/ui';
+import { Select, TimePicker } from '@shared/ui';
 import { Period } from '@shared/services';
 
 import { PERIOD_SELECT_OPTIONS } from './constants';

@@ -1,11 +1,11 @@
 import React from 'react';
 import { QueueQueryKey, queueService } from '@entities/queue';
 import { TRANSFER_STRATEGY_PARAMS_SELECT_OPTIONS } from '@entities/transfer';
-import { ControlButtons, Fieldset, FormCurrentGroupDescription, ManagedSelect } from '@shared/ui';
-import { Form, Input, Select } from 'antd';
+import { ControlButtons, Fieldset, FormCurrentGroupDescription, ManagedSelect, Select } from '@shared/ui';
+import { Form, Input } from 'antd';
 
 import { MutateTransferFormProps } from './types';
-import { SourceParams, TargetParams, TransferSchedule } from './components';
+import { TransferConnections, TransferSchedule } from './components';
 
 export const MutateTransferForm = ({
   group,
@@ -42,8 +42,11 @@ export const MutateTransferForm = ({
         </Form.Item>
       </Fieldset>
 
-      <SourceParams groupId={group.id} initialSourceConnectionType={initialSourceConnectionType} />
-      <TargetParams groupId={group.id} initialTargetConnectionType={initialTargetConnectionType} />
+      <TransferConnections
+        groupId={group.id}
+        initialSourceConnectionType={initialSourceConnectionType}
+        initialTargetConnectionType={initialTargetConnectionType}
+      />
 
       <TransferSchedule />
 

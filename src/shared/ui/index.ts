@@ -13,3 +13,5 @@ export * from './Calendar';
 export * from './CronSelect';
 export * from './Canvas';
 export * from './Fieldset';
+export * from './CanvasNode';
+export * from './Select';

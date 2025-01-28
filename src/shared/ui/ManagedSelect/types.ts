@@ -1,5 +1,6 @@
-import { SelectProps } from 'antd';
 import { DefaultOptionType } from 'antd/lib/select';
+
+import { SelectProps } from '../Select';
 
 import { UseGetListProps, UseGetSelectedItemProps, UsePrepareOptionsProps } from './hooks';
 
