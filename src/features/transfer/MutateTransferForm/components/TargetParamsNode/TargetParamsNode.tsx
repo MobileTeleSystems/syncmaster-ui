@@ -9,7 +9,6 @@ import { TargetParams } from '../TargetParams';
 import { TransferCanvasEdge } from '../TransferConnectionsCanvas';
 
 import { TargetParamsNodeProps } from './types';
-import classes from './styles.module.less';
 
 export const TargetParamsNode = ({ data }: TargetParamsNodeProps) => {
   const connectionType = Form.useWatch<ConnectionType>(['target_params', 'type']);
@@ -28,7 +27,7 @@ export const TargetParamsNode = ({ data }: TargetParamsNodeProps) => {
   }, [data.groupId, data.initialTargetConnectionType]);
 
   return (
-    <CanvasNode className={classes.root} title="Target" icon={icon}>
+    <CanvasNode title="Target" icon={icon}>
       {children}
     </CanvasNode>
   );

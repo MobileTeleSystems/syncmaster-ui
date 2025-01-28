@@ -1,4 +1,4 @@
-import { TransferCanvasNodeData, TransferCanvasNode } from '../../types';
+import { TransferCanvasNodeData, TransferCanvasDefaultNodeType } from '../../types';
 
 import { GetInitialNodesProps } from './types';
 
@@ -8,15 +8,15 @@ export const getInitialNodes = ({
   initialTargetConnectionType,
 }: GetInitialNodesProps): TransferCanvasNodeData[] => [
   {
-    id: TransferCanvasNode.SOURCE,
-    type: TransferCanvasNode.SOURCE,
+    id: TransferCanvasDefaultNodeType.SOURCE,
+    type: TransferCanvasDefaultNodeType.SOURCE,
     data: { groupId, initialSourceConnectionType },
     position: { x: 0, y: 0 },
   },
   {
-    id: TransferCanvasNode.TARGET,
-    type: TransferCanvasNode.TARGET,
+    id: TransferCanvasDefaultNodeType.TARGET,
+    type: TransferCanvasDefaultNodeType.TARGET,
     data: { groupId, initialTargetConnectionType },
-    position: { x: 600, y: 0 },
+    position: { x: 500, y: 0 },
   },
 ];

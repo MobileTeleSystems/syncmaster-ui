@@ -1,10 +1,13 @@
 .root {
   :global(.react-flow__minimap) {
-    transform: scale(70%);
+    svg {
+      width: 140px;
+      height: 105px;
+    }
   }
 
   :global(.react-flow__node) {
-    width: fit-content;
+    width: 300px;
     background-color: @white;
     border: 1px solid fade(@black, 25%);
     border-radius: 16px;
