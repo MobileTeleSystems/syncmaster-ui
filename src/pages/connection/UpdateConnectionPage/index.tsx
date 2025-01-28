@@ -16,16 +16,12 @@ export const UpdateConnectionPage = () => {
   const { data: connection } = useGetConnection({ id: Number(params.id) });
   const { data: group } = useGetGroup({ id: connection.group_id });
 
-  if (!connection || !group) {
-    return null;
-  }
-
   if (!hasAccessByUserRole(UserRole.Maintainer, group.role)) {
     throw new AccessError();
   }
 
   return (
-    <PageContentWrapper width="small">
+    <PageContentWrapper gap="large">
       <Title>Update Connection</Title>
       <UpdateConnection connection={connection} group={group.data} />
     </PageContentWrapper>

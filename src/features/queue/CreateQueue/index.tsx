@@ -1,5 +1,5 @@
 import React from 'react';
-import { ControlButtons, FormCurrentGroupDescription, ManagedForm } from '@shared/ui';
+import { ControlButtons, Fieldset, FormCurrentGroupDescription, ManagedForm } from '@shared/ui';
 import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { Queue, QUEUE_NAME_REGEXP, QueueQueryKey, queueService } from '@entities/queue';
@@ -28,15 +28,15 @@ export const CreateQueue = ({ group }: CreateQueueProps) => {
       successMessage="Queue was created successfully"
       keysInvalidateQueries={[[{ queryKey: [QueueQueryKey.GET_QUEUES, group.id] }]]}
     >
-      <FormCurrentGroupDescription groupName={group.name} />
-
-      <Form.Item label="Name" name="name" rules={[{ required: true, pattern: QUEUE_NAME_REGEXP }]}>
-        <Input size="large" />
-      </Form.Item>
-
-      <Form.Item label="Description" name="description">
-        <Input size="large" />
-      </Form.Item>
+      <Fieldset title="Main info">
+        <FormCurrentGroupDescription groupName={group.name} />
+        <Form.Item label="Name" name="name" rules={[{ required: true, pattern: QUEUE_NAME_REGEXP }]}>
+          <Input size="large" />
+        </Form.Item>
+        <Form.Item label="Description" name="description">
+          <Input size="large" />
+        </Form.Item>
+      </Fieldset>
 
       <ControlButtons onCancel={onCancel} />
     </ManagedForm>

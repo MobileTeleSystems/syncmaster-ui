@@ -1,5 +1,5 @@
 import React from 'react';
-import { ControlButtons, FormCurrentGroupDescription, ManagedForm } from '@shared/ui';
+import { ControlButtons, Fieldset, FormCurrentGroupDescription, ManagedForm } from '@shared/ui';
 import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { Connection, ConnectionQueryKey, connectionService, ConnectionTypeForm } from '@entities/connection';
@@ -28,13 +28,15 @@ export const CreateConnection = ({ group }: CreateConnectionProps) => {
       successMessage="Connection was created successfully"
       keysInvalidateQueries={[[{ queryKey: [ConnectionQueryKey.GET_CONNECTIONS, group.id] }]]}
     >
-      <FormCurrentGroupDescription groupName={group.name} />
-      <Form.Item label="Name" name="name" rules={[{ required: true }]}>
-        <Input size="large" />
-      </Form.Item>
-      <Form.Item label="Description" name="description" rules={[{ required: true }]}>
-        <Input size="large" />
-      </Form.Item>
+      <Fieldset title="Main info">
+        <FormCurrentGroupDescription groupName={group.name} />
+        <Form.Item label="Name" name="name" rules={[{ required: true }]}>
+          <Input size="large" />
+        </Form.Item>
+        <Form.Item label="Description" name="description" rules={[{ required: true }]}>
+          <Input size="large" />
+        </Form.Item>
+      </Fieldset>
 
       <ConnectionTypeForm />
 

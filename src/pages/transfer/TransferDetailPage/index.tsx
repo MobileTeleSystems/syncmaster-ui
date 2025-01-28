@@ -22,13 +22,9 @@ export const TransferDetailPage = () => {
   const { data: connectionTarget } = useGetConnection({ id: transfer.target_connection_id });
   const { data: queue } = useGetQueue({ id: transfer.queue_id });
 
-  if (!transfer || !group || !connectionSource || !connectionTarget || !queue) {
-    return null;
-  }
-
   return (
     <div className={classes.root}>
-      <PageContentWrapper>
+      <PageContentWrapper gap="large">
         <Title>Transfer: {transfer.name}</Title>
         <TransferDetail
           transfer={transfer}

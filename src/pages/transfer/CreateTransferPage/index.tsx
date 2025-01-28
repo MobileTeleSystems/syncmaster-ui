@@ -8,7 +8,7 @@ const { Title } = Typography;
 
 export const CreateTransferPage = () => {
   return (
-    <PageContentWrapper width="small">
+    <PageContentWrapper gap="large">
       <Title>Create Transfer</Title>
       <CreateTransferPageContent />
     </PageContentWrapper>

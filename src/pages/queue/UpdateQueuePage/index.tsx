@@ -16,16 +16,12 @@ export const UpdateQueuePage = () => {
   const { data: queue } = useGetQueue({ id: Number(params.id) });
   const { data: group } = useGetGroup({ id: queue.group_id });
 
-  if (!queue || !group) {
-    return null;
-  }
-
   if (!hasAccessByUserRole(UserRole.Maintainer, group.role)) {
     throw new AccessError();
   }
 
   return (
-    <PageContentWrapper width="small">
+    <PageContentWrapper gap="large">
       <Title>Update Queue</Title>
       <UpdateQueue queue={queue} group={group.data} />
     </PageContentWrapper>

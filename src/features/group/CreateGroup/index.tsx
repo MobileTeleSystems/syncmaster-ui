@@ -1,5 +1,5 @@
 import React from 'react';
-import { ControlButtons, ManagedForm } from '@shared/ui';
+import { ControlButtons, Fieldset, ManagedForm } from '@shared/ui';
 import { GroupData, GroupQueryKey, groupService } from '@entities/group';
 import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
@@ -22,13 +22,15 @@ export const CreateGroup = () => {
       successMessage="Group was created successfully"
       keysInvalidateQueries={[[{ queryKey: [GroupQueryKey.GET_GROUPS] }]]}
     >
-      <Form.Item label="Name" name="name" rules={[{ required: true }]}>
-        <Input size="large" />
-      </Form.Item>
+      <Fieldset title="Main info">
+        <Form.Item label="Name" name="name" rules={[{ required: true }]}>
+          <Input size="large" />
+        </Form.Item>
 
-      <Form.Item label="Description" name="description" rules={[{ required: true }]}>
-        <Input size="large" />
-      </Form.Item>
+        <Form.Item label="Description" name="description" rules={[{ required: true }]}>
+          <Input size="large" />
+        </Form.Item>
+      </Fieldset>
 
       <ControlButtons onCancel={onCancel} />
     </ManagedForm>

@@ -14,12 +14,8 @@ export const ConnectionDetailPage = () => {
   const { data: connection } = useGetConnection({ id: Number(params.id) });
   const { data: group } = useGetGroup({ id: connection.group_id });
 
-  if (!connection || !group) {
-    return null;
-  }
-
   return (
-    <PageContentWrapper>
+    <PageContentWrapper gap="large">
       <Title>Connection: {connection.name}</Title>
       <ConnectionDetail connection={connection} group={group} />
     </PageContentWrapper>

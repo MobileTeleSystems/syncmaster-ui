@@ -14,12 +14,8 @@ export const QueueDetailPage = () => {
   const { data: queue } = useGetQueue({ id: Number(params.id) });
   const { data: group } = useGetGroup({ id: queue.group_id });
 
-  if (!queue || !group) {
-    return null;
-  }
-
   return (
-    <PageContentWrapper>
+    <PageContentWrapper gap="large">
       <Title>Queue: {queue.name}</Title>
       <QueueDetail queue={queue} group={group} />
     </PageContentWrapper>

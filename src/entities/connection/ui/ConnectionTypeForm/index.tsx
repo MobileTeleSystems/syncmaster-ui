@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Select } from 'antd';
 import { CONNECTION_TYPE_SELECT_OPTIONS } from '@entities/connection';
+import { Fieldset } from '@shared/ui';
 
 import { ConnectionTypeFormProps } from './types';
 import { CONNECTION_TYPE_COMPONENT, SensitiveFieldsContext } from './constants';
@@ -10,7 +11,7 @@ export const ConnectionTypeForm = ({ initialType, isRequiredSensitiveFields = tr
   const { selectedConnectionType, handleSelectConnectionType } = useSelectConnectionType({ initialType });
 
   return (
-    <>
+    <Fieldset title="Connection settings">
       <Form.Item label="Type" name="type" rules={[{ required: true }]}>
         <Select
           size="large"
@@ -22,6 +23,6 @@ export const ConnectionTypeForm = ({ initialType, isRequiredSensitiveFields = tr
       <SensitiveFieldsContext.Provider value={{ isRequired: isRequiredSensitiveFields }}>
         {CONNECTION_TYPE_COMPONENT[selectedConnectionType!]}
       </SensitiveFieldsContext.Provider>
-    </>
+    </Fieldset>
   );
 };
