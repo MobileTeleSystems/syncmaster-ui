@@ -8,7 +8,7 @@ const { Title } = Typography;
 
 export const CreateConnectionPage = () => {
   return (
-    <PageContentWrapper width="small">
+    <PageContentWrapper gap="large">
       <Title>Create Connection</Title>
       <CreateConnectionPageContent />
     </PageContentWrapper>

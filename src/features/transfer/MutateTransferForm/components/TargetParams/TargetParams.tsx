@@ -1,7 +1,7 @@
 import React from 'react';
 import { ConnectionQueryKey, connectionService } from '@entities/connection';
-import { ManagedSelect } from '@shared/ui';
-import { Divider, Form, Input } from 'antd';
+import { Fieldset, ManagedSelect } from '@shared/ui';
+import { Form, Input } from 'antd';
 
 import { useSelectConnectionType } from '../../hooks';
 
@@ -15,9 +15,8 @@ export const TargetParams = ({ groupId, initialTargetConnectionType }: TargetPar
   });
 
   return (
-    <>
-      <Divider>Target params</Divider>
-      <Form.Item label="Target connection" name="target_connection_id" rules={[{ required: true }]}>
+    <Fieldset title="Target connection">
+      <Form.Item label="Connection" name="target_connection_id" rules={[{ required: true }]}>
         <ManagedSelect
           /** className "nodrag" for opening dropdown in select in custom node React Flow https://github.com/xyflow/xyflow/discussions/2694 */
           className="nodrag"
@@ -36,6 +35,6 @@ export const TargetParams = ({ groupId, initialTargetConnectionType }: TargetPar
         <Input />
       </Form.Item>
       {TRANSFER_TARGET_CONNECTION_TYPE_COMPONENT[selectedConnectionType!]}
-    </>
+    </Fieldset>
   );
 };

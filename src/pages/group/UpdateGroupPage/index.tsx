@@ -14,16 +14,12 @@ export const UpdateGroupPage = () => {
   const params = useParams<PageDetailParams>();
   const { data: group } = useGetGroup({ id: Number(params.id) });
 
-  if (!group) {
-    return null;
-  }
-
   if (!hasAccessByUserRole(UserRole.Owner, group.role)) {
     throw new AccessError();
   }
 
   return (
-    <PageContentWrapper width="small">
+    <PageContentWrapper gap="large">
       <Title>Update Group</Title>
       <UpdateGroup group={group.data} />
     </PageContentWrapper>

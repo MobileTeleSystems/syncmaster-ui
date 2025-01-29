@@ -16,16 +16,12 @@ export const UpdateTransferPage = () => {
   const { data: transfer } = useGetTransfer({ id: Number(params.id) });
   const { data: group } = useGetGroup({ id: transfer.group_id });
 
-  if (!transfer || !group) {
-    return null;
-  }
-
   if (!hasAccessByUserRole(UserRole.Maintainer, group.role)) {
     throw new AccessError();
   }
 
   return (
-    <PageContentWrapper width="small">
+    <PageContentWrapper gap="large">
       <Title>Update Transfer</Title>
       <UpdateTransfer transfer={transfer} group={group.data} />
     </PageContentWrapper>

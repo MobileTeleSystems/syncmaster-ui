@@ -17,11 +17,18 @@ export const ControlButtons = ({
     <Form.Item className={classes.wrapper}>
       <div className={classes.buttons}>
         {!isCancelButtonHidden && (
-          <Button type="default" size="large" disabled={isLoading} onClick={onCancel}>
+          <Button className={classes.button} type="default" size="large" disabled={isLoading} onClick={onCancel}>
             {cancelButtonText}
           </Button>
         )}
-        <Button type="primary" size="large" htmlType="submit" loading={isLoading} onClick={onSubmit}>
+        <Button
+          className={classes.button}
+          type="primary"
+          size="large"
+          htmlType="submit"
+          loading={isLoading}
+          onClick={onSubmit}
+        >
           {submitButtonText}
         </Button>
       </div>

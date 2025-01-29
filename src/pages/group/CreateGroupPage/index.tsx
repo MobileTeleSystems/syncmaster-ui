@@ -7,7 +7,7 @@ const { Title } = Typography;
 
 export const CreateGroupPage = () => {
   return (
-    <PageContentWrapper width="small">
+    <PageContentWrapper gap="large">
       <Title>Create Group</Title>
       <CreateGroup />
     </PageContentWrapper>

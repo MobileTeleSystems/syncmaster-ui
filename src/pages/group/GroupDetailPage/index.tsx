@@ -18,13 +18,9 @@ export const GroupDetailPage = () => {
   const { data: group } = useGetGroup({ id: Number(params.id) });
   const { data: owner } = useGetUser({ id: group.data.owner_id });
 
-  if (!group || !owner) {
-    return null;
-  }
-
   return (
     <div className={classes.root}>
-      <PageContentWrapper>
+      <PageContentWrapper gap="large">
         <Title>Group: {group.data.name}</Title>
         <GroupDetailInfo
           group={group.data}

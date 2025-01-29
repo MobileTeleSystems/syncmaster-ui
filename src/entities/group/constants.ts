@@ -6,6 +6,7 @@ import { SelectedGroupContextProps } from './types';
 
 const SELECTED_GROUP_CONTEXT_INITIAL_VALUE: SelectedGroupContextProps = {
   group: null,
+  isLoading: true,
   selectGroup: () => undefined,
   cleanGroup: () => undefined,
 };

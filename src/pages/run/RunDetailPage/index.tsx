@@ -25,10 +25,6 @@ export const RunDetailPage = () => {
   const { data: connectionTarget } = useGetConnection({ id: transfer.target_connection_id });
   const { data: queue } = useGetQueue({ id: transfer.queue_id });
 
-  if (!run || !transfer || !group || !connectionSource || !connectionTarget || !queue) {
-    return null;
-  }
-
   return (
     <div className={classes.root}>
       <PageContentWrapper>

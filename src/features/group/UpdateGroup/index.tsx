@@ -1,5 +1,5 @@
 import React from 'react';
-import { ControlButtons, ManagedForm, ManagedSelect } from '@shared/ui';
+import { ControlButtons, Fieldset, ManagedForm, ManagedSelect } from '@shared/ui';
 import { GroupData, GroupQueryKey, groupService } from '@entities/group';
 import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
@@ -34,27 +34,29 @@ export const UpdateGroup = ({ group }: UpdateGroupProps) => {
         [{ queryKey: [GroupQueryKey.GET_GROUP, group.id] }],
       ]}
     >
-      <Form.Item label="Name" name="name" rules={[{ required: true }]}>
-        <Input size="large" />
-      </Form.Item>
+      <Fieldset title="Main info">
+        <Form.Item label="Name" name="name" rules={[{ required: true }]}>
+          <Input size="large" />
+        </Form.Item>
 
-      <Form.Item label="Description" name="description" rules={[{ required: true }]}>
-        <Input size="large" />
-      </Form.Item>
+        <Form.Item label="Description" name="description" rules={[{ required: true }]}>
+          <Input size="large" />
+        </Form.Item>
 
-      <Form.Item label="Owner" name="owner_id" rules={[{ required: true }]}>
-        <ManagedSelect
-          size="large"
-          queryKey={[UserQueryKey.GET_USERS]}
-          queryFunction={userService.getUsers}
-          renderOptionValue={(user) => user.id}
-          renderOptionLabel={(user) => user.username}
-          detailQueryKey={[UserQueryKey.GET_USER]}
-          detailQueryFunction={(value) => userService.getUser({ id: value })}
-          //TODO: [DOP-20030] Need to delete prop "disabled" when the backend leaves the user with access to the group, even after changing the owner
-          disabled
-        />
-      </Form.Item>
+        <Form.Item label="Owner" name="owner_id" rules={[{ required: true }]}>
+          <ManagedSelect
+            size="large"
+            queryKey={[UserQueryKey.GET_USERS]}
+            queryFunction={userService.getUsers}
+            renderOptionValue={(user) => user.id}
+            renderOptionLabel={(user) => user.username}
+            detailQueryKey={[UserQueryKey.GET_USER]}
+            detailQueryFunction={(value) => userService.getUser({ id: value })}
+            //TODO: [DOP-20030] Need to delete prop "disabled" when the backend leaves the user with access to the group, even after changing the owner
+            disabled
+          />
+        </Form.Item>
+      </Fieldset>
 
       <ControlButtons onCancel={onCancel} />
     </ManagedForm>

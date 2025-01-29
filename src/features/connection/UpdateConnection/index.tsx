@@ -1,5 +1,5 @@
 import React from 'react';
-import { ControlButtons, FormCurrentGroupDescription, ManagedForm } from '@shared/ui';
+import { ControlButtons, Fieldset, FormCurrentGroupDescription, ManagedForm } from '@shared/ui';
 import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { Connection, ConnectionQueryKey, connectionService, ConnectionTypeForm } from '@entities/connection';
@@ -33,15 +33,17 @@ export const UpdateConnection = ({ connection, group }: UpdateConnectionProps) =
         [{ queryKey: [ConnectionQueryKey.GET_CONNECTION, connectionId] }],
       ]}
     >
-      <FormCurrentGroupDescription groupName={group.name} />
+      <Fieldset title="Main info">
+        <FormCurrentGroupDescription groupName={group.name} />
 
-      <Form.Item label="Name" name="name" rules={[{ required: true }]}>
-        <Input size="large" />
-      </Form.Item>
+        <Form.Item label="Name" name="name" rules={[{ required: true }]}>
+          <Input size="large" />
+        </Form.Item>
 
-      <Form.Item label="Description" name="description" rules={[{ required: true }]}>
-        <Input size="large" />
-      </Form.Item>
+        <Form.Item label="Description" name="description" rules={[{ required: true }]}>
+          <Input size="large" />
+        </Form.Item>
+      </Fieldset>
 
       <ConnectionTypeForm initialType={connectionInitialValues.type} isRequiredSensitiveFields={false} />
 
