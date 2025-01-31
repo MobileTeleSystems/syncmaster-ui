@@ -1,6 +1,7 @@
 import React from 'react';
-import { Form, Input, Select } from 'antd';
+import { Form, Input } from 'antd';
 import { ABSOLUTE_PATH_REGEXP } from '@shared/constants';
+import { Select } from '@shared/ui';
 
 import {
   TRANSFER_SOURCE_CONNECTION_FILE_FORMAT_SELECT_OPTIONS,
@@ -17,7 +18,7 @@ export const TransferConnectionS3 = ({ name }: TransferConnectionS3Props) => {
         name={[name, 'directory_path']}
         rules={[{ required: true, pattern: ABSOLUTE_PATH_REGEXP }]}
       >
-        <Input size="large" />
+        <Input className="nodrag" size="large" />
       </Form.Item>
       <Form.Item label="File format" name={[name, 'file_format', 'type']} rules={[{ required: true }]}>
         <Select

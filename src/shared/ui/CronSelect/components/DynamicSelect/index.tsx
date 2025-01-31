@@ -1,7 +1,7 @@
 import React from 'react';
-import { Select } from 'antd';
 import { getOrdinalNumber } from '@shared/utils';
 import { Period } from '@shared/services';
+import { Select } from '@shared/ui';
 
 import classes from '../../styles.module.less';
 import { DAYS_OF_MONTH_SELECT_OPTIONS, DAYS_OF_WEEK_SELECT_OPTIONS } from '../../constants';

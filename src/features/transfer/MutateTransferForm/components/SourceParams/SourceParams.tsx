@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { ConnectionQueryKey, connectionService } from '@entities/connection';
-import { Fieldset, ManagedSelect } from '@shared/ui';
+import { ManagedSelect } from '@shared/ui';
 import { Form, Input } from 'antd';
 
 import { useSelectConnectionType } from '../../hooks';
@@ -8,14 +8,14 @@ import { useSelectConnectionType } from '../../hooks';
 import { SourceParamsProps } from './types';
 import { TRANSFER_SOURCE_CONNECTION_TYPE_COMPONENT } from './constants';
 
-export const SourceParams = ({ groupId, initialSourceConnectionType }: SourceParamsProps) => {
+export const SourceParams = memo(({ groupId, initialSourceConnectionType }: SourceParamsProps) => {
   const { selectedConnectionType, handleSelectConnection } = useSelectConnectionType({
     connectionParamFieldName: 'source_params',
     initialConnectionType: initialSourceConnectionType,
   });
 
   return (
-    <Fieldset title="Source connection">
+    <>
       <Form.Item label="Connection" name="source_connection_id" rules={[{ required: true }]}>
         <ManagedSelect
           /** className "nodrag" for opening dropdown in select in custom node React Flow https://github.com/xyflow/xyflow/discussions/2694 */
@@ -35,6 +35,6 @@ export const SourceParams = ({ groupId, initialSourceConnectionType }: SourcePar
         <Input />
       </Form.Item>
       {TRANSFER_SOURCE_CONNECTION_TYPE_COMPONENT[selectedConnectionType!]}
-    </Fieldset>
+    </>
   );
-};
+});
