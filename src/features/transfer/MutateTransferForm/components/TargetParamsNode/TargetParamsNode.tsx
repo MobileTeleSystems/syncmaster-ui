@@ -2,7 +2,8 @@ import React, { useMemo } from 'react';
 import { CanvasNode } from '@shared/ui';
 import { Handle, Position } from '@xyflow/react';
 import { Form } from 'antd';
-import { ConnectionIcon } from '@entities/connection';
+import { CONNECTION_ICONS } from '@entities/connection';
+import { ConnectionType } from '@shared/types';
 
 import { TargetParams } from '../TargetParams';
 import { TransferCanvasEdge } from '../TransferConnectionsCanvas';
@@ -11,10 +12,10 @@ import { TargetParamsNodeProps } from './types';
 import classes from './styles.module.less';
 
 export const TargetParamsNode = ({ data }: TargetParamsNodeProps) => {
-  const connectionType = Form.useWatch(['target_params', 'type']);
+  const connectionType = Form.useWatch<ConnectionType>(['target_params', 'type']);
 
   const icon = useMemo(() => {
-    return <ConnectionIcon type={connectionType} />;
+    return CONNECTION_ICONS[connectionType];
   }, [connectionType]);
 
   const children = useMemo(() => {

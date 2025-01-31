@@ -1,6 +1,8 @@
+import React, { ReactNode } from 'react';
 import { ConnectionType } from '@shared/types';
 import { prepareOptionsForSelect } from '@shared/ui';
 
+import { ClickhouseIcon, HdfsIcon, HiveIcon, MssqlIcon, MysqlIcon, OracleIcon, PostgresIcon, S3Icon } from './assets';
 import { ConnectionBucketStyle, ConnectionProtocol } from './api';
 
 export const CONNECTION_TYPE_NAMES: Record<ConnectionType, string> = {
@@ -12,6 +14,17 @@ export const CONNECTION_TYPE_NAMES: Record<ConnectionType, string> = {
   [ConnectionType.ORACLE]: 'Oracle',
   [ConnectionType.POSTGRES]: 'Postgres',
   [ConnectionType.S3]: 'S3',
+};
+
+export const CONNECTION_ICONS: Record<ConnectionType, ReactNode> = {
+  [ConnectionType.CLICKHOUSE]: <ClickhouseIcon />,
+  [ConnectionType.HDFS]: <HdfsIcon />,
+  [ConnectionType.HIVE]: <HiveIcon />,
+  [ConnectionType.MS_SQL]: <MssqlIcon />,
+  [ConnectionType.MY_SQL]: <MysqlIcon />,
+  [ConnectionType.ORACLE]: <OracleIcon />,
+  [ConnectionType.POSTGRES]: <PostgresIcon />,
+  [ConnectionType.S3]: <S3Icon />,
 };
 
 export const CONNECTION_TYPE_SELECT_OPTIONS = prepareOptionsForSelect({
