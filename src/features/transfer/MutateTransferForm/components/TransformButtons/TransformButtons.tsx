@@ -18,7 +18,7 @@ export const TransformButtons = memo(() => {
         <Button
           type="primary"
           onClick={() => handleAddTransformNode(TransferCanvasTransformNodeType.FILTER_ROWS)}
-          disabled={transformNodeTypes[TransferCanvasTransformNodeType.FILTER_ROWS]}
+          disabled={transformNodeTypes ? transformNodeTypes[TransferCanvasTransformNodeType.FILTER_ROWS] : false}
         >
           Filter rows
         </Button>

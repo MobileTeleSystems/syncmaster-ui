@@ -5,9 +5,7 @@ import { TransferCanvasDefaultNodeType, TransferCanvasTransformNodeType } from '
 
 /** Hook for handling nodes and edges data (add, delete) */
 export const useHandleNodes = () => {
-  const [transformNodeTypes, setTransformNodeTypes] = useState<Record<TransferCanvasTransformNodeType, true>>(
-    {} as Record<TransferCanvasTransformNodeType, true>,
-  );
+  const [transformNodeTypes, setTransformNodeTypes] = useState<Record<TransferCanvasTransformNodeType, true>>();
   const { getNodes, getEdges, setNodes, setEdges } = useReactFlow();
 
   const addNewNode = (nodeType: TransferCanvasTransformNodeType) => {
