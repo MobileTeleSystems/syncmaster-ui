@@ -4,8 +4,7 @@ import { TargetParamsNodeData } from '../TargetParamsNode';
 
 import { GetInitialNodesProps } from './utils';
 
-export interface TransferCanvasProps
-  extends Pick<GetInitialNodesProps, 'groupId' | 'initialSourceConnectionType' | 'initialTargetConnectionType'> {}
+export interface TransferCanvasProps extends GetInitialNodesProps {}
 
 export type TransferCanvasNodeData = SourceParamsNodeData | TargetParamsNodeData | FilterRowsNodeData;
 

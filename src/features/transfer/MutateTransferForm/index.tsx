@@ -7,12 +7,7 @@ import { Form, Input } from 'antd';
 import { MutateTransferFormProps } from './types';
 import { TransferConnections, TransferSchedule } from './components';
 
-export const MutateTransferForm = ({
-  group,
-  initialSourceConnectionType,
-  initialTargetConnectionType,
-  onCancel,
-}: MutateTransferFormProps) => {
+export const MutateTransferForm = ({ group, onCancel }: MutateTransferFormProps) => {
   return (
     <>
       <Fieldset title="Main info">
@@ -42,11 +37,7 @@ export const MutateTransferForm = ({
         </Form.Item>
       </Fieldset>
 
-      <TransferConnections
-        groupId={group.id}
-        initialSourceConnectionType={initialSourceConnectionType}
-        initialTargetConnectionType={initialTargetConnectionType}
-      />
+      <TransferConnections groupId={group.id} />
 
       <TransferSchedule />
 

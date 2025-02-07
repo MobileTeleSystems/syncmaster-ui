@@ -20,11 +20,11 @@ export const SourceParamsNode = ({ data }: SourceParamsNodeProps) => {
   const children = useMemo(() => {
     return (
       <>
-        <SourceParams groupId={data.groupId} initialSourceConnectionType={data.initialSourceConnectionType} />
+        <SourceParams groupId={data.groupId} />
         <Handle type="source" position={Position.Right} id={TransferCanvasEdge.SOURCE} />
       </>
     );
-  }, [data.groupId, data.initialSourceConnectionType]);
+  }, [data.groupId]);
 
   return (
     <CanvasNode title="Source" icon={icon}>

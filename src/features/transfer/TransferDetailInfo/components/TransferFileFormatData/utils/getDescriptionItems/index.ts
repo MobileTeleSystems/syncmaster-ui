@@ -1,4 +1,5 @@
-import { DescriptionItem, FileFormatType } from '@shared/types';
+import { DescriptionItem } from '@shared/types';
+import { FileFormatType } from '@entities/file';
 
 import { GetDescriptionItemsProps } from './types';
 
@@ -24,12 +25,16 @@ export const getDescriptionItems = ({ data }: GetDescriptionItemsProps): Descrip
           content: data.escape,
         },
         {
-          label: 'Header',
-          content: data.header,
+          label: 'Include header',
+          content: data.include_header ? 'Yes' : 'No',
         },
         {
-          label: 'Line Sep',
+          label: 'Line separator',
           content: data.line_sep,
+        },
+        {
+          label: 'Compression',
+          content: data.compression,
         },
       ];
     case FileFormatType.JSON:
@@ -40,8 +45,46 @@ export const getDescriptionItems = ({ data }: GetDescriptionItemsProps): Descrip
           content: data.encoding,
         },
         {
-          label: 'Line Sep',
+          label: 'Line separator',
           content: data.line_sep,
+        },
+        {
+          label: 'Compression',
+          content: data.compression,
+        },
+      ];
+    case FileFormatType.EXCEL:
+      return [
+        {
+          label: 'Include header',
+          content: data.include_header ? 'Yes' : 'No',
+        },
+        {
+          label: 'Line separator',
+          content: data.start_cell ?? '',
+        },
+      ];
+    case FileFormatType.ORC:
+    case FileFormatType.PARQUET:
+      return [
+        {
+          label: 'Compression',
+          content: data.compression,
+        },
+      ];
+    case FileFormatType.XML:
+      return [
+        {
+          label: 'Root tag',
+          content: data.root_tag,
+        },
+        {
+          label: 'Row tag',
+          content: data.row_tag,
+        },
+        {
+          label: 'Compression',
+          content: data.compression,
         },
       ];
   }

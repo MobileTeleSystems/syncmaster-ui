@@ -1,4 +1,5 @@
-import { ConnectionType, FileFormat, FileFormatCsv, FileFormatJsonLine, PaginationRequest } from '@shared/types';
+import { FileFormat, Json } from '@entities/file/@x/transfer';
+import { ConnectionType, PaginationRequest } from '@shared/types';
 
 export interface Transfer {
   id: number;
@@ -77,7 +78,7 @@ interface TransferSourceParamsHdfs extends TransferParamsHdfs {
 }
 
 interface TransferTargetParamsHdfs extends TransferParamsHdfs {
-  file_format: FileFormatCsv | FileFormatJsonLine;
+  file_format: Exclude<FileFormat, Json>;
 }
 
 interface TransferParamsS3 {
@@ -90,7 +91,7 @@ interface TransferSourceParamsS3 extends TransferParamsS3 {
 }
 
 interface TransferTargetParamsS3 extends TransferParamsS3 {
-  file_format: FileFormatCsv | FileFormatJsonLine;
+  file_format: Exclude<FileFormat, Json>;
 }
 
 export interface GetTransfersRequest extends PaginationRequest {

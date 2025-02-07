@@ -8,10 +8,9 @@ import { useSelectConnectionType } from '../../hooks';
 import { SourceParamsProps } from './types';
 import { TRANSFER_SOURCE_CONNECTION_TYPE_COMPONENT } from './constants';
 
-export const SourceParams = memo(({ groupId, initialSourceConnectionType }: SourceParamsProps) => {
+export const SourceParams = memo(({ groupId }: SourceParamsProps) => {
   const { selectedConnectionType, handleSelectConnection } = useSelectConnectionType({
     connectionParamFieldName: 'source_params',
-    initialConnectionType: initialSourceConnectionType,
   });
 
   return (
