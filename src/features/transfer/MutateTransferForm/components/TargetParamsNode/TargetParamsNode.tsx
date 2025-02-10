@@ -21,10 +21,10 @@ export const TargetParamsNode = ({ data }: TargetParamsNodeProps) => {
     return (
       <>
         <Handle type="target" position={Position.Left} id={TransferCanvasEdge.TARGET} />
-        <TargetParams groupId={data.groupId} initialTargetConnectionType={data.initialTargetConnectionType} />
+        <TargetParams groupId={data.groupId} />
       </>
     );
-  }, [data.groupId, data.initialTargetConnectionType]);
+  }, [data.groupId]);
 
   return (
     <CanvasNode title="Target" icon={icon}>

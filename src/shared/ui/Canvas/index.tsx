@@ -26,6 +26,7 @@ export const Canvas = <N extends Node, E extends Edge>({ children, nodes, ...pro
       zoomOnScroll
       zoomOnPinch
       zoomOnDoubleClick={false}
+      minZoom={0}
       fitViewOptions={{ duration: 200, padding: 0.5 }}
       fitView
       {...props}

@@ -33,12 +33,7 @@ export const UpdateTransfer = ({ transfer, group }: UpdateTransferProps) => {
         [{ queryKey: [TransferQueryKey.GET_TRANSFER, transfer.id] }],
       ]}
     >
-      <MutateTransferForm
-        initialSourceConnectionType={transferInitialValues.source_params.type}
-        initialTargetConnectionType={transferInitialValues.target_params.type}
-        group={group}
-        onCancel={onCancel}
-      />
+      <MutateTransferForm group={group} onCancel={onCancel} />
     </ManagedForm>
   );
 };
