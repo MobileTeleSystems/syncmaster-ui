@@ -1,4 +1,5 @@
 import { FileFormat, Json } from '@entities/file/@x/transfer';
+import { Transformations } from '@entities/transformation/@x/transfer';
 import { ConnectionType, PaginationRequest } from '@shared/types';
 
 export interface Transfer {
@@ -30,6 +31,7 @@ export interface Transfer {
   strategy_params: TransferStrategyParams;
   is_scheduled: boolean;
   schedule: string;
+  transformations: Transformations;
 }
 
 export type TransferConnectionParamFieldName = 'source_params' | 'target_params';

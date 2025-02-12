@@ -42,7 +42,9 @@ export const FileCompression = <T,>({ name, options }: FileCompressionProps<T>) 
       </div>
       <Form.Item className={classes.formItem} name={fieldName}>
         <Select
+          /** className "nodrag" and "nowheel" for select in custom node React Flow https://reactflow.dev/api-reference/react-flow#no-drag-class-name */
           className={selectClassNames}
+          popupClassName="nowheel"
           size="large"
           options={options}
           placeholder="Select compression"

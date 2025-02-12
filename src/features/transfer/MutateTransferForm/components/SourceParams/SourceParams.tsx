@@ -17,8 +17,9 @@ export const SourceParams = memo(({ groupId }: SourceParamsProps) => {
     <>
       <Form.Item label="Connection" name="source_connection_id" rules={[{ required: true }]}>
         <ManagedSelect
-          /** className "nodrag" for opening dropdown in select in custom node React Flow https://github.com/xyflow/xyflow/discussions/2694 */
+          /** className "nodrag" and "nowheel" for select in custom node React Flow https://reactflow.dev/api-reference/react-flow#no-drag-class-name */
           className="nodrag"
+          popupClassName="nowheel"
           size="large"
           queryKey={[ConnectionQueryKey.GET_CONNECTIONS, groupId]}
           queryFunction={(params) => connectionService.getConnections({ group_id: groupId, ...params })}

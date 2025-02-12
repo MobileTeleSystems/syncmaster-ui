@@ -1,4 +1,5 @@
 import React from 'react';
+import { Fieldset } from '@shared/ui';
 
 import { TransferConnectionsDefault } from '../../../TransferConnectionsDefault';
 import { TransferConnectionsCanvas } from '../../../TransferConnectionsCanvas';
@@ -15,6 +16,10 @@ export const getTabsItems = (props: GetTabsItemsProps) => [
   {
     label: 'Advanced',
     key: TransferConnectionsTab.ADVANCED,
-    children: <TransferConnectionsCanvas {...props} />,
+    children: (
+      <Fieldset title="Connections settings">
+        <TransferConnectionsCanvas {...props} />
+      </Fieldset>
+    ),
   },
 ];

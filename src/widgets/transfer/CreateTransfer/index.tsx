@@ -3,6 +3,7 @@ import { ManagedForm } from '@shared/ui';
 import { useNavigate } from 'react-router-dom';
 import { Transfer, TransferQueryKey, transferService } from '@entities/transfer';
 import { MutateTransferForm } from '@features/transfer';
+import { prepareTransformationRequest } from '@entities/transformation';
 
 import { CreateTransferForm, CreateTransferProps } from './types';
 import { CREATE_TRANSFER_INITIAL_VALUES } from './constants';
@@ -10,8 +11,12 @@ import { CREATE_TRANSFER_INITIAL_VALUES } from './constants';
 export const CreateTransfer = ({ group }: CreateTransferProps) => {
   const navigate = useNavigate();
 
-  const handleCreateTransfer = (values: CreateTransferForm) => {
-    return transferService.createTransfer({ group_id: group.id, ...values });
+  const handleCreateTransfer = ({ transformations, ...values }: CreateTransferForm) => {
+    return transferService.createTransfer({
+      group_id: group.id,
+      transformations: prepareTransformationRequest(transformations),
+      ...values,
+    });
   };
 
   const onSuccess = (response: Transfer) => {

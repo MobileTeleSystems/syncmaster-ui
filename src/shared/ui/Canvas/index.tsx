@@ -9,7 +9,7 @@ export const Canvas = <N extends Node, E extends Edge>({ children, nodes, ...pro
 
   /** Set appropriate zoom of canvas when nodes count has changed */
   useEffect(() => {
-    fitView({ duration: 200 });
+    fitView({ duration: 200, padding: 0.4 });
   }, [nodes?.length, fitView]);
 
   return (
@@ -27,7 +27,7 @@ export const Canvas = <N extends Node, E extends Edge>({ children, nodes, ...pro
       zoomOnPinch
       zoomOnDoubleClick={false}
       minZoom={0}
-      fitViewOptions={{ duration: 200, padding: 0.5 }}
+      fitViewOptions={{ duration: 200, padding: 0.4 }}
       fitView
       {...props}
     >
