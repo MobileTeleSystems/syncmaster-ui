@@ -1,24 +1,23 @@
 import { Button, Form } from 'antd';
 import React, { memo, useLayoutEffect } from 'react';
 
-import { TransformationRowsFilter, TransformationType } from '../../types';
+import { Transformations, TransformationType } from '../../types';
 
 import { FilterRowsItem } from './components';
 
 export const FilterRows = memo(() => {
   const formInstance = Form.useFormInstance();
-  const filterRowsValues: TransformationRowsFilter['filters'] | undefined = formInstance.getFieldValue([
+  const filterRowsValues: Transformations[0]['filters'] | undefined = formInstance.getFieldValue([
     'transformations',
     TransformationType.ROWS_FILTER,
   ]);
 
-  /** Add at least one element to array form value */
+  /** Add at least one element to array form value here,
+   * because it is inconvenient to check for the presence of a default value of this array,
+   * when forming a request to backend or initial form values */
   useLayoutEffect(() => {
     if (!filterRowsValues || !filterRowsValues.length) {
-      formInstance.setFieldValue(
-        ['transformations', TransformationType.ROWS_FILTER],
-        [{ column: '', type: undefined }],
-      );
+      formInstance.setFieldValue(['transformations', TransformationType.ROWS_FILTER], [{}]);
     }
   }, [formInstance, filterRowsValues]);
 

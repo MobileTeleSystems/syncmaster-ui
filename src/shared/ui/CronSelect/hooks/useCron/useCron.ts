@@ -13,6 +13,7 @@ export const useCron = ({ value, onChange = () => undefined }: UseCronProps) => 
   /** Invoke onChange callback to set default value to antd Form if not specified */
   useEffect(() => {
     handleChange();
+    /** Disable eslint, because need to invoke useEffect only after mounting */
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
