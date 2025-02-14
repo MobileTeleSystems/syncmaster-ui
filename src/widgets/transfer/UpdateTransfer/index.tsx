@@ -3,6 +3,7 @@ import { ManagedForm } from '@shared/ui';
 import { useNavigate } from 'react-router-dom';
 import { Transfer, TransferQueryKey, transferService } from '@entities/transfer';
 import { MutateTransferForm } from '@features/transfer';
+import { prepareTransformationForm, prepareTransformationRequest } from '@entities/transformation';
 
 import { UpdateTransferForm, UpdateTransferProps } from './types';
 
@@ -10,8 +11,12 @@ export const UpdateTransfer = ({ transfer, group }: UpdateTransferProps) => {
   const { id: transferId, group_id, ...transferInitialValues } = transfer;
   const navigate = useNavigate();
 
-  const handleUpdateTransfer = (values: UpdateTransferForm) => {
-    return transferService.updateTransfer({ id: transferId, ...values });
+  const handleUpdateTransfer = ({ transformations, ...values }: UpdateTransferForm) => {
+    return transferService.updateTransfer({
+      id: transferId,
+      transformations: prepareTransformationRequest(transformations),
+      ...values,
+    });
   };
 
   const onSuccess = (response: Transfer) => {
@@ -24,7 +29,10 @@ export const UpdateTransfer = ({ transfer, group }: UpdateTransferProps) => {
 
   return (
     <ManagedForm<UpdateTransferForm, Transfer>
-      initialValues={transferInitialValues}
+      initialValues={{
+        ...transferInitialValues,
+        transformations: prepareTransformationForm(transferInitialValues.transformations),
+      }}
       mutationFunction={handleUpdateTransfer}
       onSuccess={onSuccess}
       successMessage="Transfer was updated successfully"

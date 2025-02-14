@@ -18,7 +18,9 @@ export const FileFormatParams = ({ name }: FileFormatParamsProps) => {
     <>
       <Form.Item label="File format" name={[name, 'file_format', 'type']} rules={[{ required: true }]}>
         <Select
+          /** className "nodrag" and "nowheel" for select in custom node React Flow https://reactflow.dev/api-reference/react-flow#no-drag-class-name */
           className="nodrag"
+          popupClassName="nowheel"
           size="large"
           options={name === 'source_params' ? SOURCE_FILE_FORMAT_SELECT_OPTIONS : TARGET_FILE_FORMAT_SELECT_OPTIONS}
           placeholder="Select file format"

@@ -9,6 +9,7 @@ import { SourceParams } from '../SourceParams';
 import { TransferCanvasEdge } from '../TransferConnectionsCanvas';
 
 import { SourceParamsNodeProps } from './types';
+import classes from './styles.module.less';
 
 export const SourceParamsNode = ({ data }: SourceParamsNodeProps) => {
   const connectionType = Form.useWatch<ConnectionType>(['source_params', 'type']);
@@ -27,7 +28,7 @@ export const SourceParamsNode = ({ data }: SourceParamsNodeProps) => {
   }, [data.groupId]);
 
   return (
-    <CanvasNode title="Source" icon={icon}>
+    <CanvasNode className={classes.root} title="Source" icon={icon}>
       {children}
     </CanvasNode>
   );

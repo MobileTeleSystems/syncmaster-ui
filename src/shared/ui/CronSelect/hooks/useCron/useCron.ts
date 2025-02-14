@@ -1,5 +1,6 @@
 import { CronSegmentValue, CronService, Period } from '@shared/services';
 import dayjs, { Dayjs } from 'dayjs';
+import { useEffect } from 'react';
 
 import { UseCronProps } from './types';
 
@@ -8,6 +9,13 @@ export const useCron = ({ value, onChange = () => undefined }: UseCronProps) => 
   const cronService = new CronService(value);
 
   const handleChange = () => onChange(cronService.toString());
+
+  /** Invoke onChange callback to set default value to antd Form if not specified */
+  useEffect(() => {
+    handleChange();
+    /** Disable eslint, because need to invoke useEffect only after mounting */
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleChangePeriod = (period: Period) => {
     cronService.setPeriod(period);

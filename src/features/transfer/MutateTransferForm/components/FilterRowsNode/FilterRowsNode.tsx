@@ -2,11 +2,12 @@ import React, { useMemo } from 'react';
 import { CanvasNode } from '@shared/ui';
 import { Handle, Position } from '@xyflow/react';
 import { FilterOutlined } from '@ant-design/icons';
+import { FilterRows } from '@entities/transformation';
 
-import { FilterRows } from '../FilterRows';
 import { TransferCanvasEdge } from '../TransferConnectionsCanvas';
 
 import { FilterRowsNodeProps } from './types';
+import classes from './styles.module.less';
 
 export const FilterRowsNode = ({}: FilterRowsNodeProps) => {
   const icon = useMemo(() => {
@@ -16,15 +17,15 @@ export const FilterRowsNode = ({}: FilterRowsNodeProps) => {
   const children = useMemo(() => {
     return (
       <>
-        <Handle type="target" position={Position.Left} id={TransferCanvasEdge.FILTER_ROWS_TARGET} />
+        <Handle type="target" position={Position.Left} id={TransferCanvasEdge.ROWS_FILTER_TARGET} />
         <FilterRows />
-        <Handle type="source" position={Position.Right} id={TransferCanvasEdge.FILTER_ROWS_SOURCE} />
+        <Handle type="source" position={Position.Right} id={TransferCanvasEdge.ROWS_FILTER_SOURCE} />
       </>
     );
   }, []);
 
   return (
-    <CanvasNode title="Filter rows" icon={icon}>
+    <CanvasNode className={classes.root} title="Filter rows" icon={icon}>
       {children}
     </CanvasNode>
   );
