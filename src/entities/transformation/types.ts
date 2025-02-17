@@ -1,8 +1,9 @@
 export enum TransformationType {
-  ROWS_FILTER = 'dataframe_rows_filter',
+  FILTER_ROWS = 'dataframe_rows_filter',
+  FILTER_COLUMNS = 'dataframe_columns_filter',
 }
 
-export enum TransformationRowsFilterType {
+export enum TransformationFilterRowsType {
   IS_NULL = 'is_null',
   IS_NOT_NULL = 'is_not_null',
   EQUAL = 'equal',
@@ -18,30 +19,64 @@ export enum TransformationRowsFilterType {
   REGEXP = 'regexp',
 }
 
-interface TransformationRowsFilterNullable {
+interface TransformationFilterRowsNullable {
   type: Extract<
-    TransformationRowsFilterType,
-    TransformationRowsFilterType.IS_NULL | TransformationRowsFilterType.IS_NOT_NULL
+    TransformationFilterRowsType,
+    TransformationFilterRowsType.IS_NULL | TransformationFilterRowsType.IS_NOT_NULL
   >;
   field: string;
 }
 
-interface TransformationRowsFilterDefault {
+interface TransformationFilterRowsDefault {
   type: Exclude<
-    TransformationRowsFilterType,
-    TransformationRowsFilterType.IS_NULL | TransformationRowsFilterType.IS_NOT_NULL
+    TransformationFilterRowsType,
+    TransformationFilterRowsType.IS_NULL | TransformationFilterRowsType.IS_NOT_NULL
   >;
   field: string;
   value: string;
 }
 
-export interface TransformationRowsFilter {
-  type: TransformationType.ROWS_FILTER;
-  filters: Array<TransformationRowsFilterNullable | TransformationRowsFilterDefault>;
+export interface TransformationFilterRows {
+  type: TransformationType.FILTER_ROWS;
+  filters: Array<TransformationFilterRowsNullable | TransformationFilterRowsDefault>;
 }
 
-export type Transformations = Array<TransformationRowsFilter>;
+export enum TransformationFilterColumnsType {
+  CAST = 'cast',
+  INCLUDE = 'include',
+  RENAME = 'rename',
+}
+
+interface TransformationFilterColumnsInclude {
+  type: TransformationFilterColumnsType.INCLUDE;
+  field: string;
+}
+
+interface TransformationFilterColumnsRename {
+  type: TransformationFilterColumnsType.RENAME;
+  field: string;
+  to: string;
+}
+
+interface TransformationFilterColumnsCast {
+  type: TransformationFilterColumnsType.CAST;
+  field: string;
+  as_type: string;
+}
+
+export interface TransformationFilterColumns {
+  type: TransformationType.FILTER_COLUMNS;
+  filters: Array<
+    TransformationFilterColumnsInclude | TransformationFilterColumnsRename | TransformationFilterColumnsCast
+  >;
+}
+
+export type Transformations = Array<TransformationFilterRows | TransformationFilterColumns>;
 
 export interface TransformationsForm {
-  [TransformationType.ROWS_FILTER]?: TransformationRowsFilter['filters'];
+  [TransformationType.FILTER_ROWS]?: TransformationFilterRows['filters'];
+  [TransformationType.FILTER_COLUMNS]?: TransformationFilterColumns['filters'];
 }
+
+export type TransformationsFormNestedType<T extends keyof TransformationsForm> =
+  Required<TransformationsForm>[T][number]['type'];

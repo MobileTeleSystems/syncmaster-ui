@@ -13,12 +13,20 @@ import classes from './styles.module.less';
 
 import '@xyflow/react/dist/style.css';
 
-export const TransferConnectionsCanvas = (props: TransferCanvasProps) => {
-  const transformations = Form.useFormInstance().getFieldValue('transformations') as TransformationsForm;
+export const TransferConnectionsCanvas = ({ groupId }: TransferCanvasProps) => {
+  const formInstance = Form.useFormInstance();
+
+  const initialTransformations = useMemo(() => {
+    return formInstance.getFieldValue('transformations') as TransformationsForm;
+  }, [formInstance]);
 
   const initialNodes = useMemo(() => {
-    return getInitialNodes({ ...props, hasFilterRows: !!transformations[TransformationType.ROWS_FILTER] });
-  }, [props, transformations]);
+    return getInitialNodes({
+      groupId,
+      hasFilterRows: !!initialTransformations[TransformationType.FILTER_ROWS],
+      hasFilterColumns: !!initialTransformations[TransformationType.FILTER_COLUMNS],
+    });
+  }, [groupId, initialTransformations]);
 
   const initialEdges = useMemo(() => {
     return getInitialEdges(initialNodes);

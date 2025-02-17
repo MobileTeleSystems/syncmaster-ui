@@ -1,12 +1,17 @@
+import { NODE_TYPES_ID } from '../../constants';
 import { TransferCanvasNodeData, TransferCanvasDefaultNodeType, TransferCanvasTransformNodeType } from '../../types';
 import { setNodePosition } from '../setNodePosition';
 
 import { GetInitialNodesProps } from './types';
 
-export const getInitialNodes = ({ groupId, hasFilterRows }: GetInitialNodesProps): TransferCanvasNodeData[] => {
+export const getInitialNodes = ({
+  groupId,
+  hasFilterRows,
+  hasFilterColumns,
+}: GetInitialNodesProps): TransferCanvasNodeData[] => {
   const nodes: TransferCanvasNodeData[] = [
     {
-      id: TransferCanvasDefaultNodeType.SOURCE,
+      id: NODE_TYPES_ID[TransferCanvasDefaultNodeType.SOURCE],
       type: TransferCanvasDefaultNodeType.SOURCE,
       data: { groupId },
       position: setNodePosition(0),
@@ -17,8 +22,18 @@ export const getInitialNodes = ({ groupId, hasFilterRows }: GetInitialNodesProps
 
   if (hasFilterRows) {
     nodes.push({
-      id: TransferCanvasTransformNodeType.ROWS_FILTER,
-      type: TransferCanvasTransformNodeType.ROWS_FILTER,
+      id: NODE_TYPES_ID[TransferCanvasTransformNodeType.FILTER_ROWS],
+      type: TransferCanvasTransformNodeType.FILTER_ROWS,
+      data: {},
+      position: setNodePosition(nodeIndex),
+    });
+    nodeIndex++;
+  }
+
+  if (hasFilterColumns) {
+    nodes.push({
+      id: NODE_TYPES_ID[TransferCanvasTransformNodeType.FILTER_COLUMNS],
+      type: TransferCanvasTransformNodeType.FILTER_COLUMNS,
       data: {},
       position: setNodePosition(nodeIndex),
     });
@@ -26,7 +41,7 @@ export const getInitialNodes = ({ groupId, hasFilterRows }: GetInitialNodesProps
   }
 
   nodes.push({
-    id: TransferCanvasDefaultNodeType.TARGET,
+    id: NODE_TYPES_ID[TransferCanvasDefaultNodeType.TARGET],
     type: TransferCanvasDefaultNodeType.TARGET,
     data: { groupId },
     position: setNodePosition(nodeIndex),
