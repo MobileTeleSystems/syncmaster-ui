@@ -1,7 +1,7 @@
 import React from 'react';
 import { Divider, Form, Input } from 'antd';
 import { ABSOLUTE_PATH_REGEXP } from '@shared/constants';
-import { FileFormatParams } from '@entities/file/@x/transfer';
+import { FileFormatParams, FileNameTemplate } from '@entities/file/@x/transfer';
 
 import { TransferConnectionHdfsProps } from './types';
 
@@ -15,6 +15,7 @@ export const TransferConnectionHdfs = ({ name }: TransferConnectionHdfsProps) =>
       >
         <Input className="nodrag" size="large" />
       </Form.Item>
+      {name === 'target_params' && <FileNameTemplate />}
       <Divider>File format settings</Divider>
       <FileFormatParams name={name} />
     </>

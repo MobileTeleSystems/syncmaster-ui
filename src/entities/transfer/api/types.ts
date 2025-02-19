@@ -75,12 +75,13 @@ interface TransferParamsHdfs {
   directory_path: string;
 }
 
-interface TransferSourceParamsHdfs extends TransferParamsHdfs {
+export interface TransferSourceParamsHdfs extends TransferParamsHdfs {
   file_format: FileFormat;
 }
 
-interface TransferTargetParamsHdfs extends TransferParamsHdfs {
+export interface TransferTargetParamsHdfs extends TransferParamsHdfs {
   file_format: Exclude<FileFormat, Json>;
+  file_name_template: string;
 }
 
 interface TransferParamsS3 {
@@ -88,12 +89,13 @@ interface TransferParamsS3 {
   directory_path: string;
 }
 
-interface TransferSourceParamsS3 extends TransferParamsS3 {
+export interface TransferSourceParamsS3 extends TransferParamsS3 {
   file_format: FileFormat;
 }
 
-interface TransferTargetParamsS3 extends TransferParamsS3 {
+export interface TransferTargetParamsS3 extends TransferParamsS3 {
   file_format: Exclude<FileFormat, Json>;
+  file_name_template: string;
 }
 
 export interface GetTransfersRequest extends PaginationRequest {
