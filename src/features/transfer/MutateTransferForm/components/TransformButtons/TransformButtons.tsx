@@ -36,7 +36,7 @@ export const TransformButtons = memo(() => {
         {Object.values(TransferCanvasTransformNodeType).map((item, index) => (
           <TransformButtonItem
             nodeType={item}
-            isExist={transformNodeTypes ? transformNodeTypes[item] : false}
+            isExist={transformNodeTypes ? !!transformNodeTypes[item] : false}
             onAddNode={handleAddTransformNode}
             onDeleteNode={handleOpenDeleteNodeModal}
             key={index}

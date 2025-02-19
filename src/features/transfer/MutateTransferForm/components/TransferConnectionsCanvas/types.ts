@@ -1,3 +1,4 @@
+import { FilterColumnsNodeData } from '../FilterColumnsNode';
 import { FilterRowsNodeData } from '../FilterRowsNode';
 import { SourceParamsNodeData } from '../SourceParamsNode';
 import { TargetParamsNodeData } from '../TargetParamsNode';
@@ -6,7 +7,11 @@ import { GetInitialNodesProps } from './utils';
 
 export interface TransferCanvasProps extends Pick<GetInitialNodesProps, 'groupId'> {}
 
-export type TransferCanvasNodeData = SourceParamsNodeData | TargetParamsNodeData | FilterRowsNodeData;
+export type TransferCanvasNodeData =
+  | SourceParamsNodeData
+  | TargetParamsNodeData
+  | FilterRowsNodeData
+  | FilterColumnsNodeData;
 
 export enum TransferCanvasDefaultNodeType {
   SOURCE = 'SOURCE',
@@ -14,16 +19,27 @@ export enum TransferCanvasDefaultNodeType {
 }
 
 export enum TransferCanvasTransformNodeType {
-  ROWS_FILTER = 'ROWS_FILTER',
+  FILTER_ROWS = 'FILTER_ROWS',
+  FILTER_COLUMNS = 'FILTER_COLUMNS',
 }
 
 export const TransferCanvasTransformNodeTypeName = {
-  [TransferCanvasTransformNodeType.ROWS_FILTER]: 'Filter rows',
+  [TransferCanvasTransformNodeType.FILTER_ROWS]: 'Filter rows',
+  [TransferCanvasTransformNodeType.FILTER_COLUMNS]: 'Filter columns',
 } as const;
+
+export enum TransferCanvasEdgeType {
+  SOURCE = 'SOURCE',
+  FILTER_ROWS = 'FILTER_ROWS',
+  FILTER_COLUMNS = 'FILTER_COLUMNS',
+  TARGET = 'TARGET',
+}
 
 export enum TransferCanvasEdge {
   SOURCE = 'SOURCE',
   TARGET = 'TARGET',
-  ROWS_FILTER_SOURCE = 'ROWS_FILTER_SOURCE',
-  ROWS_FILTER_TARGET = 'ROWS_FILTER_TARGET',
+  FILTER_ROWS_SOURCE = 'FILTER_ROWS_SOURCE',
+  FILTER_ROWS_TARGET = 'FILTER_ROWS_TARGET',
+  FILTER_COLUMNS_SOURCE = 'FILTER_COLUMNS_SOURCE',
+  FILTER_COLUMNS_TARGET = 'FILTER_COLUMNS_TARGET',
 }

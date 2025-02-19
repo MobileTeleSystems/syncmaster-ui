@@ -5,7 +5,9 @@ import { TransferCanvasTransformNodeType } from '../../../TransferConnectionsCan
 /** Util for matching react flow node type to transformation type from backend */
 export const getTransformationType = (nodeType: TransferCanvasTransformNodeType): TransformationType => {
   switch (nodeType) {
-    case TransferCanvasTransformNodeType.ROWS_FILTER:
-      return TransformationType.ROWS_FILTER;
+    case TransferCanvasTransformNodeType.FILTER_ROWS:
+      return TransformationType.FILTER_ROWS;
+    case TransferCanvasTransformNodeType.FILTER_COLUMNS:
+      return TransformationType.FILTER_COLUMNS;
   }
 };
