@@ -34,6 +34,7 @@ export const FilterColumnsNode = ({}: FilterColumnsNodeProps) => {
         <TransformationForm
           transformationType={TransformationType.FILTER_COLUMNS}
           nestedTypeSelectLabel="Type"
+          hasColumnField
           renderValue={getFilterColumnsValueForm}
         />
         <Handle type="source" position={Position.Right} id={TransferCanvasEdge.FILTER_COLUMNS_SOURCE} />

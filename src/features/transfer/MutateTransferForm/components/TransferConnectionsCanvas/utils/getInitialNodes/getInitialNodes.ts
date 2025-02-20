@@ -8,6 +8,7 @@ export const getInitialNodes = ({
   groupId,
   hasFilterRows,
   hasFilterColumns,
+  hasFilterFile,
 }: GetInitialNodesProps): TransferCanvasNodeData[] => {
   const nodes: TransferCanvasNodeData[] = [
     {
@@ -34,6 +35,16 @@ export const getInitialNodes = ({
     nodes.push({
       id: NODE_TYPES_ID[TransferCanvasTransformNodeType.FILTER_COLUMNS],
       type: TransferCanvasTransformNodeType.FILTER_COLUMNS,
+      data: {},
+      position: setNodePosition(nodeIndex),
+    });
+    nodeIndex++;
+  }
+
+  if (hasFilterFile) {
+    nodes.push({
+      id: NODE_TYPES_ID[TransferCanvasTransformNodeType.FILTER_FILE],
+      type: TransferCanvasTransformNodeType.FILTER_FILE,
       data: {},
       position: setNodePosition(nodeIndex),
     });

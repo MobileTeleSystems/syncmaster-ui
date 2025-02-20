@@ -41,7 +41,7 @@ const TransformationFormComponent = <T extends TransformationType>({
             />
           ))}
           <Button className="nodrag" size="large" type="primary" onClick={() => add()}>
-            Add column
+            Add item
           </Button>
         </div>
       )}

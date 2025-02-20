@@ -17,6 +17,8 @@ export interface TransformationFormItemProps<T extends TransformationType> exten
     type: TransformationsFormNestedType<T> | undefined;
     name: FormListFieldData['name'];
   }) => ReactElement;
+  /** Need to render Column field */
+  hasColumnField?: boolean;
   /** Callback for deleting transformation form item */
   onRemove?: FormListOperation['remove'];
 }

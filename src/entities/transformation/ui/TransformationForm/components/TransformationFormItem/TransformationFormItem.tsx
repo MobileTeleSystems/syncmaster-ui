@@ -10,11 +10,12 @@ import { NESTED_TYPES_SELECT_OPTIONS } from './constants';
 import classes from './styles.module.less';
 
 export const TransformationFormItem = <T extends TransformationType>({
-  onRemove,
   name,
   transformationType,
   nestedTypeSelectLabel,
   renderValue,
+  hasColumnField,
+  onRemove,
 }: TransformationFormItemProps<T>) => {
   const formInstance = Form.useFormInstance();
 
@@ -31,9 +32,11 @@ export const TransformationFormItem = <T extends TransformationType>({
 
   return (
     <div className={classes.root}>
-      <Form.Item className={classes.column} label="Column" name={[name, 'field']} rules={[{ required: true }]}>
-        <Input className="nodrag" size="large" />
-      </Form.Item>
+      {hasColumnField && (
+        <Form.Item className={classes.column} label="Column" name={[name, 'field']} rules={[{ required: true }]}>
+          <Input className="nodrag" size="large" />
+        </Form.Item>
+      )}
       <Form.Item
         className={classes.type}
         label={nestedTypeSelectLabel}

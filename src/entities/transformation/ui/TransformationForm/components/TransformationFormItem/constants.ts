@@ -1,5 +1,6 @@
 import {
   TransformationFilterColumnsType,
+  TransformationFilterFileType,
   TransformationFilterRowsType,
   TransformationType,
 } from '@entities/transformation';
@@ -17,10 +18,17 @@ export const FILTER_COLUMNS_TYPE_SELECT_OPTIONS = prepareOptionsForSelect({
   renderValue: (data) => data,
 });
 
+export const FILTER_FILE_TYPE_SELECT_OPTIONS = prepareOptionsForSelect({
+  data: Object.values(TransformationFilterFileType),
+  renderLabel: (data) => data.replaceAll('_', ' '),
+  renderValue: (data) => data,
+});
+
 export const NESTED_TYPES_SELECT_OPTIONS: Record<
   TransformationType,
-  OptionItem<TransformationFilterRowsType | TransformationFilterColumnsType>[]
+  OptionItem<TransformationFilterRowsType | TransformationFilterColumnsType | TransformationFilterFileType>[]
 > = {
   [TransformationType.FILTER_ROWS]: FILTER_ROWS_TYPE_SELECT_OPTIONS,
   [TransformationType.FILTER_COLUMNS]: FILTER_COLUMNS_TYPE_SELECT_OPTIONS,
+  [TransformationType.FILTER_FILE]: FILTER_FILE_TYPE_SELECT_OPTIONS,
 };
