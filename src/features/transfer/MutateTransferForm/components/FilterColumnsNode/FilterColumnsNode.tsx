@@ -1,13 +1,8 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { CanvasNode } from '@shared/ui';
 import { Handle, Position } from '@xyflow/react';
 import { FilterOutlined } from '@ant-design/icons';
-import {
-  FilterColumnsValue,
-  RenderValueParams,
-  TransformationForm,
-  TransformationType,
-} from '@entities/transformation';
+import { TransformationForm, TransformationType } from '@entities/transformation';
 
 import {
   TransferCanvasEdge,
@@ -23,10 +18,6 @@ export const FilterColumnsNode = ({}: FilterColumnsNodeProps) => {
     return <FilterOutlined />;
   }, []);
 
-  const getFilterColumnsValueForm = useCallback((params: RenderValueParams<TransformationType.FILTER_COLUMNS>) => {
-    return <FilterColumnsValue type={params.type} name={params.name} />;
-  }, []);
-
   const children = useMemo(() => {
     return (
       <>
@@ -35,12 +26,11 @@ export const FilterColumnsNode = ({}: FilterColumnsNodeProps) => {
           transformationType={TransformationType.FILTER_COLUMNS}
           nestedTypeSelectLabel="Type"
           hasColumnField
-          renderValue={getFilterColumnsValueForm}
         />
         <Handle type="source" position={Position.Right} id={TransferCanvasEdge.FILTER_COLUMNS_SOURCE} />
       </>
     );
-  }, [getFilterColumnsValueForm]);
+  }, []);
 
   return (
     <CanvasNode

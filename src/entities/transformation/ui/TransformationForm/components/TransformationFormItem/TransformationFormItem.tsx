@@ -4,6 +4,7 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { Select } from '@shared/ui';
 
 import { TransformationsFormNestedType, TransformationType } from '../../../../types';
+import { FilterComponent } from '../FilterComponent';
 
 import { TransformationFormItemProps } from './types';
 import { NESTED_TYPES_SELECT_OPTIONS } from './constants';
@@ -13,7 +14,6 @@ export const TransformationFormItem = <T extends TransformationType>({
   name,
   transformationType,
   nestedTypeSelectLabel,
-  renderValue,
   hasColumnField,
   onRemove,
 }: TransformationFormItemProps<T>) => {
@@ -53,7 +53,7 @@ export const TransformationFormItem = <T extends TransformationType>({
           placeholder="Select type"
         />
       </Form.Item>
-      {renderValue({ name, type })}
+      <FilterComponent name={name} nestedType={type} transformationType={transformationType} />
       {onRemove && (
         <Button className="nodrag" type="primary" danger onClick={handleRemove}>
           <DeleteOutlined />

@@ -1,8 +1,8 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { CanvasNode } from '@shared/ui';
 import { Handle, Position } from '@xyflow/react';
 import { FilterOutlined } from '@ant-design/icons';
-import { FilterFileValue, RenderValueParams, TransformationForm, TransformationType } from '@entities/transformation';
+import { TransformationForm, TransformationType } from '@entities/transformation';
 
 import {
   TransferCanvasEdge,
@@ -18,23 +18,15 @@ export const FilterFileNode = ({}: FilterFileNodeProps) => {
     return <FilterOutlined />;
   }, []);
 
-  const getFilterFileValueForm = useCallback((params: RenderValueParams<TransformationType.FILTER_FILE>) => {
-    return <FilterFileValue type={params.type} name={params.name} />;
-  }, []);
-
   const children = useMemo(() => {
     return (
       <>
         <Handle type="target" position={Position.Left} id={TransferCanvasEdge.FILTER_FILE_TARGET} />
-        <TransformationForm
-          transformationType={TransformationType.FILTER_FILE}
-          nestedTypeSelectLabel="Type"
-          renderValue={getFilterFileValueForm}
-        />
+        <TransformationForm transformationType={TransformationType.FILTER_FILE} nestedTypeSelectLabel="Type" />
         <Handle type="source" position={Position.Right} id={TransferCanvasEdge.FILTER_FILE_SOURCE} />
       </>
     );
-  }, [getFilterFileValueForm]);
+  }, []);
 
   return (
     <CanvasNode
