@@ -4,7 +4,7 @@ import { TransformationType } from '@entities/transformation';
 
 import { FilterFileValueProps } from './types';
 import classes from './styles.module.less';
-import { getControlRules } from './utils';
+import { CONTROL_RULES } from './constants';
 
 export const FilterFileValue = ({ name, type }: FilterFileValueProps) => {
   const hasFirstRender = useRef(false);
@@ -25,7 +25,7 @@ export const FilterFileValue = ({ name, type }: FilterFileValueProps) => {
     hasFirstRender.current = true;
   }, [formInstance, name, type]);
 
-  const controlRules = getControlRules(type);
+  const controlRules = type ? CONTROL_RULES[type] : undefined;
 
   return (
     <Form.Item

@@ -10,10 +10,9 @@ import {
   TransferCanvasTransformNodeTypeName,
 } from '../TransferConnectionsCanvas';
 
-import { FilterColumnsNodeProps } from './types';
 import classes from './styles.module.less';
 
-export const FilterColumnsNode = ({}: FilterColumnsNodeProps) => {
+export const FilterColumnsNode = () => {
   const icon = useMemo(() => {
     return <FilterOutlined />;
   }, []);
