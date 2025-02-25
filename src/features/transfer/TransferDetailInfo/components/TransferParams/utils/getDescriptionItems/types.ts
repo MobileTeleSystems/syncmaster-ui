@@ -1,5 +1,3 @@
-import { Transfer } from '@entities/transfer';
-
-export interface GetDescriptionItemsProps {
-  data: Transfer['source_params'];
+export interface GetDescriptionItemsProps<T> {
+  data: T;
 }
