@@ -25,6 +25,7 @@ export const TransferConnectionsCanvas = ({ groupId }: TransferCanvasProps) => {
       groupId,
       hasFilterRows: !!initialTransformations[TransformationType.FILTER_ROWS],
       hasFilterColumns: !!initialTransformations[TransformationType.FILTER_COLUMNS],
+      hasFilterFile: !!initialTransformations[TransformationType.FILTER_FILE],
     });
   }, [groupId, initialTransformations]);
 

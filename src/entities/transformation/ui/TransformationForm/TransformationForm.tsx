@@ -8,7 +8,6 @@ import { TransformationFormProps } from './types';
 
 const TransformationFormComponent = <T extends TransformationType>({
   transformationType,
-  renderValue,
   ...props
 }: TransformationFormProps<T>) => {
   const formInstance = Form.useFormInstance();
@@ -34,14 +33,13 @@ const TransformationFormComponent = <T extends TransformationType>({
             <TransformationFormItem
               {...field}
               {...props}
-              renderValue={renderValue}
               transformationType={transformationType}
               onRemove={field.name ? remove : undefined}
               key={field.key}
             />
           ))}
           <Button className="nodrag" size="large" type="primary" onClick={() => add()}>
-            Add column
+            Add item
           </Button>
         </div>
       )}

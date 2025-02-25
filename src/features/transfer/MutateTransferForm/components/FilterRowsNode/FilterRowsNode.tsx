@@ -1,8 +1,8 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { CanvasNode } from '@shared/ui';
 import { Handle, Position } from '@xyflow/react';
 import { FilterOutlined } from '@ant-design/icons';
-import { FilterRowsValue, RenderValueParams, TransformationForm, TransformationType } from '@entities/transformation';
+import { TransformationForm, TransformationType } from '@entities/transformation';
 
 import {
   TransferCanvasEdge,
@@ -10,16 +10,11 @@ import {
   TransferCanvasTransformNodeTypeName,
 } from '../TransferConnectionsCanvas';
 
-import { FilterRowsNodeProps } from './types';
 import classes from './styles.module.less';
 
-export const FilterRowsNode = ({}: FilterRowsNodeProps) => {
+export const FilterRowsNode = () => {
   const icon = useMemo(() => {
     return <FilterOutlined />;
-  }, []);
-
-  const getFilterRowsValueForm = useCallback((params: RenderValueParams<TransformationType.FILTER_ROWS>) => {
-    return <FilterRowsValue type={params.type} name={params.name} />;
   }, []);
 
   const children = useMemo(() => {
@@ -29,12 +24,12 @@ export const FilterRowsNode = ({}: FilterRowsNodeProps) => {
         <TransformationForm
           transformationType={TransformationType.FILTER_ROWS}
           nestedTypeSelectLabel="Operator"
-          renderValue={getFilterRowsValueForm}
+          hasColumnField
         />
         <Handle type="source" position={Position.Right} id={TransferCanvasEdge.FILTER_ROWS_SOURCE} />
       </>
     );
-  }, [getFilterRowsValueForm]);
+  }, []);
 
   return (
     <CanvasNode

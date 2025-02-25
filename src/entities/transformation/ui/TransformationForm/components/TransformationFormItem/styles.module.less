@@ -3,12 +3,16 @@
   align-items: center;
   gap: 12px;
 
+  &:first-of-type {
+    align-items: flex-start;
+  }
+
   .column {
     min-width: 300px;
   }
 
   .type {
-    min-width: 180px;
+    min-width: @select-transformation-type-width;
     flex-grow: 1;
   }
 }

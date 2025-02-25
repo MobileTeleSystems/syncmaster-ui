@@ -18,6 +18,11 @@ export const prepareTransformationRequest = (data?: TransformationsForm): Transf
           type: TransformationType.FILTER_COLUMNS,
           filters: data[key] || [],
         };
+      case TransformationType.FILTER_FILE:
+        return {
+          type: TransformationType.FILTER_FILE,
+          filters: data[key] || [],
+        };
     }
   });
 };

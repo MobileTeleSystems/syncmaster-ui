@@ -3,7 +3,6 @@ import { Form, Input } from 'antd';
 import { TransformationFilterRowsType } from '@entities/transformation';
 
 import { FilterRowsValueProps } from './types';
-import classes from './styles.module.less';
 
 export const FilterRowsValue = ({ name, type }: FilterRowsValueProps) => {
   switch (type) {
@@ -13,7 +12,7 @@ export const FilterRowsValue = ({ name, type }: FilterRowsValueProps) => {
       return null;
     default:
       return (
-        <Form.Item className={classes.root} label="Value" name={[name, 'value']} rules={[{ required: true }]}>
+        <Form.Item label="Value" name={[name, 'value']} rules={[{ required: true }]}>
           <Input className="nodrag" size="large" />
         </Form.Item>
       );

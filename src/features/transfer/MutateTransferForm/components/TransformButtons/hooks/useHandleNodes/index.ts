@@ -133,7 +133,7 @@ export const useHandleNodes = () => {
   const handleDeleteTransformNode = (nodeType: TransferCanvasTransformNodeType) => {
     setTransformNodeTypes((state) =>
       (Object.keys(state || {}) as Array<keyof TransformNodeTypes>).reduce(
-        (prev, curr) => (curr === nodeType ? prev : { [curr]: true }),
+        (prev, curr) => (curr === nodeType ? prev : { ...prev, [curr]: true }),
         {},
       ),
     );

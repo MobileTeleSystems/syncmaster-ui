@@ -12,7 +12,7 @@ import {
 
 import classes from './styles.module.less';
 
-export const FilterColumnsNode = () => {
+export const FilterFileNode = () => {
   const icon = useMemo(() => {
     return <FilterOutlined />;
   }, []);
@@ -20,13 +20,9 @@ export const FilterColumnsNode = () => {
   const children = useMemo(() => {
     return (
       <>
-        <Handle type="target" position={Position.Left} id={TransferCanvasEdge.FILTER_COLUMNS_TARGET} />
-        <TransformationForm
-          transformationType={TransformationType.FILTER_COLUMNS}
-          nestedTypeSelectLabel="Type"
-          hasColumnField
-        />
-        <Handle type="source" position={Position.Right} id={TransferCanvasEdge.FILTER_COLUMNS_SOURCE} />
+        <Handle type="target" position={Position.Left} id={TransferCanvasEdge.FILTER_FILE_TARGET} />
+        <TransformationForm transformationType={TransformationType.FILTER_FILE} nestedTypeSelectLabel="Type" />
+        <Handle type="source" position={Position.Right} id={TransferCanvasEdge.FILTER_FILE_SOURCE} />
       </>
     );
   }, []);
@@ -34,7 +30,7 @@ export const FilterColumnsNode = () => {
   return (
     <CanvasNode
       className={classes.root}
-      title={TransferCanvasTransformNodeTypeName[TransferCanvasTransformNodeType.FILTER_COLUMNS]}
+      title={TransferCanvasTransformNodeTypeName[TransferCanvasTransformNodeType.FILTER_FILE]}
       icon={icon}
     >
       {children}
