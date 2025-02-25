@@ -1,10 +1,9 @@
 import React, { useLayoutEffect, useRef } from 'react';
-import { Form, Input } from 'antd';
-import { TransformationType } from '@entities/transformation';
+import { Form } from 'antd';
+import { TransformationFilterFileType, TransformationType } from '@entities/transformation';
 
 import { FilterFileValueProps } from './types';
-import classes from './styles.module.less';
-import { CONTROL_RULES } from './constants';
+import { FilterFileRegexpValue, FilterFileSizeValue } from './components';
 
 export const FilterFileValue = ({ name, type }: FilterFileValueProps) => {
   const hasFirstRender = useRef(false);
@@ -13,10 +12,15 @@ export const FilterFileValue = ({ name, type }: FilterFileValueProps) => {
   // Reset value and error of value field after change type
   useLayoutEffect(() => {
     // Do not reset when type is an initial
-    if (hasFirstRender) {
+    if (hasFirstRender.current) {
       formInstance.setFields([
         {
           name: ['transformations', TransformationType.FILTER_FILE, name, 'value'],
+          value: '',
+          errors: [],
+        },
+        {
+          name: ['transformations', TransformationType.FILTER_FILE, name, 'extra_value'],
           value: '',
           errors: [],
         },
@@ -25,17 +29,12 @@ export const FilterFileValue = ({ name, type }: FilterFileValueProps) => {
     hasFirstRender.current = true;
   }, [formInstance, name, type]);
 
-  const controlRules = type ? CONTROL_RULES[type] : undefined;
-
-  return (
-    <Form.Item
-      className={classes.control}
-      label="Value"
-      name={[name, 'value']}
-      rules={controlRules}
-      hidden={!controlRules}
-    >
-      <Input className="nodrag" size="large" />
-    </Form.Item>
-  );
+  switch (type) {
+    case TransformationFilterFileType.NAME_GLOB:
+    case TransformationFilterFileType.NAME_REGEXP:
+      return <FilterFileRegexpValue name={name} type={type} />;
+    case TransformationFilterFileType.FILE_SIZE_MIN:
+    case TransformationFilterFileType.FILE_SIZE_MAX:
+      return <FilterFileSizeValue name={name} />;
+  }
 };
