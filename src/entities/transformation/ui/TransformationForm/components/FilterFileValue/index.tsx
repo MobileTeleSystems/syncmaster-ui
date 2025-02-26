@@ -27,7 +27,9 @@ export const FilterFileValue = ({ name, type }: FilterFileValueProps) => {
       ]);
     }
     hasFirstRender.current = true;
-  }, [formInstance, name, type]);
+    // name should not be in dependencies
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formInstance, type]);
 
   switch (type) {
     case TransformationFilterFileType.NAME_GLOB:

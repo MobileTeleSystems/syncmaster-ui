@@ -98,7 +98,6 @@ interface TransformationFilterFileRegexpItemForm {
 
 interface TransformationFilterFileSizeItemForm {
   type: TransformationFilterFileType.FILE_SIZE_MIN | TransformationFilterFileType.FILE_SIZE_MAX;
-  value: string;
   extra_value: number;
   unit: FileSizeUnit;
 }
