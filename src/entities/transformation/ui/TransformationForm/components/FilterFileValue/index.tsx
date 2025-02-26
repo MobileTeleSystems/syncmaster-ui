@@ -27,7 +27,7 @@ export const FilterFileValue = ({ name, type }: FilterFileValueProps) => {
       ]);
     }
     hasFirstRender.current = true;
-    // name should not be in dependencies
+    // name should not be in dependencies, because when name changes it is not need to resetFields (only when type changes)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formInstance, type]);
 
