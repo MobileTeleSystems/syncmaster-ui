@@ -1,11 +1,10 @@
 import React from 'react';
 import { QueueQueryKey, queueService } from '@entities/queue';
-import { TRANSFER_STRATEGY_PARAMS_SELECT_OPTIONS } from '@entities/transfer';
-import { ControlButtons, Fieldset, FormCurrentGroupDescription, ManagedSelect, Select } from '@shared/ui';
+import { ControlButtons, Fieldset, FormCurrentGroupDescription, ManagedSelect } from '@shared/ui';
 import { Form, Input } from 'antd';
 
 import { MutateTransferFormProps } from './types';
-import { TransferConnections, TransferSchedule } from './components';
+import { StrategyParams, TransferConnections, TransferSchedule } from './components';
 
 export const MutateTransferForm = ({ group, onCancel }: MutateTransferFormProps) => {
   return (
@@ -31,13 +30,11 @@ export const MutateTransferForm = ({ group, onCancel }: MutateTransferFormProps)
             placeholder="Select queue"
           />
         </Form.Item>
-
-        <Form.Item label="Strategy params" name={['strategy_params', 'type']} rules={[{ required: true }]}>
-          <Select size="large" options={TRANSFER_STRATEGY_PARAMS_SELECT_OPTIONS} placeholder="Select strategy" />
-        </Form.Item>
       </Fieldset>
 
       <TransferConnections groupId={group.id} />
+
+      <StrategyParams />
 
       <TransferSchedule />
 

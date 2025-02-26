@@ -11,15 +11,18 @@ export const ConnectionOracle = () => {
   const [isSidDisabled, setSidDisabled] = useState(false);
 
   const changeDisabledFields = useCallback(() => {
-    const serviceName = form.getFieldValue('service_name');
-    const sid = form.getFieldValue('sid');
+    const serviceName = form.getFieldValue(['connection_data', 'service_name']);
+    const sid = form.getFieldValue(['connection_data', 'sid']);
     setServiceNameDisabled(!!sid);
     setSidDisabled(!!serviceName);
   }, [form]);
 
   const handleFieldChange = () => {
     changeDisabledFields();
-    form.validateFields(['service_name', 'sid']);
+    form.validateFields([
+      ['connection_data', 'service_name'],
+      ['connection_data', 'sid'],
+    ]);
   };
 
   //* It needs to validate required fields service_name and sid correctly if they have initial values

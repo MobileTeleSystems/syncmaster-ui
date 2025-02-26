@@ -5,7 +5,7 @@ import { CronService } from '@shared/services';
 
 import { TransferDetailInfoProps } from './types';
 import classes from './styles.module.less';
-import { TransferParams } from './components';
+import { TransferParams, TransferStrategyParams } from './components';
 
 export const TransferDetailInfo = ({
   transfer,
@@ -38,8 +38,8 @@ export const TransferDetailInfo = ({
             {new CronService(transfer.schedule).getSchedule()}
           </Descriptions.Item>
         )}
-        <Descriptions.Item label="Strategy params" span={3}>
-          {transfer.strategy_params.type}
+        <Descriptions.Item className={classes.subDescription} label="Strategy params" span={3}>
+          <TransferStrategyParams data={transfer.strategy_params} />
         </Descriptions.Item>
         <Descriptions.Item label="Source connection" span={3}>
           <Link to={`/connections/${connectionSource.id}`}>{connectionSource.name}</Link>

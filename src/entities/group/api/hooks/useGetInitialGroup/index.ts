@@ -10,5 +10,6 @@ export const useGetInitialGroup = ({ id }: GetGroupRequest): UseQueryResult<Grou
     queryKey: [GroupQueryKey.GET_GROUP, id],
     queryFn: () => groupService.getGroup({ id }),
     enabled: !!id,
+    throwOnError: false,
   });
 };

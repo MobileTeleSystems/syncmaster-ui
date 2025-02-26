@@ -8,7 +8,9 @@ export const ConnectionAuthS3 = () => {
 
   return (
     <>
-      <Form.Item name={['auth_data', 'type']} hidden />
+      <Form.Item name={['auth_data', 'type']} hidden>
+        <Input size="large" />
+      </Form.Item>
       <Form.Item label="Access key" name={['auth_data', 'access_key']} rules={[{ required: true }]}>
         <Input size="large" />
       </Form.Item>
