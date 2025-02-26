@@ -1,3 +1,5 @@
+import { FileSizeUnit } from '@entities/file/@x/transformation';
+
 export enum TransformationType {
   FILTER_ROWS = 'dataframe_rows_filter',
   FILTER_COLUMNS = 'dataframe_columns_filter',
@@ -89,12 +91,29 @@ export interface TransformationFilterFile {
   filters: Array<TransformationFilterFileItem>;
 }
 
+interface TransformationFilterFileRegexpItemForm {
+  type: TransformationFilterFileType.NAME_GLOB | TransformationFilterFileType.NAME_REGEXP;
+  value: string;
+}
+
+interface TransformationFilterFileSizeItemForm {
+  type: TransformationFilterFileType.FILE_SIZE_MIN | TransformationFilterFileType.FILE_SIZE_MAX;
+  value: string;
+  extra_value: number;
+  unit: FileSizeUnit;
+}
+
+export interface TransformationFilterFileForm {
+  type: TransformationType.FILTER_FILE;
+  filters: Array<TransformationFilterFileRegexpItemForm | TransformationFilterFileSizeItemForm>;
+}
+
 export type Transformations = Array<TransformationFilterRows | TransformationFilterColumns | TransformationFilterFile>;
 
 export interface TransformationsForm {
   [TransformationType.FILTER_ROWS]?: TransformationFilterRows['filters'];
   [TransformationType.FILTER_COLUMNS]?: TransformationFilterColumns['filters'];
-  [TransformationType.FILTER_FILE]?: TransformationFilterFile['filters'];
+  [TransformationType.FILTER_FILE]?: TransformationFilterFileForm['filters'];
 }
 
 export type TransformationsFormNestedType<T extends keyof TransformationsForm> =
