@@ -1,3 +1,17 @@
+export enum FileSizeUnit {
+  B = 'B',
+  KB = 'KB',
+  MB = 'MB',
+  GB = 'GB',
+}
+
+export enum FileSizeUnitValue {
+  B = 1,
+  KB = 1000,
+  MB = 1000 * 1000,
+  GB = 1000 * 1000 * 1000,
+}
+
 export enum FileCompression {
   NONE = 'none',
   BZIP2 = 'bzip2',

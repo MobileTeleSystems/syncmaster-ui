@@ -1,4 +1,4 @@
-import { Transformations, TransformationsForm, TransformationType } from '../../types';
+import { TransformationFilterFileType, Transformations, TransformationsForm, TransformationType } from '../../types';
 
 /** Util for mapping of transformations data from form value to appropriate type for backend  */
 export const prepareTransformationRequest = (data?: TransformationsForm): Transformations => {
@@ -21,7 +21,16 @@ export const prepareTransformationRequest = (data?: TransformationsForm): Transf
       case TransformationType.FILTER_FILE:
         return {
           type: TransformationType.FILTER_FILE,
-          filters: data[key] || [],
+          filters: (data[key] || []).map((filter) => {
+            switch (filter.type) {
+              case TransformationFilterFileType.NAME_GLOB:
+              case TransformationFilterFileType.NAME_REGEXP:
+                return filter;
+              case TransformationFilterFileType.FILE_SIZE_MIN:
+              case TransformationFilterFileType.FILE_SIZE_MAX:
+                return { type: filter.type, value: `${filter.extra_value}${filter.unit}` };
+            }
+          }),
         };
     }
   });
