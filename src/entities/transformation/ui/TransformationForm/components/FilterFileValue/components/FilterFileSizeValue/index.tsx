@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
 import { Form, InputNumber } from 'antd';
 import { TransformationType } from '@entities/transformation';
 import { Select } from '@shared/ui';
@@ -7,7 +7,7 @@ import { parseFileSize } from '@entities/file/@x/transformation';
 import { FILE_SIZE_UNIT_SELECT_OPTIONS } from './constants';
 import { FilterFileSizeValueProps } from './types';
 
-export const FilterFileSizeValue = ({ name }: FilterFileSizeValueProps) => {
+export const FilterFileSizeValue = memo(({ name }: FilterFileSizeValueProps) => {
   const formInstance = Form.useFormInstance();
 
   const initialFileSizeControlData = useMemo(() => {
@@ -45,4 +45,4 @@ export const FilterFileSizeValue = ({ name }: FilterFileSizeValueProps) => {
       </Form.Item>
     </>
   );
-};
+});
