@@ -38,6 +38,7 @@ export type TransferConnectionParamFieldName = 'source_params' | 'target_params'
 
 export interface TransferStrategyParams {
   type: 'full' | 'incremental';
+  increment_by?: string;
 }
 
 interface TransferParamsHive {
