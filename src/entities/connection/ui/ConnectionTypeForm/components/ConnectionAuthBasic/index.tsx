@@ -8,6 +8,7 @@ export const ConnectionAuthBasic = () => {
 
   return (
     <>
+      {/* Hide Form.Item control, because its value is set in 'useSelectConnectionType' hook */}
       <Form.Item name={['auth_data', 'type']} hidden>
         <Input size="large" />
       </Form.Item>
