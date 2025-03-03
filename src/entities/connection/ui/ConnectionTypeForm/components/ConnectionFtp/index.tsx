@@ -4,12 +4,9 @@ import { Form, Input, InputNumber } from 'antd';
 import { MAX_ALLOWED_PORT, MIN_ALLOWED_PORT } from '../../constants';
 import { ConnectionAuthBasic } from '../ConnectionAuthBasic';
 
-export const ConnectionClickhouse = () => {
+export const ConnectionFtp = () => {
   return (
     <>
-      <Form.Item label="Database name" name={['connection_data', 'database_name']}>
-        <Input size="large" />
-      </Form.Item>
       <Form.Item label="Host" name={['connection_data', 'host']} rules={[{ required: true }]}>
         <Input size="large" />
       </Form.Item>

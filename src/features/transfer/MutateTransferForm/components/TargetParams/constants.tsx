@@ -1,23 +1,19 @@
 import React from 'react';
 import { ConnectionType } from '@shared/types';
-import {
-  TransferConnectionHdfs,
-  TransferConnectionHive,
-  TransferConnectionOracle,
-  TransferConnectionPostgres,
-  TransferConnectionClickhouse,
-  TransferConnectionMySql,
-  TransferConnectionMsSql,
-  TransferConnectionS3,
-} from '@entities/transfer';
+import { TransferConnectionFileType, TransferConnectionTableType } from '@entities/transfer';
 
 export const TRANSFER_TARGET_CONNECTION_TYPE_COMPONENT = {
-  [ConnectionType.HDFS]: <TransferConnectionHdfs name="target_params" />,
-  [ConnectionType.HIVE]: <TransferConnectionHive name="target_params" />,
-  [ConnectionType.ORACLE]: <TransferConnectionOracle name="target_params" />,
-  [ConnectionType.POSTGRES]: <TransferConnectionPostgres name="target_params" />,
-  [ConnectionType.CLICKHOUSE]: <TransferConnectionClickhouse name="target_params" />,
-  [ConnectionType.MY_SQL]: <TransferConnectionMySql name="target_params" />,
-  [ConnectionType.MS_SQL]: <TransferConnectionMsSql name="target_params" />,
-  [ConnectionType.S3]: <TransferConnectionS3 name="target_params" />,
+  [ConnectionType.FTP]: <TransferConnectionFileType name="target_params" />,
+  [ConnectionType.FTPS]: <TransferConnectionFileType name="target_params" />,
+  [ConnectionType.SFTP]: <TransferConnectionFileType name="target_params" />,
+  [ConnectionType.WEBDAV]: <TransferConnectionFileType name="target_params" />,
+  [ConnectionType.SAMBA]: <TransferConnectionFileType name="target_params" />,
+  [ConnectionType.HDFS]: <TransferConnectionFileType name="target_params" />,
+  [ConnectionType.S3]: <TransferConnectionFileType name="target_params" />,
+  [ConnectionType.HIVE]: <TransferConnectionTableType name="target_params" />,
+  [ConnectionType.ORACLE]: <TransferConnectionTableType name="target_params" />,
+  [ConnectionType.POSTGRES]: <TransferConnectionTableType name="target_params" />,
+  [ConnectionType.CLICKHOUSE]: <TransferConnectionTableType name="target_params" />,
+  [ConnectionType.MY_SQL]: <TransferConnectionTableType name="target_params" />,
+  [ConnectionType.MS_SQL]: <TransferConnectionTableType name="target_params" />,
 };

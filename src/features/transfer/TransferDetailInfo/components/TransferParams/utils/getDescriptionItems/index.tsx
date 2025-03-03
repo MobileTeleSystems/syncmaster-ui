@@ -12,6 +12,11 @@ export const getDescriptionItems = <T extends Transfer['source_params'] | Transf
   data,
 }: GetDescriptionItemsProps<T>): DescriptionItem[] => {
   switch (data.type) {
+    case ConnectionType.FTP:
+    case ConnectionType.FTPS:
+    case ConnectionType.SFTP:
+    case ConnectionType.WEBDAV:
+    case ConnectionType.SAMBA:
     case ConnectionType.HDFS:
     case ConnectionType.S3:
       const items: DescriptionItem[] = [

@@ -13,6 +13,21 @@ export const getConnectionAuthData = (connection: Connection): DescriptionItem[]
           content: auth_data.access_key,
         },
       ];
+    case ConnectionType.SAMBA:
+      return [
+        {
+          label: 'User',
+          content: auth_data.user,
+        },
+        {
+          label: 'Auth type',
+          content: auth_data.auth_type,
+        },
+      ];
+    case ConnectionType.FTP:
+    case ConnectionType.FTPS:
+    case ConnectionType.SFTP:
+    case ConnectionType.WEBDAV:
     case ConnectionType.HIVE:
     case ConnectionType.HDFS:
     case ConnectionType.ORACLE:

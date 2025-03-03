@@ -6,5 +6,22 @@ import MssqlIcon from './mssql.svg';
 import MysqlIcon from './mysql.svg';
 import OracleIcon from './oracle.svg';
 import PostgresIcon from './postgres.svg';
+import WebDavIcon from './webdav.svg';
+import SambaIcon from './samba.svg';
+import FtpIcon from './ftp.svg';
+import SftpIcon from './sftp.svg';
 
-export { ClickhouseIcon, HdfsIcon, HiveIcon, MssqlIcon, MysqlIcon, OracleIcon, PostgresIcon, S3Icon };
+export {
+  ClickhouseIcon,
+  HdfsIcon,
+  HiveIcon,
+  MssqlIcon,
+  MysqlIcon,
+  OracleIcon,
+  PostgresIcon,
+  S3Icon,
+  WebDavIcon,
+  SambaIcon,
+  FtpIcon,
+  SftpIcon,
+};

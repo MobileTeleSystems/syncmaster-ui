@@ -6,6 +6,57 @@ export const getConnectionData = (connection: Connection): DescriptionItem[] => 
   const { type, connection_data } = connection;
 
   switch (type) {
+    case ConnectionType.FTP:
+    case ConnectionType.FTPS:
+    case ConnectionType.SFTP:
+      return [
+        {
+          label: 'Host',
+          content: connection_data.host,
+        },
+        {
+          label: 'Port',
+          content: connection_data.port,
+        },
+      ];
+    case ConnectionType.WEBDAV:
+      return [
+        {
+          label: 'Host',
+          content: connection_data.host,
+        },
+        {
+          label: 'Protocol',
+          content: connection_data.protocol,
+        },
+        {
+          label: 'Port',
+          content: connection_data.port || '',
+        },
+      ];
+    case ConnectionType.SAMBA:
+      return [
+        {
+          label: 'Host',
+          content: connection_data.host,
+        },
+        {
+          label: 'Share',
+          content: connection_data.share,
+        },
+        {
+          label: 'Protocol',
+          content: connection_data.protocol,
+        },
+        {
+          label: 'Port',
+          content: connection_data.port || '',
+        },
+        {
+          label: 'Domain',
+          content: connection_data.domain,
+        },
+      ];
     case ConnectionType.ORACLE:
       return [
         {
@@ -28,7 +79,7 @@ export const getConnectionData = (connection: Connection): DescriptionItem[] => 
       return [
         {
           label: 'Database name',
-          content: connection_data.database_name,
+          content: connection_data.database_name || '',
         },
         {
           label: 'Host',
