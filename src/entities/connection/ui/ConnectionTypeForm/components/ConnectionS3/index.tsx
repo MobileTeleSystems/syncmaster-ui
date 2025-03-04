@@ -12,10 +12,10 @@ export const ConnectionS3 = () => {
       <Form.Item label="Host" name={['connection_data', 'host']} rules={[{ required: true }]}>
         <Input size="large" />
       </Form.Item>
-      <Form.Item label="Protocol" name={['connection_data', 'protocol']} rules={[{ required: true }]}>
+      <Form.Item label="Protocol" name={['connection_data', 'protocol']}>
         <Select size="large" options={CONNECTION_PROTOCOL_SELECT_OPTIONS} placeholder="Select connection protocol" />
       </Form.Item>
-      <Form.Item label="Bucket style" name={['connection_data', 'bucket_style']} rules={[{ required: true }]}>
+      <Form.Item label="Bucket style" name={['connection_data', 'bucket_style']}>
         <Select
           size="large"
           options={CONNECTION_BUCKET_STYLE_SELECT_OPTIONS}

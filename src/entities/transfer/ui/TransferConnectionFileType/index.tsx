@@ -3,9 +3,9 @@ import { Divider, Form, Input } from 'antd';
 import { ABSOLUTE_PATH_REGEXP } from '@shared/constants';
 import { FileFormatParams, FileNameTemplate } from '@entities/file/@x/transfer';
 
-import { TransferConnectionS3Props } from './types';
+import { TransferConnectionFileTypeProps } from './types';
 
-export const TransferConnectionS3 = ({ name }: TransferConnectionS3Props) => {
+export const TransferConnectionFileType = ({ name }: TransferConnectionFileTypeProps) => {
   return (
     <>
       <Form.Item

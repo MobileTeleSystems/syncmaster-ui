@@ -1,10 +1,15 @@
 export enum ConnectionType {
   CLICKHOUSE = 'clickhouse',
+  FTP = 'ftp',
+  FTPS = 'ftps',
   HDFS = 'hdfs',
   HIVE = 'hive',
   MS_SQL = 'mssql',
   MY_SQL = 'mysql',
   ORACLE = 'oracle',
   POSTGRES = 'postgres',
+  SAMBA = 'samba',
+  SFTP = 'sftp',
   S3 = 's3',
+  WEBDAV = 'webdav',
 }

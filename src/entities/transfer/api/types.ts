@@ -10,24 +10,8 @@ export interface Transfer {
   target_connection_id: number;
   description: string;
   queue_id: number;
-  source_params:
-    | TransferParamsHive
-    | TransferParamsOracle
-    | TransferParamsPostgres
-    | TransferParamsClickhouse
-    | TransferParamsMsSql
-    | TransferParamsMySql
-    | TransferSourceParamsHdfs
-    | TransferSourceParamsS3;
-  target_params:
-    | TransferParamsHive
-    | TransferParamsOracle
-    | TransferParamsPostgres
-    | TransferParamsClickhouse
-    | TransferParamsMsSql
-    | TransferParamsMySql
-    | TransferTargetParamsHdfs
-    | TransferTargetParamsS3;
+  source_params: TransferSourceConnectionFileType | TransferConnectionTableType;
+  target_params: TransferTargetConnectionFileType | TransferConnectionTableType;
   strategy_params: TransferStrategyParams;
   is_scheduled: boolean;
   schedule: string;
@@ -36,67 +20,49 @@ export interface Transfer {
 
 export type TransferConnectionParamFieldName = 'source_params' | 'target_params';
 
+export type TransferConnectionFileIncrementBy = 'file_modified_since' | 'file_name';
+
 export interface TransferStrategyParams {
   type: 'full' | 'incremental';
-  increment_by?: string;
+  increment_by?: TransferConnectionFileIncrementBy | string;
 }
 
-interface TransferParamsHive {
-  type: ConnectionType.HIVE;
-  table_name: string;
-}
-
-interface TransferParamsOracle {
-  type: ConnectionType.ORACLE;
-  table_name: string;
-}
-
-interface TransferParamsPostgres {
-  type: ConnectionType.POSTGRES;
-  table_name: string;
-}
-
-interface TransferParamsMySql {
-  type: ConnectionType.MY_SQL;
-  table_name: string;
-}
-
-interface TransferParamsMsSql {
-  type: ConnectionType.MS_SQL;
-  table_name: string;
-}
-
-interface TransferParamsClickhouse {
-  type: ConnectionType.CLICKHOUSE;
-  table_name: string;
-}
-
-interface TransferParamsHdfs {
-  type: ConnectionType.HDFS;
+export interface TransferSourceConnectionFileType {
+  type:
+    | ConnectionType.FTP
+    | ConnectionType.FTPS
+    | ConnectionType.SFTP
+    | ConnectionType.HDFS
+    | ConnectionType.WEBDAV
+    | ConnectionType.SAMBA
+    | ConnectionType.S3;
   directory_path: string;
-}
-
-export interface TransferSourceParamsHdfs extends TransferParamsHdfs {
   file_format: FileFormat;
 }
 
-export interface TransferTargetParamsHdfs extends TransferParamsHdfs {
+export interface TransferTargetConnectionFileType {
+  type:
+    | ConnectionType.FTP
+    | ConnectionType.FTPS
+    | ConnectionType.SFTP
+    | ConnectionType.HDFS
+    | ConnectionType.WEBDAV
+    | ConnectionType.SAMBA
+    | ConnectionType.S3;
+  directory_path: string;
   file_format: Exclude<FileFormat, Json>;
   file_name_template: string;
 }
 
-interface TransferParamsS3 {
-  type: ConnectionType.S3;
-  directory_path: string;
-}
-
-export interface TransferSourceParamsS3 extends TransferParamsS3 {
-  file_format: FileFormat;
-}
-
-export interface TransferTargetParamsS3 extends TransferParamsS3 {
-  file_format: Exclude<FileFormat, Json>;
-  file_name_template: string;
+interface TransferConnectionTableType {
+  type:
+    | ConnectionType.HIVE
+    | ConnectionType.CLICKHOUSE
+    | ConnectionType.MS_SQL
+    | ConnectionType.MY_SQL
+    | ConnectionType.ORACLE
+    | ConnectionType.POSTGRES;
+  table_name: string;
 }
 
 export interface GetTransfersRequest extends PaginationRequest {

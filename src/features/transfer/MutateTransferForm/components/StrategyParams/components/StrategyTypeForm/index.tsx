@@ -17,6 +17,11 @@ export const StrategyTypeForm = ({ sourceConnectionType }: StrategyTypeFormProps
       case ConnectionType.S3:
         setDisabled(true);
         return formInstance.setFieldValue(['strategy_params', 'type'], 'full');
+      case ConnectionType.FTP:
+      case ConnectionType.FTPS:
+      case ConnectionType.SFTP:
+      case ConnectionType.WEBDAV:
+      case ConnectionType.SAMBA:
       case ConnectionType.CLICKHOUSE:
       case ConnectionType.HIVE:
       case ConnectionType.MS_SQL:

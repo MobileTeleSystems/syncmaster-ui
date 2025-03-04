@@ -10,8 +10,12 @@ export const useSelectConnectionType = ({ initialType }: UseSelectConnectionType
   const formInstance = Form.useFormInstance();
   const [selectedConnectionType, setConnectionType] = useState<ConnectionType | undefined>(initialType);
 
-  const getAuthDataTypeValue = (type: ConnectionType) => {
+  const getAuthDataTypeValue = (type: ConnectionType): ConnectionAuthType => {
     switch (type) {
+      case ConnectionType.FTP:
+      case ConnectionType.FTPS:
+      case ConnectionType.SFTP:
+      case ConnectionType.WEBDAV:
       case ConnectionType.CLICKHOUSE:
       case ConnectionType.HDFS:
       case ConnectionType.HIVE:
@@ -22,6 +26,8 @@ export const useSelectConnectionType = ({ initialType }: UseSelectConnectionType
         return ConnectionAuthType.BASIC;
       case ConnectionType.S3:
         return ConnectionAuthType.S3;
+      case ConnectionType.SAMBA:
+        return ConnectionAuthType.SAMBA;
     }
   };
 

@@ -8,22 +8,32 @@ export type Connection = {
 } & ConnectionData;
 
 export type ConnectionData =
-  | ConnectionHive
+  | ConnectionFtp
+  | ConnectionFtps
+  | ConnectionSftp
+  | ConnectionWebdav
+  | ConnectionSamba
   | ConnectionHdfs
+  | ConnectionS3
+  | ConnectionHive
   | ConnectionOracle
   | ConnectionPostgres
   | ConnectionClickhouse
   | ConnectionMySql
-  | ConnectionMsSql
-  | ConnectionS3;
+  | ConnectionMsSql;
 
 export type ConnectionBucketStyle = 'domain' | 'path';
 
 export type ConnectionProtocol = 'https' | 'http';
 
+export type ConnectionSambaProtocol = 'SMB' | 'NetBIOS';
+
+export type ConnectionSambaAuthType = 'NTLMv1' | 'NTLMv2';
+
 export enum ConnectionAuthType {
   BASIC = 'basic',
   S3 = 's3',
+  SAMBA = 'samba',
 }
 
 interface ConnectionAuthBasic {
@@ -36,6 +46,13 @@ interface ConnectionAuthS3 {
   type: ConnectionAuthType.S3;
   access_key: string;
   secret_key?: string;
+}
+
+interface ConnectionAuthSamba {
+  type: ConnectionAuthType.SAMBA;
+  user: string;
+  password?: string;
+  auth_type: ConnectionSambaAuthType;
 }
 
 export interface ConnectionHive {
@@ -81,7 +98,7 @@ export interface ConnectionClickhouse {
   connection_data: {
     host: string;
     port: number;
-    database_name: string;
+    database_name: string | null;
   };
 }
 
@@ -102,6 +119,55 @@ export interface ConnectionMsSql {
     host: string;
     port: number;
     database_name: string;
+  };
+}
+
+export interface ConnectionFtp {
+  type: ConnectionType.FTP;
+  auth_data: ConnectionAuthBasic;
+  connection_data: {
+    host: string;
+    port: number;
+  };
+}
+
+export interface ConnectionFtps {
+  type: ConnectionType.FTPS;
+  auth_data: ConnectionAuthBasic;
+  connection_data: {
+    host: string;
+    port: number;
+  };
+}
+
+export interface ConnectionSftp {
+  type: ConnectionType.SFTP;
+  auth_data: ConnectionAuthBasic;
+  connection_data: {
+    host: string;
+    port: number;
+  };
+}
+
+export interface ConnectionWebdav {
+  type: ConnectionType.WEBDAV;
+  auth_data: ConnectionAuthBasic;
+  connection_data: {
+    host: string;
+    port: number | null;
+    protocol: ConnectionProtocol;
+  };
+}
+
+export interface ConnectionSamba {
+  type: ConnectionType.SAMBA;
+  auth_data: ConnectionAuthSamba;
+  connection_data: {
+    host: string;
+    share: string;
+    port: number | null;
+    protocol: ConnectionSambaProtocol;
+    domain: string;
   };
 }
 
