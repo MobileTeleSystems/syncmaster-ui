@@ -1,6 +1,7 @@
 import { Button, Form } from 'antd';
 import React, { memo, useLayoutEffect } from 'react';
 
+import { useShowButtons } from '../../hooks';
 import { Transformations, TransformationType } from '../../types';
 
 import { TransformationFormItem } from './components';
@@ -10,6 +11,8 @@ const TransformationFormComponent = <T extends TransformationType>({
   transformationType,
   ...props
 }: TransformationFormProps<T>) => {
+  const { isDisplayed } = useShowButtons();
+
   const formInstance = Form.useFormInstance();
   const filtersValues: Transformations[number]['filters'] | undefined = formInstance.getFieldValue([
     'transformations',
@@ -34,11 +37,11 @@ const TransformationFormComponent = <T extends TransformationType>({
               {...field}
               {...props}
               transformationType={transformationType}
-              onRemove={field.name ? remove : undefined}
+              onRemove={field.name && isDisplayed ? remove : undefined}
               key={field.key}
             />
           ))}
-          <Button className="nodrag" size="large" type="primary" onClick={() => add()}>
+          <Button className="nodrag" size="large" type="primary" onClick={() => add()} hidden={!isDisplayed}>
             Add item
           </Button>
         </div>

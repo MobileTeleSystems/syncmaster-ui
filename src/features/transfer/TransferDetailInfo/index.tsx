@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { Descriptions } from 'antd';
 import { Link } from 'react-router-dom';
 import { CronService } from '@shared/services';
@@ -13,8 +13,9 @@ export const TransferDetailInfo = ({
   connectionSource,
   connectionTarget,
   queue,
+  children,
   ...props
-}: TransferDetailInfoProps) => {
+}: PropsWithChildren<TransferDetailInfoProps>) => {
   return (
     <div className={classes.root}>
       <Descriptions title="Transfer info" bordered {...props}>
@@ -54,6 +55,7 @@ export const TransferDetailInfo = ({
           <TransferParams data={transfer.target_params} />
         </Descriptions.Item>
       </Descriptions>
+      {children}
     </div>
   );
 };

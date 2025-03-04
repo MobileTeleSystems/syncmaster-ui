@@ -3,3 +3,4 @@ export * from './TargetParams';
 export * from './TransferSchedule';
 export * from './TransferConnections';
 export * from './StrategyParams';
+export * from './TransferConnectionsCanvas';
