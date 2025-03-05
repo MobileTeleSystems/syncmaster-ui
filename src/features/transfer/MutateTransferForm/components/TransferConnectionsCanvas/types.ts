@@ -6,7 +6,9 @@ import { TargetParamsNodeData } from '../TargetParamsNode';
 
 import { GetInitialNodesProps } from './utils';
 
-export interface TransferCanvasProps extends Pick<GetInitialNodesProps, 'groupId'> {}
+export interface TransferCanvasProps extends Pick<GetInitialNodesProps, 'groupId'> {
+  isDisplayedButtons?: boolean;
+}
 
 export type TransferCanvasNodeData =
   | SourceParamsNodeData

@@ -1,11 +1,33 @@
-import { Background, BackgroundVariant, Controls, Edge, MiniMap, Node, ReactFlow, useReactFlow } from '@xyflow/react';
+import {
+  Background,
+  BackgroundVariant,
+  Controls,
+  Edge,
+  MiniMap,
+  Node,
+  ReactFlow,
+  useEdgesState,
+  useNodesState,
+  useReactFlow,
+} from '@xyflow/react';
 import React, { useEffect } from 'react';
 
 import classes from './styles.module.less';
 import { CanvasProps } from './types';
 
-export const Canvas = <N extends Node, E extends Edge>({ children, nodes, ...props }: CanvasProps<N, E>) => {
+export const Canvas = <N extends Node, E extends Edge>({
+  initialNodes,
+  initialEdges,
+  children,
+  ...props
+}: CanvasProps<N, E>) => {
   const { fitView } = useReactFlow();
+
+  // setNodes and setEdges will not be used
+  // eslint-disable-next-line
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  // eslint-disable-next-line
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   /** Set appropriate zoom of canvas when nodes count has changed */
   useEffect(() => {
@@ -20,6 +42,9 @@ export const Canvas = <N extends Node, E extends Edge>({ children, nodes, ...pro
       elementsSelectable
       nodesConnectable={false}
       nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
       nodesDraggable
       panOnScroll={false}
       panOnDrag

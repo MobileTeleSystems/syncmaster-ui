@@ -117,3 +117,7 @@ export interface TransformationsForm {
 
 export type TransformationsFormNestedType<T extends keyof TransformationsForm> =
   Required<TransformationsForm>[T][number]['type'];
+
+export interface ShowButtonsContextProps {
+  isDisplayed: boolean;
+}
