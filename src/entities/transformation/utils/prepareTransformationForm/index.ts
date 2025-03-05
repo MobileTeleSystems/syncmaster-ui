@@ -3,7 +3,7 @@ import { parseFileSize } from '@entities/file/@x/transformation';
 import { TransformationFilterFileType, Transformations, TransformationsForm, TransformationType } from '../../types';
 
 /** Util for mapping of transformations data from backend to appropriate form value type  */
-export const prepareTransformationForm = (data: Transformations): TransformationsForm => {
+export const prepareTransformationForm = (data: Transformations): Partial<TransformationsForm> => {
   return data.reduce((prev, curr) => {
     switch (curr.type) {
       case TransformationType.FILTER_ROWS:

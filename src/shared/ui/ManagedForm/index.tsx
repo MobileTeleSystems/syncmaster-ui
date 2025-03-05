@@ -29,11 +29,10 @@ export const ManagedForm = <T extends object, R>({
   const onFinish = (values: T) => {
     setLoading(true);
     mutate(values, {
-      onSuccess: (response) => {
+      onSuccess: async (response) => {
+        await Promise.all(keysInvalidateQueries.map((params) => queryClient.invalidateQueries(...params)));
         onSuccess(response);
-        keysInvalidateQueries.forEach((params) => {
-          queryClient.invalidateQueries(...params);
-        });
+
         if (isHiddenLoadingOnSuccess) {
           setLoading(false);
         }
