@@ -23,9 +23,9 @@ export const TransferConnectionsCanvas = ({ groupId, isDisplayedButtons = true }
   const initialNodes = useMemo(() => {
     return getInitialNodes({
       groupId,
-      hasFilterRows: !!initialTransformations[TransformationType.FILTER_ROWS],
-      hasFilterColumns: !!initialTransformations[TransformationType.FILTER_COLUMNS],
-      hasFilterFile: !!initialTransformations[TransformationType.FILTER_FILE],
+      hasFilterRows: !!initialTransformations[TransformationType.FILTER_ROWS]?.length,
+      hasFilterColumns: !!initialTransformations[TransformationType.FILTER_COLUMNS]?.length,
+      hasFilterFile: !!initialTransformations[TransformationType.FILTER_FILE]?.length,
     });
   }, [groupId, initialTransformations]);
 
