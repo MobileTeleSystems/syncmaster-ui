@@ -24,7 +24,7 @@ export const connectionService = {
   },
 
   updateConnection: ({ id, ...data }: UpdateConnectionRequest): Promise<Connection> => {
-    return axiosInstance.patch(`connections/${id}`, data);
+    return axiosInstance.put(`connections/${id}`, data);
   },
 
   deleteConnection: ({ id }: DeleteConnectionRequest): Promise<null> => {

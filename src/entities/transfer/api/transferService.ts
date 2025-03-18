@@ -24,7 +24,7 @@ export const transferService = {
   },
 
   updateTransfer: ({ id, ...data }: UpdateTransferRequest): Promise<Transfer> => {
-    return axiosInstance.patch(`transfers/${id}`, data);
+    return axiosInstance.put(`transfers/${id}`, data);
   },
 
   deleteTransfer: ({ id }: DeleteTransferRequest): Promise<null> => {
