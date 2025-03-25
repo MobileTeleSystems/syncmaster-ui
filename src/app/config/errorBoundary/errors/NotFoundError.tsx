@@ -1,10 +1,11 @@
 import React from 'react';
 import { Result } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 import { BackHome } from './BackHome';
 
 export const NotFoundError = () => {
-  return (
-    <Result status="404" title="404" subTitle="Sorry, the page you visited does not exist." extra={<BackHome />} />
-  );
+  const { t } = useTranslation('error');
+
+  return <Result status="404" title="404" subTitle={t('notFound')} extra={<BackHome />} />;
 };

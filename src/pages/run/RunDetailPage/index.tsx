@@ -11,12 +11,14 @@ import { ConnectionDetailInfo } from '@features/connection';
 import { useGetConnection } from '@entities/connection';
 import { useGetTransfer } from '@entities/transfer';
 import { RunDetailInfo } from '@features/run';
+import { useTranslation } from 'react-i18next';
 
 import classes from './styles.module.less';
 
 const { Title } = Typography;
 
 export const RunDetailPage = () => {
+  const { t } = useTranslation('run');
   const params = useParams<PageDetailParams>();
   const { data: run } = useGetRun({ id: Number(params.id) });
   const { data: transfer } = useGetTransfer({ id: run.transfer_id });
@@ -28,7 +30,9 @@ export const RunDetailPage = () => {
   return (
     <div className={classes.root}>
       <PageContentWrapper>
-        <Title>Run: #{run.id}</Title>
+        <Title>
+          {t('run')}: #{run.id}
+        </Title>
         <div className={classes.extra}>
           <RunDetailInfo run={run} transfer={transfer} />
           <TransferDetailInfo
@@ -38,8 +42,16 @@ export const RunDetailPage = () => {
             connectionTarget={connectionTarget}
             queue={queue}
           />
-          <ConnectionDetailInfo title="Source connection info" group={group.data} connection={connectionSource} />
-          <ConnectionDetailInfo title="Target connection info" group={group.data} connection={connectionTarget} />
+          <ConnectionDetailInfo
+            title={t('sourceConnectionInfo', { ns: 'connection' })}
+            group={group.data}
+            connection={connectionSource}
+          />
+          <ConnectionDetailInfo
+            title={t('targetConnectionInfo', { ns: 'connection' })}
+            group={group.data}
+            connection={connectionTarget}
+          />
         </div>
       </PageContentWrapper>
     </div>

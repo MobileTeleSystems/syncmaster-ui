@@ -1,8 +1,9 @@
 import { Connection } from '@entities/connection';
 import { ConnectionType, DescriptionItem } from '@shared/types';
+import { TFunction } from 'i18next';
 
 /** Util for mapping connection data for Description component depends on connection type */
-export const getConnectionData = (connection: Connection): DescriptionItem[] => {
+export const getConnectionData = (connection: Connection, t: TFunction<'connection'>): DescriptionItem[] => {
   const { type, connection_data } = connection;
 
   switch (type) {
@@ -11,64 +12,64 @@ export const getConnectionData = (connection: Connection): DescriptionItem[] => 
     case ConnectionType.SFTP:
       return [
         {
-          label: 'Host',
+          label: t('host'),
           content: connection_data.host,
         },
         {
-          label: 'Port',
+          label: t('port'),
           content: connection_data.port,
         },
       ];
     case ConnectionType.WEBDAV:
       return [
         {
-          label: 'Host',
+          label: t('host'),
           content: connection_data.host,
         },
         {
-          label: 'Protocol',
+          label: t('protocol'),
           content: connection_data.protocol,
         },
         {
-          label: 'Port',
+          label: t('port'),
           content: connection_data.port || '',
         },
       ];
     case ConnectionType.SAMBA:
       return [
         {
-          label: 'Host',
+          label: t('host'),
           content: connection_data.host,
         },
         {
-          label: 'Share',
+          label: t('share'),
           content: connection_data.share,
         },
         {
-          label: 'Protocol',
+          label: t('protocol'),
           content: connection_data.protocol,
         },
         {
-          label: 'Port',
+          label: t('port'),
           content: connection_data.port || '',
         },
         {
-          label: 'Domain',
+          label: t('domain'),
           content: connection_data.domain,
         },
       ];
     case ConnectionType.ORACLE:
       return [
         {
-          label: connection_data.service_name ? 'Service name' : 'Sid',
+          label: connection_data.service_name ? t('serviceName') : t('sid'),
           content: connection_data.service_name || connection_data.sid,
         },
         {
-          label: 'Host',
+          label: t('host'),
           content: connection_data.host,
         },
         {
-          label: 'Port',
+          label: t('port'),
           content: connection_data.port,
         },
       ];
@@ -78,42 +79,42 @@ export const getConnectionData = (connection: Connection): DescriptionItem[] => 
     case ConnectionType.MS_SQL:
       return [
         {
-          label: 'Database name',
+          label: t('databaseName'),
           content: connection_data.database_name || '',
         },
         {
-          label: 'Host',
+          label: t('host'),
           content: connection_data.host,
         },
         {
-          label: 'Port',
+          label: t('port'),
           content: connection_data.port,
         },
       ];
     case ConnectionType.S3:
       return [
         {
-          label: 'Host',
+          label: t('host'),
           content: connection_data.host,
         },
         {
-          label: 'Bucket style',
+          label: t('bucketStyle'),
           content: connection_data.bucket_style,
         },
         {
-          label: 'Bucket',
+          label: t('bucket'),
           content: connection_data.bucket,
         },
         {
-          label: 'Protocol',
+          label: t('protocol'),
           content: connection_data.protocol,
         },
         {
-          label: 'Port',
+          label: t('port'),
           content: connection_data.port || '',
         },
         {
-          label: 'Region',
+          label: t('region'),
           content: connection_data.region || '',
         },
       ];
@@ -121,7 +122,7 @@ export const getConnectionData = (connection: Connection): DescriptionItem[] => 
     case ConnectionType.HDFS:
       return [
         {
-          label: 'Cluster',
+          label: t('cluster'),
           content: connection_data.cluster,
         },
       ];

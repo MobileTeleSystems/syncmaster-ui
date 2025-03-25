@@ -5,6 +5,7 @@ import { GroupUserList } from '@features/group';
 import { Typography } from 'antd';
 import { useModalState } from '@shared/hooks';
 import { UserRole } from '@shared/types';
+import { useTranslation } from 'react-i18next';
 
 import { GroupUsersProps } from './types';
 import { AddGroupUserButton, DeleteGroupUserModal, UpdateGroupUserModal } from './components';
@@ -13,6 +14,7 @@ import classes from './styles.module.less';
 const { Text } = Typography;
 
 export const GroupUsers = ({ group }: GroupUsersProps) => {
+  const { t } = useTranslation('group');
   const [selectedUser, setSelectedUser] = useState<GroupUser>();
 
   const {
@@ -45,7 +47,7 @@ export const GroupUsers = ({ group }: GroupUsersProps) => {
 
   return (
     <PageContentWrapper>
-      <AccessWrapper accessRole={UserRole.Owner} currentRole={group.role}>
+      <AccessWrapper accessRole={UserRole.OWNER} currentRole={group.role}>
         <UpdateGroupUserModal
           groupId={group.data.id}
           user={selectedUser}
@@ -63,9 +65,9 @@ export const GroupUsers = ({ group }: GroupUsersProps) => {
       <PageContentWrapper>
         <div className={classes.header}>
           <Text className={classes.subtitle} strong>
-            Group members
+            {t('groupMembers')}
           </Text>
-          <AccessWrapper accessRole={UserRole.Owner} currentRole={group.role}>
+          <AccessWrapper accessRole={UserRole.OWNER} currentRole={group.role}>
             <AddGroupUserButton groupId={group.data.id} />
           </AccessWrapper>
         </div>

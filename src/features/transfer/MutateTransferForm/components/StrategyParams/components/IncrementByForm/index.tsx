@@ -2,11 +2,15 @@ import React from 'react';
 import { ConnectionType } from '@shared/types';
 import { Form, Input } from 'antd';
 import { Select } from '@shared/ui';
+import { useTranslation } from 'react-i18next';
 
 import { IncrementByFormProps } from './types';
-import { STRATEGY_PARAMS_INCREMENT_BY_SELECT_OPTIONS } from './constants';
+import { useGetIncrementBySelectOptions } from './hooks';
 
 export const IncrementByForm = ({ sourceConnectionType }: IncrementByFormProps) => {
+  const { t } = useTranslation('transfer');
+  const incrementBySelectOptions = useGetIncrementBySelectOptions();
+
   switch (sourceConnectionType) {
     case ConnectionType.CLICKHOUSE:
     case ConnectionType.HIVE:
@@ -15,7 +19,7 @@ export const IncrementByForm = ({ sourceConnectionType }: IncrementByFormProps) 
     case ConnectionType.ORACLE:
     case ConnectionType.POSTGRES:
       return (
-        <Form.Item label="Increment by" name={['strategy_params', 'increment_by']} rules={[{ required: true }]}>
+        <Form.Item label={t('incrementBy')} name={['strategy_params', 'increment_by']} rules={[{ required: true }]}>
           <Input size="large" />
         </Form.Item>
       );
@@ -25,12 +29,8 @@ export const IncrementByForm = ({ sourceConnectionType }: IncrementByFormProps) 
     case ConnectionType.WEBDAV:
     case ConnectionType.SAMBA:
       return (
-        <Form.Item label="Increment by" name={['strategy_params', 'increment_by']} rules={[{ required: true }]}>
-          <Select
-            size="large"
-            options={STRATEGY_PARAMS_INCREMENT_BY_SELECT_OPTIONS}
-            placeholder="Select increment by"
-          />
+        <Form.Item label={t('incrementBy')} name={['strategy_params', 'increment_by']} rules={[{ required: true }]}>
+          <Select size="large" options={incrementBySelectOptions} placeholder={t('selectIncrementBy')} />
         </Form.Item>
       );
     case ConnectionType.HDFS:

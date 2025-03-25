@@ -2,11 +2,15 @@ import React, { useLayoutEffect, useState } from 'react';
 import { Select } from '@shared/ui';
 import { Form } from 'antd';
 import { ConnectionType } from '@shared/types';
+import { useTranslation } from 'react-i18next';
 
-import { TRANSFER_STRATEGY_PARAMS_SELECT_OPTIONS } from './constants';
 import { StrategyTypeFormProps } from './types';
+import { useGetStrategyParamsSelectOptions } from './hooks';
 
 export const StrategyTypeForm = ({ sourceConnectionType }: StrategyTypeFormProps) => {
+  const { t } = useTranslation('transfer');
+  const strategyParamsSelectOptions = useGetStrategyParamsSelectOptions();
+
   const [isDisabled, setDisabled] = useState(false);
   const formInstance = Form.useFormInstance();
 
@@ -33,11 +37,11 @@ export const StrategyTypeForm = ({ sourceConnectionType }: StrategyTypeFormProps
   }, [formInstance, sourceConnectionType]);
 
   return (
-    <Form.Item label="Strategy params" name={['strategy_params', 'type']} rules={[{ required: true }]}>
+    <Form.Item label={t('strategyParams')} name={['strategy_params', 'type']} rules={[{ required: true }]}>
       <Select
         size="large"
-        options={TRANSFER_STRATEGY_PARAMS_SELECT_OPTIONS}
-        placeholder="Select strategy"
+        options={strategyParamsSelectOptions}
+        placeholder={t('selectStrategy')}
         disabled={isDisabled}
       />
     </Form.Item>

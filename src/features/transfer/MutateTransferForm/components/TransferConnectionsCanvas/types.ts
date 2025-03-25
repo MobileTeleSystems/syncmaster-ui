@@ -28,12 +28,6 @@ export enum TransferCanvasTransformNodeType {
   FILTER_FILE = 'FILTER_FILE',
 }
 
-export const TransferCanvasTransformNodeTypeName = {
-  [TransferCanvasTransformNodeType.FILTER_ROWS]: 'Filter rows',
-  [TransferCanvasTransformNodeType.FILTER_COLUMNS]: 'Filter columns',
-  [TransferCanvasTransformNodeType.FILTER_FILE]: 'Filter file',
-} as const;
-
 export enum TransferCanvasEdgeType {
   SOURCE = 'SOURCE',
   FILTER_ROWS = 'FILTER_ROWS',

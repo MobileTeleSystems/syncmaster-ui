@@ -1,7 +1,7 @@
-import { getOrdinalNumber } from '@shared/utils';
+import { TFunction } from 'i18next';
 
-import { CRON_VALUE_DEFAULT, DAYS_OF_WEEK } from './constants';
-import { CronSegmentKey, CronSegmentValue, Period } from './types';
+import { CRON_VALUE_DEFAULT, DAY_OF_WEEK_DISPLAY, PERIOD_DISPLAY } from './constants';
+import { CronSegmentKey, CronSegmentValue, DayOfWeek, Period } from './types';
 
 /** Class for convenient handling cron settings */
 export class CronService {
@@ -68,7 +68,7 @@ export class CronService {
     return this.value.get('date') ?? null;
   }
 
-  getWeekDay(): CronSegmentValue {
+  getWeekDay(): CronSegmentValue<DayOfWeek> {
     return this.value.get('day') ?? null;
   }
 
@@ -119,7 +119,7 @@ export class CronService {
     this.value.set('date', value);
   }
 
-  setWeekDay(value: CronSegmentValue) {
+  setWeekDay(value: CronSegmentValue<DayOfWeek>) {
     if (value === null) {
       this.value.set('day', null);
       return;
@@ -138,20 +138,20 @@ export class CronService {
     return `${minute} ${hour} ${date} * ${day}`;
   }
 
-  getSchedule() {
+  getSchedule(t: TFunction<'shared'>) {
     const time = this.getTime();
     const day = this.getWeekDay();
     const date = this.getMonthDay();
 
-    let schedule = `Every ${this.period} `;
+    let schedule = t(`${PERIOD_DISPLAY[this.period]}Every`);
 
     if (day !== null) {
-      schedule += `on ${DAYS_OF_WEEK[day]} `;
+      schedule += t(`${DAY_OF_WEEK_DISPLAY[day]}On`);
     } else if (date) {
-      schedule += `${getOrdinalNumber(date)} `;
+      schedule += `${date}${t('dayOfMonth', { count: date })} `;
     }
 
-    schedule += `at ${time}`;
+    schedule += `${t('at')} ${time}`;
 
     return schedule;
   }

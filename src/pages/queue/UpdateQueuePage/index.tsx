@@ -8,21 +8,23 @@ import { UpdateQueue } from '@features/queue';
 import { useGetGroup } from '@entities/group';
 import { hasAccessByUserRole } from '@shared/utils';
 import { AccessError } from '@shared/config';
+import { useTranslation } from 'react-i18next';
 
 const { Title } = Typography;
 
 export const UpdateQueuePage = () => {
+  const { t } = useTranslation('queue');
   const params = useParams<PageDetailParams>();
   const { data: queue } = useGetQueue({ id: Number(params.id) });
   const { data: group } = useGetGroup({ id: queue.group_id });
 
-  if (!hasAccessByUserRole(UserRole.Maintainer, group.role)) {
+  if (!hasAccessByUserRole(UserRole.MAINTAINER, group.role)) {
     throw new AccessError();
   }
 
   return (
     <PageContentWrapper gap="large">
-      <Title>Update Queue</Title>
+      <Title>{t('updateQueue')}</Title>
       <UpdateQueue queue={queue} group={group.data} />
     </PageContentWrapper>
   );

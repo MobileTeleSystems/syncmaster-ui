@@ -3,11 +3,13 @@ import { ControlButtons, Fieldset, FormCurrentGroupDescription, ManagedForm } fr
 import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { Queue, QUEUE_NAME_REGEXP, QueueQueryKey, queueService } from '@entities/queue';
+import { useTranslation } from 'react-i18next';
 
 import { UpdateQueueForm, UpdateQueueProps } from './types';
 import { getUpdateQueueInitialValues } from './utils';
 
 export const UpdateQueue = ({ queue, group }: UpdateQueueProps) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleUpdateQueue = (values: UpdateQueueForm) => {
@@ -27,20 +29,20 @@ export const UpdateQueue = ({ queue, group }: UpdateQueueProps) => {
       mutationFunction={handleUpdateQueue}
       initialValues={getUpdateQueueInitialValues(queue)}
       onSuccess={onSuccess}
-      successMessage="Queue was updated successfully"
+      successMessage={t('updateQueueSuccess', { ns: 'queue' })}
       keysInvalidateQueries={[
         [{ queryKey: [QueueQueryKey.GET_QUEUES, group.id] }],
         [{ queryKey: [QueueQueryKey.GET_QUEUE, queue.id] }],
       ]}
     >
-      <Fieldset title="Main info">
+      <Fieldset title={t('mainInfo')}>
         <FormCurrentGroupDescription groupName={group.name} />
 
-        <Form.Item label="Name" name="name" rules={[{ required: true, pattern: QUEUE_NAME_REGEXP }]}>
+        <Form.Item label={t('name')} name="name" rules={[{ required: true, pattern: QUEUE_NAME_REGEXP }]}>
           <Input size="large" disabled />
         </Form.Item>
 
-        <Form.Item label="Description" name="description">
+        <Form.Item label={t('description')} name="description">
           <Input size="large" />
         </Form.Item>
       </Fieldset>

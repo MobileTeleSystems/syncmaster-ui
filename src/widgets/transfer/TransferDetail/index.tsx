@@ -5,6 +5,7 @@ import { UserRole } from '@shared/types';
 import { Form } from 'antd';
 import { prepareTransformationForm } from '@entities/transformation';
 import { Typography } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 import { TransferDetailProps } from './types';
 import { DeleteTransferButton, UpdateTransferButton } from './components';
@@ -13,6 +14,8 @@ import classes from './styles.module.less';
 const { Text } = Typography;
 
 export const TransferDetail = ({ transfer, group, connectionSource, connectionTarget, queue }: TransferDetailProps) => {
+  const { t } = useTranslation('transfer');
+
   return (
     <PageContentWrapper>
       <TransferDetailInfo
@@ -22,7 +25,7 @@ export const TransferDetail = ({ transfer, group, connectionSource, connectionTa
         connectionTarget={connectionTarget}
         queue={queue}
         extra={
-          <AccessWrapper accessRole={UserRole.Maintainer} currentRole={group.role}>
+          <AccessWrapper accessRole={UserRole.MAINTAINER} currentRole={group.role}>
             <div className={classes.actions}>
               <UpdateTransferButton transferId={transfer.id} />
               <DeleteTransferButton transfer={transfer} />
@@ -32,7 +35,7 @@ export const TransferDetail = ({ transfer, group, connectionSource, connectionTa
       >
         <div className={classes.advanced}>
           <Text className={classes.subtitle} strong>
-            Transfer advanced info
+            {t('transferAdvancedInfo')}
           </Text>
           <Form
             className={classes.form}

@@ -1,14 +1,17 @@
 import React, { memo } from 'react';
 import { Select, TimePicker } from '@shared/ui';
 import { Period } from '@shared/services';
+import { useTranslation } from 'react-i18next';
 
-import { PERIOD_SELECT_OPTIONS } from './constants';
 import { CronSelectProps } from './types';
 import classes from './styles.module.less';
-import { useCron } from './hooks';
+import { useCron, useGetPeriodSelectOptions } from './hooks';
 import { DynamicSelect } from './components';
 
 export const CronSelect = memo(({ value, onChange }: CronSelectProps) => {
+  const { t } = useTranslation('shared');
+  const periodSelectOptions = useGetPeriodSelectOptions();
+
   const {
     period,
     weekDay,
@@ -23,19 +26,19 @@ export const CronSelect = memo(({ value, onChange }: CronSelectProps) => {
   return (
     <div className={classes.root}>
       <div className={classes.segment}>
-        <span>Every:</span>
+        <span>{t('every')}:</span>
         <Select
           className={classes.period}
           size="large"
           onChange={handleChangePeriod}
           value={period}
-          options={PERIOD_SELECT_OPTIONS}
+          options={periodSelectOptions}
         />
       </div>
 
       {period !== Period.DAY && (
         <div className={classes.segment}>
-          <span>On:</span>
+          <span>{t('on')}:</span>
           <DynamicSelect
             period={period}
             weekDay={weekDay}
@@ -47,7 +50,7 @@ export const CronSelect = memo(({ value, onChange }: CronSelectProps) => {
       )}
 
       <div className={classes.segment}>
-        <span>At:</span>
+        <span>{t('at')}:</span>
         <TimePicker
           className={classes.time}
           size="large"

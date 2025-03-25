@@ -3,19 +3,22 @@ import { ManagedTable } from '@shared/ui';
 import { hasAccessByUserRole } from '@shared/utils';
 import { UserRole } from '@shared/types';
 import { TransferQueryKey, transferService } from '@entities/transfer';
+import { useTranslation } from 'react-i18next';
 
-import { TRANSFER_LIST_COLUMNS } from './constants';
 import { TransferListProps } from './types';
+import { getTransferListColumns } from './utils';
 
 export const TransferList = memo(({ group, onUpdateRowClick, onDeleteRowClick }: TransferListProps) => {
+  const { t } = useTranslation('shared');
+
   return (
     <ManagedTable
       queryKey={[TransferQueryKey.GET_TRANSFERS, group.data.id]}
       queryFunction={(params) => transferService.getTransfers({ ...params, group_id: group.data.id })}
-      columns={TRANSFER_LIST_COLUMNS}
-      isHiddenRowActions={!hasAccessByUserRole(UserRole.Developer, group.role)}
-      isRenderUpdateRowAction={() => hasAccessByUserRole(UserRole.Developer, group.role)}
-      isRenderDeleteRowAction={() => hasAccessByUserRole(UserRole.Maintainer, group.role)}
+      columns={getTransferListColumns(t)}
+      isHiddenRowActions={!hasAccessByUserRole(UserRole.DEVELOPER, group.role)}
+      isRenderUpdateRowAction={() => hasAccessByUserRole(UserRole.DEVELOPER, group.role)}
+      isRenderDeleteRowAction={() => hasAccessByUserRole(UserRole.MAINTAINER, group.role)}
       onUpdateRowClick={onUpdateRowClick}
       onDeleteRowClick={onDeleteRowClick}
       rowKey="id"

@@ -1,12 +1,15 @@
 import React from 'react';
 import { Form, Input } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 import { ConnectionAuthBasic } from '../ConnectionAuthBasic';
 
 export const ConnectionHdfs = () => {
+  const { t } = useTranslation('connection');
+
   return (
     <>
-      <Form.Item label="Cluster" name={['connection_data', 'cluster']} rules={[{ required: true }]}>
+      <Form.Item label={t('cluster')} name={['connection_data', 'cluster']} rules={[{ required: true }]}>
         <Input size="large" />
       </Form.Item>
       <ConnectionAuthBasic />

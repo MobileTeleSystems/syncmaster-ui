@@ -2,12 +2,13 @@ import { Button, Form, Input } from 'antd';
 import React, { useMemo, useState } from 'react';
 import { DeleteOutlined } from '@ant-design/icons';
 import { Select } from '@shared/ui';
+import { useTranslation } from 'react-i18next';
 
 import { TransformationsFormNestedType, TransformationType } from '../../../../types';
 import { FilterComponent } from '../FilterComponent';
 
 import { TransformationFormItemProps } from './types';
-import { NESTED_TYPES_SELECT_OPTIONS } from './constants';
+import { useGetNestedTypesSelectOptions } from './hooks';
 import classes from './styles.module.less';
 
 export const TransformationFormItem = <T extends TransformationType>({
@@ -17,6 +18,8 @@ export const TransformationFormItem = <T extends TransformationType>({
   hasColumnField,
   onRemove,
 }: TransformationFormItemProps<T>) => {
+  const { t } = useTranslation('transformation');
+  const nestedTypesSelectOptions = useGetNestedTypesSelectOptions(transformationType);
   const formInstance = Form.useFormInstance();
 
   const initialType: TransformationsFormNestedType<T> | undefined = useMemo(() => {
@@ -33,7 +36,7 @@ export const TransformationFormItem = <T extends TransformationType>({
   return (
     <div className={classes.root}>
       {hasColumnField && (
-        <Form.Item className={classes.column} label="Column" name={[name, 'field']} rules={[{ required: true }]}>
+        <Form.Item className={classes.column} label={t('column')} name={[name, 'field']} rules={[{ required: true }]}>
           <Input className="nodrag" size="large" />
         </Form.Item>
       )}
@@ -48,9 +51,9 @@ export const TransformationFormItem = <T extends TransformationType>({
           className="nodrag"
           popupClassName="nowheel"
           size="large"
-          options={NESTED_TYPES_SELECT_OPTIONS[transformationType]}
+          options={nestedTypesSelectOptions}
           onChange={setType}
-          placeholder="Select type"
+          placeholder={t('selectType')}
         />
       </Form.Item>
       <FilterComponent name={name} nestedType={type} transformationType={transformationType} />

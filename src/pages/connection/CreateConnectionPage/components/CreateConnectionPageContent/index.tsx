@@ -3,15 +3,17 @@ import { CreateConnection } from '@features/connection';
 import { UserRole } from '@shared/types';
 import { hasAccessByUserRole } from '@shared/utils';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const CreateConnectionPageContent = () => {
+  const { t } = useTranslation('connection');
   const { group } = useSelectedGroup();
 
   if (!group?.data.id) {
-    return <GroupWarningAlert description="You need to select a group to create a connection" />;
+    return <GroupWarningAlert description={t('needToSelectGroupToCreateConnection')} />;
   }
-  if (!hasAccessByUserRole(UserRole.Maintainer, group.role)) {
-    return <GroupWarningAlert description="You don't have permission to create a connection in selected group" />;
+  if (!hasAccessByUserRole(UserRole.MAINTAINER, group.role)) {
+    return <GroupWarningAlert description={t('notPermissionToCreateConnection')} />;
   }
   return <CreateConnection group={group.data} />;
 };

@@ -20,10 +20,18 @@ export interface Transfer {
 
 export type TransferConnectionParamFieldName = 'source_params' | 'target_params';
 
-export type TransferConnectionFileIncrementBy = 'file_modified_since' | 'file_name';
+export enum TransferConnectionFileIncrementBy {
+  FILE_MODIFIED_SINCE = 'file_modified_since',
+  FILE_NAME = 'file_name',
+}
+
+export enum TransferStrategyType {
+  FULL = 'full',
+  INCREMENTAL = 'incremental',
+}
 
 export interface TransferStrategyParams {
-  type: 'full' | 'incremental';
+  type: TransferStrategyType;
   increment_by?: TransferConnectionFileIncrementBy | string;
 }
 

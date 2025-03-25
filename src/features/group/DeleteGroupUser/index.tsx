@@ -3,6 +3,7 @@ import { ControlButtons } from '@shared/ui';
 import { Typography } from 'antd';
 import { useDeleteGroupUser } from '@entities/group';
 import { WarningOutlined } from '@ant-design/icons';
+import { Trans, useTranslation } from 'react-i18next';
 
 import classes from './styles.module.less';
 import { DeleteGroupUserProps } from './types';
@@ -10,6 +11,7 @@ import { DeleteGroupUserProps } from './types';
 const { Text } = Typography;
 
 export const DeleteGroupUser = ({ groupId, user, onSuccess, onCancel }: DeleteGroupUserProps) => {
+  const { t } = useTranslation('group');
   const { mutate: deleteUser, isPending } = useDeleteGroupUser({ groupId, userId: user.id });
 
   const handleSubmit = () => {
@@ -21,10 +23,20 @@ export const DeleteGroupUser = ({ groupId, user, onSuccess, onCancel }: DeleteGr
       <div className={classes.main}>
         <WarningOutlined className={classes.icon} />
         <Text>
-          Do you really want to delete user <b>«{user.username}»</b> from the group?
+          <Trans
+            t={t}
+            i18nKey="deleteUserFromGroupConfirm"
+            values={{ username: user.username }}
+            components={[<b key="b" />]}
+          />
         </Text>
       </div>
-      <ControlButtons isLoading={isPending} submitButtonText="Confirm" onSubmit={handleSubmit} onCancel={onCancel} />
+      <ControlButtons
+        isLoading={isPending}
+        submitButtonText={t('confirm', { ns: 'shared' })}
+        onSubmit={handleSubmit}
+        onCancel={onCancel}
+      />
     </div>
   );
 };

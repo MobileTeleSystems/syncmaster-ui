@@ -1,5 +1,6 @@
 import { Button, Form } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import classes from './styles.module.less';
 import { ControlButtonsProps } from './types';
@@ -7,18 +8,20 @@ import { ControlButtonsProps } from './types';
 /** Component of buttons in forms and modals */
 export const ControlButtons = ({
   isLoading = false,
-  submitButtonText = 'Submit',
-  cancelButtonText = 'Cancel',
+  submitButtonText,
+  cancelButtonText,
   isCancelButtonHidden = false,
   onSubmit = () => undefined,
   onCancel = () => undefined,
 }: ControlButtonsProps) => {
+  const { t } = useTranslation('shared');
+
   return (
     <Form.Item className={classes.wrapper}>
       <div className={classes.buttons}>
         {!isCancelButtonHidden && (
           <Button className={classes.button} type="default" size="large" disabled={isLoading} onClick={onCancel}>
-            {cancelButtonText}
+            {cancelButtonText || t('cancel')}
           </Button>
         )}
         <Button
@@ -29,7 +32,7 @@ export const ControlButtons = ({
           loading={isLoading}
           onClick={onSubmit}
         >
-          {submitButtonText}
+          {submitButtonText || t('submit')}
         </Button>
       </div>
     </Form.Item>

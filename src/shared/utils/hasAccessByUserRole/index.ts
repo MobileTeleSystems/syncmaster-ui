@@ -8,6 +8,6 @@ import { UserRole } from '@shared/types';
  *
  * @returns - Role access check result
  */
-export const hasAccessByUserRole = (accessRole: UserRole, currentRole?: keyof typeof UserRole): boolean => {
-  return !!currentRole && UserRole[currentRole] >= accessRole;
+export const hasAccessByUserRole = (accessRole: UserRole, currentRole?: UserRole): boolean => {
+  return !!currentRole && currentRole >= accessRole;
 };

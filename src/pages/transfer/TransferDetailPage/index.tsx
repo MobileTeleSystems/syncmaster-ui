@@ -9,12 +9,14 @@ import { TransferDetail } from '@widgets/transfer';
 import { useGetConnection } from '@entities/connection';
 import { useGetQueue } from '@entities/queue';
 import { TransferRuns } from '@widgets/run';
+import { useTranslation } from 'react-i18next';
 
 import classes from './styles.module.less';
 
 const { Title } = Typography;
 
 export const TransferDetailPage = () => {
+  const { t } = useTranslation('transfer');
   const params = useParams<PageDetailParams>();
   const { data: transfer } = useGetTransfer({ id: Number(params.id) });
   const { data: group } = useGetGroup({ id: transfer.group_id });
@@ -25,7 +27,9 @@ export const TransferDetailPage = () => {
   return (
     <div className={classes.root}>
       <PageContentWrapper gap="large">
-        <Title>Transfer: {transfer.name}</Title>
+        <Title>
+          {t('transfer')}: {transfer.name}
+        </Title>
         <TransferDetail
           transfer={transfer}
           group={group}

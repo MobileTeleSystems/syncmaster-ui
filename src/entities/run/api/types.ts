@@ -7,7 +7,7 @@ export interface Run {
   transfer_id: number;
   started_at: string | null;
   ended_at: string | null;
-  status: keyof typeof RunStatus;
+  status: RunStatus;
   log_url: string | null;
 }
 

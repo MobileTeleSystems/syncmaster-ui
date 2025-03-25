@@ -1,4 +1,4 @@
-export type CronSegmentValue = number | null;
+export type CronSegmentValue<T extends number = number> = T | null;
 
 export type CronSegmentKey = 'date' | 'day' | 'hour' | 'minute';
 
@@ -16,14 +16,4 @@ export enum DayOfWeek {
   THURSDAY,
   FRIDAY,
   SATURDAY,
-}
-
-export enum DayOfWeekName {
-  SUNDAY = 'Sunday',
-  MONDAY = 'Monday',
-  TUESDAY = 'Tuesday',
-  WEDNESDAY = 'Wednesday',
-  THURSDAY = 'Thursday',
-  FRIDAY = 'Friday',
-  SATURDAY = 'Saturday',
 }

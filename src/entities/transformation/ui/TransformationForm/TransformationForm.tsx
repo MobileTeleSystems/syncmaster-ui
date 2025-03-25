@@ -1,5 +1,6 @@
 import { Button, Form } from 'antd';
 import React, { memo, useLayoutEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useShowButtons } from '../../hooks';
 import { Transformations, TransformationType } from '../../types';
@@ -11,6 +12,7 @@ const TransformationFormComponent = <T extends TransformationType>({
   transformationType,
   ...props
 }: TransformationFormProps<T>) => {
+  const { t } = useTranslation('transformation');
   const { isDisplayed } = useShowButtons();
 
   const formInstance = Form.useFormInstance();
@@ -42,7 +44,7 @@ const TransformationFormComponent = <T extends TransformationType>({
             />
           ))}
           <Button className="nodrag" size="large" type="primary" onClick={() => add()} hidden={!isDisplayed}>
-            Add item
+            {t('addItem')}
           </Button>
         </div>
       )}

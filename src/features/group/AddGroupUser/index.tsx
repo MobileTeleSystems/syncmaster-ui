@@ -1,12 +1,16 @@
 import React from 'react';
 import { ControlButtons, ManagedForm, ManagedSelect, Select } from '@shared/ui';
 import { Form } from 'antd';
-import { GroupQueryKey, groupService, USER_ROLE_IN_GROUP_SELECT_OPTIONS } from '@entities/group';
+import { GroupQueryKey, groupService, useGetUserRoleInGroupSelectOptions } from '@entities/group';
 import { UserQueryKey, userService } from '@entities/user';
+import { useTranslation } from 'react-i18next';
 
 import { AddGroupUserForm, AddGroupUserProps } from './types';
 
 export const AddGroupUser = ({ groupId, onSuccess, onCancel }: AddGroupUserProps) => {
+  const { t } = useTranslation('group');
+  const userRoleInGroupSelectOptions = useGetUserRoleInGroupSelectOptions();
+
   const handleAddGroupUser = (values: AddGroupUserForm) => {
     return groupService.addGroupUser({ ...values, groupId });
   };
@@ -15,10 +19,10 @@ export const AddGroupUser = ({ groupId, onSuccess, onCancel }: AddGroupUserProps
     <ManagedForm<AddGroupUserForm, null>
       mutationFunction={handleAddGroupUser}
       onSuccess={onSuccess}
-      successMessage="User was added to group successfully"
+      successMessage={t('addUserToGroupSuccess')}
       keysInvalidateQueries={[[{ queryKey: [GroupQueryKey.GET_GROUP_USERS, groupId] }]]}
     >
-      <Form.Item label="User" name="userId" rules={[{ required: true }]}>
+      <Form.Item label={t('user')} name="userId" rules={[{ required: true }]}>
         <ManagedSelect
           size="large"
           queryKey={[UserQueryKey.GET_USERS]}
@@ -27,11 +31,12 @@ export const AddGroupUser = ({ groupId, onSuccess, onCancel }: AddGroupUserProps
           renderOptionValue={(user) => user.id}
           detailQueryKey={[UserQueryKey.GET_USER]}
           detailQueryFunction={(value) => userService.getUser({ id: value })}
+          placeholder={t('selectUser')}
         />
       </Form.Item>
 
-      <Form.Item label="Role" name="role" rules={[{ required: true }]}>
-        <Select size="large" options={USER_ROLE_IN_GROUP_SELECT_OPTIONS} />
+      <Form.Item label={t('role')} name="role" rules={[{ required: true }]}>
+        <Select size="large" options={userRoleInGroupSelectOptions} placeholder={t('selectRole')} />
       </Form.Item>
 
       <ControlButtons onCancel={onCancel} />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Input, Radio } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 import { FileCompression } from '../FileCompression';
 
@@ -7,27 +8,29 @@ import { CSV_COMPRESSION_SELECT_OPTIONS } from './constants';
 import { FileFormatCsvProps } from './types';
 
 export const FileFormatCsv = ({ name }: FileFormatCsvProps) => {
+  const { t } = useTranslation('file');
+
   return (
     <>
-      <Form.Item label="Delimiter" name={[...name, 'delimiter']}>
+      <Form.Item label={t('delimiter')} name={[...name, 'delimiter']}>
         <Input className="nodrag" size="large" />
       </Form.Item>
-      <Form.Item label="Encoding" name={[...name, 'encoding']}>
+      <Form.Item label={t('encoding')} name={[...name, 'encoding']}>
         <Input className="nodrag" size="large" />
       </Form.Item>
-      <Form.Item label="Quote" name={[...name, 'quote']}>
+      <Form.Item label={t('quote')} name={[...name, 'quote']}>
         <Input className="nodrag" size="large" />
       </Form.Item>
-      <Form.Item label="Escape" name={[...name, 'escape']}>
+      <Form.Item label={t('escape')} name={[...name, 'escape']}>
         <Input className="nodrag" size="large" />
       </Form.Item>
-      <Form.Item label="Include header" name={[...name, 'include_header']}>
+      <Form.Item label={t('includeHeader')} name={[...name, 'include_header']}>
         <Radio.Group>
-          <Radio value={true}>Yes</Radio>
-          <Radio value={false}>No</Radio>
+          <Radio value={true}>{t('yes')}</Radio>
+          <Radio value={false}>{t('no')}</Radio>
         </Radio.Group>
       </Form.Item>
-      <Form.Item label="Line separator" name={[...name, 'line_sep']}>
+      <Form.Item label={t('lineSeparator')} name={[...name, 'line_sep']}>
         <Input className="nodrag" size="large" />
       </Form.Item>
       <FileCompression name={name} options={CSV_COMPRESSION_SELECT_OPTIONS} />

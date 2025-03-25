@@ -1,8 +1,11 @@
 import { ConfigProvider } from 'antd';
 import React, { PropsWithChildren } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { VALIDATE_MESSAGES } from './constants';
+import { getValidateMessages } from './utils';
 
 export const AntdConfigProvider = ({ children }: PropsWithChildren) => {
-  return <ConfigProvider form={{ validateMessages: VALIDATE_MESSAGES }}>{children}</ConfigProvider>;
+  const { t } = useTranslation('error');
+
+  return <ConfigProvider form={{ validateMessages: getValidateMessages(t) }}>{children}</ConfigProvider>;
 };
