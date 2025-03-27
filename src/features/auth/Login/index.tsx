@@ -18,7 +18,7 @@ export const Login = () => {
 
   return (
     <div className={classes.wrapper}>
-      <Title>{t('signIn')}</Title>
+      <Title>{t('auth')}</Title>
       <ManagedForm mutationFunction={authService.login} onSuccess={onSuccess}>
         <Form.Item label={t('username')} name="username" rules={[{ required: true }]}>
           <Input size="large" />
@@ -28,7 +28,7 @@ export const Login = () => {
           <Input.Password size="large" />
         </Form.Item>
 
-        <ControlButtons isCancelButtonHidden />
+        <ControlButtons isCancelButtonHidden submitButtonText={t('signIn')} />
       </ManagedForm>
     </div>
   );

@@ -12,7 +12,7 @@ const TransformationFormComponent = <T extends TransformationType>({
   transformationType,
   ...props
 }: TransformationFormProps<T>) => {
-  const { t } = useTranslation('transformation');
+  const { t } = useTranslation();
   const { isDisplayed } = useShowButtons();
 
   const formInstance = Form.useFormInstance();
@@ -44,7 +44,7 @@ const TransformationFormComponent = <T extends TransformationType>({
             />
           ))}
           <Button className="nodrag" size="large" type="primary" onClick={() => add()} hidden={!isDisplayed}>
-            {t('addItem')}
+            {t('add')}
           </Button>
         </div>
       )}

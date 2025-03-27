@@ -13,15 +13,10 @@ export const FilterFileSizeValue = memo(({ name }: FilterFileSizeValueProps) => 
 
   return (
     <>
-      <Form.Item label={t('value')} name={[name, 'extra_value']} rules={[{ required: true }]}>
+      <Form.Item className={classes.value} label={t('value')} name={[name, 'extra_value']} rules={[{ required: true }]}>
         <InputNumber className="nodrag" size="large" min={0} />
       </Form.Item>
-      <Form.Item
-        className={classes.select}
-        label={t('fileSizeUnit')}
-        name={[name, 'unit']}
-        rules={[{ required: true }]}
-      >
+      <Form.Item className={classes.unit} label={t('fileSizeUnit')} name={[name, 'unit']} rules={[{ required: true }]}>
         <Select size="large" className="nodrag" options={fileSizeUnitSelectOptions} placeholder={t('selectUnit')} />
       </Form.Item>
     </>

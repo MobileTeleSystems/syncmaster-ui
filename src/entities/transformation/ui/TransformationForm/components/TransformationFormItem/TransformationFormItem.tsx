@@ -3,6 +3,7 @@ import React, { useMemo, useState } from 'react';
 import { DeleteOutlined } from '@ant-design/icons';
 import { Select } from '@shared/ui';
 import { useTranslation } from 'react-i18next';
+import clsx from 'clsx';
 
 import { TransformationsFormNestedType, TransformationType } from '../../../../types';
 import { FilterComponent } from '../FilterComponent';
@@ -53,12 +54,18 @@ export const TransformationFormItem = <T extends TransformationType>({
           size="large"
           options={nestedTypesSelectOptions}
           onChange={setType}
-          placeholder={t('selectType')}
+          placeholder={t('selectOption')}
         />
       </Form.Item>
       <FilterComponent name={name} nestedType={type} transformationType={transformationType} />
       {onRemove && (
-        <Button className="nodrag" type="primary" danger onClick={handleRemove}>
+        <Button
+          className={clsx('nodrag', [classes.deleteButton])}
+          type="primary"
+          size="large"
+          danger
+          onClick={handleRemove}
+        >
           <DeleteOutlined />
         </Button>
       )}

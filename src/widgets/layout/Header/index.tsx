@@ -4,6 +4,7 @@ import { Avatar, Layout } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { useAuth } from '@entities/auth';
 import { SelectGroup } from '@features/group';
+import { ChangeLanguageSelect } from '@shared/config';
 
 import classes from './styles.module.less';
 import { LogoutButton } from './components';
@@ -17,20 +18,23 @@ export const Header = () => {
   return (
     <AntdHeader className={classes.header}>
       {/* TODO: [DOP-20026] Need to add logo */}
-      <div className={classes.main}>
+      <div className={classes.left}>
         <div className={classes.logo} />
         <div className={classes.select}>
           <SelectGroup />
         </div>
       </div>
-      <div className={classes.user}>
-        <div className={classes['user-info']}>
-          <Avatar className={classes.avatar} size="large" icon={<UserOutlined />} />
-          <Text className={classes.username} ellipsis>
-            {username}
-          </Text>
+      <div className={classes.right}>
+        <div className={classes.user}>
+          <div className={classes.userInfo}>
+            <Avatar className={classes.avatar} size="large" icon={<UserOutlined />} />
+            <Text className={classes.username} ellipsis>
+              {username}
+            </Text>
+          </div>
+          <LogoutButton />
         </div>
-        <LogoutButton />
+        <ChangeLanguageSelect />
       </div>
     </AntdHeader>
   );

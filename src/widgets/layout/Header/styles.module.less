@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
 
-  .main {
+  .left {
     display: flex;
     align-items: center;
 
@@ -16,23 +16,29 @@
     }
   }
 
-  .user {
+  .right {
     display: flex;
     align-items: center;
     gap: 40px;
 
-    .user-info {
+    .user {
       display: flex;
       align-items: center;
       gap: 16px;
-      max-width: 420px;
 
-      .username {
-        color: @white !important;
-      }
+      .userInfo {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        max-width: 420px;
 
-      .avatar {
-        flex-shrink: 0;
+        .username {
+          color: @white !important;
+        }
+
+        .avatar {
+          flex-shrink: 0;
+        }
       }
     }
   }

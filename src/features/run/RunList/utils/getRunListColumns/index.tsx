@@ -15,7 +15,7 @@ export const getRunListColumns = (t: TFunction<'run'>) => {
       title: t('id', { ns: 'shared' }),
       dataIndex: 'id',
       render: (id, record) => <Link to={`/transfers/runs/${record.id}`}>{id}</Link>,
-      width: 80,
+      width: 160,
     },
     {
       title: t('status'),

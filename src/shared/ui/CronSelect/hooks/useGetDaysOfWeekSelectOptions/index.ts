@@ -9,7 +9,15 @@ export const useGetDaysOfWeekSelectOptions = () => {
 
   return useMemo(() => {
     return prepareOptionsForSelect({
-      data: Object.values(DayOfWeek),
+      data: Object.values([
+        DayOfWeek.MONDAY,
+        DayOfWeek.TUESDAY,
+        DayOfWeek.WEDNESDAY,
+        DayOfWeek.THURSDAY,
+        DayOfWeek.FRIDAY,
+        DayOfWeek.SATURDAY,
+        DayOfWeek.SUNDAY,
+      ]),
       renderLabel: (data) => t(DAY_OF_WEEK_DISPLAY[data as DayOfWeek]),
       renderValue: (data) => data,
     });

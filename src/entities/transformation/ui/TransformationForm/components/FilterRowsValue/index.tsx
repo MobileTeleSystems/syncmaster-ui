@@ -4,6 +4,7 @@ import { TransformationFilterRowsType } from '@entities/transformation';
 import { useTranslation } from 'react-i18next';
 
 import { FilterRowsValueProps } from './types';
+import classes from './styles.module.less';
 
 export const FilterRowsValue = ({ name, type }: FilterRowsValueProps) => {
   const { t } = useTranslation('transformation');
@@ -15,7 +16,7 @@ export const FilterRowsValue = ({ name, type }: FilterRowsValueProps) => {
       return null;
     default:
       return (
-        <Form.Item label={t('value')} name={[name, 'value']} rules={[{ required: true }]}>
+        <Form.Item className={classes.control} label={t('value')} name={[name, 'value']} rules={[{ required: true }]}>
           <Input className="nodrag" size="large" />
         </Form.Item>
       );

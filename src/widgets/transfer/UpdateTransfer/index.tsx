@@ -16,6 +16,7 @@ export const UpdateTransfer = ({ transfer, group }: UpdateTransferProps) => {
   const handleUpdateTransfer = ({ transformations, ...values }: UpdateTransferForm) => {
     return transferService.updateTransfer({
       id: transferId,
+      group_id,
       transformations: prepareTransformationRequest(transformations),
       ...values,
     });

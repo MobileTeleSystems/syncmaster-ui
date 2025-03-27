@@ -28,7 +28,7 @@ export const TransferDetailPage = () => {
     <div className={classes.root}>
       <PageContentWrapper gap="large">
         <Title>
-          {t('transfer')}: {transfer.name}
+          {t('transfer')} «{transfer.name}»
         </Title>
         <TransferDetail
           transfer={transfer}

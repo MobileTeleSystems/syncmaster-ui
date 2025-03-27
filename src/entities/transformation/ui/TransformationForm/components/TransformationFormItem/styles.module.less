@@ -1,6 +1,6 @@
 .root {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
 
   &:first-of-type {
@@ -8,11 +8,15 @@
   }
 
   .column {
-    min-width: 300px;
+    width: 250px;
   }
 
   .type {
-    min-width: @select-transformation-type-width;
+    min-width: 180px;
     flex-grow: 1;
+  }
+
+  .deleteButton {
+    margin-top: calc(1rem * @line-height-base);
   }
 }

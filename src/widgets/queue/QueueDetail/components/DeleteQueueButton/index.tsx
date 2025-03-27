@@ -1,8 +1,7 @@
 import { DeleteQueue } from '@features/queue';
 import { DEFAULT_MODAL_DELETE_WIDTH } from '@shared/constants';
 import { useModalState } from '@shared/hooks';
-import { ModalWrapper } from '@shared/ui';
-import { Button } from 'antd';
+import { ActionButton, ModalWrapper } from '@shared/ui';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -26,9 +25,7 @@ export const DeleteQueueButton = ({ queue }: DeleteQueueButtonProps) => {
 
   return (
     <>
-      <Button type="primary" size="large" danger onClick={handleOpenDeleteQueueModal}>
-        {t('deleteQueue')}
-      </Button>
+      <ActionButton actionType="delete" onClick={handleOpenDeleteQueueModal} />
       <ModalWrapper
         title={t('deleteQueue')}
         width={DEFAULT_MODAL_DELETE_WIDTH}

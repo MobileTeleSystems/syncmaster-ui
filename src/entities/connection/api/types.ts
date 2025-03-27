@@ -200,6 +200,7 @@ export type CreateConnectionRequest = {
 
 export type UpdateConnectionRequest = {
   id: number;
+  group_id: number;
   name: string;
   description: string;
 } & ConnectionData;

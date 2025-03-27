@@ -1,7 +1,7 @@
-import { Button } from 'antd';
 import React, { memo } from 'react';
 import { useModalState } from '@shared/hooks';
 import { useTranslation } from 'react-i18next';
+import { ActionButton } from '@shared/ui';
 
 import { AddGroupUserModal } from './components';
 import classes from './styles.module.less';
@@ -17,9 +17,9 @@ export const AddGroupUserButton = memo(({ groupId }: AddGroupUserButtonProps) =>
 
   return (
     <>
-      <Button className={classes.addUserButton} type="primary" size="large" onClick={handleOpenAddUserModal}>
+      <ActionButton className={classes.addUserButton} actionType="create" onClick={handleOpenAddUserModal}>
         {t('addUser')}
-      </Button>
+      </ActionButton>
       <AddGroupUserModal groupId={groupId} open={isOpenedAddUserModal} onClose={handleCloseAddUserModal} />
     </>
   );
