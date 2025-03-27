@@ -18,7 +18,7 @@ export const FilterFileSizeValue = memo(({ name }: FilterFileSizeValueProps) => 
       </Form.Item>
       <Form.Item
         className={classes.select}
-        label={t('fileSizeUnit', { ns: 'file' })}
+        label={t('fileSizeUnit')}
         name={[name, 'unit']}
         rules={[{ required: true }]}
       >

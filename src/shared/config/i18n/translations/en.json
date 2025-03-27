@@ -103,11 +103,6 @@
       "fileModifiedSince": "File modification type",
       "filename": "File name",
       "fileFormatSettings": "File format settings",
-      "fileSizeUnit": "File size unit",
-      "fileSizeMin": "file size min",
-      "fileSizeMax": "file size max",
-      "nameGlob": "name glob",
-      "nameRegexp": "name regexp",
       "useFollowingPlaceholders": "You can use the following placeholders (with brackets {}):",
       "lettersNumbersAndSymbols": "And letters, numbers, and symbols \".\", \"_\", \"-\""
     },
@@ -205,7 +200,12 @@
       "deleteNodeConfirm": "Do you really want to delete",
       "filterRows": "Filter rows",
       "filterColumns": "Filter columns",
-      "filterFile": "Filter file"
+      "filterFile": "Filter file",
+      "fileSizeUnit": "File size unit",
+      "fileSizeMin": "file size min",
+      "fileSizeMax": "file size max",
+      "nameGlob": "name glob",
+      "nameRegexp": "name regexp"
     },
     "shared": {
       "submit": "Submit",

@@ -1,9 +1,9 @@
 import "i18next";
-import { Translation } from "./types";
+import en from "./translations/en.json"
 
 declare module "i18next" {
   interface CustomTypeOptions {
-    resources: Translation,
+    resources: typeof en,
     defaultNS: 'shared'
   }
 }
