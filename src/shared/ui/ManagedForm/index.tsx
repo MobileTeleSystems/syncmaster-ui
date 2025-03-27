@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { Form, notification, Spin } from 'antd';
 import { PropsWithChildren } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { clsx } from 'clsx';
 import { checkIsFormFieldsError, getErrorMessage } from '@shared/config';
+import { useTranslation } from 'react-i18next';
 
 import classes from './styles.module.less';
 import { ManagedFormProps } from './types';
-import { cleanErrors, showErrorsInFields } from './utils';
+import { cleanErrors, revalidateErrorFields, showErrorsInFields } from './utils';
 
 /** Form component to manage the request and results of a form request */
 export const ManagedForm = <T extends object, R>({
@@ -20,6 +21,7 @@ export const ManagedForm = <T extends object, R>({
   onError = () => undefined,
   ...props
 }: PropsWithChildren<ManagedFormProps<T, R>>) => {
+  const { t, i18n } = useTranslation('error');
   const [form] = Form.useForm<T>();
   const [isLoading, setLoading] = useState(false);
   const queryClient = useQueryClient();
@@ -45,10 +47,10 @@ export const ManagedForm = <T extends object, R>({
       onError: (error) => {
         onError(error);
         setLoading(false);
-        let message = getErrorMessage(error);
+        let message = getErrorMessage(error, t);
 
         if (checkIsFormFieldsError(error) && error.response) {
-          message = 'Form error has occurred';
+          message = t('formErrorHasOccurred');
           showErrorsInFields(form, error.response.data.error.details);
         }
 
@@ -62,6 +64,11 @@ export const ManagedForm = <T extends object, R>({
   const onValuesChange = (values: T) => {
     cleanErrors(form, values);
   };
+
+  // revalidate form when language change to translate current errors
+  useLayoutEffect(() => {
+    revalidateErrorFields(form);
+  }, [i18n.language, form]);
 
   return (
     <div className={classes.wrapper} data-loading={isLoading}>

@@ -4,36 +4,36 @@ import { FileFormatType } from '@entities/file';
 import { GetDescriptionItemsProps } from './types';
 
 /** Util for mapping data for Description component depends on file format type */
-export const getDescriptionItems = ({ data }: GetDescriptionItemsProps): DescriptionItem[] => {
+export const getDescriptionItems = ({ t, data }: GetDescriptionItemsProps): DescriptionItem[] => {
   switch (data.type) {
     case FileFormatType.CSV:
       return [
         {
-          label: 'Delimiter',
+          label: t('delimiter'),
           content: data.delimiter,
         },
         {
-          label: 'Encoding',
+          label: t('encoding'),
           content: data.encoding,
         },
         {
-          label: 'Quote',
+          label: t('quote'),
           content: data.quote,
         },
         {
-          label: 'Escape',
+          label: t('escape'),
           content: data.escape,
         },
         {
-          label: 'Include header',
-          content: data.include_header ? 'Yes' : 'No',
+          label: t('includeHeader'),
+          content: data.include_header ? t('yes') : t('no'),
         },
         {
-          label: 'Line separator',
+          label: t('lineSeparator'),
           content: data.line_sep,
         },
         {
-          label: 'Compression',
+          label: t('compression'),
           content: data.compression,
         },
       ];
@@ -41,26 +41,26 @@ export const getDescriptionItems = ({ data }: GetDescriptionItemsProps): Descrip
     case FileFormatType.JSON_LINE:
       return [
         {
-          label: 'Encoding',
+          label: t('encoding'),
           content: data.encoding,
         },
         {
-          label: 'Line separator',
+          label: t('lineSeparator'),
           content: data.line_sep,
         },
         {
-          label: 'Compression',
+          label: t('compression'),
           content: data.compression,
         },
       ];
     case FileFormatType.EXCEL:
       return [
         {
-          label: 'Include header',
-          content: data.include_header ? 'Yes' : 'No',
+          label: t('includeHeader'),
+          content: data.include_header ? t('yes') : t('no'),
         },
         {
-          label: 'Line separator',
+          label: t('lineSeparator'),
           content: data.start_cell ?? '',
         },
       ];
@@ -68,22 +68,22 @@ export const getDescriptionItems = ({ data }: GetDescriptionItemsProps): Descrip
     case FileFormatType.PARQUET:
       return [
         {
-          label: 'Compression',
+          label: t('compression'),
           content: data.compression,
         },
       ];
     case FileFormatType.XML:
       return [
         {
-          label: 'Root tag',
+          label: t('rootTag'),
           content: data.root_tag,
         },
         {
-          label: 'Row tag',
+          label: t('rowTag'),
           content: data.row_tag,
         },
         {
-          label: 'Compression',
+          label: t('compression'),
           content: data.compression,
         },
       ];

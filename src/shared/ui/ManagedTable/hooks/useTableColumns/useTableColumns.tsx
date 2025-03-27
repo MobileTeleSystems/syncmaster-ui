@@ -3,6 +3,7 @@ import { Button } from 'antd';
 import ButtonGroup from 'antd/lib/button/button-group';
 import React, { useMemo, MouseEvent } from 'react';
 import { ColumnType } from 'antd/lib/table';
+import { useTranslation } from 'react-i18next';
 
 import { UseTableColumnsProps } from './types';
 
@@ -15,6 +16,7 @@ export const useTableColumns = <T extends object>({
   columns: initialColumns = [],
   isHiddenRowActions = false,
 }: UseTableColumnsProps<T>): ColumnType<T>[] => {
+  const { t } = useTranslation('shared');
   const columns = useMemo(() => {
     const resultColumns = [...initialColumns];
 
@@ -33,7 +35,7 @@ export const useTableColumns = <T extends object>({
     };
 
     resultColumns.push({
-      title: 'Actions',
+      title: t('actions'),
       width: 100,
       render: (_, record) => {
         return (
@@ -45,7 +47,7 @@ export const useTableColumns = <T extends object>({
                 icon={<EditOutlined />}
                 onClick={(event) => handleUpdateRow(event, record)}
               >
-                Update
+                {t('update')}
               </Button>
             )}
             {isRenderDeleteRowAction(record) && (
@@ -56,7 +58,7 @@ export const useTableColumns = <T extends object>({
                 icon={<DeleteOutlined />}
                 onClick={(event) => handleDeleteRow(event, record)}
               >
-                Delete
+                {t('delete')}
               </Button>
             )}
           </ButtonGroup>
@@ -71,6 +73,7 @@ export const useTableColumns = <T extends object>({
     isRenderDeleteRowAction,
     onUpdateRowClick,
     onDeleteRowClick,
+    t,
   ]);
 
   return columns;

@@ -10,6 +10,7 @@ import { GetDescriptionItemsProps } from './types';
 /** Util for mapping data for Description component depends on connection type */
 export const getDescriptionItems = <T extends Transfer['source_params'] | Transfer['target_params']>({
   data,
+  t,
 }: GetDescriptionItemsProps<T>): DescriptionItem[] => {
   switch (data.type) {
     case ConnectionType.FTP:
@@ -21,18 +22,18 @@ export const getDescriptionItems = <T extends Transfer['source_params'] | Transf
     case ConnectionType.S3:
       const items: DescriptionItem[] = [
         {
-          label: 'Directory path',
+          label: t('directoryPath', { ns: 'transfer' }),
           content: data.directory_path,
         },
       ];
       if (isTargetParamsFileConnectionType(data)) {
         items.push({
-          label: 'Filename template',
+          label: t('filenameTemplate', { ns: 'file' }),
           content: data.file_name_template,
         });
       }
       items.push({
-        label: 'File format',
+        label: t('fileFormat', { ns: 'file' }),
         content: <TransferFileFormatData data={data.file_format} />,
       });
 
@@ -45,7 +46,7 @@ export const getDescriptionItems = <T extends Transfer['source_params'] | Transf
     case ConnectionType.MS_SQL:
       return [
         {
-          label: 'Table name',
+          label: t('tableName', { ns: 'transfer' }),
           content: data.table_name,
         },
       ];

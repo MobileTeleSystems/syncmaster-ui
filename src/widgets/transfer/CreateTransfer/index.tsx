@@ -4,11 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { Transfer, TransferQueryKey, transferService } from '@entities/transfer';
 import { MutateTransferForm } from '@features/transfer';
 import { prepareTransformationRequest } from '@entities/transformation';
+import { useTranslation } from 'react-i18next';
 
 import { CreateTransferForm, CreateTransferProps } from './types';
 import { CREATE_TRANSFER_INITIAL_VALUES } from './constants';
 
 export const CreateTransfer = ({ group }: CreateTransferProps) => {
+  const { t } = useTranslation('transfer');
   const navigate = useNavigate();
 
   const handleCreateTransfer = ({ transformations, ...values }: CreateTransferForm) => {
@@ -32,7 +34,7 @@ export const CreateTransfer = ({ group }: CreateTransferProps) => {
       initialValues={CREATE_TRANSFER_INITIAL_VALUES}
       mutationFunction={handleCreateTransfer}
       onSuccess={onSuccess}
-      successMessage="Transfer was created successfully"
+      successMessage={t('createTransferSuccess')}
       keysInvalidateQueries={[[{ queryKey: [TransferQueryKey.GET_TRANSFERS, group.id] }]]}
     >
       <MutateTransferForm group={group} onCancel={onCancel} />

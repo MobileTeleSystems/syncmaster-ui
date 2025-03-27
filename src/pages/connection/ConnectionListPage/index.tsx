@@ -5,24 +5,26 @@ import { GroupWarningAlert, useSelectedGroup } from '@entities/group';
 import { ConnectionListWrapper } from '@widgets/connection';
 import { UserRole } from '@shared/types';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import classes from './styles.module.less';
 
 const { Title } = Typography;
 
 export const ConnectionListPage = () => {
+  const { t } = useTranslation('connection');
   const { group } = useSelectedGroup();
 
   const renderContent = () => {
     if (!group?.data.id) {
-      return <GroupWarningAlert description="You need to select a group to see connection list" />;
+      return <GroupWarningAlert description={t('needToSelectGroupToSeeConnectionList')} />;
     }
 
     return (
       <PageContentWrapper width="large">
-        <AccessWrapper accessRole={UserRole.Maintainer} currentRole={group.role}>
+        <AccessWrapper accessRole={UserRole.MAINTAINER} currentRole={group.role}>
           <Button className={classes.createButton} type="primary" size="large">
-            <Link to="/connections/create">Create Connection</Link>
+            <Link to="/connections/create">{t('createConnection')}</Link>
           </Button>
         </AccessWrapper>
         <ConnectionListWrapper group={group} />
@@ -32,7 +34,7 @@ export const ConnectionListPage = () => {
 
   return (
     <PageContentWrapper width="large">
-      <Title>Connections</Title>
+      <Title>{t('connections')}</Title>
       {renderContent()}
     </PageContentWrapper>
   );

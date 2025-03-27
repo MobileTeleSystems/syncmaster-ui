@@ -34,3 +34,9 @@ export const EDGE_TYPES_ID = {
 
 export const NODE_POSITION_X_GAP_DEFAULT = 500;
 export const NODE_POSITION_X_GAP_LARGE = 1000;
+
+export const TRANSFER_CANVAS_TRANSFORM_NODE_TYPE_NAME_DISPLAY = {
+  [TransferCanvasTransformNodeType.FILTER_ROWS]: 'filterRows',
+  [TransferCanvasTransformNodeType.FILTER_COLUMNS]: 'filterColumns',
+  [TransferCanvasTransformNodeType.FILTER_FILE]: 'filterFile',
+} as const;

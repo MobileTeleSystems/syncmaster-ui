@@ -7,17 +7,17 @@ import { TransferConnectionsTab } from '../../types';
 
 import { GetTabsItemsProps } from './types';
 
-export const getTabsItems = (props: GetTabsItemsProps) => [
+export const getTabsItems = ({ t, ...props }: GetTabsItemsProps) => [
   {
-    label: 'Basic',
+    label: t('basic'),
     key: TransferConnectionsTab.BASIC,
     children: <TransferConnectionsDefault {...props} />,
   },
   {
-    label: 'Advanced',
+    label: t('advanced'),
     key: TransferConnectionsTab.ADVANCED,
     children: (
-      <Fieldset title="Connections settings">
+      <Fieldset title={t('connectionsSettings', { ns: 'connection' })}>
         <TransferConnectionsCanvas {...props} />
       </Fieldset>
     ),

@@ -3,6 +3,7 @@ import { Form, Switch } from 'antd';
 import { Select } from '@shared/ui';
 import { Typography } from 'antd';
 import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
 
 import { FileCompressionProps } from './types';
 import classes from './styles.module.less';
@@ -10,6 +11,7 @@ import classes from './styles.module.less';
 const { Text } = Typography;
 
 export const FileCompression = <T,>({ name, options }: FileCompressionProps<T>) => {
+  const { t } = useTranslation('file');
   const fieldName = [...name, 'compression'];
 
   /* useWatch takes a value from Form.Item, but useFormInstance takes one from general form state
@@ -37,7 +39,7 @@ export const FileCompression = <T,>({ name, options }: FileCompressionProps<T>) 
   return (
     <div className={classes.wrapper}>
       <div className={classes.switch}>
-        <Text className={classes.label}>Compression</Text>
+        <Text className={classes.label}>{t('compression')}</Text>
         <Switch className="nodrag" checked={switchChecked} onChange={toggleCompression} />
       </div>
       <Form.Item className={classes.formItem} name={fieldName}>
@@ -47,7 +49,7 @@ export const FileCompression = <T,>({ name, options }: FileCompressionProps<T>) 
           popupClassName="nowheel"
           size="large"
           options={options}
-          placeholder="Select compression"
+          placeholder={t('selectCompression')}
           showSearch
         />
       </Form.Item>

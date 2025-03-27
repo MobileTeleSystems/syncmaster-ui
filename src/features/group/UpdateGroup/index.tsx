@@ -4,11 +4,13 @@ import { GroupData, GroupQueryKey, groupService } from '@entities/group';
 import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { UserQueryKey, userService } from '@entities/user';
+import { useTranslation } from 'react-i18next';
 
 import { UpdateGroupForm, UpdateGroupProps } from './types';
 import { getUpdateGroupInitialValues } from './utils';
 
 export const UpdateGroup = ({ group }: UpdateGroupProps) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleUpdateGroup = (values: UpdateGroupForm) => {
@@ -28,22 +30,22 @@ export const UpdateGroup = ({ group }: UpdateGroupProps) => {
       mutationFunction={handleUpdateGroup}
       initialValues={getUpdateGroupInitialValues(group)}
       onSuccess={onSuccess}
-      successMessage="Group was updated successfully"
+      successMessage={t('updateGroupSuccess', { ns: 'group' })}
       keysInvalidateQueries={[
         [{ queryKey: [GroupQueryKey.GET_GROUPS] }],
         [{ queryKey: [GroupQueryKey.GET_GROUP, group.id] }],
       ]}
     >
-      <Fieldset title="Main info">
-        <Form.Item label="Name" name="name" rules={[{ required: true }]}>
+      <Fieldset title={t('mainInfo')}>
+        <Form.Item label={t('name')} name="name" rules={[{ required: true }]}>
           <Input size="large" />
         </Form.Item>
 
-        <Form.Item label="Description" name="description" rules={[{ required: true }]}>
+        <Form.Item label={t('description')} name="description" rules={[{ required: true }]}>
           <Input size="large" />
         </Form.Item>
 
-        <Form.Item label="Owner" name="owner_id" rules={[{ required: true }]}>
+        <Form.Item label={t('owner', { ns: 'auth' })} name="owner_id" rules={[{ required: true }]}>
           <ManagedSelect
             size="large"
             queryKey={[UserQueryKey.GET_USERS]}

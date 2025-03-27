@@ -4,6 +4,7 @@ import { Handle, Position } from '@xyflow/react';
 import { Form } from 'antd';
 import { CONNECTION_ICONS } from '@entities/connection';
 import { ConnectionType } from '@shared/types';
+import { useTranslation } from 'react-i18next';
 
 import { SourceParams } from '../SourceParams';
 import { TransferCanvasEdge } from '../TransferConnectionsCanvas';
@@ -12,6 +13,8 @@ import { SourceParamsNodeProps } from './types';
 import classes from './styles.module.less';
 
 export const SourceParamsNode = ({ data }: SourceParamsNodeProps) => {
+  const { t } = useTranslation('transfer');
+
   const connectionType = Form.useWatch<ConnectionType>(['source_params', 'type']);
 
   const icon = useMemo(() => {
@@ -28,7 +31,7 @@ export const SourceParamsNode = ({ data }: SourceParamsNodeProps) => {
   }, [data.groupId]);
 
   return (
-    <CanvasNode className={classes.root} title="Source" icon={icon}>
+    <CanvasNode className={classes.root} title={t('source')} icon={icon}>
       {children}
     </CanvasNode>
   );

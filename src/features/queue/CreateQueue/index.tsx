@@ -3,10 +3,12 @@ import { ControlButtons, Fieldset, FormCurrentGroupDescription, ManagedForm } fr
 import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { Queue, QUEUE_NAME_REGEXP, QueueQueryKey, queueService } from '@entities/queue';
+import { useTranslation } from 'react-i18next';
 
 import { CreateQueueForm, CreateQueueProps } from './types';
 
 export const CreateQueue = ({ group }: CreateQueueProps) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleCreateQueue = (values: CreateQueueForm) => {
@@ -25,15 +27,15 @@ export const CreateQueue = ({ group }: CreateQueueProps) => {
     <ManagedForm<CreateQueueForm, Queue>
       mutationFunction={handleCreateQueue}
       onSuccess={onSuccess}
-      successMessage="Queue was created successfully"
+      successMessage={t('createQueueSuccess', { ns: 'queue' })}
       keysInvalidateQueries={[[{ queryKey: [QueueQueryKey.GET_QUEUES, group.id] }]]}
     >
-      <Fieldset title="Main info">
+      <Fieldset title={t('mainInfo')}>
         <FormCurrentGroupDescription groupName={group.name} />
-        <Form.Item label="Name" name="name" rules={[{ required: true, pattern: QUEUE_NAME_REGEXP }]}>
+        <Form.Item label={t('name')} name="name" rules={[{ required: true, pattern: QUEUE_NAME_REGEXP }]}>
           <Input size="large" />
         </Form.Item>
-        <Form.Item label="Description" name="description">
+        <Form.Item label={t('description')} name="description">
           <Input size="large" />
         </Form.Item>
       </Fieldset>

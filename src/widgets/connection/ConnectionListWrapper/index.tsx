@@ -5,10 +5,12 @@ import { DEFAULT_MODAL_DELETE_WIDTH } from '@shared/constants';
 import { useNavigate } from 'react-router-dom';
 import { Connection } from '@entities/connection';
 import { useModalState } from '@shared/hooks';
+import { useTranslation } from 'react-i18next';
 
 import { ConnectionListWrapperProps } from './types';
 
 export const ConnectionListWrapper = ({ group }: ConnectionListWrapperProps) => {
+  const { t } = useTranslation('connection');
   const navigate = useNavigate();
   const [selectedConnection, setSelectedConnection] = useState<Connection>();
 
@@ -37,7 +39,7 @@ export const ConnectionListWrapper = ({ group }: ConnectionListWrapperProps) => 
     <>
       {selectedConnection && (
         <ModalWrapper
-          title="Delete Connection"
+          title={t('deleteConnection')}
           width={DEFAULT_MODAL_DELETE_WIDTH}
           open={isOpenedDeleteConnectionModal}
           onCancel={handleCloseDeleteConnectionModal}

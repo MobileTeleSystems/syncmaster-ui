@@ -3,6 +3,7 @@ import { ControlButtons } from '@shared/ui';
 import { Typography } from 'antd';
 import { WarningOutlined } from '@ant-design/icons';
 import { useDeleteTransfer } from '@entities/transfer';
+import { useTranslation } from 'react-i18next';
 
 import classes from './styles.module.less';
 import { DeleteTransferProps } from './types';
@@ -10,6 +11,7 @@ import { DeleteTransferProps } from './types';
 const { Text } = Typography;
 
 export const DeleteTransfer = ({ transfer, onSuccess, onCancel }: DeleteTransferProps) => {
+  const { t } = useTranslation('transfer');
   const { mutate: deleteTransfer, isPending } = useDeleteTransfer({ id: transfer.id });
 
   const handleSubmit = () => {
@@ -21,10 +23,15 @@ export const DeleteTransfer = ({ transfer, onSuccess, onCancel }: DeleteTransfer
       <div className={classes.main}>
         <WarningOutlined className={classes.icon} />
         <Text>
-          Do you really want to delete transfer <b>«{transfer.name}»</b>?
+          {t('deleteTransferConfirm')} <b>«{transfer.name}»</b>?
         </Text>
       </div>
-      <ControlButtons isLoading={isPending} submitButtonText="Confirm" onSubmit={handleSubmit} onCancel={onCancel} />
+      <ControlButtons
+        isLoading={isPending}
+        submitButtonText={t('confirm', { ns: 'shared' })}
+        onSubmit={handleSubmit}
+        onCancel={onCancel}
+      />
     </div>
   );
 };

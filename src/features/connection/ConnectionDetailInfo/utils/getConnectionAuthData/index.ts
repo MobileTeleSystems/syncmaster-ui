@@ -1,26 +1,27 @@
 import { ConnectionType, DescriptionItem } from '@shared/types';
 import { Connection } from '@entities/connection';
+import { TFunction } from 'i18next';
 
 /** Util for mapping connection auth data for Description component depends on connection type */
-export const getConnectionAuthData = (connection: Connection): DescriptionItem[] => {
+export const getConnectionAuthData = (connection: Connection, t: TFunction<'connection'>): DescriptionItem[] => {
   const { type, auth_data } = connection;
 
   switch (type) {
     case ConnectionType.S3:
       return [
         {
-          label: 'Access key',
+          label: t('accessKey'),
           content: auth_data.access_key,
         },
       ];
     case ConnectionType.SAMBA:
       return [
         {
-          label: 'User',
+          label: t('user', { ns: 'group' }),
           content: auth_data.user,
         },
         {
-          label: 'Auth type',
+          label: t('authType', { ns: 'auth' }),
           content: auth_data.auth_type,
         },
       ];
@@ -37,7 +38,7 @@ export const getConnectionAuthData = (connection: Connection): DescriptionItem[]
     case ConnectionType.MS_SQL:
       return [
         {
-          label: 'User',
+          label: t('user', { ns: 'group' }),
           content: auth_data.user,
         },
       ];

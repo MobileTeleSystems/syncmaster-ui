@@ -3,8 +3,10 @@ import { ControlButtons, Fieldset, ManagedForm } from '@shared/ui';
 import { GroupData, GroupQueryKey, groupService } from '@entities/group';
 import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const CreateGroup = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const onSuccess = (response: GroupData) => {
@@ -19,15 +21,15 @@ export const CreateGroup = () => {
     <ManagedForm
       mutationFunction={groupService.createGroup}
       onSuccess={onSuccess}
-      successMessage="Group was created successfully"
+      successMessage={t('createGroupSuccess', { ns: 'group' })}
       keysInvalidateQueries={[[{ queryKey: [GroupQueryKey.GET_GROUPS] }]]}
     >
-      <Fieldset title="Main info">
-        <Form.Item label="Name" name="name" rules={[{ required: true }]}>
+      <Fieldset title={t('mainInfo')}>
+        <Form.Item label={t('name')} name="name" rules={[{ required: true }]}>
           <Input size="large" />
         </Form.Item>
 
-        <Form.Item label="Description" name="description" rules={[{ required: true }]}>
+        <Form.Item label={t('description')} name="description" rules={[{ required: true }]}>
           <Input size="large" />
         </Form.Item>
       </Fieldset>

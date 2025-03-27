@@ -3,11 +3,13 @@ import { ControlButtons, Fieldset, FormCurrentGroupDescription, ManagedForm } fr
 import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { Connection, ConnectionQueryKey, connectionService, ConnectionTypeForm } from '@entities/connection';
+import { useTranslation } from 'react-i18next';
 
 import { UpdateConnectionForm, UpdateConnectionProps } from './types';
 
 export const UpdateConnection = ({ connection, group }: UpdateConnectionProps) => {
   const { id: connectionId, group_id, ...connectionInitialValues } = connection;
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleUpdateConnection = (values: UpdateConnectionForm) => {
@@ -27,20 +29,20 @@ export const UpdateConnection = ({ connection, group }: UpdateConnectionProps) =
       mutationFunction={handleUpdateConnection}
       initialValues={connectionInitialValues}
       onSuccess={onSuccess}
-      successMessage="Connection was updated successfully"
+      successMessage={t('updateConnectionSuccess', { ns: 'connection' })}
       keysInvalidateQueries={[
         [{ queryKey: [ConnectionQueryKey.GET_CONNECTIONS, group.id] }],
         [{ queryKey: [ConnectionQueryKey.GET_CONNECTION, connectionId] }],
       ]}
     >
-      <Fieldset title="Main info">
+      <Fieldset title={t('mainInfo')}>
         <FormCurrentGroupDescription groupName={group.name} />
 
-        <Form.Item label="Name" name="name" rules={[{ required: true }]}>
+        <Form.Item label={t('name')} name="name" rules={[{ required: true }]}>
           <Input size="large" />
         </Form.Item>
 
-        <Form.Item label="Description" name="description" rules={[{ required: true }]}>
+        <Form.Item label={t('description')} name="description" rules={[{ required: true }]}>
           <Input size="large" />
         </Form.Item>
       </Fieldset>

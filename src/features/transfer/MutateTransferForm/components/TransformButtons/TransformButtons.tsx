@@ -3,8 +3,12 @@ import { Typography } from 'antd';
 import { useModalState } from '@shared/hooks';
 import { ModalWrapper } from '@shared/ui';
 import { DEFAULT_MODAL_DELETE_WIDTH } from '@shared/constants';
+import { useTranslation } from 'react-i18next';
 
-import { TransferCanvasTransformNodeType, TransferCanvasTransformNodeTypeName } from '../TransferConnectionsCanvas';
+import {
+  TransferCanvasTransformNodeType,
+  TRANSFER_CANVAS_TRANSFORM_NODE_TYPE_NAME_DISPLAY,
+} from '../TransferConnectionsCanvas';
 
 import { useHandleNodes } from './hooks';
 import { DeleteNode, TransformButtonItem } from './components';
@@ -13,6 +17,7 @@ import classes from './styles.module.less';
 const { Text } = Typography;
 
 export const TransformButtons = memo(() => {
+  const { t } = useTranslation('transformation');
   const { transformNodeTypes, handleAddTransformNode, handleDeleteTransformNode } = useHandleNodes();
 
   const [nodeTypeForDeleting, setNodeTypeForDeleting] = useState<TransferCanvasTransformNodeType | null>(null);
@@ -31,7 +36,7 @@ export const TransformButtons = memo(() => {
 
   return (
     <div className={classes.root}>
-      <Text strong>Transformations controls:</Text>
+      <Text strong>{t('transformationsControls')}</Text>
       <div className={classes.buttons}>
         {Object.values(TransferCanvasTransformNodeType).map((item, index) => (
           <TransformButtonItem
@@ -45,7 +50,7 @@ export const TransformButtons = memo(() => {
       </div>
       {nodeTypeForDeleting && (
         <ModalWrapper
-          title={`Delete ${TransferCanvasTransformNodeTypeName[nodeTypeForDeleting]}`}
+          title={`${t('delete', { ns: 'shared' })} ${t(TRANSFER_CANVAS_TRANSFORM_NODE_TYPE_NAME_DISPLAY[nodeTypeForDeleting])}`}
           width={DEFAULT_MODAL_DELETE_WIDTH}
           open={isOpenedModal}
           onCancel={handleCloseModal}

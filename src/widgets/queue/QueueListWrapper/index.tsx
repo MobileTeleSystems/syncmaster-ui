@@ -5,10 +5,12 @@ import { DeleteQueue, QueueList } from '@features/queue';
 import { useModalState } from '@shared/hooks';
 import { ModalWrapper } from '@shared/ui';
 import { DEFAULT_MODAL_DELETE_WIDTH } from '@shared/constants';
+import { useTranslation } from 'react-i18next';
 
 import { QueueListWrapperProps } from './types';
 
 export const QueueListWrapper = ({ group }: QueueListWrapperProps) => {
+  const { t } = useTranslation('queue');
   const navigate = useNavigate();
   const [selectedQueue, setSelectedQueue] = useState<Queue>();
 
@@ -37,7 +39,7 @@ export const QueueListWrapper = ({ group }: QueueListWrapperProps) => {
     <>
       {selectedQueue && (
         <ModalWrapper
-          title="Delete Queue"
+          title={t('deleteQueue')}
           width={DEFAULT_MODAL_DELETE_WIDTH}
           open={isOpenedDeleteQueueModal}
           onCancel={handleCloseDeleteQueueModal}

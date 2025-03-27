@@ -7,6 +7,7 @@ import { useGetGroup } from '@entities/group';
 import { useGetUser } from '@entities/user';
 import { GroupDetailInfo } from '@features/group';
 import { GroupUsers } from '@widgets/group';
+import { useTranslation } from 'react-i18next';
 
 import classes from './styles.module.less';
 import { UpdateGroupButton } from './components';
@@ -14,6 +15,7 @@ import { UpdateGroupButton } from './components';
 const { Title } = Typography;
 
 export const GroupDetailPage = () => {
+  const { t } = useTranslation('group');
   const params = useParams<PageDetailParams>();
   const { data: group } = useGetGroup({ id: Number(params.id) });
   const { data: owner } = useGetUser({ id: group.data.owner_id });
@@ -21,12 +23,14 @@ export const GroupDetailPage = () => {
   return (
     <div className={classes.root}>
       <PageContentWrapper gap="large">
-        <Title>Group: {group.data.name}</Title>
+        <Title>
+          {t('group')}: {group.data.name}
+        </Title>
         <GroupDetailInfo
           group={group.data}
           owner={owner}
           extra={
-            <AccessWrapper accessRole={UserRole.Owner} currentRole={group.role}>
+            <AccessWrapper accessRole={UserRole.OWNER} currentRole={group.role}>
               <UpdateGroupButton groupId={group.data.id} />
             </AccessWrapper>
           }

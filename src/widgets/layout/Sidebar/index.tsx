@@ -3,12 +3,13 @@ import { Layout, Menu } from 'antd';
 import { useLocation } from 'react-router-dom';
 
 import classes from './styles.module.less';
-import { SIDEBAR_ITEMS } from './constants';
+import { useGetSidebarMenu } from './hooks';
 
 const { Sider } = Layout;
 
 export const Sidebar = () => {
   const { pathname } = useLocation();
+  const menuItems = useGetSidebarMenu();
 
   return (
     <Sider width={250}>
@@ -16,7 +17,7 @@ export const Sidebar = () => {
         className={classes.menu}
         selectedKeys={[pathname.split('/').filter(Boolean)[0]]}
         mode="inline"
-        items={SIDEBAR_ITEMS}
+        items={menuItems}
       />
     </Sider>
   );

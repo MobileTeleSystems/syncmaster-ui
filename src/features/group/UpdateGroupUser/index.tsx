@@ -1,7 +1,8 @@
 import React from 'react';
 import { ControlButtons, ManagedForm, Select } from '@shared/ui';
 import { Form, Typography } from 'antd';
-import { GroupQueryKey, groupService, USER_ROLE_IN_GROUP_SELECT_OPTIONS } from '@entities/group';
+import { GroupQueryKey, groupService, useGetUserRoleInGroupSelectOptions } from '@entities/group';
+import { useTranslation } from 'react-i18next';
 
 import { UpdateGroupUserForm, UpdateGroupUserProps } from './types';
 import { getUpdateGroupUserInitialValues } from './utils';
@@ -10,6 +11,9 @@ import classes from './styles.module.less';
 const { Text } = Typography;
 
 export const UpdateGroupUser = ({ groupId, user, onSuccess, onCancel }: UpdateGroupUserProps) => {
+  const { t } = useTranslation('group');
+  const userRoleInGroupSelectOptions = useGetUserRoleInGroupSelectOptions();
+
   const handleUpdateGroupUser = (values: UpdateGroupUserForm) => {
     return groupService.updateGroupUser({ ...values, groupId, userId: user.id });
   };
@@ -19,16 +23,16 @@ export const UpdateGroupUser = ({ groupId, user, onSuccess, onCancel }: UpdateGr
       initialValues={getUpdateGroupUserInitialValues(user)}
       mutationFunction={handleUpdateGroupUser}
       onSuccess={onSuccess}
-      successMessage="User role was updated successfully"
+      successMessage={t('updateUserRoleSuccess')}
       keysInvalidateQueries={[[{ queryKey: [GroupQueryKey.GET_GROUP_USERS, groupId] }]]}
     >
       <div className={classes.formMain}>
         <Text className={classes.username}>
-          Username: <b>«{user.username}»</b>
+          {t('username', { ns: 'auth' })}: <b>«{user.username}»</b>
         </Text>
 
-        <Form.Item label="Role" name="role" rules={[{ required: true }]}>
-          <Select size="large" options={USER_ROLE_IN_GROUP_SELECT_OPTIONS} />
+        <Form.Item label={t('role')} name="role" rules={[{ required: true }]}>
+          <Select size="large" options={userRoleInGroupSelectOptions} placeholder={t('selectRole')} />
         </Form.Item>
       </div>
 

@@ -3,6 +3,7 @@ import { ControlButtons } from '@shared/ui';
 import { Typography } from 'antd';
 import { WarningOutlined } from '@ant-design/icons';
 import { useDeleteConnection } from '@entities/connection';
+import { useTranslation } from 'react-i18next';
 
 import classes from './styles.module.less';
 import { DeleteConnectionProps } from './types';
@@ -10,6 +11,7 @@ import { DeleteConnectionProps } from './types';
 const { Text } = Typography;
 
 export const DeleteConnection = ({ connection, onSuccess, onCancel }: DeleteConnectionProps) => {
+  const { t } = useTranslation('connection');
   const { mutate: deleteConnection, isPending } = useDeleteConnection({ id: connection.id });
 
   const handleSubmit = () => {
@@ -21,10 +23,15 @@ export const DeleteConnection = ({ connection, onSuccess, onCancel }: DeleteConn
       <div className={classes.main}>
         <WarningOutlined className={classes.icon} />
         <Text>
-          Do you really want to delete connection <b>«{connection.name}»</b>?
+          {t('deleteConnectionConfirm')} <b>«{connection.name}»</b>?
         </Text>
       </div>
-      <ControlButtons isLoading={isPending} submitButtonText="Confirm" onSubmit={handleSubmit} onCancel={onCancel} />
+      <ControlButtons
+        isLoading={isPending}
+        submitButtonText={t('confirm', { ns: 'shared' })}
+        onSubmit={handleSubmit}
+        onCancel={onCancel}
+      />
     </div>
   );
 };

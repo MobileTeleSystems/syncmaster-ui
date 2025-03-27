@@ -5,10 +5,12 @@ import { ModalWrapper } from '@shared/ui';
 import { Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { DeleteTransfer } from '@features/transfer';
+import { useTranslation } from 'react-i18next';
 
 import { DeleteTransferButtonProps } from './types';
 
 export const DeleteTransferButton = ({ transfer }: DeleteTransferButtonProps) => {
+  const { t } = useTranslation('transfer');
   const navigate = useNavigate();
 
   const { isOpened: isOpenedModal, handleOpen: handleOpenModal, handleClose: handleCloseModal } = useModalState();
@@ -21,10 +23,10 @@ export const DeleteTransferButton = ({ transfer }: DeleteTransferButtonProps) =>
   return (
     <>
       <Button type="primary" size="large" danger onClick={handleOpenModal}>
-        Delete Transfer
+        {t('deleteTransfer')}
       </Button>
       <ModalWrapper
-        title="Delete Transfer"
+        title={t('deleteTransfer')}
         width={DEFAULT_MODAL_DELETE_WIDTH}
         open={isOpenedModal}
         onCancel={handleCloseModal}

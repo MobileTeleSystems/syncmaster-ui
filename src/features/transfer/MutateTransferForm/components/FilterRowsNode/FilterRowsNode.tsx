@@ -3,16 +3,19 @@ import { CanvasNode } from '@shared/ui';
 import { Handle, Position } from '@xyflow/react';
 import { FilterOutlined } from '@ant-design/icons';
 import { TransformationForm, TransformationType } from '@entities/transformation';
+import { useTranslation } from 'react-i18next';
 
 import {
   TransferCanvasEdge,
   TransferCanvasTransformNodeType,
-  TransferCanvasTransformNodeTypeName,
+  TRANSFER_CANVAS_TRANSFORM_NODE_TYPE_NAME_DISPLAY,
 } from '../TransferConnectionsCanvas';
 
 import classes from './styles.module.less';
 
 export const FilterRowsNode = () => {
+  const { t } = useTranslation('transformation');
+
   const icon = useMemo(() => {
     return <FilterOutlined />;
   }, []);
@@ -23,18 +26,18 @@ export const FilterRowsNode = () => {
         <Handle type="target" position={Position.Left} id={TransferCanvasEdge.FILTER_ROWS_TARGET} />
         <TransformationForm
           transformationType={TransformationType.FILTER_ROWS}
-          nestedTypeSelectLabel="Operator"
+          nestedTypeSelectLabel={t('operator')}
           hasColumnField
         />
         <Handle type="source" position={Position.Right} id={TransferCanvasEdge.FILTER_ROWS_SOURCE} />
       </>
     );
-  }, []);
+  }, [t]);
 
   return (
     <CanvasNode
       className={classes.root}
-      title={TransferCanvasTransformNodeTypeName[TransferCanvasTransformNodeType.FILTER_ROWS]}
+      title={t(TRANSFER_CANVAS_TRANSFORM_NODE_TYPE_NAME_DISPLAY[TransferCanvasTransformNodeType.FILTER_ROWS])}
       icon={icon}
     >
       {children}

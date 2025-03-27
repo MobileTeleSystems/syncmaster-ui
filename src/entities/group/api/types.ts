@@ -9,7 +9,7 @@ export interface GroupData {
 
 export interface Group {
   data: GroupData;
-  role: keyof typeof UserRole;
+  role: UserRole;
 }
 
 //TODO: This interface will be extended
@@ -38,13 +38,13 @@ export interface GetGroupUsersRequest extends PaginationRequest {
 export interface GroupUser {
   id: number;
   username: string;
-  role: keyof typeof UserRole;
+  role: UserRole;
 }
 
 export interface AddGroupUserRequest {
   groupId: number;
   userId: number;
-  role: keyof typeof UserRole;
+  role: UserRole;
 }
 
 export interface UpdateGroupUserRequest extends AddGroupUserRequest {}

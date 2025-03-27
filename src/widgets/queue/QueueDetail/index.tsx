@@ -14,7 +14,7 @@ export const QueueDetail = ({ queue, group }: QueueDetailProps) => {
         queue={queue}
         group={group.data}
         extra={
-          <AccessWrapper accessRole={UserRole.Maintainer} currentRole={group.role}>
+          <AccessWrapper accessRole={UserRole.MAINTAINER} currentRole={group.role}>
             <div className={classes.actions}>
               <UpdateQueueButton queueId={queue.id} />
               <DeleteQueueButton queue={queue} />

@@ -3,6 +3,7 @@ import { ControlButtons } from '@shared/ui';
 import { Typography } from 'antd';
 import { WarningOutlined } from '@ant-design/icons';
 import { useDeleteQueue } from '@entities/queue';
+import { useTranslation } from 'react-i18next';
 
 import classes from './styles.module.less';
 import { DeleteQueueProps } from './types';
@@ -10,6 +11,7 @@ import { DeleteQueueProps } from './types';
 const { Text } = Typography;
 
 export const DeleteQueue = ({ queue, onSuccess, onCancel }: DeleteQueueProps) => {
+  const { t } = useTranslation('queue');
   const { mutate: deleteQueue, isPending } = useDeleteQueue({ id: queue.id });
 
   const handleSubmit = () => {
@@ -21,10 +23,15 @@ export const DeleteQueue = ({ queue, onSuccess, onCancel }: DeleteQueueProps) =>
       <div className={classes.main}>
         <WarningOutlined className={classes.icon} />
         <Text>
-          Do you really want to delete queue <b>«{queue.name}»</b>?
+          {t('deleteQueueConfirm')} <b>«{queue.name}»</b>?
         </Text>
       </div>
-      <ControlButtons isLoading={isPending} submitButtonText="Confirm" onSubmit={handleSubmit} onCancel={onCancel} />
+      <ControlButtons
+        isLoading={isPending}
+        submitButtonText={t('confirm', { ns: 'shared' })}
+        onSubmit={handleSubmit}
+        onCancel={onCancel}
+      />
     </div>
   );
 };

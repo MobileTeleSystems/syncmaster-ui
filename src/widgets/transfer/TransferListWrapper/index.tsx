@@ -5,10 +5,12 @@ import { useModalState } from '@shared/hooks';
 import { ModalWrapper } from '@shared/ui';
 import { DEFAULT_MODAL_DELETE_WIDTH } from '@shared/constants';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { TransferListWrapperProps } from './types';
 
 export const TransferListWrapper = ({ group }: TransferListWrapperProps) => {
+  const { t } = useTranslation('transfer');
   const navigate = useNavigate();
   const [selectedTransfer, setSelectedTransfer] = useState<Transfer>();
 
@@ -37,7 +39,7 @@ export const TransferListWrapper = ({ group }: TransferListWrapperProps) => {
     <>
       {selectedTransfer && (
         <ModalWrapper
-          title="Delete Transfer"
+          title={t('deleteTransfer')}
           width={DEFAULT_MODAL_DELETE_WIDTH}
           open={isOpenedDeleteTransferModal}
           onCancel={handleCloseDeleteTransferModal}

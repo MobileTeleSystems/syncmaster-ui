@@ -14,7 +14,7 @@ export const ConnectionDetail = ({ connection, group }: ConnectionDetailProps) =
         connection={connection}
         group={group.data}
         extra={
-          <AccessWrapper accessRole={UserRole.Maintainer} currentRole={group.role}>
+          <AccessWrapper accessRole={UserRole.MAINTAINER} currentRole={group.role}>
             <div className={classes.actions}>
               <UpdateConnectionButton connectionId={connection.id} />
               <DeleteConnectionButton connection={connection} />

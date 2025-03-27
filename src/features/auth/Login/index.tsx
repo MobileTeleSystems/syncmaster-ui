@@ -2,12 +2,14 @@ import React from 'react';
 import { ControlButtons, ManagedForm } from '@shared/ui';
 import { authService, LoginResponse, useLogin } from '@entities/auth';
 import { Form, Input, Typography } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 import classes from './styles.module.less';
 
 const { Title } = Typography;
 
 export const Login = () => {
+  const { t } = useTranslation('auth');
   const login = useLogin();
 
   const onSuccess = (response: LoginResponse) => {
@@ -16,13 +18,13 @@ export const Login = () => {
 
   return (
     <div className={classes.wrapper}>
-      <Title>Sign in</Title>
+      <Title>{t('signIn')}</Title>
       <ManagedForm mutationFunction={authService.login} onSuccess={onSuccess}>
-        <Form.Item label="Username" name="username" rules={[{ required: true }]}>
+        <Form.Item label={t('username')} name="username" rules={[{ required: true }]}>
           <Input size="large" />
         </Form.Item>
 
-        <Form.Item label="Password" name="password" rules={[{ required: true }]}>
+        <Form.Item label={t('password')} name="password" rules={[{ required: true }]}>
           <Input.Password size="large" />
         </Form.Item>
 
