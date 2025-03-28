@@ -11,7 +11,7 @@ export const getGroupListColumns = (t: TFunction) => {
       title: t('id'),
       dataIndex: 'id',
       render: (name, record) => record.data.id,
-      width: 150,
+      width: 160,
     },
     {
       title: t('name'),

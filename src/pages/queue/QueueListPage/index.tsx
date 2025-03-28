@@ -1,7 +1,6 @@
-import { AccessWrapper, PageContentWrapper } from '@shared/ui';
-import { Button, Typography } from 'antd';
+import { AccessWrapper, ActionButton, PageContentWrapper } from '@shared/ui';
+import { Typography } from 'antd';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { GroupWarningAlert, useSelectedGroup } from '@entities/group';
 import { QueueListWrapper } from '@widgets/queue';
 import { UserRole } from '@shared/types';
@@ -23,9 +22,7 @@ export const QueueListPage = () => {
     return (
       <PageContentWrapper width="large">
         <AccessWrapper accessRole={UserRole.MAINTAINER} currentRole={group.role}>
-          <Button className={classes.createButton} type="primary" size="large">
-            <Link to="/queues/create">{t('createQueue')}</Link>
-          </Button>
+          <ActionButton className={classes.createButton} actionType="create" to="/queues/create" />
         </AccessWrapper>
         <QueueListWrapper group={group} />
       </PageContentWrapper>

@@ -13,7 +13,7 @@ export const UpdateConnection = ({ connection, group }: UpdateConnectionProps) =
   const navigate = useNavigate();
 
   const handleUpdateConnection = (values: UpdateConnectionForm) => {
-    return connectionService.updateConnection(Object.assign({ id: connectionId, ...values }));
+    return connectionService.updateConnection(Object.assign({ id: connectionId, group_id, ...values }));
   };
 
   const onSuccess = (response: Connection) => {

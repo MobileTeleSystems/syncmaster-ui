@@ -19,7 +19,7 @@ export const QueueDetailPage = () => {
   return (
     <PageContentWrapper gap="large">
       <Title>
-        {t('queue')}: {queue.name}
+        {t('queue')} «{queue.name}»
       </Title>
       <QueueDetail queue={queue} group={group} />
     </PageContentWrapper>

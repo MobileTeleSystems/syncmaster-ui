@@ -1,7 +1,6 @@
 import { DEFAULT_MODAL_DELETE_WIDTH } from '@shared/constants';
 import { useModalState } from '@shared/hooks';
-import { ModalWrapper } from '@shared/ui';
-import { Button } from 'antd';
+import { ActionButton, ModalWrapper } from '@shared/ui';
 import React from 'react';
 import { DeleteConnection } from '@features/connection';
 import { useNavigate } from 'react-router-dom';
@@ -22,9 +21,7 @@ export const DeleteConnectionButton = ({ connection }: DeleteConnectionButtonPro
 
   return (
     <>
-      <Button type="primary" size="large" danger onClick={handleOpenModal}>
-        {t('deleteConnection')}
-      </Button>
+      <ActionButton actionType="delete" onClick={handleOpenModal} />
       <ModalWrapper
         title={t('deleteConnection')}
         width={DEFAULT_MODAL_DELETE_WIDTH}

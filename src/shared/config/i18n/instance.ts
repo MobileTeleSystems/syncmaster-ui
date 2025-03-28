@@ -1,11 +1,11 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import { resources } from './constants';
+import { LANGUAGE_LOCAL_STORAGE_KEY, resources } from './constants';
 import { Language } from './types';
 
 i18n.use(initReactI18next).init({
-  lng: Language.EN,
+  lng: localStorage.getItem(LANGUAGE_LOCAL_STORAGE_KEY) || Language.EN,
   fallbackLng: Language.EN,
   resources,
   defaultNS: 'shared',

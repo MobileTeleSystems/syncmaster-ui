@@ -15,3 +15,4 @@ export * from './Canvas';
 export * from './Fieldset';
 export * from './CanvasNode';
 export * from './Select';
+export * from './ActionButton';

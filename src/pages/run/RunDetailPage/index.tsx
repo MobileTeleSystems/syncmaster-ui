@@ -31,7 +31,7 @@ export const RunDetailPage = () => {
     <div className={classes.root}>
       <PageContentWrapper>
         <Title>
-          {t('run')}: #{run.id}
+          {t('run')} #{run.id}
         </Title>
         <div className={classes.extra}>
           <RunDetailInfo run={run} transfer={transfer} />

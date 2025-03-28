@@ -13,7 +13,7 @@ export const TransformButtonItem = ({ isExist, nodeType, onAddNode, onDeleteNode
   if (isExist) {
     return (
       <Button type="primary" danger icon={<DeleteOutlined />} onClick={() => onDeleteNode(nodeType)}>
-        {t('remove', { ns: 'shared' })} {t(TRANSFER_CANVAS_TRANSFORM_NODE_TYPE_NAME_DISPLAY[nodeType])}
+        {t('delete', { ns: 'shared' })} {t(TRANSFER_CANVAS_TRANSFORM_NODE_TYPE_NAME_DISPLAY[nodeType])}
       </Button>
     );
   }

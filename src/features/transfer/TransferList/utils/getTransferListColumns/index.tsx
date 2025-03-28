@@ -10,7 +10,7 @@ export const getTransferListColumns = (t: TFunction<'shared'>) => {
     {
       title: t('id'),
       dataIndex: 'id',
-      width: 150,
+      width: 160,
     },
     {
       title: t('name'),

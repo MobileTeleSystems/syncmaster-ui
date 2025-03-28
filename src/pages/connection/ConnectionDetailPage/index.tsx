@@ -19,7 +19,7 @@ export const ConnectionDetailPage = () => {
   return (
     <PageContentWrapper gap="large">
       <Title>
-        {t('connection')}: {connection.name}
+        {t('connection')} «{connection.name}»
       </Title>
       <ConnectionDetail connection={connection} group={group} />
     </PageContentWrapper>

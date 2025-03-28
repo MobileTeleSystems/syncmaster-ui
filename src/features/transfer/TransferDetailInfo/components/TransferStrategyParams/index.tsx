@@ -10,7 +10,7 @@ export const TransferStrategyParams = ({ data, ...props }: TransferStrategyParam
   return (
     <Descriptions {...props}>
       <Descriptions.Item label={t('type', { ns: 'shared' })} span={3}>
-        {data.type}
+        {t(data.type)}
       </Descriptions.Item>
       {data.increment_by && (
         <Descriptions.Item label={t('incrementBy')} span={3}>

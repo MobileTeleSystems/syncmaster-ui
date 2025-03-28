@@ -1,10 +1,8 @@
 import React from 'react';
 import { GroupWarningAlert, useSelectedGroup } from '@entities/group';
 import { UserRole } from '@shared/types';
-import { AccessWrapper, PageContentWrapper } from '@shared/ui';
+import { AccessWrapper, ActionButton, PageContentWrapper } from '@shared/ui';
 import { TransferListWrapper } from '@widgets/transfer';
-import { Button } from 'antd';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import classes from './styles.module.less';
@@ -20,9 +18,7 @@ export const TransferListPageContent = () => {
   return (
     <PageContentWrapper width="large">
       <AccessWrapper accessRole={UserRole.MAINTAINER} currentRole={group.role}>
-        <Button className={classes.createButton} type="primary" size="large">
-          <Link to="/transfers/create">{t('createTransfer')}</Link>
-        </Button>
+        <ActionButton className={classes.createButton} actionType="create" to="/transfers/create" />
       </AccessWrapper>
       <TransferListWrapper group={group} />
     </PageContentWrapper>

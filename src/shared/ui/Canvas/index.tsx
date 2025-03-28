@@ -3,7 +3,6 @@ import {
   BackgroundVariant,
   Controls,
   Edge,
-  MiniMap,
   Node,
   ReactFlow,
   useEdgesState,
@@ -58,7 +57,6 @@ export const Canvas = <N extends Node, E extends Edge>({
     >
       <Background bgColor="#f0f2f5" variant={BackgroundVariant.Cross} size={3} />
       <Controls />
-      <MiniMap />
       {children}
     </ReactFlow>
   );

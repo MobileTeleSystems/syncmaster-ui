@@ -24,7 +24,7 @@ export const GroupDetailPage = () => {
     <div className={classes.root}>
       <PageContentWrapper gap="large">
         <Title>
-          {t('group')}: {group.data.name}
+          {t('group')} «{group.data.name}»
         </Title>
         <GroupDetailInfo
           group={group.data}

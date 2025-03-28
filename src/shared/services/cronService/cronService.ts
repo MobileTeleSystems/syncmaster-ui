@@ -143,15 +143,15 @@ export class CronService {
     const day = this.getWeekDay();
     const date = this.getMonthDay();
 
-    let schedule = t(`${PERIOD_DISPLAY[this.period]}Every`);
+    let schedule = t(PERIOD_DISPLAY[this.period]);
 
     if (day !== null) {
-      schedule += t(`${DAY_OF_WEEK_DISPLAY[day]}On`);
+      schedule += ` ${t(`${DAY_OF_WEEK_DISPLAY[day]}On`)}`;
     } else if (date) {
-      schedule += `${date}${t('dayOfMonth', { count: date })} `;
+      schedule += ` ${t('dayOfMonthNumber', { count: date, ordinal: true })}`;
     }
 
-    schedule += `${t('at')} ${time}`;
+    schedule += ` ${t('at')} ${time}`;
 
     return schedule;
   }

@@ -4,6 +4,7 @@ import { Table } from 'antd';
 import { PAGE_SIZES } from './constants';
 import { useTableColumns, useTablePagination, useTableQuery } from './hooks';
 import { ManagedTableProps } from './types';
+import classes from './styles.module.less';
 
 export const ManagedTable = <T extends object>({
   queryFunction,
@@ -35,6 +36,7 @@ export const ManagedTable = <T extends object>({
       columns={columns}
       loading={isFetching}
       pagination={{
+        className: classes.pagination,
         current: pagination.page,
         pageSize: pagination.pageSize,
         total: data?.meta.total,

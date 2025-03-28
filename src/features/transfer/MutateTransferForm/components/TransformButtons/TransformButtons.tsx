@@ -36,7 +36,7 @@ export const TransformButtons = memo(() => {
 
   return (
     <div className={classes.root}>
-      <Text strong>{t('transformationsControls')}</Text>
+      <Text strong>{t('transformations')}</Text>
       <div className={classes.buttons}>
         {Object.values(TransferCanvasTransformNodeType).map((item, index) => (
           <TransformButtonItem
@@ -50,7 +50,7 @@ export const TransformButtons = memo(() => {
       </div>
       {nodeTypeForDeleting && (
         <ModalWrapper
-          title={`${t('delete', { ns: 'shared' })} ${t(TRANSFER_CANVAS_TRANSFORM_NODE_TYPE_NAME_DISPLAY[nodeTypeForDeleting])}`}
+          title={`${t('confirm', { ns: 'shared' })} ${t(TRANSFER_CANVAS_TRANSFORM_NODE_TYPE_NAME_DISPLAY[nodeTypeForDeleting])}`}
           width={DEFAULT_MODAL_DELETE_WIDTH}
           open={isOpenedModal}
           onCancel={handleCloseModal}

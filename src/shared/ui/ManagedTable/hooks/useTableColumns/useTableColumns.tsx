@@ -47,7 +47,7 @@ export const useTableColumns = <T extends object>({
                 icon={<EditOutlined />}
                 onClick={(event) => handleUpdateRow(event, record)}
               >
-                {t('update')}
+                {t('edit')}
               </Button>
             )}
             {isRenderDeleteRowAction(record) && (

@@ -18,7 +18,7 @@ export const DAY_OF_WEEK_DISPLAY = {
 } as const;
 
 export const PERIOD_DISPLAY = {
-  [Period.DAY]: 'day',
-  [Period.WEEK]: 'week',
-  [Period.MONTH]: 'month',
+  [Period.DAY]: 'dayEvery',
+  [Period.WEEK]: 'weekEvery',
+  [Period.MONTH]: 'monthEvery',
 } as const;
