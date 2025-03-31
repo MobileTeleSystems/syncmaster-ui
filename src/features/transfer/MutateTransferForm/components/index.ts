@@ -4,3 +4,4 @@ export * from './TransferSchedule';
 export * from './TransferConnections';
 export * from './StrategyParams';
 export * from './TransferConnectionsCanvas';
+export * from './TransferResources';

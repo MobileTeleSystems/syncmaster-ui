@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 import { TransferDetailInfoProps } from './types';
 import classes from './styles.module.less';
-import { TransferParams, TransferStrategyParams } from './components';
+import { TransferParams, TransferResources, TransferStrategyParams } from './components';
 
 export const TransferDetailInfo = ({
   transfer,
@@ -44,6 +44,9 @@ export const TransferDetailInfo = ({
         )}
         <Descriptions.Item className={classes.subDescription} label={t('strategyParams', { ns: 'transfer' })} span={3}>
           <TransferStrategyParams data={transfer.strategy_params} />
+        </Descriptions.Item>
+        <Descriptions.Item className={classes.subDescription} label={t('resources', { ns: 'transfer' })} span={3}>
+          <TransferResources data={transfer.resources} />
         </Descriptions.Item>
         <Descriptions.Item label={t('sourceConnection', { ns: 'connection' })} span={3}>
           <Link to={`/connections/${connectionSource.id}`}>{connectionSource.name}</Link>

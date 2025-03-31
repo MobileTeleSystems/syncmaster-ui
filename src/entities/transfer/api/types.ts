@@ -15,6 +15,7 @@ export interface Transfer {
   strategy_params: TransferStrategyParams;
   is_scheduled: boolean;
   schedule: string;
+  resources: TransferResources;
   transformations: Transformations;
 }
 
@@ -33,6 +34,12 @@ export enum TransferStrategyType {
 export interface TransferStrategyParams {
   type: TransferStrategyType;
   increment_by?: TransferConnectionFileIncrementBy | string;
+}
+
+export interface TransferResources {
+  max_parallel_tasks: number;
+  cpu_cores_per_task: number;
+  ram_bytes_per_task: number | string;
 }
 
 export interface TransferSourceConnectionFileType {

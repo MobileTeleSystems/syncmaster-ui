@@ -9,7 +9,8 @@
       "formErrorHasOccurred": "Form error has occurred",
       "fieldIsRequired": "Field is required",
       "fieldPatternInvalid": "Field value does not match the pattern",
-      "invalidRegularExpression": "Invalid regular expressions"
+      "invalidRegularExpression": "Invalid regular expressions",
+      "integerError": "Field value must be integer"
     },
     "auth": {
       "auth": "Authorization",
@@ -83,9 +84,9 @@
     },
     "file": {
       "b": "B",
-      "kb": "KB",
-      "mb": "MB",
-      "gb": "GB",
+      "kib": "KiB",
+      "mib": "MiB",
+      "gib": "GiB",
       "fileFormat": "File format",
       "selectFileFormat": "Select file format",
       "compression": "Compression",
@@ -179,7 +180,13 @@
       "incremental": "incremental",
       "target": "Target",
       "basic": "Basic",
-      "advanced": "Advanced"
+      "advanced": "Advanced",
+      "resources": "Resources",
+      "minValue": "Min. value",
+      "maxValue": "Max. value",
+      "maxParallelTasks": "Max parallel tasks",
+      "cpuCoresPerTask": "CPU cores per task",
+      "ramPerTask": "RAM per task (GiB)"
     },
     "transformation": {
       "transformations": "Transformations:",
