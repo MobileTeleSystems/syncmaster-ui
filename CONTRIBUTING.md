@@ -6,12 +6,12 @@
 
 First, install the dependencies of the project:
 
-```
+```bash
 yarn
 ```
 
 Run the application in development mode:
-```
+```bash
 yarn start
 ```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -23,7 +23,7 @@ When you commit your changes, the pre-commit operation will be launched using hu
 ### Build
 
 If you want to build the project, use next command:
-```
+```bash
 yarn build
 ```
 Then use `yarn start:prod` for running the project in production mode.
