@@ -1,9 +1,9 @@
 {
   "name": "syncmaster_ui",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "Initial settings for react app",
-  "license": "UNLICENSED",
+  "description": "Frontend for SyncMaster",
+  "license": "Apache-2.0",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve",
     "start:prod": "cross-env NODE_ENV=production webpack serve",
