@@ -6,7 +6,9 @@ FROM --platform=linux/amd64 node:23.10.0 AS build
 
 WORKDIR /app
 
-COPY .yarnrc.yml .yarn package.json yarn.lock ./
+COPY .yarnrc.yml ./
+COPY .yarn/ ./.yarn/
+COPY package.json yarn.lock ./
 RUN yarn install --immutable
 
 COPY . .
