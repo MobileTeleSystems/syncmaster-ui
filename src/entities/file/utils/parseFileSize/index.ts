@@ -4,14 +4,14 @@ import { ParseFileSizeReturn } from './types';
 
 /** Util for parsing file size in bytes to appropriate unit and value */
 export const parseFileSize = (bytes: number): ParseFileSizeReturn => {
-  if (bytes >= FileSizeUnitValue.GB) {
-    return { value: bytes / FileSizeUnitValue.GB, unit: FileSizeUnit.GB };
+  if (bytes >= FileSizeUnitValue.GiB) {
+    return { value: bytes / FileSizeUnitValue.GiB, unit: FileSizeUnit.GiB };
   }
-  if (bytes >= FileSizeUnitValue.MB) {
-    return { value: bytes / FileSizeUnitValue.MB, unit: FileSizeUnit.MB };
+  if (bytes >= FileSizeUnitValue.MiB) {
+    return { value: bytes / FileSizeUnitValue.MiB, unit: FileSizeUnit.MiB };
   }
-  if (bytes >= FileSizeUnitValue.KB) {
-    return { value: bytes / FileSizeUnitValue.KB, unit: FileSizeUnit.KB };
+  if (bytes >= FileSizeUnitValue.KiB) {
+    return { value: bytes / FileSizeUnitValue.KiB, unit: FileSizeUnit.KiB };
   }
   return { value: bytes, unit: FileSizeUnit.B };
 };

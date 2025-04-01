@@ -9,7 +9,8 @@
       "formErrorHasOccurred": "Произошла ошибка формы",
       "fieldIsRequired": "Поле обязательно",
       "fieldPatternInvalid": "Значение поля не соответствует шаблону",
-      "invalidRegularExpression": "Некорректное регулярное выражение"
+      "invalidRegularExpression": "Некорректное регулярное выражение",
+      "integerError": "Значение поля должно быть целым числом"
     },
     "auth": {
       "auth": "Авторизация",
@@ -83,9 +84,9 @@
     },
     "file": {
       "b": "Б",
-      "kb": "КБ",
-      "mb": "МБ",
-      "gb": "ГБ",
+      "kib": "КиБ",
+      "mib": "МиБ",
+      "gib": "ГиБ",
       "fileFormat": "Формат файла",
       "selectFileFormat": "Выбрать формат файла",
       "compression": "Сжатие",
@@ -179,7 +180,13 @@
       "incremental": "инкрементальная",
       "target": "Цель",
       "basic": "Обычный",
-      "advanced": "Продвинутый"
+      "advanced": "Продвинутый",
+      "resources": "Ресурсы",
+      "minValue": "Мин. значение",
+      "maxValue": "Макс. значение",
+      "maxParallelTasks": "Макс. количество параллельных задач",
+      "cpuCoresPerTask": "Количество процессорных ядер на задачу",
+      "ramPerTask": "Количество оперативной памяти на задачу (ГиБ)"
     },
     "transformation": {
       "transformations": "Трансформации:",

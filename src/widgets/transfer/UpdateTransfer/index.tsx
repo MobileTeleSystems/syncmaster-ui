@@ -1,7 +1,13 @@
 import React from 'react';
 import { ManagedForm } from '@shared/ui';
 import { useNavigate } from 'react-router-dom';
-import { Transfer, TransferQueryKey, transferService } from '@entities/transfer';
+import {
+  prepareTransferResourcesForm,
+  prepareTransferResourcesRequest,
+  Transfer,
+  TransferQueryKey,
+  transferService,
+} from '@entities/transfer';
 import { MutateTransferForm } from '@features/transfer';
 import { prepareTransformationForm, prepareTransformationRequest } from '@entities/transformation';
 import { useTranslation } from 'react-i18next';
@@ -13,11 +19,12 @@ export const UpdateTransfer = ({ transfer, group }: UpdateTransferProps) => {
   const { t } = useTranslation('transfer');
   const navigate = useNavigate();
 
-  const handleUpdateTransfer = ({ transformations, ...values }: UpdateTransferForm) => {
+  const handleUpdateTransfer = ({ transformations, resources, ...values }: UpdateTransferForm) => {
     return transferService.updateTransfer({
       id: transferId,
       group_id,
       transformations: prepareTransformationRequest(transformations),
+      resources: prepareTransferResourcesRequest(resources),
       ...values,
     });
   };
@@ -35,6 +42,7 @@ export const UpdateTransfer = ({ transfer, group }: UpdateTransferProps) => {
       initialValues={{
         ...transferInitialValues,
         transformations: prepareTransformationForm(transferInitialValues.transformations),
+        resources: prepareTransferResourcesForm(transferInitialValues.resources),
       }}
       mutationFunction={handleUpdateTransfer}
       onSuccess={onSuccess}

@@ -5,7 +5,7 @@ import { Form, Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 
 import { MutateTransferFormProps } from './types';
-import { StrategyParams, TransferConnections, TransferSchedule } from './components';
+import { StrategyParams, TransferConnections, TransferResources, TransferSchedule } from './components';
 
 export const MutateTransferForm = ({ group, onCancel }: MutateTransferFormProps) => {
   const { t } = useTranslation();
@@ -38,6 +38,8 @@ export const MutateTransferForm = ({ group, onCancel }: MutateTransferFormProps)
       <TransferConnections groupId={group.id} />
 
       <StrategyParams />
+
+      <TransferResources />
 
       <TransferSchedule />
 
