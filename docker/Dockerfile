@@ -1,4 +1,8 @@
-FROM node:23.10.0 AS build
+# Bulding packages on ARM using emulation is veery slow.
+# Use amd64 for building .js and .css (which are platform agnostic),
+# and then copy to platform-specific nginx image
+
+FROM --platform=linux/amd64 node:23.10.0 AS build
 
 WORKDIR /app
 
