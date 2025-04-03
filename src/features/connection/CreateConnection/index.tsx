@@ -35,7 +35,7 @@ export const CreateConnection = ({ group }: CreateConnectionProps) => {
         <Form.Item label={t('name')} name="name" rules={[{ required: true }]}>
           <Input size="large" />
         </Form.Item>
-        <Form.Item label={t('description')} name="description" initialValue={""}>
+        <Form.Item label={t('description')} name="description" initialValue="">
           <Input size="large" />
         </Form.Item>
       </Fieldset>

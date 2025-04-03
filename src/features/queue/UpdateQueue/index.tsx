@@ -46,7 +46,7 @@ export const UpdateQueue = ({ queue, group }: UpdateQueueProps) => {
           <Input size="large" disabled />
         </Form.Item>
 
-        <Form.Item label={t('description')} name="description" initialValue={""}>
+        <Form.Item label={t('description')} name="description" initialValue="">
           <Input size="large" />
         </Form.Item>
       </Fieldset>
