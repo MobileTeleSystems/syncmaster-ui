@@ -19,6 +19,10 @@ export const getQueueListColumns = (t: TFunction) => {
       width: 400,
     },
     {
+      title: t('slug'),
+      dataIndex: 'slug',
+    },
+    {
       title: t('description'),
       dataIndex: 'description',
     },

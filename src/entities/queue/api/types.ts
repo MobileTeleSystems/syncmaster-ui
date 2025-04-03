@@ -4,6 +4,7 @@ export interface Queue {
   id: number;
   group_id: number;
   name: string;
+  slug: string;
   description: string;
 }
 

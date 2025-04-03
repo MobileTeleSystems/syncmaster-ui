@@ -263,6 +263,7 @@
       "delete": "Delete",
       "id": "Id",
       "name": "Name",
+      "slug": "Slug",
       "description": "Description",
       "type": "Type",
       "required": "required",

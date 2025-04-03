@@ -13,7 +13,7 @@ export const UpdateQueue = ({ queue, group }: UpdateQueueProps) => {
   const navigate = useNavigate();
 
   const handleUpdateQueue = (values: UpdateQueueForm) => {
-    return queueService.updateQueue({ ...values, id: queue.id });
+    return queueService.updateQueue({ name: values.name, description: values.description, id: queue.id });
   };
 
   const onSuccess = (response: Queue) => {
@@ -39,6 +39,10 @@ export const UpdateQueue = ({ queue, group }: UpdateQueueProps) => {
         <FormCurrentGroupDescription groupName={group.name} />
 
         <Form.Item label={t('name')} name="name" rules={[{ required: true, pattern: QUEUE_NAME_REGEXP }]}>
+          <Input size="large" />
+        </Form.Item>
+
+        <Form.Item label={t('slug')} name="slug">
           <Input size="large" disabled />
         </Form.Item>
 

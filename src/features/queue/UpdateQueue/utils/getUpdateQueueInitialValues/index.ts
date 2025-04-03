@@ -6,6 +6,7 @@ import { UpdateQueueForm } from '../../types';
 export const getUpdateQueueInitialValues = (queue: Queue): UpdateQueueForm => {
   return {
     name: queue.name,
+    slug: queue.slug,
     description: queue.description,
   };
 };

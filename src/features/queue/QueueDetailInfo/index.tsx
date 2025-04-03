@@ -16,6 +16,9 @@ export const QueueDetailInfo = ({ queue, group, ...props }: QueueDetailInfoProps
       <Descriptions.Item label={t('name')} span={3}>
         {queue.name}
       </Descriptions.Item>
+      <Descriptions.Item label={t('slug')} span={3}>
+        {queue.slug}
+      </Descriptions.Item>
       <Descriptions.Item label={t('description')} span={3}>
         {queue.description}
       </Descriptions.Item>
