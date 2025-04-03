@@ -5,8 +5,9 @@ import { BadgeProps } from 'antd';
 export const getRunStatusColor = (status: RunStatus): BadgeProps['status'] => {
   switch (status) {
     case RunStatus.CREATED:
-    case RunStatus.STARTED:
       return 'default';
+    case RunStatus.STARTED:
+      return 'processing';
     case RunStatus.FAILED:
       return 'error';
     case RunStatus.SEND_STOP_SIGNAL:
