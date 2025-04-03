@@ -4,6 +4,7 @@
   "private": true,
   "description": "Frontend for SyncMaster",
   "license": "Apache-2.0",
+  "packageManager": "yarn@4.8.1",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve",
     "start:prod": "cross-env NODE_ENV=production webpack serve",
@@ -73,6 +74,10 @@
     "webpack-dev-server": "5.2.1",
     "webpack-merge": "5.10.0"
   },
+  "engines": {
+    "node": ">18",
+    "npm": ">10"
+  },
   "lint-staged": {
     "*.(ts|tsx|js|jsx)": [
       "node tsc-check.js",
@@ -80,9 +85,9 @@
       "prettier --write"
     ]
   },
-  "engines": {
-    "node": ">18",
-    "npm": ">10"
-  },
-  "packageManager": "yarn@4.8.1"
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged"
+    }
+  }
 }
