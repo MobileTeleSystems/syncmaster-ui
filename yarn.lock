@@ -2042,40 +2042,40 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.71.1":
-  version: 5.71.1
-  resolution: "@tanstack/query-core@npm:5.71.1"
-  checksum: 10c0/cc26032439fa1f4f249a56505a51b251440e08312c65b2dcf6b6970c751a3a1c9b3dba4a03e7a64a5b9be5634b6d86c3f93d95e91d73d3875a86e4d50da7e9ae
+"@tanstack/query-core@npm:5.71.5":
+  version: 5.71.5
+  resolution: "@tanstack/query-core@npm:5.71.5"
+  checksum: 10c0/d0f9bd69efc47d52553f10e288495b4992ed698cda93e408c0622cbbfaa806a9e383db902e5270718f09e09204f79a898f13fc850b1014dd0e695a933843db3f
   languageName: node
   linkType: hard
 
-"@tanstack/query-devtools@npm:5.67.2":
-  version: 5.67.2
-  resolution: "@tanstack/query-devtools@npm:5.67.2"
-  checksum: 10c0/85172bb7cbca204e62507ffb72add4ff8f204b034ea0c6bb82cc44a00756ab196bd8a688b5e857911274aa5e7c467cdda6a393ebce6ba36ce8d471d5b52060fb
+"@tanstack/query-devtools@npm:5.71.5":
+  version: 5.71.5
+  resolution: "@tanstack/query-devtools@npm:5.71.5"
+  checksum: 10c0/22ca20fb8f5fdfe62e35bc9903d86a42ce7be93d53b631102d8780e8fd4b7995f23d21617c8bd4bf800beb064844ab7410ca779c7773c617a40c4dafd74206c2
   languageName: node
   linkType: hard
 
-"@tanstack/react-query-devtools@npm:5.71.1":
-  version: 5.71.1
-  resolution: "@tanstack/react-query-devtools@npm:5.71.1"
+"@tanstack/react-query-devtools@npm:5.71.5":
+  version: 5.71.5
+  resolution: "@tanstack/react-query-devtools@npm:5.71.5"
   dependencies:
-    "@tanstack/query-devtools": "npm:5.67.2"
+    "@tanstack/query-devtools": "npm:5.71.5"
   peerDependencies:
-    "@tanstack/react-query": ^5.71.1
+    "@tanstack/react-query": ^5.71.5
     react: ^18 || ^19
-  checksum: 10c0/48100df0c406cdec9a08b209d8b33305f9681a7fc6c73490c9da2c5b9ca679e8cdea932f7edae137f4aab67915a3641021c19cf8b52ed0ee70403038b78622cc
+  checksum: 10c0/e44d57314bbdc5cf4b1833575183fe3f0aa4b6788cd01c79042116f26c79554e736807cba74b3a1acd3c08391e9b1be3bb66283f693513843f321f7a3a6d70b9
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:5.71.1":
-  version: 5.71.1
-  resolution: "@tanstack/react-query@npm:5.71.1"
+"@tanstack/react-query@npm:5.71.5":
+  version: 5.71.5
+  resolution: "@tanstack/react-query@npm:5.71.5"
   dependencies:
-    "@tanstack/query-core": "npm:5.71.1"
+    "@tanstack/query-core": "npm:5.71.5"
   peerDependencies:
     react: ^18 || ^19
-  checksum: 10c0/10b852ff99839069282ff2262817672a1243c781469e71643007a5610a579557a0f50cc0cc39bf3bb59d79c09d16e367952bce6b889117b461bbb548dc2f464e
+  checksum: 10c0/7fa32edb167271532e2439e543c442d1fdb199bb1aae4dd9e537dcc9990f3b1fb1f26233611b631c65d6f9387b0365fc3a92ab8040cc0ae49b8b3da763bae535
   languageName: node
   linkType: hard
 
@@ -2332,12 +2332,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.17.29":
-  version: 20.17.29
-  resolution: "@types/node@npm:20.17.29"
+"@types/node@npm:20.17.30":
+  version: 20.17.30
+  resolution: "@types/node@npm:20.17.30"
   dependencies:
     undici-types: "npm:~6.19.2"
-  checksum: 10c0/0e366968c14e6518253159fd1400e557e190dded27f95ee486a0ff419926a309c2bc5ebd2866bff32fc79557964055bc3cc52317ee4672cafb8ff72bc39643b8
+  checksum: 10c0/649782c7822367d751472d70c948bcc50cded1a4744610f706f81cd54e1fc015523567d7e3e17f6b19e3e2797f6f23b653e898bdb4a2f21f8759ceba49976310
   languageName: node
   linkType: hard
 
@@ -2362,12 +2362,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.3.5":
-  version: 18.3.5
-  resolution: "@types/react-dom@npm:18.3.5"
+"@types/react-dom@npm:18.3.6":
+  version: 18.3.6
+  resolution: "@types/react-dom@npm:18.3.6"
   peerDependencies:
     "@types/react": ^18.0.0
-  checksum: 10c0/b163d35a6b32a79f5782574a7aeb12a31a647e248792bf437e6d596e2676961c394c5e3c6e91d1ce44ae90441dbaf93158efb4f051c0d61e2612f1cb04ce4faa
+  checksum: 10c0/e77ac076096bd4b2e0a99130c47959762a927e536b83412e470ac5198d4b8d111cfd787ff2ab7c22bc39c114c0c5fef80046ea0cccb02a655e021a435859314a
   languageName: node
   linkType: hard
 
@@ -2775,23 +2775,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyflow/react@npm:12.5.2":
-  version: 12.5.2
-  resolution: "@xyflow/react@npm:12.5.2"
+"@xyflow/react@npm:12.5.4":
+  version: 12.5.4
+  resolution: "@xyflow/react@npm:12.5.4"
   dependencies:
-    "@xyflow/system": "npm:0.0.53"
+    "@xyflow/system": "npm:0.0.54"
     classcat: "npm:^5.0.3"
     zustand: "npm:^4.4.0"
   peerDependencies:
     react: ">=17"
     react-dom: ">=17"
-  checksum: 10c0/1b0327fdb966d4bb94c70da2db953e166cd1102c57a75240c2c0e6b8ae615294772da1a3e117d055f10a48cb0b7545b161d24ec0c3d24132a74467afb44bd270
+  checksum: 10c0/7861d49c7c6166b32f7cbe2156e86c329ba09487257c0ef62719917bfcc224638a64f884db3760c164941d8bd6bea92dc48a258126aeeace6773de6bbe2ae7a4
   languageName: node
   linkType: hard
 
-"@xyflow/system@npm:0.0.53":
-  version: 0.0.53
-  resolution: "@xyflow/system@npm:0.0.53"
+"@xyflow/system@npm:0.0.54":
+  version: 0.0.54
+  resolution: "@xyflow/system@npm:0.0.54"
   dependencies:
     "@types/d3-drag": "npm:^3.0.7"
     "@types/d3-selection": "npm:^3.0.10"
@@ -2800,7 +2800,7 @@ __metadata:
     d3-drag: "npm:^3.0.0"
     d3-selection: "npm:^3.0.0"
     d3-zoom: "npm:^3.0.0"
-  checksum: 10c0/3491a8731eff4302904074b32b6daf17877aaaa1ade158b69f55a021c937498d8b5f37f67618d118a63d30cd8639d8b06bdc9d2cd2afee9a205a4c538cf82cc4
+  checksum: 10c0/c085204bbebdc97cd00e89415b748997f7033f6086ecc507037d52a4a3ad98834e78f296d7ad5a2febc816ca7813f6264135d8b5c54bb152ae4e28318e6778fc
   languageName: node
   linkType: hard
 
@@ -5228,12 +5228,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:5.2.5":
-  version: 5.2.5
-  resolution: "eslint-plugin-prettier@npm:5.2.5"
+"eslint-plugin-prettier@npm:5.2.6":
+  version: 5.2.6
+  resolution: "eslint-plugin-prettier@npm:5.2.6"
   dependencies:
     prettier-linter-helpers: "npm:^1.0.0"
-    synckit: "npm:^0.10.2"
+    synckit: "npm:^0.11.0"
   peerDependencies:
     "@types/eslint": ">=8.0.0"
     eslint: ">=8.0.0"
@@ -5244,7 +5244,7 @@ __metadata:
       optional: true
     eslint-config-prettier:
       optional: true
-  checksum: 10c0/b88d4ecfccfdea786aa8c2df8c6b52754070fec48ef5df0dcd325daf7cbe01730a96fb6a8c5ae0ddd173472b43704d6452169b058284e842dfee5894172f310b
+  checksum: 10c0/9911740a5edac7933d92671381908671c61ffa32a3cee7aed667ebab89831ee2c0b69eb9530f68dbe172ca9d4b3fa3d47350762dc1eb096a3ce125fa31c0e616
   languageName: node
   linkType: hard
 
@@ -10873,13 +10873,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"synckit@npm:^0.10.2":
-  version: 0.10.3
-  resolution: "synckit@npm:0.10.3"
+"synckit@npm:^0.11.0":
+  version: 0.11.1
+  resolution: "synckit@npm:0.11.1"
   dependencies:
     "@pkgr/core": "npm:^0.2.0"
     tslib: "npm:^2.8.1"
-  checksum: 10c0/9855d10231ae9b69c3aa08d46c96bd4befdcac33da44e29fb80e5c1430e453b5a33b8c073cdd25cfe9578f1d625c7d60c394ece1e202237116c1484def614041
+  checksum: 10c0/284f6137eaf31c999634fcbe82a8fb23e50c507da2abe930714080cdd7af4365c2fa3bbab4694d451d8e0b48395ec01ffca5a83fb571a415ff4a52b2d9d3309d
   languageName: node
   linkType: hard
 
@@ -10889,14 +10889,14 @@ __metadata:
   dependencies:
     "@ant-design/icons": "npm:5.6.1"
     "@svgr/webpack": "npm:8.1.0"
-    "@tanstack/react-query": "npm:5.71.1"
-    "@tanstack/react-query-devtools": "npm:5.71.1"
-    "@types/node": "npm:20.17.29"
+    "@tanstack/react-query": "npm:5.71.5"
+    "@tanstack/react-query-devtools": "npm:5.71.5"
+    "@types/node": "npm:20.17.30"
     "@types/react": "npm:18.3.20"
-    "@types/react-dom": "npm:18.3.5"
+    "@types/react-dom": "npm:18.3.6"
     "@typescript-eslint/eslint-plugin": "npm:7.18.0"
     "@typescript-eslint/parser": "npm:7.18.0"
-    "@xyflow/react": "npm:12.5.2"
+    "@xyflow/react": "npm:12.5.4"
     antd: "npm:4.24.16"
     axios: "npm:1.8.4"
     clsx: "npm:2.1.1"
@@ -10912,7 +10912,7 @@ __metadata:
     eslint-config-prettier: "npm:9.1.0"
     eslint-plugin-import: "npm:2.31.0"
     eslint-plugin-jsx-a11y: "npm:6.10.2"
-    eslint-plugin-prettier: "npm:5.2.5"
+    eslint-plugin-prettier: "npm:5.2.6"
     eslint-plugin-react: "npm:7.37.4"
     eslint-plugin-react-hooks: "npm:4.6.2"
     fork-ts-checker-webpack-plugin: "npm:9.0.3"
