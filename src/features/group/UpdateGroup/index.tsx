@@ -41,7 +41,7 @@ export const UpdateGroup = ({ group }: UpdateGroupProps) => {
           <Input size="large" />
         </Form.Item>
 
-        <Form.Item label={t('description')} name="description" rules={[{ required: true }]}>
+        <Form.Item label={t('description')} name="description" initialValue={""}>
           <Input size="large" />
         </Form.Item>
 

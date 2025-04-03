@@ -42,7 +42,7 @@ export const UpdateConnection = ({ connection, group }: UpdateConnectionProps) =
           <Input size="large" />
         </Form.Item>
 
-        <Form.Item label={t('description')} name="description" rules={[{ required: true }]}>
+        <Form.Item label={t('description')} name="description" initialValue={""}>
           <Input size="large" />
         </Form.Item>
       </Fieldset>
