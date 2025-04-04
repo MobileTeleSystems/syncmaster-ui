@@ -62,7 +62,7 @@
       "targetConnection": "Назначение",
       "selectSourceConnection": "Выберите источник",
       "selectTargetConnection": "Выберите назначение",
-      "connectionsSettings": "Настройки соединений",
+      "transferAdvancedSettings": "Детальная настройка трансфера",
       "accessKey": "Ключ доступа",
       "secretKey": "Секретный ключ",
       "selectProtocol": "Выберите протокол",

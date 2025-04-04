@@ -62,7 +62,7 @@
       "targetConnection": "Target connection",
       "selectSourceConnection": "Select source connection",
       "selectTargetConnection": "Select target connection",
-      "connectionsSettings": "Connections settings",
+      "transferAdvancedSettings": "Transfer advanced settings",
       "accessKey": "Access key",
       "secretKey": "Secret key",
       "selectProtocol": "Select protocol",
