@@ -95,6 +95,7 @@ jobs:
           yarn dlx -q @cyclonedx/yarn-plugin-cyclonedx --prod --output-reproducible --output-file sbom.cyclonedx.json
 
       - name: Create Github release
+        if: github.ref_type == 'tag'
         id: create_release
         uses: softprops/action-gh-release@v2
         with:
