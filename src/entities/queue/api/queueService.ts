@@ -24,7 +24,7 @@ export const queueService = {
   },
 
   updateQueue: ({ id, ...data }: UpdateQueueRequest): Promise<Queue> => {
-    return axiosInstance.patch(`queues/${id}`, data);
+    return axiosInstance.put(`queues/${id}`, data);
   },
 
   deleteQueue: ({ id }: DeleteQueueRequest): Promise<null> => {

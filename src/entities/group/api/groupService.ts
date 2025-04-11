@@ -29,7 +29,7 @@ export const groupService = {
   },
 
   updateGroup: ({ id, ...data }: UpdateGroupRequest): Promise<GroupData> => {
-    return axiosInstance.patch(`groups/${id}`, data);
+    return axiosInstance.put(`groups/${id}`, data);
   },
 
   getGroupUsers: ({ id }: GetGroupUsersRequest): Promise<PaginationResponse<GroupUser>> => {
@@ -41,7 +41,7 @@ export const groupService = {
   },
 
   updateGroupUser: ({ groupId, userId, ...data }: UpdateGroupUserRequest): Promise<null> => {
-    return axiosInstance.patch(`groups/${groupId}/users/${userId}`, data);
+    return axiosInstance.put(`groups/${groupId}/users/${userId}`, data);
   },
 
   deleteGroupUser: ({ groupId, userId }: DeleteGroupUserRequest): Promise<null> => {
