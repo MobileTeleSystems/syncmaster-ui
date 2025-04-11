@@ -1,6 +1,6 @@
 {
   "name": "syncmaster_ui",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
   "description": "Frontend for SyncMaster",
   "license": "Apache-2.0",
