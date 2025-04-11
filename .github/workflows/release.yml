@@ -91,6 +91,7 @@ jobs:
           enable-url-completion: true
 
       - name: Generate SBOM
+        if: github.ref_type == 'tag'
         run: |
           yarn dlx -q @cyclonedx/yarn-plugin-cyclonedx --prod --output-reproducible --output-file sbom.cyclonedx.json
 
