@@ -17,34 +17,34 @@ import {
 
 export const groupService = {
   getGroups: (params: GetGroupsRequest): Promise<PaginationResponse<Group>> => {
-    return axiosInstance.get('groups', { params });
+    return axiosInstance.get('v1/groups', { params });
   },
 
   getGroup: ({ id }: GetGroupRequest): Promise<Group> => {
-    return axiosInstance.get(`groups/${id}`);
+    return axiosInstance.get(`v1/groups/${id}`);
   },
 
   createGroup: (data: CreateGroupRequest): Promise<GroupData> => {
-    return axiosInstance.post(`groups`, data);
+    return axiosInstance.post(`v1/groups`, data);
   },
 
   updateGroup: ({ id, ...data }: UpdateGroupRequest): Promise<GroupData> => {
-    return axiosInstance.put(`groups/${id}`, data);
+    return axiosInstance.put(`v1/groups/${id}`, data);
   },
 
   getGroupUsers: ({ id }: GetGroupUsersRequest): Promise<PaginationResponse<GroupUser>> => {
-    return axiosInstance.get(`groups/${id}/users`);
+    return axiosInstance.get(`v1/groups/${id}/users`);
   },
 
   addGroupUser: ({ groupId, userId, ...data }: AddGroupUserRequest): Promise<null> => {
-    return axiosInstance.post(`groups/${groupId}/users/${userId}`, data);
+    return axiosInstance.post(`v1/groups/${groupId}/users/${userId}`, data);
   },
 
   updateGroupUser: ({ groupId, userId, ...data }: UpdateGroupUserRequest): Promise<null> => {
-    return axiosInstance.put(`groups/${groupId}/users/${userId}`, data);
+    return axiosInstance.put(`v1/groups/${groupId}/users/${userId}`, data);
   },
 
   deleteGroupUser: ({ groupId, userId }: DeleteGroupUserRequest): Promise<null> => {
-    return axiosInstance.delete(`groups/${groupId}/users/${userId}`);
+    return axiosInstance.delete(`v1/groups/${groupId}/users/${userId}`);
   },
 };

@@ -12,22 +12,22 @@ import {
 
 export const transferService = {
   getTransfers: (params: GetTransfersRequest): Promise<PaginationResponse<Transfer>> => {
-    return axiosInstance.get('transfers', { params });
+    return axiosInstance.get('v1/transfers', { params });
   },
 
   getTransfer: ({ id }: GetTransferRequest): Promise<Transfer> => {
-    return axiosInstance.get(`transfers/${id}`);
+    return axiosInstance.get(`v1/transfers/${id}`);
   },
 
   createTransfer: (data: CreateTransferRequest): Promise<Transfer> => {
-    return axiosInstance.post(`transfers`, data);
+    return axiosInstance.post(`v1/transfers`, data);
   },
 
   updateTransfer: ({ id, ...data }: UpdateTransferRequest): Promise<Transfer> => {
-    return axiosInstance.put(`transfers/${id}`, data);
+    return axiosInstance.put(`v1/transfers/${id}`, data);
   },
 
   deleteTransfer: ({ id }: DeleteTransferRequest): Promise<null> => {
-    return axiosInstance.delete(`transfers/${id}`);
+    return axiosInstance.delete(`v1/transfers/${id}`);
   },
 };

@@ -23,7 +23,7 @@ COPY --from=build /app/dist /usr/share/nginx/html
 COPY ./docker/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-ARG API_URL=http://localhost:8000
+ARG API_URL=http://localhost:8000/v1
 ENV SYNCMASTER__UI__API_BROWSER_URL=${API_URL}
 
 ENTRYPOINT ["/entrypoint.sh"]

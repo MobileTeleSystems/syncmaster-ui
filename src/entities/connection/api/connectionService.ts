@@ -12,22 +12,22 @@ import {
 
 export const connectionService = {
   getConnections: (params: GetConnectionsRequest): Promise<PaginationResponse<Connection>> => {
-    return axiosInstance.get('connections', { params });
+    return axiosInstance.get('v1/connections', { params });
   },
 
   getConnection: ({ id }: GetConnectionRequest): Promise<Connection> => {
-    return axiosInstance.get(`connections/${id}`);
+    return axiosInstance.get(`v1/connections/${id}`);
   },
 
   createConnection: (data: CreateConnectionRequest): Promise<Connection> => {
-    return axiosInstance.post(`connections`, data);
+    return axiosInstance.post(`v1/connections`, data);
   },
 
   updateConnection: ({ id, ...data }: UpdateConnectionRequest): Promise<Connection> => {
-    return axiosInstance.put(`connections/${id}`, data);
+    return axiosInstance.put(`v1/connections/${id}`, data);
   },
 
   deleteConnection: ({ id }: DeleteConnectionRequest): Promise<null> => {
-    return axiosInstance.delete(`connections/${id}`);
+    return axiosInstance.delete(`v1/connections/${id}`);
   },
 };

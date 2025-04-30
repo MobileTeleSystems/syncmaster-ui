@@ -4,9 +4,9 @@ import { AuthUser, LoginRequest, LoginResponse } from './types';
 
 export const authService = {
   login: (data: LoginRequest): Promise<LoginResponse> => {
-    return axiosInstance.postForm('auth/token', data);
+    return axiosInstance.postForm('v1/auth/token', data);
   },
   getCurrentUserInfo: (): Promise<AuthUser> => {
-    return axiosInstance.get('users/me');
+    return axiosInstance.get('v1/users/me');
   },
 };

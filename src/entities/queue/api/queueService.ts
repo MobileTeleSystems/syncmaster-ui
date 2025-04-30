@@ -12,22 +12,22 @@ import {
 
 export const queueService = {
   getQueues: (params: GetQueuesRequest): Promise<PaginationResponse<Queue>> => {
-    return axiosInstance.get('queues', { params });
+    return axiosInstance.get('v1/queues', { params });
   },
 
   getQueue: ({ id, ...params }: GetQueueRequest): Promise<Queue> => {
-    return axiosInstance.get(`queues/${id}`, { params });
+    return axiosInstance.get(`v1/queues/${id}`, { params });
   },
 
   createQueue: (data: CreateQueueRequest): Promise<Queue> => {
-    return axiosInstance.post(`queues`, data);
+    return axiosInstance.post(`v1/queues`, data);
   },
 
   updateQueue: ({ id, ...data }: UpdateQueueRequest): Promise<Queue> => {
-    return axiosInstance.put(`queues/${id}`, data);
+    return axiosInstance.put(`v1/queues/${id}`, data);
   },
 
   deleteQueue: ({ id }: DeleteQueueRequest): Promise<null> => {
-    return axiosInstance.delete(`queues/${id}`);
+    return axiosInstance.delete(`v1/queues/${id}`);
   },
 };

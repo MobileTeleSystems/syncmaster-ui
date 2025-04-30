@@ -5,14 +5,14 @@ import { GetRunRequest, Run, GetRunsRequest, CreateRunRequest } from './types';
 
 export const runService = {
   getRuns: (params: GetRunsRequest): Promise<PaginationResponse<Run>> => {
-    return axiosInstance.get('runs', { params });
+    return axiosInstance.get('v1/runs', { params });
   },
 
   getRun: ({ id }: GetRunRequest): Promise<Run> => {
-    return axiosInstance.get(`runs/${id}`);
+    return axiosInstance.get(`v1/runs/${id}`);
   },
 
   createRun: (data: CreateRunRequest): Promise<Run> => {
-    return axiosInstance.post('runs', data);
+    return axiosInstance.post('v1/runs', data);
   },
 };

@@ -5,10 +5,10 @@ import { GetUserRequest, User, GetUsersRequest } from './types';
 
 export const userService = {
   getUsers: (params: GetUsersRequest): Promise<PaginationResponse<User>> => {
-    return axiosInstance.get('users', { params });
+    return axiosInstance.get('v1/users', { params });
   },
 
   getUser: ({ id }: GetUserRequest): Promise<User> => {
-    return axiosInstance.get(`users/${id}`);
+    return axiosInstance.get(`v1/users/${id}`);
   },
 };
