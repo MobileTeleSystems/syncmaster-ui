@@ -2042,10 +2042,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.74.7":
-  version: 5.74.7
-  resolution: "@tanstack/query-core@npm:5.74.7"
-  checksum: 10c0/192ac5238b74d17d62c55e072bdf534b7e309b432b9bc9a41eeb2eb84adfe29adf7b5edb8bf1371d995225db69c6a4092673b03bb206b4212ce55847170d6e74
+"@tanstack/query-core@npm:5.75.0":
+  version: 5.75.0
+  resolution: "@tanstack/query-core@npm:5.75.0"
+  checksum: 10c0/1c90d5f463fe5b4dac4525279300cd950acaef670b8589ba406df833bee3bdb4dcb58fba78c9a5424e7d19a317590eecad838fb389f37a91edb781f9c90af358
   languageName: node
   linkType: hard
 
@@ -2056,26 +2056,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-query-devtools@npm:5.74.7":
-  version: 5.74.7
-  resolution: "@tanstack/react-query-devtools@npm:5.74.7"
+"@tanstack/react-query-devtools@npm:5.75.2":
+  version: 5.75.2
+  resolution: "@tanstack/react-query-devtools@npm:5.75.2"
   dependencies:
     "@tanstack/query-devtools": "npm:5.74.7"
   peerDependencies:
-    "@tanstack/react-query": ^5.74.7
+    "@tanstack/react-query": ^5.75.2
     react: ^18 || ^19
-  checksum: 10c0/2f9675e5a1a6f7b2df79cb7ab18bc40363744e391768896e8310bb6c927bf824f812c089c471dc74a4a8f2b7eb7662f6e9860f3f3e001f2d07f84b70b034369d
+  checksum: 10c0/f29995e63b68ea9212d8c7f2ae4b5f65106737d29974baf21c4c1a1e54420888eb8f9504ebbefd126008dd68cd119a03d8eb2cb0dc3fe29d64fb5b32a1628d0d
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:5.74.7":
-  version: 5.74.7
-  resolution: "@tanstack/react-query@npm:5.74.7"
+"@tanstack/react-query@npm:5.75.2":
+  version: 5.75.2
+  resolution: "@tanstack/react-query@npm:5.75.2"
   dependencies:
-    "@tanstack/query-core": "npm:5.74.7"
+    "@tanstack/query-core": "npm:5.75.0"
   peerDependencies:
     react: ^18 || ^19
-  checksum: 10c0/83455915126fcb8ab467d0071f1802c9b6f5d73c7a257be2f80cb76d3c616f3e38d4a61e22dc4c3bc81060c153988200244a5d4b68e365aacd205645ad4a3a09
+  checksum: 10c0/b265a89f9166747589ce80019505be24a43a6cffc7af09700fadb35a91d28a0da380f7e18bcf2ffb7396cd0f2ca45d3322f5f3758d3265b68533a59dad6dd487
   languageName: node
   linkType: hard
 
@@ -5237,9 +5237,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:5.2.6":
-  version: 5.2.6
-  resolution: "eslint-plugin-prettier@npm:5.2.6"
+"eslint-plugin-prettier@npm:5.3.1":
+  version: 5.3.1
+  resolution: "eslint-plugin-prettier@npm:5.3.1"
   dependencies:
     prettier-linter-helpers: "npm:^1.0.0"
     synckit: "npm:^0.11.0"
@@ -5253,7 +5253,7 @@ __metadata:
       optional: true
     eslint-config-prettier:
       optional: true
-  checksum: 10c0/9911740a5edac7933d92671381908671c61ffa32a3cee7aed667ebab89831ee2c0b69eb9530f68dbe172ca9d4b3fa3d47350762dc1eb096a3ce125fa31c0e616
+  checksum: 10c0/ff1fdca046a9cf34d306fa68e09b63c9cdd8be921fdc3c33522323b59dfea7c7a64c81f0f858434b7f1b06b0cac176faaa0be84b755dd41c2f286d6bf757e39b
   languageName: node
   linkType: hard
 
@@ -7266,9 +7266,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"less-loader@npm:12.2.0":
-  version: 12.2.0
-  resolution: "less-loader@npm:12.2.0"
+"less-loader@npm:12.3.0":
+  version: 12.3.0
+  resolution: "less-loader@npm:12.3.0"
   peerDependencies:
     "@rspack/core": 0.x || 1.x
     less: ^3.5.0 || ^4.0.0
@@ -7278,7 +7278,7 @@ __metadata:
       optional: true
     webpack:
       optional: true
-  checksum: 10c0/54eea545727930801d2ccc0b586332cd07d0f922b14ab7c8b3f03199944d770ac363081081ed2fda5f23da904336367cb2bb40007c033970dce25f7f9c906ba2
+  checksum: 10c0/11814ce601fe9a9a148f28643ffcb6041939b1142b21538c2c0a7a220f79e35f7eeffd4ac5f4d9495e41f1f25aabb98652fa18792d22eebb1d151716d8297332
   languageName: node
   linkType: hard
 
@@ -10920,8 +10920,8 @@ __metadata:
   dependencies:
     "@ant-design/icons": "npm:5.6.1"
     "@svgr/webpack": "npm:8.1.0"
-    "@tanstack/react-query": "npm:5.74.7"
-    "@tanstack/react-query-devtools": "npm:5.74.7"
+    "@tanstack/react-query": "npm:5.75.2"
+    "@tanstack/react-query-devtools": "npm:5.75.2"
     "@types/node": "npm:20.17.32"
     "@types/react": "npm:18.3.20"
     "@types/react-dom": "npm:18.3.6"
@@ -10943,7 +10943,7 @@ __metadata:
     eslint-config-prettier: "npm:9.1.0"
     eslint-plugin-import: "npm:2.31.0"
     eslint-plugin-jsx-a11y: "npm:6.10.2"
-    eslint-plugin-prettier: "npm:5.2.6"
+    eslint-plugin-prettier: "npm:5.3.1"
     eslint-plugin-react: "npm:7.37.5"
     eslint-plugin-react-hooks: "npm:4.6.2"
     fork-ts-checker-webpack-plugin: "npm:9.1.0"
@@ -10951,7 +10951,7 @@ __metadata:
     husky: "npm:9.1.7"
     i18next: "npm:24.2.3"
     less: "npm:4.3.0"
-    less-loader: "npm:12.2.0"
+    less-loader: "npm:12.3.0"
     lint-staged: "npm:15.5.1"
     mini-css-extract-plugin: "npm:2.9.2"
     prettier: "npm:3.5.3"
