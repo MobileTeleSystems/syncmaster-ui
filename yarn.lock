@@ -1820,10 +1820,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pkgr/core@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "@pkgr/core@npm:0.2.0"
-  checksum: 10c0/29cb9c15f4788096b8b8b786b19c75b6398b6afe814a97189922c3046d8acb5d24f1217fd2537c3f8e42c04e48d572295e7ee56d77964ddc932c44eb5a615931
+"@pkgr/core@npm:^0.2.4":
+  version: 0.2.7
+  resolution: "@pkgr/core@npm:0.2.7"
+  checksum: 10c0/951f5ebf2feb6e9dbc202d937f1a364d60f2bf0e3e53594251bcc1d9d2ed0df0a919c49ba162a9499fce73cf46ebe4d7959a8dfbac03511dbe79b69f5fedb804
   languageName: node
   linkType: hard
 
@@ -2042,10 +2042,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.77.1":
-  version: 5.77.1
-  resolution: "@tanstack/query-core@npm:5.77.1"
-  checksum: 10c0/74b06cd717555386c1758500284f26db86ccdfb87aa17c13d8c11445f23a6df2ade181c7d22372744d89a64073222f94eaf38f93339e672b39f534390dbc4b6b
+"@tanstack/query-core@npm:5.79.0":
+  version: 5.79.0
+  resolution: "@tanstack/query-core@npm:5.79.0"
+  checksum: 10c0/614c9f4dc7cb4df9c6804f67a76e2d580af5fa7b25505c2e3c5137bfa40d2005a1a96606c9f8e533754c78722e23708948760104a460fd8bc06df990fea42afb
   languageName: node
   linkType: hard
 
@@ -2056,26 +2056,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-query-devtools@npm:5.77.1":
-  version: 5.77.1
-  resolution: "@tanstack/react-query-devtools@npm:5.77.1"
+"@tanstack/react-query-devtools@npm:5.79.0":
+  version: 5.79.0
+  resolution: "@tanstack/react-query-devtools@npm:5.79.0"
   dependencies:
     "@tanstack/query-devtools": "npm:5.76.0"
   peerDependencies:
-    "@tanstack/react-query": ^5.77.1
+    "@tanstack/react-query": ^5.79.0
     react: ^18 || ^19
-  checksum: 10c0/e6859410dbd609802e50a26934fb10b9bb364adcb49e441e9e2c5aa715dbf4c071fe41bd01757aacaae37cdef65c4797ca65a7e5aa9ed90892417aa837c3af87
+  checksum: 10c0/40fb160fa65edbe9caa710215139ae036572a9185858af2edbaeace185c8b7e122bda901ce14ac74b1a2e91957a363edf3f4cd28b56a0e188882ae9155cca49f
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:5.77.1":
-  version: 5.77.1
-  resolution: "@tanstack/react-query@npm:5.77.1"
+"@tanstack/react-query@npm:5.79.0":
+  version: 5.79.0
+  resolution: "@tanstack/react-query@npm:5.79.0"
   dependencies:
-    "@tanstack/query-core": "npm:5.77.1"
+    "@tanstack/query-core": "npm:5.79.0"
   peerDependencies:
     react: ^18 || ^19
-  checksum: 10c0/da3e03222dfb8120093f384e4fdad343c2900e690f2a64d914f9e8dba4cfe6545ff16c339a373cda129fab23246bb5de13ce052c6e752ace433c5497bda82556
+  checksum: 10c0/f1d440075b7f8e7738cd4f26a87a089c0efaf282e633cfb9db249ef20068d5f4f14c9d990a304b96df183bffc8839ee579853fef212c213510c425b8092630be
   languageName: node
   linkType: hard
 
@@ -2332,12 +2332,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.17.50":
-  version: 20.17.50
-  resolution: "@types/node@npm:20.17.50"
+"@types/node@npm:20.17.57":
+  version: 20.17.57
+  resolution: "@types/node@npm:20.17.57"
   dependencies:
     undici-types: "npm:~6.19.2"
-  checksum: 10c0/98a4f394c22b93e1bb37b3cfdfa5df7b79fcab19dafe80fe19e94126f897a8d2b3d58a4b680dc15591c5660bdd2f1ae49d6c59e7cbe7fc0c7cf433b0b984b389
+  checksum: 10c0/c04f3b6c4f335ad50bd3af62cd9e64a86c355cb6b363cb0e618511db4c6801c8539781c3786076eca6f56e999d6c7fc4748e43393a107aad57e65e3ffd1f73bf
   languageName: node
   linkType: hard
 
@@ -5237,12 +5237,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:5.4.0":
-  version: 5.4.0
-  resolution: "eslint-plugin-prettier@npm:5.4.0"
+"eslint-plugin-prettier@npm:5.4.1":
+  version: 5.4.1
+  resolution: "eslint-plugin-prettier@npm:5.4.1"
   dependencies:
     prettier-linter-helpers: "npm:^1.0.0"
-    synckit: "npm:^0.11.0"
+    synckit: "npm:^0.11.7"
   peerDependencies:
     "@types/eslint": ">=8.0.0"
     eslint: ">=8.0.0"
@@ -5253,7 +5253,7 @@ __metadata:
       optional: true
     eslint-config-prettier:
       optional: true
-  checksum: 10c0/50718d16266dfbe6909697f9d7c9188d2664f5be50fa1de4decc0c8236565570823fdf5973f89cd51254af5551b6160650e092716002a62aaa0f0b2c18e8fc3e
+  checksum: 10c0/bdd9e9473bf3f995521558eb5e2ee70dd4f06cb8b9a6192523cfed76511924fad31ec9af9807cd99f693dc59085e0a1db8a1d3ccc283e98ab30eb32cc7469649
   languageName: node
   linkType: hard
 
@@ -10904,13 +10904,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"synckit@npm:^0.11.0":
-  version: 0.11.1
-  resolution: "synckit@npm:0.11.1"
+"synckit@npm:^0.11.7":
+  version: 0.11.8
+  resolution: "synckit@npm:0.11.8"
   dependencies:
-    "@pkgr/core": "npm:^0.2.0"
-    tslib: "npm:^2.8.1"
-  checksum: 10c0/284f6137eaf31c999634fcbe82a8fb23e50c507da2abe930714080cdd7af4365c2fa3bbab4694d451d8e0b48395ec01ffca5a83fb571a415ff4a52b2d9d3309d
+    "@pkgr/core": "npm:^0.2.4"
+  checksum: 10c0/a1de5131ee527512afcaafceb2399b2f3e63678e56b831e1cb2dc7019c972a8b654703a3b94ef4166868f87eb984ea252b467c9d9e486b018ec2e6a55c24dfd8
   languageName: node
   linkType: hard
 
@@ -10920,9 +10919,9 @@ __metadata:
   dependencies:
     "@ant-design/icons": "npm:5.6.1"
     "@svgr/webpack": "npm:8.1.0"
-    "@tanstack/react-query": "npm:5.77.1"
-    "@tanstack/react-query-devtools": "npm:5.77.1"
-    "@types/node": "npm:20.17.50"
+    "@tanstack/react-query": "npm:5.79.0"
+    "@tanstack/react-query-devtools": "npm:5.79.0"
+    "@types/node": "npm:20.17.57"
     "@types/react": "npm:18.3.21"
     "@types/react-dom": "npm:18.3.7"
     "@typescript-eslint/eslint-plugin": "npm:7.18.0"
@@ -10943,7 +10942,7 @@ __metadata:
     eslint-config-prettier: "npm:9.1.0"
     eslint-plugin-import: "npm:2.31.0"
     eslint-plugin-jsx-a11y: "npm:6.10.2"
-    eslint-plugin-prettier: "npm:5.4.0"
+    eslint-plugin-prettier: "npm:5.4.1"
     eslint-plugin-react: "npm:7.37.5"
     eslint-plugin-react-hooks: "npm:4.6.2"
     fork-ts-checker-webpack-plugin: "npm:9.1.0"
@@ -11162,13 +11161,6 @@ __metadata:
   version: 2.7.0
   resolution: "tslib@npm:2.7.0"
   checksum: 10c0/469e1d5bf1af585742128827000711efa61010b699cb040ab1800bcd3ccdd37f63ec30642c9e07c4439c1db6e46345582614275daca3e0f4abae29b0083f04a6
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2.8.1":
-  version: 2.8.1
-  resolution: "tslib@npm:2.8.1"
-  checksum: 10c0/9c4759110a19c53f992d9aae23aac5ced636e99887b51b9e61def52611732872ff7668757d4e4c61f19691e36f4da981cd9485e869b4a7408d689f6bf1f14e62
   languageName: node
   linkType: hard
 
