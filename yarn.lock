@@ -2042,40 +2042,40 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.79.0":
-  version: 5.79.0
-  resolution: "@tanstack/query-core@npm:5.79.0"
-  checksum: 10c0/614c9f4dc7cb4df9c6804f67a76e2d580af5fa7b25505c2e3c5137bfa40d2005a1a96606c9f8e533754c78722e23708948760104a460fd8bc06df990fea42afb
+"@tanstack/query-core@npm:5.80.6":
+  version: 5.80.6
+  resolution: "@tanstack/query-core@npm:5.80.6"
+  checksum: 10c0/ce52d962036bf84845c9dafb654075bbc8eafd9236069b7c234b7f72a30e4e61daf222940d9f28b4359858277cc1e1d08dd1f8e6cc0adac72acc083fc5c0195c
   languageName: node
   linkType: hard
 
-"@tanstack/query-devtools@npm:5.76.0":
-  version: 5.76.0
-  resolution: "@tanstack/query-devtools@npm:5.76.0"
-  checksum: 10c0/2bee4a39c083a0260bd15e98f02d39f078d363430b74da313260ff37deb4b416d874e3a58f4691698f848076532eaf104ff2843a016aec6186dd1c39c5dd3d6f
+"@tanstack/query-devtools@npm:5.80.0":
+  version: 5.80.0
+  resolution: "@tanstack/query-devtools@npm:5.80.0"
+  checksum: 10c0/2210bd390a769f1cfaf0343e66c7ec9c0a8fca982fa7853428c3c7f7da438c3380b841e8e065603f4e8449d52237a80d4877fc5299995e76e18bd44d5143acfc
   languageName: node
   linkType: hard
 
-"@tanstack/react-query-devtools@npm:5.79.0":
-  version: 5.79.0
-  resolution: "@tanstack/react-query-devtools@npm:5.79.0"
+"@tanstack/react-query-devtools@npm:5.80.6":
+  version: 5.80.6
+  resolution: "@tanstack/react-query-devtools@npm:5.80.6"
   dependencies:
-    "@tanstack/query-devtools": "npm:5.76.0"
+    "@tanstack/query-devtools": "npm:5.80.0"
   peerDependencies:
-    "@tanstack/react-query": ^5.79.0
+    "@tanstack/react-query": ^5.80.6
     react: ^18 || ^19
-  checksum: 10c0/40fb160fa65edbe9caa710215139ae036572a9185858af2edbaeace185c8b7e122bda901ce14ac74b1a2e91957a363edf3f4cd28b56a0e188882ae9155cca49f
+  checksum: 10c0/7f504f7f251b159dc4c8ba1d03c8ba16c6794467372c44100a0d3d40e67b65e31917163b139b09a948a177fa75b03e6d04b2acc2d99958a61feba7ce2f3a0d97
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:5.79.0":
-  version: 5.79.0
-  resolution: "@tanstack/react-query@npm:5.79.0"
+"@tanstack/react-query@npm:5.80.6":
+  version: 5.80.6
+  resolution: "@tanstack/react-query@npm:5.80.6"
   dependencies:
-    "@tanstack/query-core": "npm:5.79.0"
+    "@tanstack/query-core": "npm:5.80.6"
   peerDependencies:
     react: ^18 || ^19
-  checksum: 10c0/f1d440075b7f8e7738cd4f26a87a089c0efaf282e633cfb9db249ef20068d5f4f14c9d990a304b96df183bffc8839ee579853fef212c213510c425b8092630be
+  checksum: 10c0/ec2dc548ff28d92778e851d64b0c24e3289218b496694c0b7bed1e92b5b96b03f8b047d4a8a04c6924937c56e257d53fbe42e046745da10d9dababe48505f843
   languageName: node
   linkType: hard
 
@@ -2332,12 +2332,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.17.57":
-  version: 20.17.57
-  resolution: "@types/node@npm:20.17.57"
+"@types/node@npm:20.19.0":
+  version: 20.19.0
+  resolution: "@types/node@npm:20.19.0"
   dependencies:
-    undici-types: "npm:~6.19.2"
-  checksum: 10c0/c04f3b6c4f335ad50bd3af62cd9e64a86c355cb6b363cb0e618511db4c6801c8539781c3786076eca6f56e999d6c7fc4748e43393a107aad57e65e3ffd1f73bf
+    undici-types: "npm:~6.21.0"
+  checksum: 10c0/11979f5c4c626555351352fe1b30846700ca018747272a7ff425f883f102805b7f07737d5b7fa3c6deb0ddaeb94e367bb9a633a3d1e1d5c517de9a6283c6f21c
   languageName: node
   linkType: hard
 
@@ -6297,9 +6297,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"http-proxy-middleware@npm:^2.0.7":
-  version: 2.0.7
-  resolution: "http-proxy-middleware@npm:2.0.7"
+"http-proxy-middleware@npm:^2.0.9":
+  version: 2.0.9
+  resolution: "http-proxy-middleware@npm:2.0.9"
   dependencies:
     "@types/http-proxy": "npm:^1.17.8"
     http-proxy: "npm:^1.18.1"
@@ -6311,7 +6311,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/express":
       optional: true
-  checksum: 10c0/8d00a61eb215b83826460b07489d8bb095368ec16e02a9d63e228dcf7524e7c20d61561e5476de1391aecd4ec32ea093279cdc972115b311f8e0a95a24c9e47e
+  checksum: 10c0/8e9032af625f7c9f2f0d318f6cdb14eb725cc16ffe7b4ccccea25cf591fa819bb7c3bb579e0b543e0ae9c73059b505a6d728290c757bff27bae526a6ed11c05e
   languageName: node
   linkType: hard
 
@@ -10919,9 +10919,9 @@ __metadata:
   dependencies:
     "@ant-design/icons": "npm:5.6.1"
     "@svgr/webpack": "npm:8.1.0"
-    "@tanstack/react-query": "npm:5.79.0"
-    "@tanstack/react-query-devtools": "npm:5.79.0"
-    "@types/node": "npm:20.17.57"
+    "@tanstack/react-query": "npm:5.80.6"
+    "@tanstack/react-query-devtools": "npm:5.80.6"
+    "@types/node": "npm:20.19.0"
     "@types/react": "npm:18.3.21"
     "@types/react-dom": "npm:18.3.7"
     "@typescript-eslint/eslint-plugin": "npm:7.18.0"
@@ -10968,7 +10968,7 @@ __metadata:
     webpack: "npm:5.99.9"
     webpack-bundle-analyzer: "npm:4.10.2"
     webpack-cli: "npm:5.1.4"
-    webpack-dev-server: "npm:5.2.1"
+    webpack-dev-server: "npm:5.2.2"
     webpack-merge: "npm:5.10.0"
   languageName: unknown
   linkType: soft
@@ -11346,6 +11346,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"undici-types@npm:~6.21.0":
+  version: 6.21.0
+  resolution: "undici-types@npm:6.21.0"
+  checksum: 10c0/c01ed51829b10aa72fc3ce64b747f8e74ae9b60eafa19a7b46ef624403508a54c526ffab06a14a26b3120d055e1104d7abe7c9017e83ced038ea5cf52f8d5e04
+  languageName: node
+  linkType: hard
+
 "unicode-canonical-property-names-ecmascript@npm:^2.0.0":
   version: 2.0.1
   resolution: "unicode-canonical-property-names-ecmascript@npm:2.0.1"
@@ -11591,9 +11598,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-dev-server@npm:5.2.1":
-  version: 5.2.1
-  resolution: "webpack-dev-server@npm:5.2.1"
+"webpack-dev-server@npm:5.2.2":
+  version: 5.2.2
+  resolution: "webpack-dev-server@npm:5.2.2"
   dependencies:
     "@types/bonjour": "npm:^3.5.13"
     "@types/connect-history-api-fallback": "npm:^1.5.4"
@@ -11611,7 +11618,7 @@ __metadata:
     connect-history-api-fallback: "npm:^2.0.0"
     express: "npm:^4.21.2"
     graceful-fs: "npm:^4.2.6"
-    http-proxy-middleware: "npm:^2.0.7"
+    http-proxy-middleware: "npm:^2.0.9"
     ipaddr.js: "npm:^2.1.0"
     launch-editor: "npm:^2.6.1"
     open: "npm:^10.0.3"
@@ -11632,7 +11639,7 @@ __metadata:
       optional: true
   bin:
     webpack-dev-server: bin/webpack-dev-server.js
-  checksum: 10c0/22bcf2bcc7c72cd2065883ed4368fbcdf20078bc746b07689d10a0546ee99ea00bc50f0474112278ffd8598a5bc237df2bf7bb7f6dcda940a16b1eb91137efea
+  checksum: 10c0/58d7ddb054cdbba22ddfa3d6644194abf6197c14530e1e64ccd7f0b670787245eea966ee72e95abd551c54313627bde0d227a0d2a1e2557102b1a3504ac0b7f1
   languageName: node
   linkType: hard
 
