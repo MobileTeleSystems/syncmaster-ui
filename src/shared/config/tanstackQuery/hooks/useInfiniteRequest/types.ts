@@ -31,7 +31,7 @@ export type UseInfiniteRequestType = <
   TQueryKey extends QueryKey = QueryKey,
 >(
   options: Omit<
-    UseInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey, PageParams>,
+    UseInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey, PageParams>,
     'getNextPageParam'
   >,
 ) => InfiniteRequestReturn<T, TData>;
