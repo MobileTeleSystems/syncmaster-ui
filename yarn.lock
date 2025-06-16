@@ -1493,21 +1493,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.25.0":
-  version: 7.26.9
-  resolution: "@babel/runtime@npm:7.26.9"
-  dependencies:
-    regenerator-runtime: "npm:^0.14.0"
-  checksum: 10c0/e8517131110a6ec3a7360881438b85060e49824e007f4a64b5dfa9192cf2bb5c01e84bfc109f02d822c7edb0db926928dd6b991e3ee460b483fb0fac43152d9b
-  languageName: node
-  linkType: hard
-
 "@babel/runtime@npm:^7.26.10":
   version: 7.27.0
   resolution: "@babel/runtime@npm:7.27.0"
   dependencies:
     regenerator-runtime: "npm:^0.14.0"
   checksum: 10c0/35091ea9de48bd7fd26fb177693d64f4d195eb58ab2b142b893b7f3fa0f1d7c677604d36499ae0621a3703f35ba0c6a8f6c572cc8f7dc0317213841e493cf663
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.27.6":
+  version: 7.27.6
+  resolution: "@babel/runtime@npm:7.27.6"
+  checksum: 10c0/89726be83f356f511dcdb74d3ea4d873a5f0cf0017d4530cb53aa27380c01ca102d573eff8b8b77815e624b1f8c24e7f0311834ad4fb632c90a770fda00bd4c8
   languageName: node
   linkType: hard
 
@@ -2140,7 +2138,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/d3-interpolate@npm:*":
+"@types/d3-interpolate@npm:*, @types/d3-interpolate@npm:^3.0.4":
   version: 3.0.4
   resolution: "@types/d3-interpolate@npm:3.0.4"
   dependencies:
@@ -2332,12 +2330,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.17.57":
-  version: 20.17.57
-  resolution: "@types/node@npm:20.17.57"
+"@types/node@npm:20.19.0":
+  version: 20.19.0
+  resolution: "@types/node@npm:20.19.0"
   dependencies:
-    undici-types: "npm:~6.19.2"
-  checksum: 10c0/c04f3b6c4f335ad50bd3af62cd9e64a86c355cb6b363cb0e618511db4c6801c8539781c3786076eca6f56e999d6c7fc4748e43393a107aad57e65e3ffd1f73bf
+    undici-types: "npm:~6.21.0"
+  checksum: 10c0/11979f5c4c626555351352fe1b30846700ca018747272a7ff425f883f102805b7f07737d5b7fa3c6deb0ddaeb94e367bb9a633a3d1e1d5c517de9a6283c6f21c
   languageName: node
   linkType: hard
 
@@ -2371,13 +2369,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.3.21":
-  version: 18.3.21
-  resolution: "@types/react@npm:18.3.21"
+"@types/react@npm:18.3.23":
+  version: 18.3.23
+  resolution: "@types/react@npm:18.3.23"
   dependencies:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10c0/b33424c62f01ab2404c60abef995e05aa1a696a636bdd77a34ef6c942d171c673b1e451d9dba7f9a169a83c9eef0ddfaf1ba08f6cef542df9404290199a73967
+  checksum: 10c0/49331800b76572eb2992a5c44801dbf8c612a5f99c8f4e4200f06c7de6f3a6e9455c661784a6c5469df96fa45622cb4a9d0982c44e6a0d5719be5f2ef1f545ed
   languageName: node
   linkType: hard
 
@@ -2775,32 +2773,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyflow/react@npm:12.6.4":
-  version: 12.6.4
-  resolution: "@xyflow/react@npm:12.6.4"
+"@xyflow/react@npm:12.7.0":
+  version: 12.7.0
+  resolution: "@xyflow/react@npm:12.7.0"
   dependencies:
-    "@xyflow/system": "npm:0.0.61"
+    "@xyflow/system": "npm:0.0.62"
     classcat: "npm:^5.0.3"
     zustand: "npm:^4.4.0"
   peerDependencies:
     react: ">=17"
     react-dom: ">=17"
-  checksum: 10c0/2783a6f8a079cc0e068580ad1b69a6c914f47377f1c5a908af28d98c24a6fec1ff088f8ec42b5f343338167aeff4feecc692cce20bf251fe54f22a20c0d544f4
+  checksum: 10c0/b302530a53caf0d060f6826110df55c624e71546c24e6189ab4b7c8e8e9613cf41c03d10ed1dc91d77906dd17cc7e94932c1532b8bc240113ac27d7ac270beba
   languageName: node
   linkType: hard
 
-"@xyflow/system@npm:0.0.61":
-  version: 0.0.61
-  resolution: "@xyflow/system@npm:0.0.61"
+"@xyflow/system@npm:0.0.62":
+  version: 0.0.62
+  resolution: "@xyflow/system@npm:0.0.62"
   dependencies:
     "@types/d3-drag": "npm:^3.0.7"
+    "@types/d3-interpolate": "npm:^3.0.4"
     "@types/d3-selection": "npm:^3.0.10"
     "@types/d3-transition": "npm:^3.0.8"
     "@types/d3-zoom": "npm:^3.0.8"
     d3-drag: "npm:^3.0.0"
+    d3-interpolate: "npm:^3.0.1"
     d3-selection: "npm:^3.0.0"
     d3-zoom: "npm:^3.0.0"
-  checksum: 10c0/63c04973462aa98cb7d53118cf3b458b6dc79c2dbc468dbd553b1df4ec11afab91dfef490ac18f804815ab40fa6709d70fc0d0a446d12e420918a7590bbdc88d
+  checksum: 10c0/5192f96787c3c8c1071d49458206815610a872fddfa8e6fb9bdd8eb6579c57ff2b9a715704cbbe0748ac32aba8cb4103cf9c453c20c3ace0b0c77a37f54f2eea
   languageName: node
   linkType: hard
 
@@ -3270,14 +3270,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:1.9.0":
-  version: 1.9.0
-  resolution: "axios@npm:1.9.0"
+"axios@npm:1.10.0":
+  version: 1.10.0
+  resolution: "axios@npm:1.10.0"
   dependencies:
     follow-redirects: "npm:^1.15.6"
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
-  checksum: 10c0/9371a56886c2e43e4ff5647b5c2c3c046ed0a3d13482ef1d0135b994a628c41fbad459796f101c655e62f0c161d03883454474d2e435b2e021b1924d9f24994c
+  checksum: 10c0/2239cb269cc789eac22f5d1aabd58e1a83f8f364c92c2caa97b6f5cbb4ab2903d2e557d9dc670b5813e9bcdebfb149e783fb8ab3e45098635cd2f559b06bd5d8
   languageName: node
   linkType: hard
 
@@ -4212,7 +4212,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"d3-interpolate@npm:1 - 3":
+"d3-interpolate@npm:1 - 3, d3-interpolate@npm:^3.0.1":
   version: 3.0.1
   resolution: "d3-interpolate@npm:3.0.1"
   dependencies:
@@ -6297,9 +6297,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"http-proxy-middleware@npm:^2.0.7":
-  version: 2.0.7
-  resolution: "http-proxy-middleware@npm:2.0.7"
+"http-proxy-middleware@npm:^2.0.9":
+  version: 2.0.9
+  resolution: "http-proxy-middleware@npm:2.0.9"
   dependencies:
     "@types/http-proxy": "npm:^1.17.8"
     http-proxy: "npm:^1.18.1"
@@ -6311,7 +6311,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/express":
       optional: true
-  checksum: 10c0/8d00a61eb215b83826460b07489d8bb095368ec16e02a9d63e228dcf7524e7c20d61561e5476de1391aecd4ec32ea093279cdc972115b311f8e0a95a24c9e47e
+  checksum: 10c0/8e9032af625f7c9f2f0d318f6cdb14eb725cc16ffe7b4ccccea25cf591fa819bb7c3bb579e0b543e0ae9c73059b505a6d728290c757bff27bae526a6ed11c05e
   languageName: node
   linkType: hard
 
@@ -9616,11 +9616,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:15.5.2":
-  version: 15.5.2
-  resolution: "react-i18next@npm:15.5.2"
+"react-i18next@npm:15.5.3":
+  version: 15.5.3
+  resolution: "react-i18next@npm:15.5.3"
   dependencies:
-    "@babel/runtime": "npm:^7.25.0"
+    "@babel/runtime": "npm:^7.27.6"
     html-parse-stringify: "npm:^3.0.1"
   peerDependencies:
     i18next: ">= 23.2.3"
@@ -9633,7 +9633,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: 10c0/f31d3b10e1e3e1868831da872734cdb2042dd594ac01668478c4e39ca0bf8ee252da17fd0c435c9f5480501e612d8e28c90517df949651cfe4fe42667f3c06a9
+  checksum: 10c0/495d98a738e966cd655a378d953e45cfd1a810ccfaf4894a63c37b7a9043e69b55c5e14044d54290c91512e7fa37835c7e4637bfb8d68b6fc88bc493a5ffd9ee
   languageName: node
   linkType: hard
 
@@ -10921,14 +10921,14 @@ __metadata:
     "@svgr/webpack": "npm:8.1.0"
     "@tanstack/react-query": "npm:5.79.0"
     "@tanstack/react-query-devtools": "npm:5.79.0"
-    "@types/node": "npm:20.17.57"
-    "@types/react": "npm:18.3.21"
+    "@types/node": "npm:20.19.0"
+    "@types/react": "npm:18.3.23"
     "@types/react-dom": "npm:18.3.7"
     "@typescript-eslint/eslint-plugin": "npm:7.18.0"
     "@typescript-eslint/parser": "npm:7.18.0"
-    "@xyflow/react": "npm:12.6.4"
+    "@xyflow/react": "npm:12.7.0"
     antd: "npm:4.24.16"
-    axios: "npm:1.9.0"
+    axios: "npm:1.10.0"
     clsx: "npm:2.1.1"
     cross-env: "npm:7.0.3"
     css-loader: "npm:6.11.0"
@@ -10958,7 +10958,7 @@ __metadata:
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     react-error-boundary: "npm:4.1.2"
-    react-i18next: "npm:15.5.2"
+    react-i18next: "npm:15.5.3"
     react-router-dom: "npm:6.30.1"
     rimraf: "npm:5.0.10"
     style-loader: "npm:3.3.4"
@@ -10968,7 +10968,7 @@ __metadata:
     webpack: "npm:5.99.9"
     webpack-bundle-analyzer: "npm:4.10.2"
     webpack-cli: "npm:5.1.4"
-    webpack-dev-server: "npm:5.2.1"
+    webpack-dev-server: "npm:5.2.2"
     webpack-merge: "npm:5.10.0"
   languageName: unknown
   linkType: soft
@@ -11346,6 +11346,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"undici-types@npm:~6.21.0":
+  version: 6.21.0
+  resolution: "undici-types@npm:6.21.0"
+  checksum: 10c0/c01ed51829b10aa72fc3ce64b747f8e74ae9b60eafa19a7b46ef624403508a54c526ffab06a14a26b3120d055e1104d7abe7c9017e83ced038ea5cf52f8d5e04
+  languageName: node
+  linkType: hard
+
 "unicode-canonical-property-names-ecmascript@npm:^2.0.0":
   version: 2.0.1
   resolution: "unicode-canonical-property-names-ecmascript@npm:2.0.1"
@@ -11591,9 +11598,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-dev-server@npm:5.2.1":
-  version: 5.2.1
-  resolution: "webpack-dev-server@npm:5.2.1"
+"webpack-dev-server@npm:5.2.2":
+  version: 5.2.2
+  resolution: "webpack-dev-server@npm:5.2.2"
   dependencies:
     "@types/bonjour": "npm:^3.5.13"
     "@types/connect-history-api-fallback": "npm:^1.5.4"
@@ -11611,7 +11618,7 @@ __metadata:
     connect-history-api-fallback: "npm:^2.0.0"
     express: "npm:^4.21.2"
     graceful-fs: "npm:^4.2.6"
-    http-proxy-middleware: "npm:^2.0.7"
+    http-proxy-middleware: "npm:^2.0.9"
     ipaddr.js: "npm:^2.1.0"
     launch-editor: "npm:^2.6.1"
     open: "npm:^10.0.3"
@@ -11632,7 +11639,7 @@ __metadata:
       optional: true
   bin:
     webpack-dev-server: bin/webpack-dev-server.js
-  checksum: 10c0/22bcf2bcc7c72cd2065883ed4368fbcdf20078bc746b07689d10a0546ee99ea00bc50f0474112278ffd8598a5bc237df2bf7bb7f6dcda940a16b1eb91137efea
+  checksum: 10c0/58d7ddb054cdbba22ddfa3d6644194abf6197c14530e1e64ccd7f0b670787245eea966ee72e95abd551c54313627bde0d227a0d2a1e2557102b1a3504ac0b7f1
   languageName: node
   linkType: hard
 
