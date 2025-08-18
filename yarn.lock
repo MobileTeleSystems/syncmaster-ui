@@ -2040,10 +2040,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.83.1":
-  version: 5.83.1
-  resolution: "@tanstack/query-core@npm:5.83.1"
-  checksum: 10c0/3eeacf678fcf9803585f1be74979548a33c7f659b8d5f33c1e3b3834ef3b9f3401070b2e2d38bbaa9c6e5a3c359baaa3828078e38007b7c99fb8c9f1e3911142
+"@tanstack/query-core@npm:5.85.3":
+  version: 5.85.3
+  resolution: "@tanstack/query-core@npm:5.85.3"
+  checksum: 10c0/7db9e78c3648a3d5bc295fff14e7afdf061e38ca55b0004e3f6e6f1f44596f564bf8b59c97b2d1f7ce851792c8eac7008608ccd4de0dfcd6349a4e0943b7d247
   languageName: node
   linkType: hard
 
@@ -2054,26 +2054,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-query-devtools@npm:5.84.2":
-  version: 5.84.2
-  resolution: "@tanstack/react-query-devtools@npm:5.84.2"
+"@tanstack/react-query-devtools@npm:5.85.3":
+  version: 5.85.3
+  resolution: "@tanstack/react-query-devtools@npm:5.85.3"
   dependencies:
     "@tanstack/query-devtools": "npm:5.84.0"
   peerDependencies:
-    "@tanstack/react-query": ^5.84.2
+    "@tanstack/react-query": ^5.85.3
     react: ^18 || ^19
-  checksum: 10c0/00bff863148de16ad3a6924dbdf0c30ab5cdf8a93d29087bc5117b73db2de83f0f8c5174902e945c416a86021d5266233fc57eb2695ece1046eb3b12af8a2a86
+  checksum: 10c0/26a90fb0753780f821002d8e2008846dc6ed89409c02f9f5e67de86ebae5a7710d08e043ea5e05fef1c0c75adbe9ae111eac148b143251b56f24ef37e872b18d
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:5.84.2":
-  version: 5.84.2
-  resolution: "@tanstack/react-query@npm:5.84.2"
+"@tanstack/react-query@npm:5.85.3":
+  version: 5.85.3
+  resolution: "@tanstack/react-query@npm:5.85.3"
   dependencies:
-    "@tanstack/query-core": "npm:5.83.1"
+    "@tanstack/query-core": "npm:5.85.3"
   peerDependencies:
     react: ^18 || ^19
-  checksum: 10c0/491914f8c61c5bb83e1eece53b33552d0d490ba9f122add35ae3078f10f675a6b0786c2e1d5940ccb9acf490d28c525d56893576c237090c22bfc70ef2ee0f3f
+  checksum: 10c0/3588a6997c5f5302d999f98230894ad3ed5d24b0b063b62c34300e2cd3a715afc7edd97eb8a99408f2f7f85e76812fa87d035dbbc340c95adecade80d1e44ae0
   languageName: node
   linkType: hard
 
@@ -2330,12 +2330,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.19.10":
-  version: 20.19.10
-  resolution: "@types/node@npm:20.19.10"
+"@types/node@npm:20.19.11":
+  version: 20.19.11
+  resolution: "@types/node@npm:20.19.11"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10c0/dac81561f6d7cbd37c876c4023846095a71d8b62df52c8b6b32de67f6ca6aaf2ffd0c1e02ede6d2c8af41e934ce2005f67b8b6348b79dd355c05f3192aa7b59a
+  checksum: 10c0/9eecc4be04f1a8afbb8f8059b322fd0bbceeb02f96669bbaa52fb0b264c2e3269432a8833ada4be7b335e18d6b438b2d2c0274f5b3f54cc2081cb7c5374a6561
   languageName: node
   linkType: hard
 
@@ -2773,23 +2773,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyflow/react@npm:12.8.2":
-  version: 12.8.2
-  resolution: "@xyflow/react@npm:12.8.2"
+"@xyflow/react@npm:12.8.3":
+  version: 12.8.3
+  resolution: "@xyflow/react@npm:12.8.3"
   dependencies:
-    "@xyflow/system": "npm:0.0.66"
+    "@xyflow/system": "npm:0.0.67"
     classcat: "npm:^5.0.3"
     zustand: "npm:^4.4.0"
   peerDependencies:
     react: ">=17"
     react-dom: ">=17"
-  checksum: 10c0/70231378b49ddbd71c64234bfe6ba68ea716432911761b396ee4b9868628f336114535c2243c9434c4353e133ac814f5f06c114ceff2c16ff6d78c021fd91b43
+  checksum: 10c0/98e8c7d15780d6a31030bec8c92ebf704a807d29774deade83f2998236acab00812c6e7e15cb7254bb569222efea068c02853fb459d7669d1a579ff00a0b1b59
   languageName: node
   linkType: hard
 
-"@xyflow/system@npm:0.0.66":
-  version: 0.0.66
-  resolution: "@xyflow/system@npm:0.0.66"
+"@xyflow/system@npm:0.0.67":
+  version: 0.0.67
+  resolution: "@xyflow/system@npm:0.0.67"
   dependencies:
     "@types/d3-drag": "npm:^3.0.7"
     "@types/d3-interpolate": "npm:^3.0.4"
@@ -2800,7 +2800,7 @@ __metadata:
     d3-interpolate: "npm:^3.0.1"
     d3-selection: "npm:^3.0.0"
     d3-zoom: "npm:^3.0.0"
-  checksum: 10c0/87199b801ffe15ae53e5fb39cb79abea6b5a5d7a85ea5077e5d1909442b6154c1dd5ab5c8ac89b7536e4f6e27adce4734c53d93663f8d3033c3a0020c03bd053
+  checksum: 10c0/5aae6c6f8f17e48661942f26ac1aab8d5e5c0ef62e4005f5bcb923997323f2f035a4a8484f16f0a5fc9290c8b387e7f5a5bcfb8793fa79dd5ee3ea72f1208f1c
   languageName: node
   linkType: hard
 
@@ -4791,13 +4791,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enhanced-resolve@npm:^5.17.2":
-  version: 5.18.2
-  resolution: "enhanced-resolve@npm:5.18.2"
+"enhanced-resolve@npm:^5.17.3":
+  version: 5.18.3
+  resolution: "enhanced-resolve@npm:5.18.3"
   dependencies:
     graceful-fs: "npm:^4.2.4"
     tapable: "npm:^2.2.0"
-  checksum: 10c0/2a45105daded694304b0298d1c0351a981842249a9867513d55e41321a4ccf37dfd35b0c1e9ceae290eab73654b09aa7a910d618ea6f9441e97c52bc424a2372
+  checksum: 10c0/d413c23c2d494e4c1c9c9ac7d60b812083dc6d446699ed495e69c920988af0a3c66bf3f8d0e7a45cb1686c2d4c1df9f4e7352d973f5b56fe63d8d711dd0ccc54
   languageName: node
   linkType: hard
 
@@ -6309,9 +6309,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-webpack-plugin@npm:5.6.3":
-  version: 5.6.3
-  resolution: "html-webpack-plugin@npm:5.6.3"
+"html-webpack-plugin@npm:5.6.4":
+  version: 5.6.4
+  resolution: "html-webpack-plugin@npm:5.6.4"
   dependencies:
     "@types/html-minifier-terser": "npm:^6.0.0"
     html-minifier-terser: "npm:^6.0.2"
@@ -6326,7 +6326,7 @@ __metadata:
       optional: true
     webpack:
       optional: true
-  checksum: 10c0/25a21f83a8823d3711396dd8050bc0080c0ae55537352d432903eff58a7d9838fc811e3c26462419036190720357e67c7977efd106fb9a252770632824f0cc25
+  checksum: 10c0/c3acef1e2a007e2dfc67610eaf366bd13cb7e4a024ceef7f181eb7b7375dde2521543108377802f920cce4d3c842e2aafaef53254c08b8d400fbce56ff1715f3
   languageName: node
   linkType: hard
 
@@ -7755,15 +7755,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mini-css-extract-plugin@npm:2.9.3":
-  version: 2.9.3
-  resolution: "mini-css-extract-plugin@npm:2.9.3"
+"mini-css-extract-plugin@npm:2.9.4":
+  version: 2.9.4
+  resolution: "mini-css-extract-plugin@npm:2.9.4"
   dependencies:
     schema-utils: "npm:^4.0.0"
     tapable: "npm:^2.2.1"
   peerDependencies:
     webpack: ^5.0.0
-  checksum: 10c0/2e661aeba2ffd6f8b8d618de3498c495f1e1628b76a8e3fb31f3685586d12ba7d166788b1d57912becff5a0f700c74625e4fe9d54874176d7a218af0c6f7c24f
+  checksum: 10c0/76f9e471784d52435ea766ce576ad23d37d0ea51c32ddc56414c8fdf14f7de44202dbc772cdf7549b7e54a5e56f569af93cfbd036d62d13ff8fd9571e53353b7
   languageName: node
   linkType: hard
 
@@ -11030,14 +11030,14 @@ __metadata:
   dependencies:
     "@ant-design/icons": "npm:5.6.1"
     "@svgr/webpack": "npm:8.1.0"
-    "@tanstack/react-query": "npm:5.84.2"
-    "@tanstack/react-query-devtools": "npm:5.84.2"
-    "@types/node": "npm:20.19.10"
+    "@tanstack/react-query": "npm:5.85.3"
+    "@tanstack/react-query-devtools": "npm:5.85.3"
+    "@types/node": "npm:20.19.11"
     "@types/react": "npm:18.3.23"
     "@types/react-dom": "npm:18.3.7"
     "@typescript-eslint/eslint-plugin": "npm:7.18.0"
     "@typescript-eslint/parser": "npm:7.18.0"
-    "@xyflow/react": "npm:12.8.2"
+    "@xyflow/react": "npm:12.8.3"
     antd: "npm:4.24.16"
     axios: "npm:1.11.0"
     clsx: "npm:2.1.1"
@@ -11057,13 +11057,13 @@ __metadata:
     eslint-plugin-react: "npm:7.37.5"
     eslint-plugin-react-hooks: "npm:4.6.2"
     fork-ts-checker-webpack-plugin: "npm:9.1.0"
-    html-webpack-plugin: "npm:5.6.3"
+    html-webpack-plugin: "npm:5.6.4"
     husky: "npm:9.1.7"
     i18next: "npm:24.2.3"
     less: "npm:4.4.0"
     less-loader: "npm:12.3.0"
     lint-staged: "npm:15.5.2"
-    mini-css-extract-plugin: "npm:2.9.3"
+    mini-css-extract-plugin: "npm:2.9.4"
     prettier: "npm:3.6.2"
     rc-picker: "npm:4.11.3"
     react: "npm:18.3.1"
@@ -11076,7 +11076,7 @@ __metadata:
     terser-webpack-plugin: "npm:5.3.14"
     ts-loader: "npm:9.5.2"
     typescript: "npm:5.9.2"
-    webpack: "npm:5.101.0"
+    webpack: "npm:5.101.2"
     webpack-bundle-analyzer: "npm:4.10.2"
     webpack-cli: "npm:5.1.4"
     webpack-dev-server: "npm:5.2.2"
@@ -11772,9 +11772,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.101.0":
-  version: 5.101.0
-  resolution: "webpack@npm:5.101.0"
+"webpack@npm:5.101.2":
+  version: 5.101.2
+  resolution: "webpack@npm:5.101.2"
   dependencies:
     "@types/eslint-scope": "npm:^3.7.7"
     "@types/estree": "npm:^1.0.8"
@@ -11786,7 +11786,7 @@ __metadata:
     acorn-import-phases: "npm:^1.0.3"
     browserslist: "npm:^4.24.0"
     chrome-trace-event: "npm:^1.0.2"
-    enhanced-resolve: "npm:^5.17.2"
+    enhanced-resolve: "npm:^5.17.3"
     es-module-lexer: "npm:^1.2.1"
     eslint-scope: "npm:5.1.1"
     events: "npm:^3.2.0"
@@ -11806,7 +11806,7 @@ __metadata:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 10c0/0fb5f70032ac53cfc2e667c97c6ceb903d280cebd03dd7f7ca794d8ab75d4f692483313efb90c616c2e4e266cf580a54df84cbaee43db36d7d42e450bf1569fd
+  checksum: 10c0/e27091bd0d51ff17ecdaf18dae00dca57475e9152d7fc50d7c65e098629a63c7b3bf4e275ae76d111aed37b95f956b2df19aeeac27b0351fa2572e71f019dcb5
   languageName: node
   linkType: hard
 
