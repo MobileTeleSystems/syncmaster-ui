@@ -2040,40 +2040,40 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.89.0":
-  version: 5.89.0
-  resolution: "@tanstack/query-core@npm:5.89.0"
-  checksum: 10c0/8e1e92fb4e3694d7f706bb686135a237280528ad5da890e996521780ecf30dbe139662dfd75b2f73bfe617e9275de1b3e7ab5c9fc6cacbf79cabf8163922e334
+"@tanstack/query-core@npm:5.90.2":
+  version: 5.90.2
+  resolution: "@tanstack/query-core@npm:5.90.2"
+  checksum: 10c0/695a7450b0bb9f6dd21bebeacfc962dfc886631a3b3a13c33a842ef719b4c3dd30c15febe8c1ade6902a85e0f387c51a97570f430cc8f5c7032ff737d6410597
   languageName: node
   linkType: hard
 
-"@tanstack/query-devtools@npm:5.87.3":
-  version: 5.87.3
-  resolution: "@tanstack/query-devtools@npm:5.87.3"
-  checksum: 10c0/2e2e22e3866cd1cae5fa63362dd745965a6a73cc74397eb5ad44eb6e3066061776f7fe01b49e61a95117213e65f7d0d14aa6c55a665dda79b7a8c7c7aa2c56f5
+"@tanstack/query-devtools@npm:5.90.1":
+  version: 5.90.1
+  resolution: "@tanstack/query-devtools@npm:5.90.1"
+  checksum: 10c0/3b69e5441438acf0e753adbf187abf54b5b2e19d7c6d1e465d97278cb8c248bb86d3be193092d50414e4093cbf014093103517cb523daae003e53c867f3c11c2
   languageName: node
   linkType: hard
 
-"@tanstack/react-query-devtools@npm:5.89.0":
-  version: 5.89.0
-  resolution: "@tanstack/react-query-devtools@npm:5.89.0"
+"@tanstack/react-query-devtools@npm:5.90.2":
+  version: 5.90.2
+  resolution: "@tanstack/react-query-devtools@npm:5.90.2"
   dependencies:
-    "@tanstack/query-devtools": "npm:5.87.3"
+    "@tanstack/query-devtools": "npm:5.90.1"
   peerDependencies:
-    "@tanstack/react-query": ^5.89.0
+    "@tanstack/react-query": ^5.90.2
     react: ^18 || ^19
-  checksum: 10c0/49628feb48be07eea79441b2eae8b190149d5f7bc60d0ea86091a2e229993630868fdf91e116266a68d60954e594d70109bf2e0a44b7cc3ded661c44aabf0226
+  checksum: 10c0/526d529bf995426ace7511f51a425ce92dfc1b6dd74c9956a3cd7d68950119e97291bced2ff17173bcdb329eae36c68abc211a4dec32d6e92ab537b41c0533c2
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:5.89.0":
-  version: 5.89.0
-  resolution: "@tanstack/react-query@npm:5.89.0"
+"@tanstack/react-query@npm:5.90.2":
+  version: 5.90.2
+  resolution: "@tanstack/react-query@npm:5.90.2"
   dependencies:
-    "@tanstack/query-core": "npm:5.89.0"
+    "@tanstack/query-core": "npm:5.90.2"
   peerDependencies:
     react: ^18 || ^19
-  checksum: 10c0/07364b36bcf8424777b79fad3a87e16867e955a09c27696e8a9833bacf5cd2a3f69474bb7285b6103a7c49f578a23a3f211cf3dbd36c63871ffdacd8baf0faeb
+  checksum: 10c0/22e76626a59890409858521b0e42b49219126a4ea5ed79eaa48a267959175dfdd28b30b9b03a415dccf703d95c18100a9d8917679818f6d2adc26d6c5f96a4d6
   languageName: node
   linkType: hard
 
@@ -2773,23 +2773,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyflow/react@npm:12.8.5":
-  version: 12.8.5
-  resolution: "@xyflow/react@npm:12.8.5"
+"@xyflow/react@npm:12.8.6":
+  version: 12.8.6
+  resolution: "@xyflow/react@npm:12.8.6"
   dependencies:
-    "@xyflow/system": "npm:0.0.69"
+    "@xyflow/system": "npm:0.0.70"
     classcat: "npm:^5.0.3"
     zustand: "npm:^4.4.0"
   peerDependencies:
     react: ">=17"
     react-dom: ">=17"
-  checksum: 10c0/7cdd23e9595783250b3080a4459c12819da1dceaad42063d08ca815b07a4516725ba8a8ce66a6ba24a8f4ac3ee89b4930f206c950c07b0fc781bef908ab07f3a
+  checksum: 10c0/166773febaf4fc1c010962606926e629b28fb9d5a15cb36f0c9d449990de6cba86635be25ee400e20fa57e539caf80489db66a0e47e5a6db00431432b15cd385
   languageName: node
   linkType: hard
 
-"@xyflow/system@npm:0.0.69":
-  version: 0.0.69
-  resolution: "@xyflow/system@npm:0.0.69"
+"@xyflow/system@npm:0.0.70":
+  version: 0.0.70
+  resolution: "@xyflow/system@npm:0.0.70"
   dependencies:
     "@types/d3-drag": "npm:^3.0.7"
     "@types/d3-interpolate": "npm:^3.0.4"
@@ -2800,7 +2800,7 @@ __metadata:
     d3-interpolate: "npm:^3.0.1"
     d3-selection: "npm:^3.0.0"
     d3-zoom: "npm:^3.0.0"
-  checksum: 10c0/c05089c50802df9a73813696148b285e7b0411d15c34f63b458beb69bf471b2a3c4cf01eca1f8d0cfae002ee7d25d04c0b01952747ae9033201955754f74269e
+  checksum: 10c0/744f45038916f9545b82f42bbee24a0eae9be58b36f828189c576c164ff5d41e53c127352ed981e73d9b9c75732aff293dce9e6eeca73c9b7f6b682af1d8e556
   languageName: node
   linkType: hard
 
@@ -9724,14 +9724,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:15.7.3":
-  version: 15.7.3
-  resolution: "react-i18next@npm:15.7.3"
+"react-i18next@npm:15.7.4":
+  version: 15.7.4
+  resolution: "react-i18next@npm:15.7.4"
   dependencies:
     "@babel/runtime": "npm:^7.27.6"
     html-parse-stringify: "npm:^3.0.1"
   peerDependencies:
-    i18next: ">= 25.4.1"
+    i18next: ">= 23.4.0"
     react: ">= 16.8.0"
     typescript: ^5
   peerDependenciesMeta:
@@ -9741,7 +9741,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: 10c0/dc3ca1da9accb47f63b2049c94ff7a94ba92d76bad586aca7c2aa3b7a01c2d4e69d4363ff0cfa898cef22b109f2dd49864d6ac94cd9afbac485d44e70ed5a4d6
+  checksum: 10c0/643c5d3ced4b44084c871a55e876159561c14f378f90bf53286c1291082703e293573da18ad692b43b357b60d2f7251bc417feb0b522de8cec5c414e5ebdf6c1
   languageName: node
   linkType: hard
 
@@ -11037,14 +11037,14 @@ __metadata:
   dependencies:
     "@ant-design/icons": "npm:5.6.1"
     "@svgr/webpack": "npm:8.1.0"
-    "@tanstack/react-query": "npm:5.89.0"
-    "@tanstack/react-query-devtools": "npm:5.89.0"
+    "@tanstack/react-query": "npm:5.90.2"
+    "@tanstack/react-query-devtools": "npm:5.90.2"
     "@types/node": "npm:20.19.17"
     "@types/react": "npm:18.3.23"
     "@types/react-dom": "npm:18.3.7"
     "@typescript-eslint/eslint-plugin": "npm:7.18.0"
     "@typescript-eslint/parser": "npm:7.18.0"
-    "@xyflow/react": "npm:12.8.5"
+    "@xyflow/react": "npm:12.8.6"
     antd: "npm:4.24.16"
     axios: "npm:1.12.2"
     clsx: "npm:2.1.1"
@@ -11076,7 +11076,7 @@ __metadata:
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     react-error-boundary: "npm:4.1.2"
-    react-i18next: "npm:15.7.3"
+    react-i18next: "npm:15.7.4"
     react-router-dom: "npm:6.30.1"
     rimraf: "npm:5.0.10"
     style-loader: "npm:3.3.4"
