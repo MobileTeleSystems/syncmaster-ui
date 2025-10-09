@@ -1,4 +1,4 @@
-export const Error = {
+export const ErrorStatusCode = {
   AUTH: 401,
   ACCESS: 403,
   NOT_FOUND: 404,

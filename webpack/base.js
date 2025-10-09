@@ -11,7 +11,7 @@ const isNeedBundleAnalyzer = process.env.BUNDLE_ANALYZER || false;
 
 const mode = process.env.NODE_ENV || 'production';
 const isProdMode = mode === 'production';
-const devServerUrl = `https://localhost:3000/`;
+const devServerUrl = `http://localhost:3000/`;
 
 module.exports = {
   entry: './src/index.tsx',

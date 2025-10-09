@@ -3,6 +3,7 @@
 cat <<EOF > /usr/share/nginx/html/env-config.js
 window.env = {
   API_URL: "${SYNCMASTER__UI__API_BROWSER_URL}",
+  AUTH_PROVIDER: "${SYNCMASTER__UI__AUTH_PROVIDER}",
 };
 EOF
 

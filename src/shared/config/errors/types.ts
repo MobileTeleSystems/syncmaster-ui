@@ -18,3 +18,11 @@ export interface FormFieldsError {
     details: FormFieldError[];
   };
 }
+
+export interface KeycloakUnauthorizedRedirectError {
+  error: {
+    code: 'unauthorized';
+    message: string;
+    details: string;
+  };
+}
