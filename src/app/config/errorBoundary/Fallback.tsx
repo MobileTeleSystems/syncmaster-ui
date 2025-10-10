@@ -1,20 +1,24 @@
 import React from 'react';
 import { FallbackProps } from 'react-error-boundary';
 import { ErrorLayout } from '@app/layouts';
-import { Error } from '@shared/config';
+import { ErrorStatusCode } from '@shared/config';
+import { AUTH_PROVIDER, AuthProviderType } from '@shared/constants';
 
-import { AccessError, AuthError, NotFoundError, ServerError } from './errors';
+import { AccessError, AuthError, KeycloakAuthError, NotFoundError, ServerError } from './errors';
 import { ErrorBoundaryContext } from './constants';
 
 export const Fallback = ({ error, resetErrorBoundary }: FallbackProps) => {
   const renderError = () => {
     if ('status' in error) {
       switch (error.status) {
-        case Error.AUTH:
-          return <AuthError />;
-        case Error.ACCESS:
+        case ErrorStatusCode.AUTH:
+          if (AUTH_PROVIDER === AuthProviderType.DUMMY) {
+            return <AuthError />;
+          }
+          return <KeycloakAuthError />;
+        case ErrorStatusCode.ACCESS:
           return <AccessError />;
-        case Error.NOT_FOUND:
+        case ErrorStatusCode.NOT_FOUND:
           return <NotFoundError />;
         default:
           return <ServerError />;

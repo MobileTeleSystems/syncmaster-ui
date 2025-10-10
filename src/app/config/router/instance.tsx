@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import { LoginPage } from '@pages/auth';
+import { KeycloakCallbackPage, LoginPage } from '@pages/auth';
 import { AuthLayout, ErrorLayout, PrivateLayout } from '@app/layouts';
 import { CreateGroupPage, GroupDetailPage, GroupListPage, UpdateGroupPage } from '@pages/group';
 import { AuthProvider } from '@entities/auth';
@@ -32,6 +32,10 @@ export const router = createBrowserRouter([
           {
             path: '/login',
             element: <LoginPage />,
+          },
+          {
+            path: '/auth/callback',
+            element: <KeycloakCallbackPage />,
           },
         ],
       },

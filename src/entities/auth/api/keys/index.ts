@@ -1,4 +1,5 @@
 export const AuthQueryKey = {
   LOGIN: 'LOGIN',
   GET_CURRENT_USER_INFO: 'GET_CURRENT_USER_INFO',
+  KEYCLOAK_CALLBACK: 'KEYCLOAK_CALLBACK',
 } as const;

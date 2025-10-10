@@ -1,7 +1,7 @@
 import { QueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 
-import { Error } from '../errors';
+import { ErrorStatusCode } from '../errors';
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -14,7 +14,7 @@ export const queryClient = new QueryClient({
       throwOnError: true,
     },
     mutations: {
-      throwOnError: (error) => axios.isAxiosError(error) && error.status === Error.AUTH,
+      throwOnError: (error) => axios.isAxiosError(error) && error.status === ErrorStatusCode.AUTH,
     },
   },
 });

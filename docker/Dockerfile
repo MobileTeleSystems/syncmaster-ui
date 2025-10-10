@@ -23,8 +23,10 @@ COPY --from=build /app/dist /usr/share/nginx/html
 COPY ./docker/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-ARG API_URL=http://localhost:8000/v1
+ARG API_URL=http://localhost:8000
+ARG AUTH_PROVIDER=dummyAuthProvider
 ENV SYNCMASTER__UI__API_BROWSER_URL=${API_URL}
+ENV SYNCMASTER__UI__AUTH_PROVIDER=${AUTH_PROVIDER}
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]

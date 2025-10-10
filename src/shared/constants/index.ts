@@ -3,3 +3,4 @@ export * from './antd';
 export * from './regexp';
 export * from './role';
 export * from './errorMessage';
+export * from './auth';

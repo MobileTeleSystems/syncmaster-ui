@@ -11,5 +11,6 @@ declare module "*.svg" {
 interface Window {
     env?: {
       API_URL: string;
+      AUTH_PROVIDER: "dummyAuthProvider" | "keycloakAuthProvider";
     };
 }

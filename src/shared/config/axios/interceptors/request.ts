@@ -1,13 +1,10 @@
-import { Storage } from '@shared/constants';
+import { AuthProviderType, AUTH_PROVIDER, Storage } from '@shared/constants';
 import { InternalAxiosRequestConfig } from 'axios';
 
 export const requestInterceptor = (config: InternalAxiosRequestConfig) => {
-  const accessToken = localStorage.getItem(Storage.ACCESS_TOKEN);
-
-  if (!accessToken) {
-    return config;
+  if (AUTH_PROVIDER === AuthProviderType.DUMMY) {
+    config.headers.Authorization = `Bearer ${localStorage.getItem(Storage.ACCESS_TOKEN)}`;
   }
 
-  config.headers.Authorization = `Bearer ${accessToken}`;
   return config;
 };

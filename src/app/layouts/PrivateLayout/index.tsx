@@ -1,8 +1,8 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
 import { Header, Sidebar } from '@widgets/layout';
-import { SpinOverlay } from '@shared/ui';
+import { SpinOverlay, Suspense } from '@shared/ui';
 import { useSelectedGroup } from '@entities/group';
 
 import classes from './styles.module.less';
@@ -23,7 +23,7 @@ export const PrivateLayout = () => {
         <Sidebar />
         <Layout>
           <Content className={classes.layout__content}>
-            <Suspense fallback={<SpinOverlay />}>
+            <Suspense>
               <Outlet />
             </Suspense>
           </Content>

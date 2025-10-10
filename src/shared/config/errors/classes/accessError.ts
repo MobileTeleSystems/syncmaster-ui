@@ -1,7 +1,7 @@
-import { Error as ErrorType } from '../constants';
+import { ErrorStatusCode } from '../constants';
 
 export class AccessError extends Error {
-  status = ErrorType.ACCESS;
+  status = ErrorStatusCode.ACCESS;
 
   constructor(message = 'Access error') {
     super(message);
