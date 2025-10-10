@@ -1,5 +1,8 @@
+/** Types of auth providers for users' authentication */
 export const AuthProviderType = {
+  /** Default auth provider */
   DUMMY: 'dummyAuthProvider',
+  /** Keycloak auth provider */
   KEYCLOAK: 'keycloakAuthProvider',
 };
 
