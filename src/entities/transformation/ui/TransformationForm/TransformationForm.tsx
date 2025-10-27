@@ -1,4 +1,4 @@
-import { Button, Form } from 'antd';
+import { Button, Form, FormListFieldData } from 'antd';
 import React, { memo, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -10,6 +10,7 @@ import { TransformationFormProps } from './types';
 
 const TransformationFormComponent = <T extends TransformationType>({
   transformationType,
+  canHaveEmptyRecordsList,
   ...props
 }: TransformationFormProps<T>) => {
   const { t } = useTranslation();
@@ -25,10 +26,13 @@ const TransformationFormComponent = <T extends TransformationType>({
    * because it is inconvenient to check for the presence of a default value of this array,
    * when forming a request to backend or initial form values */
   useLayoutEffect(() => {
-    if (!filtersValues || !filtersValues.length) {
+    const needFillEmpty = !canHaveEmptyRecordsList && !filtersValues?.length;
+    if (needFillEmpty) {
       formInstance.setFieldValue(['transformations', transformationType], [{}]);
     }
-  }, [formInstance, filtersValues, transformationType]);
+  }, [formInstance, filtersValues, transformationType, canHaveEmptyRecordsList]);
+
+  const canRemoveItem = ({ name }: FormListFieldData) => (name || canHaveEmptyRecordsList) && isDisplayed;
 
   return (
     <Form.List name={['transformations', transformationType]}>
@@ -39,7 +43,7 @@ const TransformationFormComponent = <T extends TransformationType>({
               {...field}
               {...props}
               transformationType={transformationType}
-              onRemove={field.name && isDisplayed ? remove : undefined}
+              onRemove={canRemoveItem(field) ? remove : undefined}
               key={field.key}
             />
           ))}
