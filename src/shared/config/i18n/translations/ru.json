@@ -165,7 +165,7 @@
       "needToSelectGroupToCreateTransfer": "Вам нужно выбрать группу, чтобы создать трансфер",
       "notPermissionToCreateTransfer": "У вас нет разрешения на создание трансфера в выбранной группе",
       "transferAdvancedInfo": "Расширенная информация о трансфере",
-      "directoryPath": "Путь к каталогу",
+      "directoryPath": "Путь к директории",
       "tableName": "Название таблицы",
       "transferInfo": "Информация о трансфере",
       "schedule": "Расписание",
