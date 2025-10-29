@@ -78,7 +78,7 @@
       "bucket": "Бакет",
       "region": "Регион",
       "selectBucketStyle": "Выберите стиль бакета",
-      "share": "Опубликованный ресурс",
+      "share": "Название сетевого ресурса (\"шара\")",
       "domain": "Домен",
       "connectionInfo": "Информация о соединении"
     },
@@ -194,7 +194,7 @@
       "selectUnit": "Выберите единицу измерения",
       "column": "Столбец",
       "selectOption": "Выберите опцию",
-      "isNull": "NULL",
+      "isNull": "cNULL",
       "isNotNull": "не NULL",
       "equal": "равно",
       "notEqual": "не равно",

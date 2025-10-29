@@ -78,7 +78,7 @@
       "bucket": "Bucket",
       "region": "Region",
       "selectBucketStyle": "Select bucket style",
-      "share": "Share",
+      "share": "Network Share name",
       "domain": "Domain",
       "connectionInfo": "Connection info"
     },
