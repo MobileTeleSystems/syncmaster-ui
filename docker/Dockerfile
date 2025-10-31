@@ -15,18 +15,17 @@ COPY . .
 RUN yarn build
 
 
+FROM mikefarah/yq AS yq
 FROM nginx:stable-alpine AS prod
 
 COPY ./docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist /usr/share/nginx/html
 
 COPY ./docker/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+COPY --from=yq /usr/bin/yq /usr/bin/yq
+RUN chmod +x /entrypoint.sh /usr/bin/yq
 
-ARG API_URL=http://localhost:8000
-ARG AUTH_PROVIDER=dummyAuthProvider
-ENV SYNCMASTER__UI__API_BROWSER_URL=${API_URL}
-ENV SYNCMASTER__UI__AUTH_PROVIDER=${AUTH_PROVIDER}
+ENV SYNCMASTER_CONFIG_FILE=/app/config.yaml
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]
