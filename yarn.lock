@@ -2040,10 +2040,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.90.6":
-  version: 5.90.6
-  resolution: "@tanstack/query-core@npm:5.90.6"
-  checksum: 10c0/2523cd4d9bc4d9fc1a828b15923c44046004fb1c4322f8c211ff4c153914bc776a356a476f499127cfee3fc89b101ac64f93b352aa761bd349c3a8e0de33d792
+"@tanstack/query-core@npm:5.90.7":
+  version: 5.90.7
+  resolution: "@tanstack/query-core@npm:5.90.7"
+  checksum: 10c0/82198b1ed8c6c1cfd87ec904e241af4839b82597a67744fb972008739cc89ded359509b8599ba7079040111c4a2a573884301d9a2fa39fc48337d2945300525c
   languageName: node
   linkType: hard
 
@@ -2066,14 +2066,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:5.90.6":
-  version: 5.90.6
-  resolution: "@tanstack/react-query@npm:5.90.6"
+"@tanstack/react-query@npm:5.90.7":
+  version: 5.90.7
+  resolution: "@tanstack/react-query@npm:5.90.7"
   dependencies:
-    "@tanstack/query-core": "npm:5.90.6"
+    "@tanstack/query-core": "npm:5.90.7"
   peerDependencies:
     react: ^18 || ^19
-  checksum: 10c0/0cde819c41d3f02dccc443786c3aeb6e0a6135365ef127dd8e5bb25d65837b0b12b011c6700c14df1f866a1d65d57a6f4a00abf2ddac31543d68b4963ca80d1a
+  checksum: 10c0/a4508f115f2b604962e534f7218c1a07707414456ffe900c50ab2dbbd2e46e7f2336d1c8793929722fb262a67cf8d118448e71b6bac4da6b2155d69c628d8855
   languageName: node
   linkType: hard
 
@@ -3307,14 +3307,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:1.13.1":
-  version: 1.13.1
-  resolution: "axios@npm:1.13.1"
+"axios@npm:1.13.2":
+  version: 1.13.2
+  resolution: "axios@npm:1.13.2"
   dependencies:
     follow-redirects: "npm:^1.15.6"
     form-data: "npm:^4.0.4"
     proxy-from-env: "npm:^1.1.0"
-  checksum: 10c0/de9c3c6de43d3ee1146d3afe78645f19450cac6a5d7235bef8b8e8eeb705c2e47e2d231dea99cecaec4dae1897c521118ca9413b9d474063c719c4d94c5b9adc
+  checksum: 10c0/e8a42e37e5568ae9c7a28c348db0e8cf3e43d06fcbef73f0048669edfe4f71219664da7b6cc991b0c0f01c28a48f037c515263cb79be1f1ae8ff034cd813867b
   languageName: node
   linkType: hard
 
@@ -11047,7 +11047,7 @@ __metadata:
   dependencies:
     "@ant-design/icons": "npm:5.6.1"
     "@svgr/webpack": "npm:8.1.0"
-    "@tanstack/react-query": "npm:5.90.6"
+    "@tanstack/react-query": "npm:5.90.7"
     "@tanstack/react-query-devtools": "npm:5.90.2"
     "@types/node": "npm:20.19.24"
     "@types/react": "npm:18.3.23"
@@ -11056,7 +11056,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:7.18.0"
     "@xyflow/react": "npm:12.9.2"
     antd: "npm:4.24.16"
-    axios: "npm:1.13.1"
+    axios: "npm:1.13.2"
     clsx: "npm:2.1.1"
     cross-env: "npm:7.0.3"
     css-loader: "npm:6.11.0"
