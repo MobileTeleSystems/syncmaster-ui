@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import { CanvasNode } from '@shared/ui';
 import { Handle, Position } from '@xyflow/react';
 import { FilterOutlined } from '@ant-design/icons';
-import { TransformationForm, TransformationType } from '@entities/transformation';
 import { useTranslation } from 'react-i18next';
 
 import {
@@ -10,6 +9,7 @@ import {
   TransferCanvasTransformNodeType,
   TRANSFER_CANVAS_TRANSFORM_NODE_TYPE_NAME_DISPLAY,
 } from '../TransferConnectionsCanvas';
+import { FilterColumnsFormItem } from '../FilterColumnsFormItem';
 
 import classes from './styles.module.less';
 
@@ -24,15 +24,11 @@ export const FilterColumnsNode = () => {
     return (
       <>
         <Handle type="target" position={Position.Left} id={TransferCanvasEdge.FILTER_COLUMNS_TARGET} />
-        <TransformationForm
-          transformationType={TransformationType.FILTER_COLUMNS}
-          nestedTypeSelectLabel={t('type', { ns: 'shared' })}
-          hasColumnField
-        />
+        <FilterColumnsFormItem />
         <Handle type="source" position={Position.Right} id={TransferCanvasEdge.FILTER_COLUMNS_SOURCE} />
       </>
     );
-  }, [t]);
+  }, []);
 
   return (
     <CanvasNode
