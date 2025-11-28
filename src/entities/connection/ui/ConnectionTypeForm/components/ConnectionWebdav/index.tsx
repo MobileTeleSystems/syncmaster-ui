@@ -13,13 +13,13 @@ export const ConnectionWebdav = () => {
   return (
     <>
       <Form.Item label={t('host')} name={['connection_data', 'host']} rules={[{ required: true }]}>
-        <Input size="large" />
+        <Input size="large" placeholder="myserver.mycompany.com" />
       </Form.Item>
       <Form.Item label={t('protocol')} name={['connection_data', 'protocol']}>
         <Select size="large" options={CONNECTION_PROTOCOL_SELECT_OPTIONS} placeholder={t('selectProtocol')} />
       </Form.Item>
       <Form.Item label={t('port')} name={['connection_data', 'port']}>
-        <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} />
+        <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} placeholder="443" />
       </Form.Item>
       <ConnectionAuthBasic />
     </>

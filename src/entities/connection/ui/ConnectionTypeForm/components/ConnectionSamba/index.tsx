@@ -14,19 +14,19 @@ export const ConnectionSamba = () => {
   return (
     <>
       <Form.Item label={t('host')} name={['connection_data', 'host']} rules={[{ required: true }]}>
-        <Input size="large" />
+        <Input size="large" placeholder="myserver.mycompany.com" />
       </Form.Item>
       <Form.Item label={t('protocol')} name={['connection_data', 'protocol']}>
         <Select size="large" options={CONNECTION_SAMBA_PROTOCOL_SELECT_OPTIONS} placeholder={t('selectProtocol')} />
       </Form.Item>
       <Form.Item label={t('port')} name={['connection_data', 'port']}>
-        <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} />
+        <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} placeholder="445" />
       </Form.Item>
       <Form.Item label={t('samba.share')} name={['connection_data', 'share']} rules={[{ required: true }]}>
-        <Input size="large" />
+        <Input size="large" placeholder="MYSHARE" />
       </Form.Item>
       <Form.Item label={t('samba.domain')} name={['connection_data', 'domain']}>
-        <Input size="large" />
+        <Input size="large" placeholder="mycompany.com" />
       </Form.Item>
       <ConnectionAuthSamba />
     </>

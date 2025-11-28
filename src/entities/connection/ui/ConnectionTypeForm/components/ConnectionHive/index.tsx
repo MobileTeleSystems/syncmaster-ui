@@ -10,7 +10,7 @@ export const ConnectionHive = () => {
   return (
     <>
       <Form.Item label={t('cluster')} name={['connection_data', 'cluster']} rules={[{ required: true }]}>
-        <Input size="large" />
+        <Input size="large" placeholder="dwh" />
       </Form.Item>
       <ConnectionAuthBasic />
     </>

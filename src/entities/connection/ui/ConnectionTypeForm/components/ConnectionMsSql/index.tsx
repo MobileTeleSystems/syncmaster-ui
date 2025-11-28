@@ -11,10 +11,10 @@ export const ConnectionMsSql = () => {
   return (
     <>
       <Form.Item label={t('host')} name={['connection_data', 'host']} rules={[{ required: true }]}>
-        <Input size="large" />
+        <Input size="large" placeholder="11.22.33.44" />
       </Form.Item>
       <Form.Item label={t('port')} name={['connection_data', 'port']}>
-        <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} />
+        <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} placeholder="1433" />
       </Form.Item>
       <Form.Item label={t('databaseName')} name={['connection_data', 'database_name']} rules={[{ required: true }]}>
         <Input size="large" />

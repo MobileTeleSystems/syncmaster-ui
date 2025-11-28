@@ -35,10 +35,10 @@ export const ConnectionOracle = () => {
   return (
     <>
       <Form.Item label={t('host')} name={['connection_data', 'host']} rules={[{ required: true }]}>
-        <Input size="large" />
+        <Input size="large" placeholder="11.22.33.44" />
       </Form.Item>
       <Form.Item label={t('port')} name={['connection_data', 'port']}>
-        <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} />
+        <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} placeholder="1521" />
       </Form.Item>
       <Form.Item
         label={t('oracle.serviceName')}
@@ -50,7 +50,7 @@ export const ConnectionOracle = () => {
           },
         ]}
       >
-        <Input size="large" disabled={isServiceNameDisabled} onChange={handleFieldChange} />
+        <Input size="large" disabled={isServiceNameDisabled} onChange={handleFieldChange} placeholder="XEPDB1" />
       </Form.Item>
       <Form.Item
         label={t('oracle.sid')}

@@ -11,10 +11,10 @@ export const ConnectionFtp = () => {
   return (
     <>
       <Form.Item label={t('host')} name={['connection_data', 'host']} rules={[{ required: true }]}>
-        <Input size="large" />
+        <Input size="large" placeholder="ftp.mycompany.com" />
       </Form.Item>
       <Form.Item label={t('port')} name={['connection_data', 'port']}>
-        <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} />
+        <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} placeholder="21" />
       </Form.Item>
       <ConnectionAuthBasic />
     </>
