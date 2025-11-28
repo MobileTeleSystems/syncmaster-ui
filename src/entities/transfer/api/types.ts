@@ -73,6 +73,7 @@ interface TransferConnectionTableType {
   type:
     | ConnectionType.CLICKHOUSE
     | ConnectionType.HIVE
+    | ConnectionType.ICEBERG
     | ConnectionType.MSSQL
     | ConnectionType.MYSQL
     | ConnectionType.ORACLE

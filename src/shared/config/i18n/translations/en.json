@@ -67,14 +67,37 @@
         "serviceName": "Service name",
         "serviceNameOrSidRequired": "Either Service Name or SID is required"
       },
+      "iceberg": {
+        "restCatalog": "REST Catalog",
+        "restCatalogUrl": "REST Catalog URL",
+        "restCatalogAuthType": "REST Catalog Auth Type",
+        "bearerToken": "Bearer token",
+        "token": "Token",
+        "oaut2ClientCredentials": "OAuth2 Client credentials",
+        "oauth2ClientId": "OAuth2 Client ID",
+        "oauth2ClientSecret": "OAuth2 Client secret",
+        "oauth2TokenEndpoint": "OAuth2 Token URL",
+        "oauth2Scopes": "OAuth2 Token scopes",
+        "oauth2Audience": "OAuth2 Token audience",
+        "oauth2Resource": "OAuth2 Token resource",
+        "s3AccessStyle": "S3 Access",
+        "s3Direct": "Direct S3 connection",
+        "s3Delegated": "Delegate to REST Catalog",
+        "warehouseName": "Warehouse name",
+        "warehousePath": "Warehouse path"
+      },
       "s3": {
+        "name": "S3",
         "bucket": "Bucket name",
         "bucketStyle": "Bucket style",
         "bucketStyleDomain": "Domain",
         "bucketStylePath": "Path",
         "region": "Region",
         "accessKey": "Access key",
-        "secretKey": "Secret key"
+        "secretKey": "Secret key",
+        "accessDelegation": "Access delegation",
+        "vendedCredentials": "Vended credentials",
+        "remoteSigning": "Remote signing"
       },
       "samba": {
         "share": "Network Share name",

@@ -38,12 +38,13 @@ export const getDescriptionItems = <T extends Transfer['source_params'] | Transf
       });
 
       return items;
+    case ConnectionType.CLICKHOUSE:
     case ConnectionType.HIVE:
+    case ConnectionType.ICEBERG:
+    case ConnectionType.MSSQL:
+    case ConnectionType.MYSQL:
     case ConnectionType.ORACLE:
     case ConnectionType.POSTGRES:
-    case ConnectionType.CLICKHOUSE:
-    case ConnectionType.MYSQL:
-    case ConnectionType.MSSQL:
       return [
         {
           label: t('tableName', { ns: 'transfer' }),
