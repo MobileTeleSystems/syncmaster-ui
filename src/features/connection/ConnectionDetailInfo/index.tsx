@@ -27,12 +27,12 @@ export const ConnectionDetailInfo = ({ connection, group, ...props }: Connection
       <Descriptions.Item label={t('type', { ns: 'shared' })} span={3}>
         {CONNECTION_TYPE_NAMES[connection.type]}
       </Descriptions.Item>
-      {getConnectionAuthData(connection, t).map((item, index) => (
+      {getConnectionData(connection, t).map((item, index) => (
         <Descriptions.Item label={item.label} span={3} key={index}>
           {item.content}
         </Descriptions.Item>
       ))}
-      {getConnectionData(connection, t).map((item, index) => (
+      {getConnectionAuthData(connection, t).map((item, index) => (
         <Descriptions.Item label={item.label} span={3} key={index}>
           {item.content}
         </Descriptions.Item>
