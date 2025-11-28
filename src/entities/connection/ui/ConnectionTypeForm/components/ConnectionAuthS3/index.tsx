@@ -11,7 +11,7 @@ export const ConnectionAuthS3 = () => {
   return (
     <>
       {/* Hide Form.Item control, because its value is set in 'useSelectConnectionType' hook */}
-      <Form.Item name={['auth_data', 'type']} hidden/>
+      <Form.Item name={['auth_data', 'type']} hidden />
       <Form.Item label={t('accessKey')} name={['auth_data', 'access_key']} rules={[{ required: true }]}>
         <Input size="large" />
       </Form.Item>

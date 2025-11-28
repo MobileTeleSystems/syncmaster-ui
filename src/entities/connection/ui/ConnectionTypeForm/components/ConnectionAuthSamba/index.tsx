@@ -11,12 +11,8 @@ export const ConnectionAuthSamba = () => {
   return (
     <>
       {/* Hide Form.Item control, because its value is set in 'useSelectConnectionType' hook */}
-      <Form.Item name={['auth_data', 'type']} hidden/>
-      <Form.Item
-        label={t('username', { ns: 'auth' })}
-        name={['auth_data', 'user']}
-        rules={[{ required: true }]}
-      >
+      <Form.Item name={['auth_data', 'type']} hidden />
+      <Form.Item label={t('username', { ns: 'auth' })} name={['auth_data', 'user']} rules={[{ required: true }]}>
         <Input size="large" />
       </Form.Item>
       <Form.Item
@@ -26,11 +22,7 @@ export const ConnectionAuthSamba = () => {
       >
         <Input.Password size="large" />
       </Form.Item>
-      <Form.Item
-        label={t('samba.authType')}
-        name={['auth_data', 'auth_type']}
-        initialValue="NTLMv2"
-      >
+      <Form.Item label={t('samba.authType')} name={['auth_data', 'auth_type']} initialValue="NTLMv2">
         <Radio.Group>
           <Radio.Button value="NTLMv1">NTLMv1</Radio.Button>
           <Radio.Button value="NTLMv2">NTLMv2</Radio.Button>

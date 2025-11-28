@@ -34,7 +34,7 @@ export const TargetParams = memo(({ groupId }: TargetParamsProps) => {
           placeholder={t('selectTargetConnection', { ns: 'transfer' })}
         />
       </Form.Item>
-      <Form.Item name={['target_params', 'type']} hidden/>
+      <Form.Item name={['target_params', 'type']} hidden />
       {TRANSFER_TARGET_CONNECTION_TYPE_COMPONENT[selectedConnectionType!]}
     </>
   );

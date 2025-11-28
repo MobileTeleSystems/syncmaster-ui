@@ -11,7 +11,7 @@ export const ConnectionAuthBasic = () => {
   return (
     <>
       {/* Hide Form.Item control, because its value is set in 'useSelectConnectionType' hook */}
-      <Form.Item name={['auth_data', 'type']} hidden/>
+      <Form.Item name={['auth_data', 'type']} hidden />
       <Form.Item label={t('username')} name={['auth_data', 'user']} rules={[{ required: true }]}>
         <Input size="large" />
       </Form.Item>

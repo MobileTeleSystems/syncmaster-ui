@@ -7,19 +7,19 @@ import { ConnectionAuthSamba } from '../ConnectionAuthSamba';
 
 export const ConnectionSamba = () => {
   const { t } = useTranslation('connection');
-  
+
   const formInstance = Form.useFormInstance();
   Form.useWatch('protocol', formInstance);
 
-  const [defaultPort, setDefaultPort] = useState("445");
+  const [defaultPort, setDefaultPort] = useState('445');
 
   const handleProtocolChange = (e: RadioChangeEvent) => {
     if (e.target.value === 'SMB') {
-      setDefaultPort("445");
+      setDefaultPort('445');
     } else {
-      setDefaultPort("139");
+      setDefaultPort('139');
     }
-  }
+  };
 
   return (
     <>

@@ -17,7 +17,7 @@ export const ConnectionPostgres = () => {
         <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} placeholder="5432" />
       </Form.Item>
       <Form.Item label={t('databaseName')} name={['connection_data', 'database_name']} rules={[{ required: true }]}>
-        <Input size="large" placeholder="postgres"  />
+        <Input size="large" placeholder="postgres" />
       </Form.Item>
       <ConnectionAuthBasic />
     </>

@@ -14,7 +14,12 @@ export const ConnectionS3 = () => {
         <Input size="large" placeholder="s3.mycompany.com" />
       </Form.Item>
       <ConnectionHttpProtocol />
-      <Form.Item label={t('s3.bucketStyle')} name={['connection_data', 'bucket_style']} rules={[{ required: true }]} initialValue="domain">
+      <Form.Item
+        label={t('s3.bucketStyle')}
+        name={['connection_data', 'bucket_style']}
+        rules={[{ required: true }]}
+        initialValue="domain"
+      >
         <Radio.Group>
           <Radio.Button value="domain">bucket.s3.mycompany.com</Radio.Button>
           <Radio.Button value="path">s3.mycompany.com/bucket</Radio.Button>
@@ -24,7 +29,7 @@ export const ConnectionS3 = () => {
         <Input size="large" />
       </Form.Item>
       <Form.Item label={t('s3.region')} name={['connection_data', 'region']}>
-        <Input size="large" placeholder="us-east-1"/>
+        <Input size="large" placeholder="us-east-1" />
       </Form.Item>
       <ConnectionAuthS3 />
     </>

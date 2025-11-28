@@ -34,7 +34,7 @@ export const SourceParams = memo(({ groupId }: SourceParamsProps) => {
           placeholder={t('selectSourceConnection', { ns: 'transfer' })}
         />
       </Form.Item>
-      <Form.Item name={['source_params', 'type']} hidden/>
+      <Form.Item name={['source_params', 'type']} hidden />
       {TRANSFER_SOURCE_CONNECTION_TYPE_COMPONENT[selectedConnectionType!]}
     </>
   );

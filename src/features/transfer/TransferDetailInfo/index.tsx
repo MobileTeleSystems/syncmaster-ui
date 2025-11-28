@@ -8,7 +8,6 @@ import { TransferDetailInfoProps } from './types';
 import classes from './styles.module.less';
 import { TransferParams, TransferResources, TransferStrategyParams } from './components';
 
-
 export const TransferDetailInfo = ({
   transfer,
   group,

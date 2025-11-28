@@ -13,7 +13,7 @@ export const ConnectionWebdav = () => {
       <Form.Item label={t('host')} name={['connection_data', 'host']} rules={[{ required: true }]}>
         <Input size="large" placeholder="myserver.mycompany.com" />
       </Form.Item>
-      <ConnectionHttpProtocol/>
+      <ConnectionHttpProtocol />
       <ConnectionAuthBasic />
     </>
   );
