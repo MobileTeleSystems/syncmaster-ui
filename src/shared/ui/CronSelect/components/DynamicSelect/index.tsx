@@ -10,7 +10,7 @@ import { useGetDaysOfWeekSelectOptions } from '../../hooks';
 import { DynamicSelectProps } from './types';
 
 export const DynamicSelect = ({ period, weekDay, monthDay, onChangeWeekDay, onChangeMonthDay }: DynamicSelectProps) => {
-  const { t } = useTranslation('shared');
+  const { t } = useTranslation('cron');
   const daysOfWeekSelectOptions = useGetDaysOfWeekSelectOptions();
 
   switch (period) {

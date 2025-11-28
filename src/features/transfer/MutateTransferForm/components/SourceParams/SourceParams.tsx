@@ -31,12 +31,10 @@ export const SourceParams = memo(({ groupId }: SourceParamsProps) => {
           onSelect={handleSelectConnection}
           detailQueryKey={[ConnectionQueryKey.GET_CONNECTION]}
           detailQueryFunction={(value) => connectionService.getConnection({ id: value })}
-          placeholder={t('selectSourceConnection')}
+          placeholder={t('selectSourceConnection', { ns: 'transfer' })}
         />
       </Form.Item>
-      <Form.Item name={['source_params', 'type']} style={{ display: 'none' }}>
-        <Input />
-      </Form.Item>
+      <Form.Item name={['source_params', 'type']} hidden/>
       {TRANSFER_SOURCE_CONNECTION_TYPE_COMPONENT[selectedConnectionType!]}
     </>
   );

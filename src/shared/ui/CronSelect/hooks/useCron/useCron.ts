@@ -1,4 +1,4 @@
-import { CronSegmentValue, CronService, Period } from '@shared/services';
+import { CronSegmentValue, Period, useCronService } from '@shared/services';
 import dayjs, { Dayjs } from 'dayjs';
 import { useEffect } from 'react';
 
@@ -6,7 +6,7 @@ import { UseCronProps } from './types';
 
 /** Hook for handling value of CronSelect component */
 export const useCron = ({ value, onChange = () => undefined }: UseCronProps) => {
-  const cronService = new CronService(value);
+  const cronService = useCronService({ value });
 
   const handleChange = () => onChange(cronService.toString());
 

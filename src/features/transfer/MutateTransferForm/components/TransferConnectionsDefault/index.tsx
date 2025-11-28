@@ -9,7 +9,7 @@ import { TransferConnectionsDefaultProps } from './types';
 import { FILTER_TYPES_CONFIG } from './constants';
 
 export const TransferConnectionsDefault = ({ groupId }: TransferConnectionsDefaultProps) => {
-  const { t } = useTranslation('connection');
+  const { t } = useTranslation('transfer');
 
   const filters = useMemo(
     () =>

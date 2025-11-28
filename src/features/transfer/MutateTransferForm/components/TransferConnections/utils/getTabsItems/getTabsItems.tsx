@@ -17,7 +17,7 @@ export const getTabsItems = ({ t, ...props }: GetTabsItemsProps) => [
     label: t('advanced'),
     key: TransferConnectionsTab.ADVANCED,
     children: (
-      <Fieldset title={t('transferAdvancedSettings', { ns: 'connection' })}>
+      <Fieldset title={t('transferAdvancedSettings')}>
         <TransferConnectionsCanvas {...props} />
       </Fieldset>
     ),

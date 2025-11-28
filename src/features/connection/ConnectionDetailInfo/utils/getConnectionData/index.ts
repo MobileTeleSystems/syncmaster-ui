@@ -42,7 +42,7 @@ export const getConnectionData = (connection: Connection, t: TFunction<'connecti
           content: connection_data.host,
         },
         {
-          label: t('share'),
+          label: t('samba.share'),
           content: connection_data.share,
         },
         {
@@ -54,14 +54,14 @@ export const getConnectionData = (connection: Connection, t: TFunction<'connecti
           content: connection_data.port || '',
         },
         {
-          label: t('domain'),
+          label: t('samba.domain'),
           content: connection_data.domain,
         },
       ];
     case ConnectionType.ORACLE:
       return [
         {
-          label: connection_data.service_name ? t('serviceName') : t('sid'),
+          label: connection_data.service_name ? t('oracle.serviceName') : t('oracle.sid'),
           content: connection_data.service_name || connection_data.sid,
         },
         {
@@ -98,11 +98,11 @@ export const getConnectionData = (connection: Connection, t: TFunction<'connecti
           content: connection_data.host,
         },
         {
-          label: t('bucketStyle'),
+          label: t('s3.bucketStyle'),
           content: connection_data.bucket_style,
         },
         {
-          label: t('bucket'),
+          label: t('s3.bucket'),
           content: connection_data.bucket,
         },
         {
@@ -114,7 +114,7 @@ export const getConnectionData = (connection: Connection, t: TFunction<'connecti
           content: connection_data.port || '',
         },
         {
-          label: t('region'),
+          label: t('s3.region'),
           content: connection_data.region || '',
         },
       ];

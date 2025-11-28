@@ -1,2 +1,2 @@
-export * from './cronService';
 export * from './useCronService';
+export * from './types';

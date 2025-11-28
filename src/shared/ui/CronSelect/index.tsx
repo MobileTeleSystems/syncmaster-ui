@@ -10,7 +10,7 @@ import { useCron, useGetPeriodSelectOptions } from './hooks';
 import { DynamicSelect } from './components';
 
 export const CronSelect = memo(({ value, onChange }: CronSelectProps) => {
-  const { t } = useTranslation('shared');
+  const { t } = useTranslation('cron');
   const periodSelectOptions = useGetPeriodSelectOptions();
 
   const {

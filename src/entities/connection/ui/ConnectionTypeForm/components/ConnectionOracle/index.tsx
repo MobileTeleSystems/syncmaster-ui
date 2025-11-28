@@ -41,24 +41,24 @@ export const ConnectionOracle = () => {
         <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} />
       </Form.Item>
       <Form.Item
-        label={t('serviceName')}
+        label={t('oracle.serviceName')}
         name={['connection_data', 'service_name']}
         rules={[
           {
             required: !isServiceNameDisabled,
-            message: t('serviceNameOrSidRequired'),
+            message: t('oracle.serviceNameOrSidRequired'),
           },
         ]}
       >
         <Input size="large" disabled={isServiceNameDisabled} onChange={handleFieldChange} />
       </Form.Item>
       <Form.Item
-        label={t('sid')}
+        label={t('oracle.sid')}
         name={['connection_data', 'sid']}
         rules={[
           {
             required: !isSidDisabled,
-            message: t('serviceNameOrSidRequired'),
+            message: t('oracle.serviceNameOrSidRequired'),
           },
         ]}
       >

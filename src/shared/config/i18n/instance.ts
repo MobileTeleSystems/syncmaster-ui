@@ -9,7 +9,7 @@ i18n.use(initReactI18next).init({
   fallbackLng: Language.EN,
   resources,
   defaultNS: 'shared',
-
+  keySeparator: '.',
   interpolation: {
     escapeValue: false,
   },

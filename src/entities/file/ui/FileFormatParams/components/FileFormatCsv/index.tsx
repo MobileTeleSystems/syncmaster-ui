@@ -26,8 +26,8 @@ export const FileFormatCsv = ({ name }: FileFormatCsvProps) => {
       </Form.Item>
       <Form.Item label={t('includeHeader')} name={[...name, 'include_header']}>
         <Radio.Group>
-          <Radio value={true}>{t('yes')}</Radio>
-          <Radio value={false}>{t('no')}</Radio>
+          <Radio value={true}>{t('yes', { ns: 'shared' })}</Radio>
+          <Radio value={false}>{t('no', { ns: 'shared' })}</Radio>
         </Radio.Group>
       </Form.Item>
       <Form.Item label={t('lineSeparator')} name={[...name, 'line_sep']}>

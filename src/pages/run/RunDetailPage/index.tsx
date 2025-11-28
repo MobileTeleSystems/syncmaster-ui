@@ -43,12 +43,12 @@ export const RunDetailPage = () => {
             queue={queue}
           />
           <ConnectionDetailInfo
-            title={t('sourceConnectionInfo', { ns: 'connection' })}
+            title={t('sourceConnectionInfo', { ns: 'run' })}
             group={group.data}
             connection={connectionSource}
           />
           <ConnectionDetailInfo
-            title={t('targetConnectionInfo', { ns: 'connection' })}
+            title={t('targetConnectionInfo', { ns: 'run' })}
             group={group.data}
             connection={connectionTarget}
           />

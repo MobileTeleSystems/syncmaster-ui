@@ -5,7 +5,7 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const useGetDaysOfWeekSelectOptions = () => {
-  const { t } = useTranslation('shared');
+  const { t } = useTranslation('cron');
 
   return useMemo(() => {
     return prepareOptionsForSelect({

@@ -4,7 +4,7 @@ import { Select } from '@shared/ui';
 import { useTranslation } from 'react-i18next';
 
 import { MAX_ALLOWED_PORT, MIN_ALLOWED_PORT } from '../../constants';
-import { ConnectionAuthBasic } from '../ConnectionAuthBasic';
+import { ConnectionAuthSamba } from '../ConnectionAuthSamba';
 
 import { CONNECTION_SAMBA_PROTOCOL_SELECT_OPTIONS } from './constants';
 
@@ -16,7 +16,7 @@ export const ConnectionSamba = () => {
       <Form.Item label={t('host')} name={['connection_data', 'host']} rules={[{ required: true }]}>
         <Input size="large" />
       </Form.Item>
-      <Form.Item label={t('share')} name={['connection_data', 'share']} rules={[{ required: true }]}>
+      <Form.Item label={t('samba.share')} name={['connection_data', 'share']} rules={[{ required: true }]}>
         <Input size="large" />
       </Form.Item>
       <Form.Item label={t('protocol')} name={['connection_data', 'protocol']}>
@@ -25,10 +25,10 @@ export const ConnectionSamba = () => {
       <Form.Item label={t('port')} name={['connection_data', 'port']}>
         <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} />
       </Form.Item>
-      <Form.Item label={t('domain')} name={['connection_data', 'domain']}>
+      <Form.Item label={t('samba.domain')} name={['connection_data', 'domain']}>
         <Input size="large" />
       </Form.Item>
-      <ConnectionAuthBasic />
+      <ConnectionAuthSamba />
     </>
   );
 };

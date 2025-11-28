@@ -31,12 +31,10 @@ export const TargetParams = memo(({ groupId }: TargetParamsProps) => {
           onSelect={handleSelectConnection}
           detailQueryKey={[ConnectionQueryKey.GET_CONNECTION]}
           detailQueryFunction={(value) => connectionService.getConnection({ id: value })}
-          placeholder={t('selectTargetConnection')}
+          placeholder={t('selectTargetConnection', { ns: 'transfer' })}
         />
       </Form.Item>
-      <Form.Item name={['target_params', 'type']} style={{ display: 'none' }}>
-        <Input />
-      </Form.Item>
+      <Form.Item name={['target_params', 'type']} hidden/>
       {TRANSFER_TARGET_CONNECTION_TYPE_COMPONENT[selectedConnectionType!]}
     </>
   );

@@ -54,33 +54,34 @@
       "needToSelectGroupToSeeConnectionList": "Вам нужно выбрать группу, чтобы увидеть список соединений",
       "needToSelectGroupToCreateConnection": "Вам нужно выбрать группу, чтобы создать соединение",
       "notPermissionToCreateConnection": "У вас нет разрешения на создание соединения в выбранной группе",
-      "sourceConnectionInfo": "Информация об источнике",
-      "targetConnectionInfo": "Информация о назначении",
       "connectionSettings": "Настройки соединения",
       "selectConnectionType": "Выберите тип соединения",
-      "sourceConnection": "Источник",
-      "targetConnection": "Назначение",
-      "selectSourceConnection": "Выберите источник",
-      "selectTargetConnection": "Выберите назначение",
-      "transferAdvancedSettings": "Детальная настройка трансфера",
-      "accessKey": "Ключ доступа",
-      "secretKey": "Секретный ключ",
-      "selectProtocol": "Выберите протокол",
-      "databaseName": "Имя базы данных",
+      "connectionInfo": "Информация о соединении",
       "host": "Хост",
       "port": "Порт",
       "cluster": "Кластер",
-      "serviceName": "Название сервиса",
-      "serviceNameOrSidRequired": "Требуется либо название сервиса, либо сид",
-      "sid": "Сид",
+      "databaseName": "Имя базы данных",
       "protocol": "Протокол",
-      "bucketStyle": "Стиль бакета",
-      "bucket": "Бакет",
-      "region": "Регион",
-      "selectBucketStyle": "Выберите стиль бакета",
-      "share": "Название сетевого ресурса (\"шара\")",
-      "domain": "Домен",
-      "connectionInfo": "Информация о соединении"
+      "selectProtocol": "Выберите протокол",
+      "oracle": {
+        "serviceName": "Название сервиса",
+        "serviceNameOrSidRequired": "Требуется либо название сервиса, либо SID",
+        "sid": "SID базы данных"
+      },
+      "s3": {
+        "bucketStyle": "Стиль бакета",
+        "bucket": "Бакет",
+        "region": "Регион",
+        "selectBucketStyle": "Выберите стиль бакета",
+        "accessKey": "Ключ доступа",
+        "secretKey": "Секретный ключ"
+      },
+      "samba": {
+        "share": "Название сетевого ресурса (\"шара\")",
+        "domain": "Домен",
+        "authType":"Тип аутентификации",
+        "selectAuthType":"Выберите тип аутентификации"
+      }
     },
     "file": {
       "b": "Б",
@@ -97,8 +98,6 @@
       "escape": "Экранирование",
       "includeHeader": "Включить заголовок",
       "lineSeparator": "Разделитель строк",
-      "yes": "Да",
-      "no": "Нет",
       "startCell": "Начальная ячейка",
       "rootTag": "Корневой тег",
       "rowTag": "Тег строки",
@@ -140,6 +139,8 @@
       "transferRuns": "Запуски трансфера",
       "runTransfer": "Запустить трансфер",
       "runInfo": "Информация о запуске",
+      "sourceConnectionInfo": "Информация об источнике",
+      "targetConnectionInfo": "Информация о назначении",
       "status": "Статус",
       "startedAt": "Начало в",
       "endedAt": "Окончание в",
@@ -168,6 +169,11 @@
       "directoryPath": "Путь к директории",
       "tableName": "Название таблицы",
       "transferInfo": "Информация о трансфере",
+      "sourceConnection": "Источник",
+      "targetConnection": "Назначение",
+      "selectSourceConnection": "Выберите источник",
+      "selectTargetConnection": "Выберите назначение",
+      "transferAdvancedSettings": "Детальная настройка трансфера",
       "schedule": "Расписание",
       "strategyParams": "Параметры стратегии",
       "sourceParams": "Параметры источника",
@@ -221,9 +227,7 @@
       "nameGlob": "имя (шаблон)",
       "nameRegexp": "имя (регулярное выражение)"
     },
-    "shared": {
-      "submit": "Сохранить",
-      "cancel": "Отмена",
+    "cron": {
       "monday": "Понедельник",
       "tuesday": "Вторник",
       "wednesday": "Среда",
@@ -248,6 +252,14 @@
       "period": "Период",
       "time": "Время",
       "at": "в",
+      "minuteError": "Минута должна быть от 0 до 59",
+      "hourError": "Час должен быть от 0 до 23",
+      "dayError": "День должен быть от 1 до 31",
+      "weekdayError": "День недели должен быть от 1 до 7"
+    },
+    "shared": {
+      "submit": "Сохранить",
+      "cancel": "Отмена",
       "actions": "Действия",
       "confirm": "Подтвердить",
       "add": "Добавить",
@@ -261,6 +273,8 @@
       "description": "Описание",
       "type": "Тип",
       "required": "обязательный",
+      "yes": "Да",
+      "no": "Нет",
       "mainInfo": "Основная информация"
     }
 }

@@ -10,18 +10,18 @@ export const getConnectionAuthData = (connection: Connection, t: TFunction<'conn
     case ConnectionType.S3:
       return [
         {
-          label: t('accessKey'),
+          label: t('s3.accessKey'),
           content: auth_data.access_key,
         },
       ];
     case ConnectionType.SAMBA:
       return [
         {
-          label: t('user', { ns: 'group' }),
+          label: t('username', { ns: 'auth' }),
           content: auth_data.user,
         },
         {
-          label: t('authType', { ns: 'auth' }),
+          label: t('samba.authType'),
           content: auth_data.auth_type,
         },
       ];
@@ -38,7 +38,7 @@ export const getConnectionAuthData = (connection: Connection, t: TFunction<'conn
     case ConnectionType.MS_SQL:
       return [
         {
-          label: t('user', { ns: 'group' }),
+          label: t('username', { ns: 'auth' }),
           content: auth_data.user,
         },
       ];

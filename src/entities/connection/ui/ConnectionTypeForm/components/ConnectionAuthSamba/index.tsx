@@ -14,10 +14,12 @@ export const ConnectionAuthSamba = () => {
   return (
     <>
       {/* Hide Form.Item control, because its value is set in 'useSelectConnectionType' hook */}
-      <Form.Item name={['auth_data', 'type']} hidden>
-        <Input size="large" />
-      </Form.Item>
-      <Form.Item label={t('user', { ns: 'group' })} name={['auth_data', 'user']} rules={[{ required: true }]}>
+      <Form.Item name={['auth_data', 'type']} hidden/>
+      <Form.Item
+        label={t('username', { ns: 'auth' })}
+        name={['auth_data', 'user']}
+        rules={[{ required: true }]}
+      >
         <Input size="large" />
       </Form.Item>
       <Form.Item
@@ -27,8 +29,11 @@ export const ConnectionAuthSamba = () => {
       >
         <Input.Password size="large" />
       </Form.Item>
-      <Form.Item name={['auth_data', 'auth_type']}>
-        <Select size="large" options={CONNECTION_SAMBA_AUTH_TYPE_SELECT_OPTIONS} placeholder={t('selectProtocol')} />
+      <Form.Item
+        label={t('samba.authType')}
+        name={['auth_data', 'auth_type']}
+      >
+        <Select size="large" options={CONNECTION_SAMBA_AUTH_TYPE_SELECT_OPTIONS} placeholder={t('samba.selectAuthType')} />
       </Form.Item>
     </>
   );

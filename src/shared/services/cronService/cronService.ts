@@ -11,9 +11,12 @@ export class CronService {
 
   private value: Map<CronSegmentKey, CronSegmentValue>;
 
-  constructor(initialValue?: string) {
+  private t: TFunction<'cron'>;
+
+  constructor(t: TFunction<'cron'>, initialValue?: string) {
     this.value = this.transformInitialValueToMap(initialValue);
     this.period = this.initPeriod();
+    this.t = t;
   }
 
   private transformInitialValueToMap(initialValue?: string) {
@@ -91,14 +94,14 @@ export class CronService {
 
   setMinute(value: number) {
     if (value < 0 || value > 59) {
-      throw new Error('Invalid value');
+      throw new Error(this.t('minuteError'));
     }
     this.value.set('minute', value);
   }
 
   setHour(value: number) {
     if (value < 0 || value > 23) {
-      throw new Error('Invalid value');
+      throw new Error(this.t('hourError'));
     }
     this.value.set('hour', value);
   }
@@ -114,7 +117,7 @@ export class CronService {
       return;
     }
     if (value < 1 || value > 31) {
-      throw new Error('Invalid value');
+      throw new Error(this.t('dayError'));
     }
     this.value.set('date', value);
   }
@@ -125,7 +128,7 @@ export class CronService {
       return;
     }
     if (value < 0 || value > 6) {
-      throw new Error('Invalid value');
+      throw new Error(this.t('weekdayError'));
     }
     this.value.set('day', value);
   }
@@ -138,20 +141,20 @@ export class CronService {
     return `${minute} ${hour} ${date} * ${day}`;
   }
 
-  getSchedule(t: TFunction<'shared'>) {
+  getSchedule() {
     const time = this.getTime();
     const day = this.getWeekDay();
     const date = this.getMonthDay();
 
-    let schedule = t(PERIOD_DISPLAY[this.period]);
+    let schedule = this.t(PERIOD_DISPLAY[this.period]);
 
     if (day !== null) {
-      schedule += ` ${t(`${DAY_OF_WEEK_DISPLAY[day]}On`)}`;
+      schedule += ` ${this.t(`${DAY_OF_WEEK_DISPLAY[day]}On`)}`;
     } else if (date) {
-      schedule += ` ${t('dayOfMonthNumber', { count: date, ordinal: true })}`;
+      schedule += ` ${this.t('dayOfMonthNumber', { count: date, ordinal: true })}`;
     }
 
-    schedule += ` ${t('at')} ${time}`;
+    schedule += ` ${this.t('at')} ${time}`;
 
     return schedule;
   }

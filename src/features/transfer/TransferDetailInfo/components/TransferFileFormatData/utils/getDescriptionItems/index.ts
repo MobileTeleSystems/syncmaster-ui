@@ -26,7 +26,7 @@ export const getDescriptionItems = ({ t, data }: GetDescriptionItemsProps): Desc
         },
         {
           label: t('includeHeader'),
-          content: data.include_header ? t('yes') : t('no'),
+          content: data.include_header ? t('yes', { ns: 'shared' }) : t('no', { ns: 'shared' }),
         },
         {
           label: t('lineSeparator'),
@@ -57,7 +57,7 @@ export const getDescriptionItems = ({ t, data }: GetDescriptionItemsProps): Desc
       return [
         {
           label: t('includeHeader'),
-          content: data.include_header ? t('yes') : t('no'),
+          content: data.include_header ? t('yes', { ns: 'shared' }) : t('no', { ns: 'shared' }),
         },
         {
           label: t('lineSeparator'),

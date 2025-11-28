@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const useGetPeriodSelectOptions = () => {
-  const { t } = useTranslation('shared');
+  const { t } = useTranslation('cron');
 
   return useMemo(() => {
     return prepareOptionsForSelect({

@@ -1,12 +1,13 @@
 import React, { PropsWithChildren } from 'react';
 import { Descriptions } from 'antd';
 import { Link } from 'react-router-dom';
-import { CronService } from '@shared/services';
 import { useTranslation } from 'react-i18next';
 
 import { TransferDetailInfoProps } from './types';
 import classes from './styles.module.less';
 import { TransferParams, TransferResources, TransferStrategyParams } from './components';
+
+import { useCronService } from '@shared/services';
 
 export const TransferDetailInfo = ({
   transfer,
@@ -18,6 +19,7 @@ export const TransferDetailInfo = ({
   ...props
 }: PropsWithChildren<TransferDetailInfoProps>) => {
   const { t } = useTranslation();
+  const cron = useCronService({ value: transfer.schedule });
 
   return (
     <div className={classes.root}>
@@ -39,7 +41,7 @@ export const TransferDetailInfo = ({
         </Descriptions.Item>
         {transfer.is_scheduled && (
           <Descriptions.Item label={t('schedule', { ns: 'transfer' })} span={3}>
-            {new CronService(transfer.schedule).getSchedule(t)}
+            {cron.getSchedule()}
           </Descriptions.Item>
         )}
         <Descriptions.Item className={classes.subDescription} label={t('strategyParams', { ns: 'transfer' })} span={3}>
@@ -48,10 +50,10 @@ export const TransferDetailInfo = ({
         <Descriptions.Item className={classes.subDescription} label={t('resources', { ns: 'transfer' })} span={3}>
           <TransferResources data={transfer.resources} />
         </Descriptions.Item>
-        <Descriptions.Item label={t('sourceConnection', { ns: 'connection' })} span={3}>
+        <Descriptions.Item label={t('sourceConnection', { ns: 'transfer' })} span={3}>
           <Link to={`/connections/${connectionSource.id}`}>{connectionSource.name}</Link>
         </Descriptions.Item>
-        <Descriptions.Item label={t('targetConnection', { ns: 'connection' })} span={3}>
+        <Descriptions.Item label={t('targetConnection', { ns: 'transfer' })} span={3}>
           <Link to={`/connections/${connectionTarget.id}`}>{connectionTarget.name}</Link>
         </Descriptions.Item>
         <Descriptions.Item className={classes.subDescription} label={t('sourceParams', { ns: 'transfer' })} span={3}>
