@@ -1,9 +1,9 @@
 import React from 'react';
-import { Form, Input, InputNumber, Radio } from 'antd';
+import { Form, Input, Radio } from 'antd';
 import { useTranslation } from 'react-i18next';
 
-import { MAX_ALLOWED_PORT, MIN_ALLOWED_PORT } from '../../constants';
 import { ConnectionAuthS3 } from '../ConnectionAuthS3';
+import { ConnectionHttpProtocol } from '../ConnectionHttpProtocol';
 
 export const ConnectionS3 = () => {
   const { t } = useTranslation('connection');
@@ -13,20 +13,7 @@ export const ConnectionS3 = () => {
       <Form.Item label={t('host')} name={['connection_data', 'host']} rules={[{ required: true }]}>
         <Input size="large" placeholder="s3.mycompany.com" />
       </Form.Item>
-      <Form.Item
-        label={t('protocol')}
-        name={['connection_data', 'protocol']}
-        rules={[{ required: true }]}
-        initialValue="https"
-      >
-        <Radio.Group>
-          <Radio.Button value="http">HTTP</Radio.Button>
-          <Radio.Button value="httpS">HTTPS</Radio.Button>
-        </Radio.Group>
-      </Form.Item>
-      <Form.Item label={t('port')} name={['connection_data', 'port']}>
-        <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} placeholder="443" />
-      </Form.Item>
+      <ConnectionHttpProtocol />
       <Form.Item label={t('s3.bucketStyle')} name={['connection_data', 'bucket_style']} rules={[{ required: true }]} initialValue="domain">
         <Radio.Group>
           <Radio.Button value="domain">bucket.s3.mycompany.com</Radio.Button>
