@@ -70,9 +70,8 @@
       },
       "s3": {
         "bucketStyle": "Стиль бакета",
-        "bucket": "Бакет",
+        "bucket": "Название бакета",
         "region": "Регион",
-        "selectBucketStyle": "Выберите стиль бакета",
         "accessKey": "Ключ доступа",
         "secretKey": "Секретный ключ"
       },

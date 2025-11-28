@@ -69,9 +69,8 @@
       },
       "s3": {
         "bucketStyle": "Bucket style",
-        "bucket": "Bucket",
+        "bucket": "Bucket name",
         "region": "Region",
-        "selectBucketStyle": "Select bucket style",
         "accessKey": "Access key",
         "secretKey": "Secret key"
       },

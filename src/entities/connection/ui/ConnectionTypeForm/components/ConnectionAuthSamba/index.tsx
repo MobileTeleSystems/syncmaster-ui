@@ -1,11 +1,8 @@
 import React from 'react';
-import { Form, Input } from 'antd';
-import { Select } from '@shared/ui';
+import { Form, Input, Radio } from 'antd';
 import { useTranslation } from 'react-i18next';
 
 import { useSensitiveFields } from '../../hooks';
-
-import { CONNECTION_SAMBA_AUTH_TYPE_SELECT_OPTIONS } from './constants';
 
 export const ConnectionAuthSamba = () => {
   const { t } = useTranslation('connection');
@@ -32,8 +29,12 @@ export const ConnectionAuthSamba = () => {
       <Form.Item
         label={t('samba.authType')}
         name={['auth_data', 'auth_type']}
+        initialValue="NTLMv2"
       >
-        <Select size="large" options={CONNECTION_SAMBA_AUTH_TYPE_SELECT_OPTIONS} placeholder={t('samba.selectAuthType')} />
+        <Radio.Group>
+          <Radio.Button value="NTLMv1">NTLMv1</Radio.Button>
+          <Radio.Button value="NTLMv2">NTLMv2</Radio.Button>
+        </Radio.Group>
       </Form.Item>
     </>
   );

@@ -69,15 +69,3 @@ export const CONNECTION_TYPE_SELECT_OPTIONS = prepareOptionsForSelect({
   renderLabel: (data) => data.label,
   renderValue: (data) => data.value,
 });
-
-export const CONNECTION_BUCKET_STYLE_SELECT_OPTIONS = prepareOptionsForSelect<ConnectionBucketStyle>({
-  data: ['domain', 'path'],
-  renderLabel: (data) => data,
-  renderValue: (data) => data,
-});
-
-export const CONNECTION_PROTOCOL_SELECT_OPTIONS = prepareOptionsForSelect<ConnectionProtocol>({
-  data: ['https', 'http'],
-  renderLabel: (data) => data,
-  renderValue: (data) => data,
-});
