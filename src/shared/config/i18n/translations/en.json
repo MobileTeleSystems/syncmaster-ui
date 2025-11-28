@@ -63,9 +63,9 @@
       "databaseName": "Database name",
       "cluster": "Cluster",
       "oracle": {
-        "sid": "Sid",
+        "sid": "SID",
         "serviceName": "Service name",
-        "serviceNameOrSidRequired": "Either Service name or Sid is required"
+        "serviceNameOrSidRequired": "Either Service Name or SID is required"
       },
       "s3": {
         "bucketStyle": "Bucket style",

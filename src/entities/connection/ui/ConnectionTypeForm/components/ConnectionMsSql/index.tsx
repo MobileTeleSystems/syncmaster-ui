@@ -10,14 +10,14 @@ export const ConnectionMsSql = () => {
 
   return (
     <>
-      <Form.Item label={t('databaseName')} name={['connection_data', 'database_name']} rules={[{ required: true }]}>
-        <Input size="large" />
-      </Form.Item>
       <Form.Item label={t('host')} name={['connection_data', 'host']} rules={[{ required: true }]}>
         <Input size="large" />
       </Form.Item>
       <Form.Item label={t('port')} name={['connection_data', 'port']}>
         <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} />
+      </Form.Item>
+      <Form.Item label={t('databaseName')} name={['connection_data', 'database_name']} rules={[{ required: true }]}>
+        <Input size="large" />
       </Form.Item>
       <ConnectionAuthBasic />
     </>

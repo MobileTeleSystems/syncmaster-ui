@@ -42,16 +42,16 @@ export const getConnectionData = (connection: Connection, t: TFunction<'connecti
           content: connection_data.host,
         },
         {
-          label: t('samba.share'),
-          content: connection_data.share,
-        },
-        {
           label: t('protocol'),
           content: connection_data.protocol,
         },
         {
           label: t('port'),
           content: connection_data.port || '',
+        },
+        {
+          label: t('samba.share'),
+          content: connection_data.share,
         },
         {
           label: t('samba.domain'),
@@ -61,16 +61,16 @@ export const getConnectionData = (connection: Connection, t: TFunction<'connecti
     case ConnectionType.ORACLE:
       return [
         {
-          label: connection_data.service_name ? t('oracle.serviceName') : t('oracle.sid'),
-          content: connection_data.service_name || connection_data.sid,
-        },
-        {
           label: t('host'),
           content: connection_data.host,
         },
         {
           label: t('port'),
           content: connection_data.port,
+        },
+        {
+          label: connection_data.service_name ? t('oracle.serviceName') : t('oracle.sid'),
+          content: connection_data.service_name || connection_data.sid,
         },
       ];
     case ConnectionType.POSTGRES:
@@ -79,16 +79,16 @@ export const getConnectionData = (connection: Connection, t: TFunction<'connecti
     case ConnectionType.MSSQL:
       return [
         {
-          label: t('databaseName'),
-          content: connection_data.database_name || '',
-        },
-        {
           label: t('host'),
           content: connection_data.host,
         },
         {
           label: t('port'),
           content: connection_data.port,
+        },
+        {
+          label: t('databaseName'),
+          content: connection_data.database_name || '',
         },
       ];
     case ConnectionType.S3:
@@ -98,20 +98,20 @@ export const getConnectionData = (connection: Connection, t: TFunction<'connecti
           content: connection_data.host,
         },
         {
-          label: t('s3.bucketStyle'),
-          content: connection_data.bucket_style,
-        },
-        {
-          label: t('s3.bucket'),
-          content: connection_data.bucket,
-        },
-        {
           label: t('protocol'),
           content: connection_data.protocol,
         },
         {
           label: t('port'),
           content: connection_data.port || '',
+        },
+        {
+          label: t('s3.bucketStyle'),
+          content: connection_data.bucket_style,
+        },
+        {
+          label: t('s3.bucket'),
+          content: connection_data.bucket,
         },
         {
           label: t('s3.region'),

@@ -18,14 +18,14 @@ export const ConnectionS3 = () => {
       <Form.Item label={t('protocol')} name={['connection_data', 'protocol']}>
         <Select size="large" options={CONNECTION_PROTOCOL_SELECT_OPTIONS} placeholder={t('selectProtocol')} />
       </Form.Item>
+      <Form.Item label={t('port')} name={['connection_data', 'port']}>
+        <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} />
+      </Form.Item>
       <Form.Item label={t('s3.bucketStyle')} name={['connection_data', 'bucket_style']}>
         <Select size="large" options={CONNECTION_BUCKET_STYLE_SELECT_OPTIONS} placeholder={t('s3.selectBucketStyle')} />
       </Form.Item>
       <Form.Item label={t('s3.bucket')} name={['connection_data', 'bucket']} rules={[{ required: true }]}>
         <Input size="large" />
-      </Form.Item>
-      <Form.Item label={t('port')} name={['connection_data', 'port']}>
-        <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} />
       </Form.Item>
       <Form.Item label={t('s3.region')} name={['connection_data', 'region']}>
         <Input size="large" />
