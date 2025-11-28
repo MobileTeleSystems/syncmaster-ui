@@ -25,17 +25,17 @@ export const getConnectionAuthData = (connection: Connection, t: TFunction<'conn
           content: auth_data.auth_type,
         },
       ];
+    case ConnectionType.CLICKHOUSE:
     case ConnectionType.FTP:
     case ConnectionType.FTPS:
-    case ConnectionType.SFTP:
-    case ConnectionType.WEBDAV:
-    case ConnectionType.HIVE:
     case ConnectionType.HDFS:
+    case ConnectionType.HIVE:
+    case ConnectionType.MSSQL:
+    case ConnectionType.MYSQL:
     case ConnectionType.ORACLE:
     case ConnectionType.POSTGRES:
-    case ConnectionType.CLICKHOUSE:
-    case ConnectionType.MY_SQL:
-    case ConnectionType.MS_SQL:
+    case ConnectionType.SFTP:
+    case ConnectionType.WEBDAV:
       return [
         {
           label: t('username', { ns: 'auth' }),

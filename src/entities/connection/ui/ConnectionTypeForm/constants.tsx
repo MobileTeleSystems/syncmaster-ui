@@ -42,6 +42,6 @@ export const CONNECTION_TYPE_COMPONENT = {
   [ConnectionType.ORACLE]: <ConnectionOracle />,
   [ConnectionType.POSTGRES]: <ConnectionPostgres />,
   [ConnectionType.CLICKHOUSE]: <ConnectionClickhouse />,
-  [ConnectionType.MY_SQL]: <ConnectionMySql />,
-  [ConnectionType.MS_SQL]: <ConnectionMsSql />,
+  [ConnectionType.MYSQL]: <ConnectionMySql />,
+  [ConnectionType.MSSQL]: <ConnectionMsSql />,
 };

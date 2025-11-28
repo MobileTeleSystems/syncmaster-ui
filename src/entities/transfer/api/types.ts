@@ -59,11 +59,11 @@ export interface TransferTargetConnectionFileType {
   type:
     | ConnectionType.FTP
     | ConnectionType.FTPS
-    | ConnectionType.SFTP
     | ConnectionType.HDFS
-    | ConnectionType.WEBDAV
+    | ConnectionType.S3
     | ConnectionType.SAMBA
-    | ConnectionType.S3;
+    | ConnectionType.SFTP
+    | ConnectionType.WEBDAV;
   directory_path: string;
   file_format: Exclude<FileFormat, Json>;
   file_name_template: string;
@@ -71,10 +71,10 @@ export interface TransferTargetConnectionFileType {
 
 interface TransferConnectionTableType {
   type:
-    | ConnectionType.HIVE
     | ConnectionType.CLICKHOUSE
-    | ConnectionType.MS_SQL
-    | ConnectionType.MY_SQL
+    | ConnectionType.HIVE
+    | ConnectionType.MSSQL
+    | ConnectionType.MYSQL
     | ConnectionType.ORACLE
     | ConnectionType.POSTGRES;
   table_name: string;

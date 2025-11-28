@@ -42,8 +42,8 @@ export const getDescriptionItems = <T extends Transfer['source_params'] | Transf
     case ConnectionType.ORACLE:
     case ConnectionType.POSTGRES:
     case ConnectionType.CLICKHOUSE:
-    case ConnectionType.MY_SQL:
-    case ConnectionType.MS_SQL:
+    case ConnectionType.MYSQL:
+    case ConnectionType.MSSQL:
       return [
         {
           label: t('tableName', { ns: 'transfer' }),

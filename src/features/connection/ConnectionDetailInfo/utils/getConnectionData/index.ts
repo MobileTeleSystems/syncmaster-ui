@@ -75,8 +75,8 @@ export const getConnectionData = (connection: Connection, t: TFunction<'connecti
       ];
     case ConnectionType.POSTGRES:
     case ConnectionType.CLICKHOUSE:
-    case ConnectionType.MY_SQL:
-    case ConnectionType.MS_SQL:
+    case ConnectionType.MYSQL:
+    case ConnectionType.MSSQL:
       return [
         {
           label: t('databaseName'),

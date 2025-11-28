@@ -12,17 +12,17 @@ export const useSelectConnectionType = ({ initialType }: UseSelectConnectionType
 
   const getAuthDataTypeValue = (type: ConnectionType): ConnectionAuthType => {
     switch (type) {
+      case ConnectionType.CLICKHOUSE:
       case ConnectionType.FTP:
       case ConnectionType.FTPS:
-      case ConnectionType.SFTP:
-      case ConnectionType.WEBDAV:
-      case ConnectionType.CLICKHOUSE:
       case ConnectionType.HDFS:
       case ConnectionType.HIVE:
-      case ConnectionType.MS_SQL:
-      case ConnectionType.MY_SQL:
+      case ConnectionType.MSSQL:
+      case ConnectionType.MYSQL:
       case ConnectionType.ORACLE:
       case ConnectionType.POSTGRES:
+      case ConnectionType.SFTP:
+      case ConnectionType.WEBDAV:
         return ConnectionAuthType.BASIC;
       case ConnectionType.S3:
         return ConnectionAuthType.S3;

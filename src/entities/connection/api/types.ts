@@ -103,7 +103,7 @@ export interface ConnectionClickhouse {
 }
 
 export interface ConnectionMySql {
-  type: ConnectionType.MY_SQL;
+  type: ConnectionType.MYSQL;
   auth_data: ConnectionAuthBasic;
   connection_data: {
     host: string;
@@ -113,7 +113,7 @@ export interface ConnectionMySql {
 }
 
 export interface ConnectionMsSql {
-  type: ConnectionType.MS_SQL;
+  type: ConnectionType.MSSQL;
   auth_data: ConnectionAuthBasic;
   connection_data: {
     host: string;
