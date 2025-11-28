@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Form, Input, Radio } from 'antd';
 import { useTranslation } from 'react-i18next';
 
-import { ConnectionAuthS3 } from '../ConnectionAuthS3';
 import { ConnectionHttpProtocol } from '../ConnectionHttpProtocol';
+import { useSensitiveFields } from '../../hooks';
 
 export const ConnectionS3 = () => {
   const { t } = useTranslation('connection');
+  const { isRequired } = useSensitiveFields();
+
+  // Reset auth type after switching connection type in form
+  const formInstance = Form.useFormInstance();
+  useEffect(() => {
+    formInstance.setFieldValue(['auth_data', 'type'], 's3');
+  }, [formInstance]);
 
   return (
     <>
@@ -31,7 +38,14 @@ export const ConnectionS3 = () => {
       <Form.Item label={t('s3.region')} name={['connection_data', 'region']}>
         <Input size="large" placeholder="us-east-1" />
       </Form.Item>
-      <ConnectionAuthS3 />
+
+      <Form.Item name={['auth_data', 'type']} hidden />
+      <Form.Item label={t('s3.accessKey')} name={['auth_data', 'access_key']} rules={[{ required: true }]}>
+        <Input size="large" />
+      </Form.Item>
+      <Form.Item label={t('s3.secretKey')} name={['auth_data', 'secret_key']} rules={[{ required: isRequired }]}>
+        <Input.Password size="large" />
+      </Form.Item>
     </>
   );
 };

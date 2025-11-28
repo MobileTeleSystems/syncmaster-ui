@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Input, InputNumber, Radio, RadioChangeEvent } from 'antd';
 import { useTranslation } from 'react-i18next';
 
 import { MAX_ALLOWED_PORT, MIN_ALLOWED_PORT } from '../../constants';
-import { ConnectionAuthSamba } from '../ConnectionAuthSamba';
+import { useSensitiveFields } from '../../hooks';
 
 export const ConnectionSamba = () => {
   const { t } = useTranslation('connection');
+  const { isRequired } = useSensitiveFields();
 
+  // Reset auth type after switching connection type in form
   const formInstance = Form.useFormInstance();
   Form.useWatch('protocol', formInstance);
 
@@ -20,6 +22,10 @@ export const ConnectionSamba = () => {
       setDefaultPort('139');
     }
   };
+
+  useEffect(() => {
+    formInstance.setFieldValue(['auth_data', 'type'], 'samba');
+  }, [formInstance]);
 
   return (
     <>
@@ -46,7 +52,25 @@ export const ConnectionSamba = () => {
       <Form.Item label={t('samba.domain')} name={['connection_data', 'domain']}>
         <Input size="large" placeholder="mycompany.com" />
       </Form.Item>
-      <ConnectionAuthSamba />
+
+      {/* Hide Form.Item control, because its value is set in 'useSelectConnectionType' hook */}
+      <Form.Item name={['auth_data', 'type']} hidden />
+      <Form.Item label={t('username', { ns: 'auth' })} name={['auth_data', 'user']} rules={[{ required: true }]}>
+        <Input size="large" />
+      </Form.Item>
+      <Form.Item
+        label={t('password', { ns: 'auth' })}
+        name={['auth_data', 'password']}
+        rules={[{ required: isRequired }]}
+      >
+        <Input.Password size="large" />
+      </Form.Item>
+      <Form.Item label={t('samba.authType')} name={['auth_data', 'auth_type']} initialValue="NTLMv2">
+        <Radio.Group>
+          <Radio.Button value="NTLMv1">NTLMv1</Radio.Button>
+          <Radio.Button value="NTLMv2">NTLMv2</Radio.Button>
+        </Radio.Group>
+      </Form.Item>
     </>
   );
 };

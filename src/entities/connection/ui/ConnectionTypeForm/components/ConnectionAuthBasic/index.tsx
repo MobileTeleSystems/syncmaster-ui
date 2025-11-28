@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Form, Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 
@@ -8,9 +8,14 @@ export const ConnectionAuthBasic = () => {
   const { t } = useTranslation('auth');
   const { isRequired } = useSensitiveFields();
 
+  // Reset auth type after switching connection type in form
+  const formInstance = Form.useFormInstance();
+  useEffect(() => {
+    formInstance.setFieldValue(['auth_data', 'type'], 'basic');
+  }, [formInstance]);
+
   return (
     <>
-      {/* Hide Form.Item control, because its value is set in 'useSelectConnectionType' hook */}
       <Form.Item name={['auth_data', 'type']} hidden />
       <Form.Item label={t('username')} name={['auth_data', 'user']} rules={[{ required: true }]}>
         <Input size="large" />
