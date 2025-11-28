@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { MAX_ALLOWED_PORT, MIN_ALLOWED_PORT } from '../../constants';
 
-export const ConnectionHttpProtocol = () => {
+export const ConnectionHttpProtocol = ({ fieldsPrefix = '' }: { fieldsPrefix?: string }) => {
   const { t } = useTranslation('connection');
 
   const formInstance = Form.useFormInstance();
@@ -24,7 +24,7 @@ export const ConnectionHttpProtocol = () => {
     <>
       <Form.Item
         label={t('protocol')}
-        name={['connection_data', 'protocol']}
+        name={['connection_data', `${fieldsPrefix}protocol`]}
         rules={[{ required: true }]}
         initialValue="https"
       >
@@ -33,7 +33,7 @@ export const ConnectionHttpProtocol = () => {
           <Radio.Button value="https">HTTPS</Radio.Button>
         </Radio.Group>
       </Form.Item>
-      <Form.Item label={t('port')} name={['connection_data', 'port']}>
+      <Form.Item label={t('port')} name={['connection_data', `${fieldsPrefix}port`]}>
         <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} placeholder={defaultPort} />
       </Form.Item>
     </>

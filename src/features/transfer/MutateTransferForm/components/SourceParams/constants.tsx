@@ -12,6 +12,7 @@ export const TRANSFER_SOURCE_CONNECTION_TYPE_COMPONENT = {
   [ConnectionType.WEBDAV]: <TransferConnectionFileType name="source_params" />,
   [ConnectionType.CLICKHOUSE]: <TransferConnectionTableType name="source_params" />,
   [ConnectionType.HIVE]: <TransferConnectionTableType name="source_params" />,
+  [ConnectionType.ICEBERG]: <TransferConnectionTableType name="source_params" />,
   [ConnectionType.MSSQL]: <TransferConnectionTableType name="source_params" />,
   [ConnectionType.MYSQL]: <TransferConnectionTableType name="source_params" />,
   [ConnectionType.ORACLE]: <TransferConnectionTableType name="source_params" />,

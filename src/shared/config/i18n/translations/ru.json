@@ -68,7 +68,27 @@
         "serviceNameOrSidRequired": "Требуется либо название сервиса, либо SID",
         "sid": "SID базы данных"
       },
+      "iceberg": {
+        "restCatalog": "REST Catalog",
+        "restCatalogUrl": "REST Catalog URL",
+        "restCatalogAuthType": "Тип аутентификации в REST Catalog",
+        "bearerToken": "Bearer token",
+        "token": "Токен",
+        "oaut2ClientCredentials": "OAuth2 Client credentials",
+        "oauth2ClientId": "OAuth2 Client ID",
+        "oauth2ClientSecret": "OAuth2 Client secret",
+        "oauth2TokenEndpoint": "OAuth2 Token URL",
+        "oauth2Scopes": "OAuth2 Token scopes",
+        "oauth2Audience": "OAuth2 Token audience",
+        "oauth2Resource": "OAuth2 Token resource",
+        "s3AccessStyle": "Способ подключения к S3",
+        "s3Direct": "Прямое подключение к S3",
+        "s3Delegated": "Делегировать доступ к REST Catalog",
+        "warehouseName": "Название warehouse",
+        "warehousePath": "Путь к warehouse"
+      },
       "s3": {
+        "name": "S3",
         "bucket": "Название бакета",
         "bucketStyle": "Стиль бакета",
         "bucketStyleDomain": "Домен",

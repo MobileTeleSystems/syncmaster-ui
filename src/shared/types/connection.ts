@@ -4,6 +4,7 @@ export enum ConnectionType {
   FTPS = 'ftps',
   HDFS = 'hdfs',
   HIVE = 'hive',
+  ICEBERG = 'iceberg',
   MSSQL = 'mssql',
   MYSQL = 'mysql',
   ORACLE = 'oracle',
