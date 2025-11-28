@@ -37,7 +37,7 @@ export const ConnectionOracle = () => {
       <Form.Item label={t('host')} name={['connection_data', 'host']} rules={[{ required: true }]}>
         <Input size="large" />
       </Form.Item>
-      <Form.Item label={t('port')} name={['connection_data', 'port']} rules={[{ required: true }]}>
+      <Form.Item label={t('port')} name={['connection_data', 'port']}>
         <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} />
       </Form.Item>
       <Form.Item
