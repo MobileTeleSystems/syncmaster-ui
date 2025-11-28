@@ -68,8 +68,10 @@
         "serviceNameOrSidRequired": "Either Service Name or SID is required"
       },
       "s3": {
-        "bucketStyle": "Bucket style",
         "bucket": "Bucket name",
+        "bucketStyle": "Bucket style",
+        "bucketStyleDomain": "Domain",
+        "bucketStylePath": "Path",
         "region": "Region",
         "accessKey": "Access key",
         "secretKey": "Secret key"

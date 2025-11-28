@@ -69,8 +69,10 @@
         "sid": "SID базы данных"
       },
       "s3": {
-        "bucketStyle": "Стиль бакета",
         "bucket": "Название бакета",
+        "bucketStyle": "Стиль бакета",
+        "bucketStyleDomain": "Домен",
+        "bucketStylePath": "Путь",
         "region": "Регион",
         "accessKey": "Ключ доступа",
         "secretKey": "Секретный ключ"
