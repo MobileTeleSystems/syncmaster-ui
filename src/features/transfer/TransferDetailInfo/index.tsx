@@ -2,12 +2,12 @@ import React, { PropsWithChildren } from 'react';
 import { Descriptions } from 'antd';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useCronService } from '@shared/services';
 
 import { TransferDetailInfoProps } from './types';
 import classes from './styles.module.less';
 import { TransferParams, TransferResources, TransferStrategyParams } from './components';
 
-import { useCronService } from '@shared/services';
 
 export const TransferDetailInfo = ({
   transfer,

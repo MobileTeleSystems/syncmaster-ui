@@ -1,6 +1,6 @@
 import { CronService } from '@shared/services';
-
 import { useTranslation } from 'react-i18next';
+
 import { UseCronServiceProps } from './types';
 
 export const useCronService = ({ value }: UseCronServiceProps) => {

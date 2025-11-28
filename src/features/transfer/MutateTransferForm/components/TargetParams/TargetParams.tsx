@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { ConnectionQueryKey, connectionService } from '@entities/connection';
 import { ManagedSelect } from '@shared/ui';
-import { Form, Input } from 'antd';
+import { Form } from 'antd';
 import { useTranslation } from 'react-i18next';
 
 import { useSelectConnectionType } from '../../hooks';

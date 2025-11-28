@@ -16,7 +16,6 @@ import {
   SftpIcon,
   WebDavIcon,
 } from './assets';
-import { ConnectionBucketStyle, ConnectionProtocol } from './api';
 
 export const CONNECTION_TYPE_NAMES: Record<ConnectionType, string> = {
   [ConnectionType.CLICKHOUSE]: 'ClickHouse',
