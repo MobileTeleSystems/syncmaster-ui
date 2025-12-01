@@ -3,9 +3,9 @@ import { Form, Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 
 import classes from './styles.module.less';
-import { isValidRegex } from '@shared/utils';
+import { NAME_GLOB_PATTERN } from './constants';
 
-export const FilterFileRegexpValue = ({ name }: { name: number }) => {
+export const FilterFileGlobValue = ({ name }: { name: number }) => {
   const { t } = useTranslation('error');
 
   return (
@@ -13,7 +13,7 @@ export const FilterFileRegexpValue = ({ name }: { name: number }) => {
       className={classes.control}
       label={t('value', { ns: 'transformation' })}
       name={[name, 'value']}
-      rules={[{ type: 'string', required: true, validator: (rule, value) => isValidRegex(rule, value, t) }]}
+      rules={[{ type: 'string', required: true, pattern: NAME_GLOB_PATTERN }]}
     >
       <Input className="nodrag" size="large" />
     </Form.Item>

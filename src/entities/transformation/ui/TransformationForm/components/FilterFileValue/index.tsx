@@ -4,6 +4,7 @@ import { TransformationFilterFileType, TransformationType } from '@entities/tran
 
 import { FilterFileValueProps } from './types';
 import { FilterFileRegexpValue, FilterFileSizeValue } from './components';
+import { FilterFileGlobValue } from './components/FilterFileGlobValue';
 
 export const FilterFileValue = ({ name, type }: FilterFileValueProps) => {
   const hasFirstRender = useRef(false);
@@ -33,8 +34,9 @@ export const FilterFileValue = ({ name, type }: FilterFileValueProps) => {
 
   switch (type) {
     case TransformationFilterFileType.NAME_GLOB:
+      return <FilterFileGlobValue name={name} />;
     case TransformationFilterFileType.NAME_REGEXP:
-      return <FilterFileRegexpValue name={name} type={type} />;
+      return <FilterFileRegexpValue name={name} />;
     case TransformationFilterFileType.FILE_SIZE_MIN:
     case TransformationFilterFileType.FILE_SIZE_MAX:
       return <FilterFileSizeValue name={name} />;
