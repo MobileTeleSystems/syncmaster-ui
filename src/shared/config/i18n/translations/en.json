@@ -172,6 +172,7 @@
       "selectTargetConnection": "Select target connection",
       "transferAdvancedSettings": "Transfer advanced settings",
       "directoryPath": "Directory path",
+      "invalidDirectoryPath": "Path should be in format /path/to/directory",
       "tableName": "Table name",
       "invalidTableName": "Table name should be in format myschema.mytable",
       "transferInfo": "Transfer info",
