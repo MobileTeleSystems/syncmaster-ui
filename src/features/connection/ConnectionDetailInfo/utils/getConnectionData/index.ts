@@ -74,6 +74,7 @@ export const getConnectionData = (connection: Connection, t: TFunction<'connecti
         },
       ];
     case ConnectionType.CLICKHOUSE:
+    case ConnectionType.MYSQL:
       return [
         {
           label: t('host'),
@@ -85,7 +86,6 @@ export const getConnectionData = (connection: Connection, t: TFunction<'connecti
         },
       ];
     case ConnectionType.POSTGRES:
-    case ConnectionType.MYSQL:
     case ConnectionType.MSSQL:
       return [
         {
@@ -98,7 +98,7 @@ export const getConnectionData = (connection: Connection, t: TFunction<'connecti
         },
         {
           label: t('databaseName'),
-          content: connection_data.database_name || '',
+          content: connection_data.database_name,
         },
       ];
     case ConnectionType.S3:

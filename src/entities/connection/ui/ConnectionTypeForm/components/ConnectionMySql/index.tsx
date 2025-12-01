@@ -16,9 +16,6 @@ export const ConnectionMySql = () => {
       <Form.Item label={t('port')} name={['connection_data', 'port']}>
         <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} placeholder="3306" />
       </Form.Item>
-      <Form.Item label={t('databaseName')} name={['connection_data', 'database_name']} rules={[{ required: true }]}>
-        <Input size="large" />
-      </Form.Item>
       <ConnectionAuthBasic />
     </>
   );

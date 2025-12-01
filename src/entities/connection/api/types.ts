@@ -107,7 +107,6 @@ export interface ConnectionMySql {
   connection_data: {
     host: string;
     port: number;
-    database_name: string;
   };
 }
 
