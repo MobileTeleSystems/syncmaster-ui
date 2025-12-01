@@ -102,6 +102,7 @@
       "rootTag": "Root tag",
       "rowTag": "Row tag",
       "filenameTemplate": "Filename template",
+      "invalidFilenameTemplate": "Template must contain {index} and {extension} placeholders",
       "fileModifiedSince": "File modified date",
       "filename": "File name",
       "fileFormatSettings": "File format settings",

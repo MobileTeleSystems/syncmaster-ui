@@ -103,6 +103,7 @@
       "rootTag": "Корневой тег",
       "rowTag": "Тег строки",
       "filenameTemplate": "Шаблон имени файла",
+      "invalidFilenameTemplate": "Шаблон должен содержать обязательные подстановки {index} и {extension}",
       "fileModifiedSince": "Дата изменения файла",
       "filename": "Имя файла",
       "fileFormatSettings": "Настройки формата файла",
