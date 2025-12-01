@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { ConnectionQueryKey, connectionService } from '@entities/connection';
+import { ConnectionQueryKey, connectionService, CONNECTION_TYPE_NAMES } from '@entities/connection';
 import { ManagedSelect } from '@shared/ui';
 import { Form } from 'antd';
 import { useTranslation } from 'react-i18next';
@@ -27,7 +27,7 @@ export const TargetParams = memo(({ groupId }: TargetParamsProps) => {
           queryKey={[ConnectionQueryKey.GET_CONNECTIONS, groupId]}
           queryFunction={(params) => connectionService.getConnections({ group_id: groupId, ...params })}
           renderOptionValue={(connection) => connection.id}
-          renderOptionLabel={(connection) => connection.name}
+          renderOptionLabel={(connection) => `${connection.name} (${CONNECTION_TYPE_NAMES[connection.type]})`}
           onSelect={handleSelectConnection}
           detailQueryKey={[ConnectionQueryKey.GET_CONNECTION]}
           detailQueryFunction={(value) => connectionService.getConnection({ id: value })}

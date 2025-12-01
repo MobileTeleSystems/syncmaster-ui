@@ -38,17 +38,11 @@ export const TransferDetailInfo = ({
         <Descriptions.Item label={t('queue', { ns: 'queue' })} span={3}>
           <Link to={`/queues/${queue.id}`}>{queue.name}</Link>
         </Descriptions.Item>
-        <Descriptions.Item label={t('sourceConnection', { ns: 'transfer' })} span={3}>
-          <Link to={`/connections/${connectionSource.id}`}>{connectionSource.name}</Link>
-        </Descriptions.Item>
-        <Descriptions.Item label={t('targetConnection', { ns: 'transfer' })} span={3}>
-          <Link to={`/connections/${connectionTarget.id}`}>{connectionTarget.name}</Link>
-        </Descriptions.Item>
-        <Descriptions.Item className={classes.subDescription} label={t('sourceParams', { ns: 'transfer' })} span={3}>
-          <TransferParams data={transfer.source_params} />
+        <Descriptions.Item className={classes.subDescription} label={t('source', { ns: 'transfer' })} span={3}>
+          <TransferParams connection={connectionSource} data={transfer.source_params} />
         </Descriptions.Item>
         <Descriptions.Item className={classes.subDescription} label={t('targetParams', { ns: 'transfer' })} span={3}>
-          <TransferParams data={transfer.target_params} />
+          <TransferParams connection={connectionTarget} data={transfer.target_params} />
         </Descriptions.Item>
         <Descriptions.Item className={classes.subDescription} label={t('strategyParams', { ns: 'transfer' })} span={3}>
           <TransferStrategyParams data={transfer.strategy_params} />
