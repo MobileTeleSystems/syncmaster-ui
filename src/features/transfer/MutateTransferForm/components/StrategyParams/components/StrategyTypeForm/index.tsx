@@ -37,7 +37,12 @@ export const StrategyTypeForm = ({ sourceConnectionType }: StrategyTypeFormProps
   }, [formInstance, sourceConnectionType]);
 
   return (
-    <Form.Item label={t('strategyParams')} name={['strategy_params', 'type']} rules={[{ required: true }]}>
+    <Form.Item
+      label={t('strategyParams')}
+      name={['strategy_params', 'type']}
+      rules={[{ required: true }]}
+      initialValue="full"
+    >
       <Select
         size="large"
         options={strategyParamsSelectOptions}

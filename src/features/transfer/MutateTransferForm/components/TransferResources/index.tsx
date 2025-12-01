@@ -30,6 +30,7 @@ export const TransferResources = () => {
           },
         ]}
         tooltip={<TooltipText minValue={MIN_PARALLEL_TASKS} maxValue={MAX_PARALLEL_TASKS} />}
+        initialValue={1}
       >
         <InputNumber size="large" min={MIN_PARALLEL_TASKS} max={MAX_PARALLEL_TASKS} />
       </Form.Item>
@@ -44,6 +45,7 @@ export const TransferResources = () => {
           },
         ]}
         tooltip={<TooltipText minValue={MIN_CPU_CORES_PER_TASKS} maxValue={MAX_CPU_CORES_PER_TASKS} />}
+        initialValue={1}
       >
         <InputNumber size="large" min={MIN_CPU_CORES_PER_TASKS} max={MAX_CPU_CORES_PER_TASKS} />
       </Form.Item>
@@ -63,6 +65,7 @@ export const TransferResources = () => {
             maxValue={`${MAX_RAM_PER_TASK} ${t('gib', { ns: 'file' })}`}
           />
         }
+        initialValue={1}
       >
         <InputNumber size="large" min={MIN_RAM_PER_TASK} max={MAX_RAM_PER_TASK} />
       </Form.Item>
