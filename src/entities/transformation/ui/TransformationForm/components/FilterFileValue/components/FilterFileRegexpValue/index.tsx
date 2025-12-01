@@ -1,9 +1,9 @@
 import React from 'react';
 import { Form, Input } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { isValidRegex } from '@shared/utils';
 
 import classes from './styles.module.less';
-import { isValidRegex } from '@shared/utils';
 
 export const FilterFileRegexpValue = ({ name }: { name: number }) => {
   const { t } = useTranslation('error');

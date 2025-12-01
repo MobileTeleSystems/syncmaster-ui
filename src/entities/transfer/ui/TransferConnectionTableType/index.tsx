@@ -1,9 +1,9 @@
 import React from 'react';
 import { Form, Input } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { TABLE_NAME_PATTERN } from '@shared/constants';
 
 import { TransferConnectionTableTypeProps } from './types';
-import { TABLE_NAME_PATTERN } from '@shared/constants';
 
 export const TransferConnectionTableType = ({ name }: TransferConnectionTableTypeProps) => {
   const { t } = useTranslation('transfer');
