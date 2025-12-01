@@ -11,11 +11,23 @@ export const KeycloakLogin = () => {
   const { t } = useTranslation('auth');
   const login = useKeycloakLogin();
   const [isEnabledRequest, setIsEnabledRequest] = useState(false);
-  const { isSuccess, isEnabled, isFetching } = useCurrentUserInfo({ enabled: isEnabledRequest, throwOnError: false });
+  const { isSuccess, isEnabled, isFetching, error } = useCurrentUserInfo({
+    enabled: isEnabledRequest,
+    throwOnError: false,
+  });
 
   useEffect(() => {
-    if (isSuccess && isEnabled) {
+    if (!isEnabled) {
+      return;
+    }
+
+    if (isSuccess) {
       login();
+    } else {
+      const redirectUrl = (error as any)?.response?.data?.error?.details;
+      if (redirectUrl) {
+        window.location.href = redirectUrl;
+      }
     }
   }, [login, isSuccess, isEnabled]);
 
