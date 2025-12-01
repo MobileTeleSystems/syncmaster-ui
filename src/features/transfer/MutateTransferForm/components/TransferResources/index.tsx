@@ -2,8 +2,7 @@ import { Fieldset } from '@shared/ui';
 import { Form, InputNumber } from 'antd';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { validateFormFieldByPattern } from '@shared/utils';
-import { INTEGER_ERROR_DISPLAY, INTEGER_REGEXP } from '@shared/constants';
+import { INTEGER_ERROR_DISPLAY } from '@shared/constants';
 
 import {
   MAX_PARALLEL_TASKS,
@@ -25,10 +24,9 @@ export const TransferResources = () => {
         name={['resources', 'max_parallel_tasks']}
         rules={[
           {
+            type: 'number',
             required: true,
-            pattern: INTEGER_REGEXP,
             message: t(INTEGER_ERROR_DISPLAY),
-            validator: (rule, value) => validateFormFieldByPattern(rule, value, t),
           },
         ]}
         tooltip={<TooltipText minValue={MIN_PARALLEL_TASKS} maxValue={MAX_PARALLEL_TASKS} />}
@@ -40,10 +38,9 @@ export const TransferResources = () => {
         name={['resources', 'cpu_cores_per_task']}
         rules={[
           {
+            type: 'number',
             required: true,
-            pattern: INTEGER_REGEXP,
             message: t(INTEGER_ERROR_DISPLAY),
-            validator: (rule, value) => validateFormFieldByPattern(rule, value, t),
           },
         ]}
         tooltip={<TooltipText minValue={MIN_CPU_CORES_PER_TASKS} maxValue={MAX_CPU_CORES_PER_TASKS} />}
@@ -53,7 +50,13 @@ export const TransferResources = () => {
       <Form.Item
         label={t('ramPerTask', { ns: 'transfer' })}
         name={['resources', 'ram_bytes_per_task']}
-        rules={[{ required: true }]}
+        rules={[
+          {
+            type: 'number',
+            required: true,
+            message: t(INTEGER_ERROR_DISPLAY),
+          },
+        ]}
         tooltip={
           <TooltipText
             minValue={`${MIN_RAM_PER_TASK} ${t('gib', { ns: 'file' })}`}
