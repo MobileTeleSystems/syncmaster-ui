@@ -173,6 +173,7 @@
       "transferAdvancedSettings": "Transfer advanced settings",
       "directoryPath": "Directory path",
       "tableName": "Table name",
+      "invalidTableName": "Table name should be in format myschema.mytable",
       "transferInfo": "Transfer info",
       "schedule": "Schedule",
       "strategyParams": "Strategy params",

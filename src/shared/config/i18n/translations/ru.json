@@ -169,6 +169,7 @@
       "transferAdvancedInfo": "Расширенная информация о трансфере",
       "directoryPath": "Путь к директории",
       "tableName": "Название таблицы",
+      "invalidTableName": "Название таблицы должно быть в формате схема.имя_таблицы",
       "transferInfo": "Информация о трансфере",
       "sourceConnection": "Источник",
       "targetConnection": "Назначение",
