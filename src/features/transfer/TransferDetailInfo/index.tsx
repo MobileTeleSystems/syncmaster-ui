@@ -38,17 +38,6 @@ export const TransferDetailInfo = ({
         <Descriptions.Item label={t('queue', { ns: 'queue' })} span={3}>
           <Link to={`/queues/${queue.id}`}>{queue.name}</Link>
         </Descriptions.Item>
-        {transfer.is_scheduled && (
-          <Descriptions.Item label={t('schedule', { ns: 'transfer' })} span={3}>
-            {cron.getSchedule()}
-          </Descriptions.Item>
-        )}
-        <Descriptions.Item className={classes.subDescription} label={t('strategyParams', { ns: 'transfer' })} span={3}>
-          <TransferStrategyParams data={transfer.strategy_params} />
-        </Descriptions.Item>
-        <Descriptions.Item className={classes.subDescription} label={t('resources', { ns: 'transfer' })} span={3}>
-          <TransferResources data={transfer.resources} />
-        </Descriptions.Item>
         <Descriptions.Item label={t('sourceConnection', { ns: 'transfer' })} span={3}>
           <Link to={`/connections/${connectionSource.id}`}>{connectionSource.name}</Link>
         </Descriptions.Item>
@@ -61,6 +50,17 @@ export const TransferDetailInfo = ({
         <Descriptions.Item className={classes.subDescription} label={t('targetParams', { ns: 'transfer' })} span={3}>
           <TransferParams data={transfer.target_params} />
         </Descriptions.Item>
+        <Descriptions.Item className={classes.subDescription} label={t('strategyParams', { ns: 'transfer' })} span={3}>
+          <TransferStrategyParams data={transfer.strategy_params} />
+        </Descriptions.Item>
+        <Descriptions.Item className={classes.subDescription} label={t('resources', { ns: 'transfer' })} span={3}>
+          <TransferResources data={transfer.resources} />
+        </Descriptions.Item>
+        {transfer.is_scheduled && (
+          <Descriptions.Item label={t('schedule', { ns: 'transfer' })} span={3}>
+            {cron.getSchedule()}
+          </Descriptions.Item>
+        )}
       </Descriptions>
       {children}
     </div>
