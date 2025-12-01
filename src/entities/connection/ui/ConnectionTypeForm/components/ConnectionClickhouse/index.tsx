@@ -16,9 +16,6 @@ export const ConnectionClickhouse = () => {
       <Form.Item label={t('port')} name={['connection_data', 'port']}>
         <InputNumber size="large" min={MIN_ALLOWED_PORT} max={MAX_ALLOWED_PORT} placeholder="8123" />
       </Form.Item>
-      <Form.Item label={t('databaseName')} name={['connection_data', 'database_name']}>
-        <Input size="large" placeholder="default" />
-      </Form.Item>
       <ConnectionAuthBasic />
     </>
   );

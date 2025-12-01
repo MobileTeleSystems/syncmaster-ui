@@ -98,7 +98,6 @@ export interface ConnectionClickhouse {
   connection_data: {
     host: string;
     port: number;
-    database_name: string | null;
   };
 }
 

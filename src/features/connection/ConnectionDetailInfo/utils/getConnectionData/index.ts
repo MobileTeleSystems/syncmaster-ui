@@ -73,8 +73,18 @@ export const getConnectionData = (connection: Connection, t: TFunction<'connecti
           content: connection_data.service_name || connection_data.sid,
         },
       ];
-    case ConnectionType.POSTGRES:
     case ConnectionType.CLICKHOUSE:
+      return [
+        {
+          label: t('host'),
+          content: connection_data.host,
+        },
+        {
+          label: t('port'),
+          content: connection_data.port,
+        },
+      ];
+    case ConnectionType.POSTGRES:
     case ConnectionType.MYSQL:
     case ConnectionType.MSSQL:
       return [
