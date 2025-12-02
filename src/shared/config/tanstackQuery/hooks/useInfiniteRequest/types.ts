@@ -10,8 +10,7 @@ interface InfiniteRequestData<T> {
  * Interface that replaces the response type of infinite request
  */
 export interface InfiniteRequestReturn<T, TData>
-  extends Omit<UseInfiniteQueryResult<TData>, 'data'>,
-    InfiniteRequestData<T> {}
+  extends Omit<UseInfiniteQueryResult<TData>, 'data'>, InfiniteRequestData<T> {}
 
 /**
  * Function type of "useInfiniteRequest" hook.

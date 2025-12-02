@@ -11,6 +11,4 @@ export interface TablePagination {
 export type TableColumns<T extends PaginationResponse<object>> = ColumnsType<T['items'][number]>;
 
 export interface ManagedTableProps<T>
-  extends TableProps<T>,
-    Omit<UseTableQueryProps<T>, 'pagination'>,
-    UseTableColumnsProps<T> {}
+  extends TableProps<T>, Omit<UseTableQueryProps<T>, 'pagination'>, UseTableColumnsProps<T> {}

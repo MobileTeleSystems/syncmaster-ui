@@ -11,7 +11,8 @@ import { UseGetListProps, UseGetSelectedItemProps, UsePrepareOptionsProps } from
  * @template V - Value type for select options.
  */
 export interface ManagedSelectProps<T, V extends DefaultOptionType['value']>
-  extends Omit<
+  extends
+    Omit<
       SelectProps<V, OptionItem<T>>,
       'options' | 'notFoundContent' | 'dropdownRender' | 'onDropdownVisibleChange' | 'onPopupScroll' | 'filterOption'
     >,
