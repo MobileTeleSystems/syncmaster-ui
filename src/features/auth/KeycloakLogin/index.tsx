@@ -24,13 +24,13 @@ export const KeycloakLogin = () => {
     if (isSuccess) {
       login();
     } else {
-      // @ts-ignore
+      /* eslint-disable @typescript-eslint/no-explicit-any */
       const redirectUrl = (error as any)?.response?.data?.error?.details;
       if (redirectUrl) {
         window.location.href = redirectUrl;
       }
     }
-  }, [login, isSuccess, isEnabled]);
+  }, [login, isSuccess, isEnabled, error]);
 
   const handleLogin = () => {
     setIsEnabledRequest(true);
