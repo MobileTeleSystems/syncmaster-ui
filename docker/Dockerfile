@@ -25,8 +25,6 @@ COPY ./docker/entrypoint.sh /entrypoint.sh
 COPY --from=yq /usr/bin/yq /usr/bin/yq
 RUN chmod +x /entrypoint.sh /usr/bin/yq
 
-ENV SYNCMASTER_CONFIG_FILE=/app/config.yaml
-
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]
 EXPOSE 3000
