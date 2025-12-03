@@ -3,9 +3,9 @@ import { AUTH_PROVIDER, AuthProviderType } from '@shared/constants';
 import React from 'react';
 
 export const LoginPage = () => {
-  if (AUTH_PROVIDER === AuthProviderType.DUMMY) {
-    return <Login />;
+  if (AUTH_PROVIDER === AuthProviderType.KEYCLOAK) {
+    return <KeycloakLogin />;
   }
 
-  return <KeycloakLogin />;
+  return <Login />;
 };

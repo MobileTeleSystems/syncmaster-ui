@@ -19,10 +19,10 @@ export const useLogoutButton = () => {
   };
 
   const handleClick = () => {
-    if (AUTH_PROVIDER === AuthProviderType.DUMMY) {
-      handleLogout();
-    } else {
+    if (AUTH_PROVIDER === AuthProviderType.KEYCLOAK) {
       handleKeycloakLogout();
+    } else {
+      handleLogout();
     }
   };
 

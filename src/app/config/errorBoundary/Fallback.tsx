@@ -12,10 +12,10 @@ export const Fallback = ({ error, resetErrorBoundary }: FallbackProps) => {
     if ('status' in error) {
       switch (error.status) {
         case ErrorStatusCode.AUTH:
-          if (AUTH_PROVIDER === AuthProviderType.DUMMY) {
-            return <AuthError />;
+          if (AUTH_PROVIDER === AuthProviderType.KEYCLOAK) {
+            return <KeycloakAuthError />;
           }
-          return <KeycloakAuthError />;
+          return <AuthError />;
         case ErrorStatusCode.ACCESS:
           return <AccessError />;
         case ErrorStatusCode.NOT_FOUND:
