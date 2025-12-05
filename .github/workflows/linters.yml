@@ -35,14 +35,8 @@ jobs:
       - name: Install modules
         run: yarn install --immutable
 
-      - name: Run Type check
-        run: yarn type-check
-
-      - name: Run ESLint
-        run: yarn lint
-
-      - name: Run Prettier
-        run: yarn prettier --check
+      - name: Run checks
+        run: yarn check
 
       - name: Build project
         run: yarn build

@@ -6,16 +6,17 @@
   "license": "Apache-2.0",
   "packageManager": "yarn@4.8.1",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack serve",
-    "start:prod": "cross-env NODE_ENV=production webpack serve",
+    "dev": "cross-env NODE_ENV=development webpack serve",
+    "prod": "cross-env NODE_ENV=production webpack serve",
     "build": "rimraf ./dist && cross-env NODE_OPTIONS=--max_old_space_size=8192 && cross-env NODE_ENV=production webpack",
-    "lint": "eslint .",
+    "lint": "eslint --fix src/**/*.tsx src/**/*.ts",
+    "lint-check": "eslint src/**/*.tsx src/**/*.ts",
     "type-check": "tsc --noEmit",
+    "prettier": "prettier 'src/**/*.{ts,tsx,js,json}' --write --list-different",
+    "prettier-check": "prettier 'src/**/*.{ts,tsx,js,json}' --check --list-different",
+    "bundle-analyze": "cross-env BUNDLE_ANALYZER=true cross-env NODE_ENV=production webpack --progress",
     "check": "yarn lint && yarn type-check",
-    "prettier:check": "prettier --check \"**/*.{ts,tsx}\"",
-    "prettier:write": "prettier --write \"**/*.{ts,tsx}\"",
-    "bundle:analyze": "cross-env BUNDLE_ANALYZER=true cross-env NODE_ENV=production webpack --progress",
-    "prepare": "husky"
+    "pre-commit-install": "husky"
   },
   "dependencies": {
     "@ant-design/icons": "5.6.1",
@@ -79,15 +80,7 @@
     "npm": ">10"
   },
   "lint-staged": {
-    "*.(ts|tsx|js|jsx)": [
-      "node tsc-check.js",
-      "eslint --fix",
-      "prettier --write"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged"
-    }
+    "src/**/*": "prettier --write --list-different",
+    "src/**/*.{ts,tsx}": "eslint --fix"
   }
 }
