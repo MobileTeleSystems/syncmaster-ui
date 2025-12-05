@@ -50,7 +50,7 @@ yarn run pre-commit-install
 yarn run dev
 ```
 
-### Create pull request
+## Create pull request
 
 Commit your changes:
 
