@@ -1,2 +1,2 @@
-npx lint-staged
-npm run type-check
+yarn lint-staged
+yarn type-check
