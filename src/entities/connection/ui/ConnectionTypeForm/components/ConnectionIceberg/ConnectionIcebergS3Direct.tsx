@@ -36,7 +36,7 @@ export const ConnectionIcebergS3Direct = () => {
           <Radio.Button value="path">{t('s3.bucketStylePath')}</Radio.Button>
         </Radio.Group>
       </Form.Item>
-      <Form.Item label={t('s3.region')} name={['connection_data', 's3_region']}>
+      <Form.Item label={t('s3.region')} name={['connection_data', 's3_region']} rules={[{ required: true }]}>
         <Input size="large" placeholder="us-east-1" />
       </Form.Item>
 

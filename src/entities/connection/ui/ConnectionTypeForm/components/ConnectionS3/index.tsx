@@ -35,7 +35,7 @@ export const ConnectionS3 = () => {
           <Radio.Button value="path">{t('s3.bucketStylePath')}</Radio.Button>
         </Radio.Group>
       </Form.Item>
-      <Form.Item label={t('s3.region')} name={['connection_data', 'region']}>
+      <Form.Item label={t('s3.region')} name={['connection_data', 'region']} rules={[{ required: true }]}>
         <Input size="large" placeholder="us-east-1" />
       </Form.Item>
 
