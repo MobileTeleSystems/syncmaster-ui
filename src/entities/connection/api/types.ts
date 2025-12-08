@@ -250,9 +250,9 @@ export interface ConnectionS3 {
     host: string;
     bucket: string;
     bucket_style: ConnectionBucketStyle;
-    port: number | null;
-    region: string | null;
+    region: string;
     protocol: ConnectionProtocol;
+    port: number | null;
   };
 }
 

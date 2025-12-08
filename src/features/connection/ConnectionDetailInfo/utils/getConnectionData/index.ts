@@ -125,7 +125,7 @@ export const getConnectionData = (connection: Connection, t: TFunction<'connecti
         },
         {
           label: t('s3.region'),
-          content: connection_data.region || '',
+          content: connection_data.region,
         },
       ];
     case ConnectionType.HIVE:
@@ -170,7 +170,7 @@ export const getConnectionData = (connection: Connection, t: TFunction<'connecti
         });
         result.push({
           label: t('s3.name') + ' ' + t('s3.region'),
-          content: connection_data.s3_region || '',
+          content: connection_data.s3_region,
         });
       } else {
         result.push({
