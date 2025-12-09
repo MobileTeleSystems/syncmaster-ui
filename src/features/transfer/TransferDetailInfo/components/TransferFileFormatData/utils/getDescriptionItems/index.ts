@@ -60,7 +60,7 @@ export const getDescriptionItems = ({ t, data }: GetDescriptionItemsProps): Desc
           content: data.include_header ? t('yes', { ns: 'shared' }) : t('no', { ns: 'shared' }),
         },
         {
-          label: t('lineSeparator'),
+          label: t('startCell'),
           content: data.start_cell ?? '',
         },
       ];
