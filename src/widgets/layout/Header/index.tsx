@@ -8,6 +8,7 @@ import { ChangeLanguageSelect } from '@shared/config';
 
 import classes from './styles.module.less';
 import { LogoutButton } from './components';
+import { Logo } from './assets';
 
 const { Header: AntdHeader } = Layout;
 const { Text } = Typography;
@@ -17,9 +18,8 @@ export const Header = () => {
 
   return (
     <AntdHeader className={classes.header}>
-      {/* TODO: [DOP-20026] Need to add logo */}
       <div className={classes.left}>
-        <div className={classes.logo} />
+        <Logo className={classes.logo} />
         <div className={classes.select}>
           <SelectGroup />
         </div>
