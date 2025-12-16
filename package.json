@@ -80,7 +80,7 @@
     "npm": ">10"
   },
   "lint-staged": {
-    "src/**/*": "prettier --write --list-different",
+    "src/**/*.{ts,tsx,js,jsx,json,css,less}": "prettier --write --list-different",
     "src/**/*.{ts,tsx}": "eslint --fix"
   }
 }

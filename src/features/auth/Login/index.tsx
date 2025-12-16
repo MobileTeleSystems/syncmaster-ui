@@ -4,6 +4,7 @@ import { authService, LoginResponse, useLogin } from '@entities/auth';
 import { Form, Input, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 
+import { Logo } from './assets';
 import classes from './styles.module.less';
 
 const { Title } = Typography;
@@ -18,7 +19,8 @@ export const Login = () => {
 
   return (
     <div className={classes.wrapper}>
-      <Title>{t('auth')}</Title>
+      <Logo className={classes.logo} />
+      <Title level={2}>{t('auth')}</Title>
       <ManagedForm mutationFunction={authService.login} onSuccess={onSuccess}>
         <Form.Item label={t('username')} name="username" rules={[{ required: true }]}>
           <Input size="large" />
