@@ -1,4 +1,5 @@
 import { NodeTypes } from '@xyflow/react';
+import { TransformationType } from '@entities/transformation';
 
 import { SourceParamsNode } from '../SourceParamsNode';
 import { TargetParamsNode } from '../TargetParamsNode';
@@ -39,4 +40,22 @@ export const TRANSFER_CANVAS_TRANSFORM_NODE_TYPE_NAME_DISPLAY = {
   [TransferCanvasTransformNodeType.FILTER_ROWS]: 'filterRows',
   [TransferCanvasTransformNodeType.FILTER_COLUMNS]: 'filterColumns',
   [TransferCanvasTransformNodeType.FILTER_FILE]: 'filterFile',
+} as const;
+
+export const TRANSFER_CANVAS_NODE_TYPE_TO_TRANSFORM_TYPE_MAP: Record<
+  TransferCanvasTransformNodeType,
+  TransformationType
+> = {
+  [TransferCanvasTransformNodeType.FILTER_ROWS]: TransformationType.FILTER_ROWS,
+  [TransferCanvasTransformNodeType.FILTER_COLUMNS]: TransformationType.FILTER_COLUMNS,
+  [TransferCanvasTransformNodeType.FILTER_FILE]: TransformationType.FILTER_FILE,
+} as const;
+
+export const TRANSFER_TRANSFORM_TYPE_TO_CANVAS_NODE_TYPE_MAP: Record<
+  TransformationType,
+  TransferCanvasTransformNodeType
+> = {
+  [TransformationType.FILTER_ROWS]: TransferCanvasTransformNodeType.FILTER_ROWS,
+  [TransformationType.FILTER_COLUMNS]: TransferCanvasTransformNodeType.FILTER_COLUMNS,
+  [TransformationType.FILTER_FILE]: TransferCanvasTransformNodeType.FILTER_FILE,
 } as const;

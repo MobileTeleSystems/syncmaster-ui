@@ -1,6 +1,8 @@
 import { Edge, useReactFlow } from '@xyflow/react';
 import { useEffect, useState } from 'react';
 import { Form } from 'antd';
+import { TransformationsForm } from '@entities/transformation';
+import { useSupportedTransformationTypes } from '@features/transfer/MutateTransferForm/hooks';
 
 import {
   TransferCanvasNodeData,
@@ -8,8 +10,9 @@ import {
   NODE_TYPES_ID,
   TransferCanvasDefaultNodeType,
   EDGE_TYPES_ID,
+  TRANSFER_CANVAS_NODE_TYPE_TO_TRANSFORM_TYPE_MAP,
 } from '../../../TransferConnectionsCanvas';
-import { getInitialTransformNodeTypes, getTransformationType, TransformNodeTypes } from '../../utils';
+import { getInitialTransformNodeTypes, TransformNodeTypes } from '../../utils';
 import { setNodePosition } from '../../../TransferConnectionsCanvas';
 
 /** Hook for handling nodes and edges data (add, delete) */
@@ -18,11 +21,12 @@ export const useHandleNodes = () => {
   const formInstance = Form.useFormInstance();
 
   const [transformNodeTypes, setTransformNodeTypes] = useState<TransformNodeTypes>();
+  const { supportedTransformationTypes } = useSupportedTransformationTypes();
 
   /** Set initial nodes using useEffect, because nodes state fill only after mounting */
   useEffect(() => {
     setTransformNodeTypes(getInitialTransformNodeTypes(getNodes()));
-  }, [getNodes]);
+  }, [getNodes, supportedTransformationTypes]);
 
   const addNewNode = (nodeType: TransferCanvasTransformNodeType) => {
     const newNode = {
@@ -85,8 +89,8 @@ export const useHandleNodes = () => {
         .map((node, index) => ({ ...node, position: setNodePosition(index) })),
     );
 
-    const currentTransformationsFormValues = formInstance.getFieldValue('transformations');
-    delete currentTransformationsFormValues[getTransformationType(nodeType)];
+    const currentTransformationsFormValues = formInstance.getFieldValue('transformations') as TransformationsForm;
+    currentTransformationsFormValues[TRANSFER_CANVAS_NODE_TYPE_TO_TRANSFORM_TYPE_MAP[nodeType]] = [];
 
     formInstance.setFieldValue('transformations', currentTransformationsFormValues);
   };
