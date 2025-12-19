@@ -110,9 +110,9 @@ export interface TransformationFilterFileForm {
 export type Transformations = Array<TransformationFilterRows | TransformationFilterColumns | TransformationFilterFile>;
 
 export interface TransformationsForm {
+  [TransformationType.FILTER_FILE]?: TransformationFilterFileForm['filters'];
   [TransformationType.FILTER_ROWS]?: TransformationFilterRows['filters'];
   [TransformationType.FILTER_COLUMNS]?: TransformationFilterColumns['filters'];
-  [TransformationType.FILTER_FILE]?: TransformationFilterFileForm['filters'];
 }
 
 export type TransformationsFormNestedType<T extends keyof TransformationsForm> =

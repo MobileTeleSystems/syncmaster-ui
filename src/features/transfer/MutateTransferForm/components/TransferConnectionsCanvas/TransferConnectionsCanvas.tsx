@@ -18,9 +18,6 @@ export const TransferConnectionsCanvas = ({ groupId, isDisplayedButtons = true }
   const formInstance = Form.useFormInstance();
   const { supportedTransformationTypes } = useSupportedTransformationTypes();
 
-  /** Recreate the canvas when supported transformations change */
-  const canvasKey = supportedTransformationTypes.join(',');
-
   const initialTransformations = useMemo(() => {
     return formInstance.getFieldValue('transformations') as TransformationsForm;
   }, [formInstance]);
@@ -28,15 +25,15 @@ export const TransferConnectionsCanvas = ({ groupId, isDisplayedButtons = true }
   const initialNodes = useMemo(() => {
     return getInitialNodes({
       groupId,
+      hasFilterFile:
+        supportedTransformationTypes.includes(TransformationType.FILTER_FILE) &&
+        !!initialTransformations[TransformationType.FILTER_FILE]?.length,
       hasFilterRows:
         supportedTransformationTypes.includes(TransformationType.FILTER_ROWS) &&
         !!initialTransformations[TransformationType.FILTER_ROWS]?.length,
       hasFilterColumns:
         supportedTransformationTypes.includes(TransformationType.FILTER_COLUMNS) &&
         !!initialTransformations[TransformationType.FILTER_COLUMNS]?.length,
-      hasFilterFile:
-        supportedTransformationTypes.includes(TransformationType.FILTER_FILE) &&
-        !!initialTransformations[TransformationType.FILTER_FILE]?.length,
     });
   }, [groupId, supportedTransformationTypes, initialTransformations]);
 
@@ -48,7 +45,7 @@ export const TransferConnectionsCanvas = ({ groupId, isDisplayedButtons = true }
     <ShowButtonsContext.Provider value={{ isDisplayed: isDisplayedButtons }}>
       <ReactFlowProvider>
         <div className={classes.root}>
-          <Canvas key={canvasKey} nodeTypes={NODE_TYPES} initialNodes={initialNodes} initialEdges={initialEdges}>
+          <Canvas nodeTypes={NODE_TYPES} initialNodes={initialNodes} initialEdges={initialEdges}>
             {isDisplayedButtons && <TransformButtons />}
           </Canvas>
         </div>

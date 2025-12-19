@@ -21,6 +21,16 @@ export const getInitialNodes = ({
 
   let nodeIndex = 1;
 
+  if (hasFilterFile) {
+    nodes.push({
+      id: NODE_TYPES_ID[TransferCanvasTransformNodeType.FILTER_FILE],
+      type: TransferCanvasTransformNodeType.FILTER_FILE,
+      data: {},
+      position: setNodePosition(nodeIndex),
+    });
+    nodeIndex++;
+  }
+
   if (hasFilterRows) {
     nodes.push({
       id: NODE_TYPES_ID[TransferCanvasTransformNodeType.FILTER_ROWS],
@@ -35,16 +45,6 @@ export const getInitialNodes = ({
     nodes.push({
       id: NODE_TYPES_ID[TransferCanvasTransformNodeType.FILTER_COLUMNS],
       type: TransferCanvasTransformNodeType.FILTER_COLUMNS,
-      data: {},
-      position: setNodePosition(nodeIndex),
-    });
-    nodeIndex++;
-  }
-
-  if (hasFilterFile) {
-    nodes.push({
-      id: NODE_TYPES_ID[TransferCanvasTransformNodeType.FILTER_FILE],
-      type: TransferCanvasTransformNodeType.FILTER_FILE,
       data: {},
       position: setNodePosition(nodeIndex),
     });

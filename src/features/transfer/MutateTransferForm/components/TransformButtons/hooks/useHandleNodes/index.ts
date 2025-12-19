@@ -11,6 +11,7 @@ import {
   TransferCanvasDefaultNodeType,
   EDGE_TYPES_ID,
   TRANSFER_CANVAS_NODE_TYPE_TO_TRANSFORM_TYPE_MAP,
+  TRANSFER_CANVAS_FILTER_NODES,
 } from '../../../TransferConnectionsCanvas';
 import { getInitialTransformNodeTypes, TransformNodeTypes } from '../../utils';
 import { setNodePosition } from '../../../TransferConnectionsCanvas';
@@ -19,14 +20,14 @@ import { setNodePosition } from '../../../TransferConnectionsCanvas';
 export const useHandleNodes = () => {
   const { getNodes, getEdges, setNodes, setEdges } = useReactFlow<TransferCanvasNodeData>();
   const formInstance = Form.useFormInstance();
+  const { supportedTransformationTypes } = useSupportedTransformationTypes();
 
   const [transformNodeTypes, setTransformNodeTypes] = useState<TransformNodeTypes>();
-  const { supportedTransformationTypes } = useSupportedTransformationTypes();
 
   /** Set initial nodes using useEffect, because nodes state fill only after mounting */
   useEffect(() => {
     setTransformNodeTypes(getInitialTransformNodeTypes(getNodes()));
-  }, [getNodes, supportedTransformationTypes]);
+  }, [getNodes]);
 
   const addNewNode = (nodeType: TransferCanvasTransformNodeType) => {
     const newNode = {
@@ -144,6 +145,20 @@ export const useHandleNodes = () => {
     deleteNode(nodeType);
     deleteEdge(nodeType);
   };
+
+  /** Remove nodes that are not supported for the connection type */
+  useEffect(() => {
+    getNodes()
+      .filter(
+        ({ type }) =>
+          TRANSFER_CANVAS_FILTER_NODES.includes(type as TransferCanvasTransformNodeType) &&
+          !supportedTransformationTypes.includes(
+            TRANSFER_CANVAS_NODE_TYPE_TO_TRANSFORM_TYPE_MAP[type as TransferCanvasTransformNodeType],
+          ),
+      )
+      .forEach(({ type }) => handleDeleteTransformNode(type as TransferCanvasTransformNodeType));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [supportedTransformationTypes]);
 
   return { transformNodeTypes, handleAddTransformNode, handleDeleteTransformNode };
 };

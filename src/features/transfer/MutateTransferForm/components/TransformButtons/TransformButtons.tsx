@@ -21,6 +21,7 @@ const { Text } = Typography;
 export const TransformButtons = memo(() => {
   const { t } = useTranslation('transformation');
   const { transformNodeTypes, handleAddTransformNode, handleDeleteTransformNode } = useHandleNodes();
+
   const { supportedTransformationTypes } = useSupportedTransformationTypes();
 
   const [nodeTypeForDeleting, setNodeTypeForDeleting] = useState<TransferCanvasTransformNodeType | null>(null);
