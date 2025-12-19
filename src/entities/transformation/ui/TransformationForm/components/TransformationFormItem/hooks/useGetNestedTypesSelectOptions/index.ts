@@ -37,9 +37,9 @@ export const useGetNestedTypesSelectOptions = (transformationType: Transformatio
       TransformationType,
       OptionItem<TransformationFilterRowsType | TransformationFilterColumnsType | TransformationFilterFileType>[]
     > = {
+      [TransformationType.FILTER_FILE]: filterFileTypeSelectOptions,
       [TransformationType.FILTER_ROWS]: filterRowsTypeSelectOptions,
       [TransformationType.FILTER_COLUMNS]: filterColumnsTypeSelectOptions,
-      [TransformationType.FILTER_FILE]: filterFileTypeSelectOptions,
     };
 
     return filterOptions;

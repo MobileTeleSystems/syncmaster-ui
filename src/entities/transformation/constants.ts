@@ -1,3 +1,4 @@
+import { ConnectionType } from '@shared/types';
 import { createContext } from 'react';
 
 import {
@@ -17,9 +18,9 @@ const SHOW_BUTTONS_CONTEXT_INITIAL_VALUE: ShowButtonsContextProps = {
 export const ShowButtonsContext = createContext<ShowButtonsContextProps>(SHOW_BUTTONS_CONTEXT_INITIAL_VALUE);
 
 export const TRANSFORMATIONS_FORM_DEFAULT_VALUE: TransformationsForm = {
+  [TransformationType.FILTER_FILE]: [],
   [TransformationType.FILTER_ROWS]: [],
   [TransformationType.FILTER_COLUMNS]: [],
-  [TransformationType.FILTER_FILE]: [],
 };
 
 export const TRANSFORMATIONS_REQUEST_DEFAULT_VALUE: Transformations = [
@@ -65,3 +66,24 @@ export const TRANSFORMATION_FILTER_FILE_TYPE_DISPLAY = {
   [TransformationFilterFileType.FILE_SIZE_MIN]: 'fileSizeMin',
   [TransformationFilterFileType.FILE_SIZE_MAX]: 'fileSizeMax',
 } as const;
+
+const FILE_TRANSFORMATION_TYPES = Object.values(TransformationType);
+
+const DB_TRANSFORMATION_TYPES = FILE_TRANSFORMATION_TYPES.filter((type) => type !== TransformationType.FILTER_FILE);
+
+export const CONNECTION_TYPE_SUPPORT_TRANSFORMATION_TYPES: Record<ConnectionType, TransformationType[]> = {
+  [ConnectionType.CLICKHOUSE]: DB_TRANSFORMATION_TYPES,
+  [ConnectionType.FTP]: FILE_TRANSFORMATION_TYPES,
+  [ConnectionType.FTPS]: FILE_TRANSFORMATION_TYPES,
+  [ConnectionType.HDFS]: DB_TRANSFORMATION_TYPES,
+  [ConnectionType.HIVE]: DB_TRANSFORMATION_TYPES,
+  [ConnectionType.ICEBERG]: DB_TRANSFORMATION_TYPES,
+  [ConnectionType.MSSQL]: DB_TRANSFORMATION_TYPES,
+  [ConnectionType.MYSQL]: DB_TRANSFORMATION_TYPES,
+  [ConnectionType.ORACLE]: DB_TRANSFORMATION_TYPES,
+  [ConnectionType.POSTGRES]: DB_TRANSFORMATION_TYPES,
+  [ConnectionType.S3]: DB_TRANSFORMATION_TYPES,
+  [ConnectionType.SAMBA]: FILE_TRANSFORMATION_TYPES,
+  [ConnectionType.SFTP]: FILE_TRANSFORMATION_TYPES,
+  [ConnectionType.WEBDAV]: FILE_TRANSFORMATION_TYPES,
+};

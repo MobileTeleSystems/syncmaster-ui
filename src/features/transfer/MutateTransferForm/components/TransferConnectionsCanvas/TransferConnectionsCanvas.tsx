@@ -1,10 +1,11 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { Canvas } from '@shared/ui';
 import { ReactFlowProvider } from '@xyflow/react';
 import { Form } from 'antd';
 import { ShowButtonsContext, TransformationsForm, TransformationType } from '@entities/transformation';
 
 import { TransformButtons } from '../TransformButtons';
+import { useSupportedTransformationTypes } from '../../hooks';
 
 import { TransferCanvasProps } from './types';
 import { getInitialEdges, getInitialNodes } from './utils';
@@ -15,6 +16,7 @@ import '@xyflow/react/dist/style.css';
 
 export const TransferConnectionsCanvas = ({ groupId, isDisplayedButtons = true }: TransferCanvasProps) => {
   const formInstance = Form.useFormInstance();
+  const { supportedTransformationTypes } = useSupportedTransformationTypes();
 
   const initialTransformations = useMemo(() => {
     return formInstance.getFieldValue('transformations') as TransformationsForm;
@@ -23,11 +25,17 @@ export const TransferConnectionsCanvas = ({ groupId, isDisplayedButtons = true }
   const initialNodes = useMemo(() => {
     return getInitialNodes({
       groupId,
-      hasFilterRows: !!initialTransformations[TransformationType.FILTER_ROWS]?.length,
-      hasFilterColumns: !!initialTransformations[TransformationType.FILTER_COLUMNS]?.length,
-      hasFilterFile: !!initialTransformations[TransformationType.FILTER_FILE]?.length,
+      hasFilterFile:
+        supportedTransformationTypes.includes(TransformationType.FILTER_FILE) &&
+        !!initialTransformations[TransformationType.FILTER_FILE]?.length,
+      hasFilterRows:
+        supportedTransformationTypes.includes(TransformationType.FILTER_ROWS) &&
+        !!initialTransformations[TransformationType.FILTER_ROWS]?.length,
+      hasFilterColumns:
+        supportedTransformationTypes.includes(TransformationType.FILTER_COLUMNS) &&
+        !!initialTransformations[TransformationType.FILTER_COLUMNS]?.length,
     });
-  }, [groupId, initialTransformations]);
+  }, [groupId, supportedTransformationTypes, initialTransformations]);
 
   const initialEdges = useMemo(() => {
     return getInitialEdges(initialNodes);

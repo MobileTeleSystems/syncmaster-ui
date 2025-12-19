@@ -1,6 +1,8 @@
 import { Edge, useReactFlow } from '@xyflow/react';
 import { useEffect, useState } from 'react';
 import { Form } from 'antd';
+import { TransformationsForm } from '@entities/transformation';
+import { useSupportedTransformationTypes } from '@features/transfer/MutateTransferForm/hooks';
 
 import {
   TransferCanvasNodeData,
@@ -8,14 +10,17 @@ import {
   NODE_TYPES_ID,
   TransferCanvasDefaultNodeType,
   EDGE_TYPES_ID,
+  TRANSFER_CANVAS_NODE_TYPE_TO_TRANSFORM_TYPE_MAP,
+  TRANSFER_CANVAS_FILTER_NODES,
 } from '../../../TransferConnectionsCanvas';
-import { getInitialTransformNodeTypes, getTransformationType, TransformNodeTypes } from '../../utils';
+import { getInitialTransformNodeTypes, TransformNodeTypes } from '../../utils';
 import { setNodePosition } from '../../../TransferConnectionsCanvas';
 
 /** Hook for handling nodes and edges data (add, delete) */
 export const useHandleNodes = () => {
   const { getNodes, getEdges, setNodes, setEdges } = useReactFlow<TransferCanvasNodeData>();
   const formInstance = Form.useFormInstance();
+  const { supportedTransformationTypes } = useSupportedTransformationTypes();
 
   const [transformNodeTypes, setTransformNodeTypes] = useState<TransformNodeTypes>();
 
@@ -85,8 +90,8 @@ export const useHandleNodes = () => {
         .map((node, index) => ({ ...node, position: setNodePosition(index) })),
     );
 
-    const currentTransformationsFormValues = formInstance.getFieldValue('transformations');
-    delete currentTransformationsFormValues[getTransformationType(nodeType)];
+    const currentTransformationsFormValues = formInstance.getFieldValue('transformations') as TransformationsForm;
+    currentTransformationsFormValues[TRANSFER_CANVAS_NODE_TYPE_TO_TRANSFORM_TYPE_MAP[nodeType]] = [];
 
     formInstance.setFieldValue('transformations', currentTransformationsFormValues);
   };
@@ -140,6 +145,20 @@ export const useHandleNodes = () => {
     deleteNode(nodeType);
     deleteEdge(nodeType);
   };
+
+  /** Remove nodes that are not supported for the connection type */
+  useEffect(() => {
+    getNodes()
+      .filter(
+        ({ type }) =>
+          TRANSFER_CANVAS_FILTER_NODES.includes(type as TransferCanvasTransformNodeType) &&
+          !supportedTransformationTypes.includes(
+            TRANSFER_CANVAS_NODE_TYPE_TO_TRANSFORM_TYPE_MAP[type as TransferCanvasTransformNodeType],
+          ),
+      )
+      .forEach(({ type }) => handleDeleteTransformNode(type as TransferCanvasTransformNodeType));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [supportedTransformationTypes]);
 
   return { transformNodeTypes, handleAddTransformNode, handleDeleteTransformNode };
 };

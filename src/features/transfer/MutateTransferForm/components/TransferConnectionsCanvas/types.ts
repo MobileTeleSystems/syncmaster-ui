@@ -23,16 +23,16 @@ export enum TransferCanvasDefaultNodeType {
 }
 
 export enum TransferCanvasTransformNodeType {
+  FILTER_FILE = 'FILTER_FILE',
   FILTER_ROWS = 'FILTER_ROWS',
   FILTER_COLUMNS = 'FILTER_COLUMNS',
-  FILTER_FILE = 'FILTER_FILE',
 }
 
 export enum TransferCanvasEdgeType {
   SOURCE = 'SOURCE',
+  FILTER_FILE = 'FILTER_FILE',
   FILTER_ROWS = 'FILTER_ROWS',
   FILTER_COLUMNS = 'FILTER_COLUMNS',
-  FILTER_FILE = 'FILTER_FILE',
   TARGET = 'TARGET',
 }
 
