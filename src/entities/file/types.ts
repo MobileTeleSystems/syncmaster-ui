@@ -22,6 +22,20 @@ export enum FileCompression {
   DEFLATE = 'deflate',
 }
 
+export enum FileLineSeparator {
+  WIN = 'win',
+  UNIX = 'unix',
+  MAC = 'mac',
+}
+
+export enum FileColumnDelimiter {
+  TAB = 'tab',
+  SPACE = 'space',
+  COMMA = 'comma',
+  SEMICOLON = 'semicolon',
+  PIPE = 'pipe',
+}
+
 export enum FileFormatType {
   CSV = 'csv',
   EXCEL = 'excel',
