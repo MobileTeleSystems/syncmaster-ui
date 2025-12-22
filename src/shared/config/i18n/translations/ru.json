@@ -122,7 +122,7 @@
       "deflate": "Deflate"
     },
     "selectCompression": "Выберите тип сжатия",
-    "delimiter": "Разделитель",
+    "delimiter": "Разделитель колонок",
     "delimiters": {
       "tab": "Табуляция",
       "space": "Пробел",
@@ -133,7 +133,7 @@
     "encoding": "Кодировка",
     "quote": "Оборачивать текст в кавычки",
     "escape": "Экранировать кавычки символом",
-    "includeHeader": "Включить заголовок",
+    "includeHeader": "В файлах есть заголовок",
     "lineSeparator": "Разделитель строк",
     "lineSeparators": {
       "win": "Windows (CRLF, \\r\\n)",

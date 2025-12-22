@@ -124,7 +124,7 @@
       "deflate": "Deflate"
     },
     "selectCompression": "Select compression type",
-    "delimiter": "Delimiter",
+    "delimiter": "Field delimiter",
     "delimiters": {
       "tab": "Tab",
       "space": "Space",
@@ -135,7 +135,7 @@
     "encoding": "Encoding",
     "quote": "Wrap text in quotes",
     "escape": "Escape quotes with character",
-    "includeHeader": "Include header",
+    "includeHeader": "File contains header",
     "lineSeparator": "Line separator",
     "lineSeparators": {
       "win": "Windows (CRLF, \\r\\n)",
