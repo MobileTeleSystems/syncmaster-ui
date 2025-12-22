@@ -17,7 +17,7 @@ export const TransferConnectionsDefault = ({ groupId }: TransferConnectionsDefau
   const filters = useMemo(
     () =>
       Object.entries(FILTER_TYPES_CONFIG)
-        .filter(([key]) => supportedTransformationTypes.includes(key as TransformationType))
+        .filter(([key]) => supportedTransformationTypes?.includes(key as TransformationType))
         .map(([key, { title, filter }]) => (
           <Fieldset key={key} title={t(title, { ns: 'transformation' })}>
             {filter}

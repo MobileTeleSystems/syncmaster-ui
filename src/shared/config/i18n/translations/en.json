@@ -114,13 +114,34 @@
     "fileFormat": "File format",
     "selectFileFormat": "Select file format",
     "compression": "Compression",
+    "compressions": {
+      "none": "None",
+      "bzip2": "BZip2",
+      "gzip": "GZip",
+      "lz4": "LZ4",
+      "snappy": "Snappy",
+      "zlib": "ZLib",
+      "deflate": "Deflate"
+    },
     "selectCompression": "Select compression type",
     "delimiter": "Delimiter",
+    "delimiters": {
+      "tab": "Tab",
+      "space": "Space",
+      "comma": "Comma ,",
+      "semicolon": "Semicolon ;",
+      "pipe": "Pipe |"
+    },
     "encoding": "Encoding",
-    "quote": "Quote",
-    "escape": "Escape",
+    "quote": "Wrap text in quotes",
+    "escape": "Escape quotes with character",
     "includeHeader": "Include header",
     "lineSeparator": "Line separator",
+    "lineSeparators": {
+      "win": "Windows (CRLF, \\r\\n)",
+      "unix": "Unix (LF, \\n)",
+      "mac": "MacOS (CR, \\r)"
+    },
     "startCell": "Start cell",
     "rootTag": "Root tag",
     "rowTag": "Row tag",

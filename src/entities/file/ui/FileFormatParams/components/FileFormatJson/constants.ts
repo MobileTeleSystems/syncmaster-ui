@@ -1,6 +1,7 @@
 import { prepareOptionsForSelect } from '@shared/ui';
+import { FILE_LINE_SEPARATOR_VALUES } from '@entities/file/constants';
 
-import { FileCompression, Json } from '../../../../types';
+import { Csv, FileCompression, FileLineSeparator, Json } from '../../../../types';
 
 export const JSON_COMPRESSION_SELECT_OPTIONS = prepareOptionsForSelect<Json['compression']>({
   data: [
@@ -12,4 +13,10 @@ export const JSON_COMPRESSION_SELECT_OPTIONS = prepareOptionsForSelect<Json['com
   ],
   renderLabel: (data) => data,
   renderValue: (data) => data,
+});
+
+export const JSON_SEPARATOR_SELECT_OPTIONS = prepareOptionsForSelect<Csv['line_sep']>({
+  data: Object.values([FileLineSeparator.WIN, FileLineSeparator.UNIX, FileLineSeparator.MAC]),
+  renderLabel: (data) => data,
+  renderValue: (data) => FILE_LINE_SEPARATOR_VALUES[data as FileLineSeparator],
 });

@@ -112,13 +112,34 @@
     "fileFormat": "Формат файла",
     "selectFileFormat": "Выбрать формат файла",
     "compression": "Сжатие",
+    "compressions": {
+      "none": "Нет",
+      "bzip2": "BZip2",
+      "gzip": "GZip",
+      "lz4": "LZ4",
+      "snappy": "Snappy",
+      "zlib": "ZLib",
+      "deflate": "Deflate"
+    },
     "selectCompression": "Выберите тип сжатия",
     "delimiter": "Разделитель",
+    "delimiters": {
+      "tab": "Табуляция",
+      "space": "Пробел",
+      "comma": "Запятая ,",
+      "semicolon": "Точка с запятой ;",
+      "pipe": "Вертикальная черта |"
+    },
     "encoding": "Кодировка",
-    "quote": "Кавычки",
-    "escape": "Экранирование",
+    "quote": "Оборачивать текст в кавычки",
+    "escape": "Экранировать кавычки символом",
     "includeHeader": "Включить заголовок",
     "lineSeparator": "Разделитель строк",
+    "lineSeparators": {
+      "win": "Windows (CRLF, \\r\\n)",
+      "unix": "Unix (LF, \\n)",
+      "mac": "MacOS (CR, \\r)"
+    },
     "startCell": "Начальная ячейка",
     "rootTag": "Корневой тег",
     "rowTag": "Тег строки",
