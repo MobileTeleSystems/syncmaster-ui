@@ -191,7 +191,7 @@
     "directoryPath": "Путь к директории",
     "invalidDirectoryPath": "Путь должен быть в формате /путь/к/директории",
     "tableName": "Название таблицы",
-    "invalidTableName": "Название таблицы должно быть в формате схема.имя_таблицы",
+    "invalidTableName": "Название таблицы должно быть в формате схема.имятаблицы",
     "transferInfo": "Информация о трансфере",
     "sourceConnection": "Источник",
     "targetConnection": "Назначение",
