@@ -3,7 +3,7 @@ import { Form, Switch } from 'antd';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 export const TransferSchedule = () => {
   const { t } = useTranslation('transfer');

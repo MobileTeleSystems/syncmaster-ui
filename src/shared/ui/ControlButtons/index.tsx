@@ -2,7 +2,7 @@ import { Button, Form } from 'antd';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { ControlButtonsProps } from './types';
 
 /** Component of buttons in forms and modals */

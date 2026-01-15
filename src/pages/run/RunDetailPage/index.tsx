@@ -13,7 +13,7 @@ import { useGetTransfer } from '@entities/transfer';
 import { RunDetailInfo } from '@features/run';
 import { useTranslation } from 'react-i18next';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 const { Title } = Typography;
 

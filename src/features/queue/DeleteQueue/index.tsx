@@ -5,7 +5,7 @@ import { WarningOutlined } from '@ant-design/icons';
 import { useDeleteQueue } from '@entities/queue';
 import { useTranslation } from 'react-i18next';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { DeleteQueueProps } from './types';
 
 const { Text } = Typography;

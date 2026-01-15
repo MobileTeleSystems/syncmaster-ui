@@ -11,7 +11,7 @@ import { useGetQueue } from '@entities/queue';
 import { TransferRuns } from '@widgets/run';
 import { useTranslation } from 'react-i18next';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 const { Title } = Typography;
 

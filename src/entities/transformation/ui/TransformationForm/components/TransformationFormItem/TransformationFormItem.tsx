@@ -10,7 +10,7 @@ import { FilterComponent } from '../FilterComponent';
 
 import { TransformationFormItemProps } from './types';
 import { useGetNestedTypesSelectOptions } from './hooks';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 export const TransformationFormItem = <T extends TransformationType>({
   name,

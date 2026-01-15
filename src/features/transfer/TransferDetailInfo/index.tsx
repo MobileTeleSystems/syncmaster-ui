@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useCronService } from '@shared/services';
 
 import { TransferDetailInfoProps } from './types';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { TransferParams, TransferResources, TransferStrategyParams } from './components';
 
 export const TransferDetailInfo = ({

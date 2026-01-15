@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Select } from 'antd';
 
 import { CronSelectProps } from './types';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { useCron, useGetPeriodSelectOptions } from './hooks';
 import { DynamicSelect } from './components';
 

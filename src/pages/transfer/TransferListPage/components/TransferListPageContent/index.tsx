@@ -5,7 +5,7 @@ import { AccessWrapper, ActionButton, PageContentWrapper } from '@shared/ui';
 import { TransferListWrapper } from '@widgets/transfer';
 import { useTranslation } from 'react-i18next';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 export const TransferListPageContent = () => {
   const { t } = useTranslation('transfer');

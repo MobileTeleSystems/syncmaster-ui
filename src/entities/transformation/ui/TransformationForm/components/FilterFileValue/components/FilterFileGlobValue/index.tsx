@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { NAME_GLOB_PATTERN } from './constants';
 
 export const FilterFileGlobValue = ({ name }: { name: number }) => {

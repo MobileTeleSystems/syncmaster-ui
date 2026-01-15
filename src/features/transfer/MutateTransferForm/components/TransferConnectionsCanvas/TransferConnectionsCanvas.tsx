@@ -10,7 +10,7 @@ import { useSupportedTransformationTypes } from '../../hooks';
 import { TransferCanvasProps } from './types';
 import { getInitialEdges, getInitialNodes } from './utils';
 import { NODE_TYPES } from './constants';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 import '@xyflow/react/dist/style.css';
 

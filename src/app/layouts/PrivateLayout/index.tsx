@@ -5,7 +5,7 @@ import { Header, Sidebar } from '@widgets/layout';
 import { SpinOverlay, Suspense } from '@shared/ui';
 import { useSelectedGroup } from '@entities/group';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 const { Content } = Layout;
 

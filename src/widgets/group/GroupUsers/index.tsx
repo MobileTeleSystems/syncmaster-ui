@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 import { GroupUsersProps } from './types';
 import { AddGroupUserButton, DeleteGroupUserModal, UpdateGroupUserModal } from './components';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 const { Text } = Typography;
 

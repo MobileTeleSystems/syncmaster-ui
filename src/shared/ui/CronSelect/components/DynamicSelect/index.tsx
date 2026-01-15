@@ -3,7 +3,7 @@ import { Period } from '@shared/services';
 import { useTranslation } from 'react-i18next';
 import { Select } from 'antd';
 
-import classes from '../../styles.module.less';
+import * as classes from '../../styles.module.less';
 import { DAYS_OF_MONTH_SELECT_OPTIONS } from '../../constants';
 import { useGetDaysOfWeekSelectOptions } from '../../hooks';
 

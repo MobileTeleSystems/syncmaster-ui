@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 const { Content } = Layout;
 

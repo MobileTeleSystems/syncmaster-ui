@@ -10,7 +10,7 @@ import { TargetParams } from '../TargetParams';
 import { TransferCanvasEdge } from '../TransferConnectionsCanvas';
 
 import { TargetParamsNodeProps } from './types';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 export const TargetParamsNode = ({ data }: TargetParamsNodeProps) => {
   const { t } = useTranslation('transfer');

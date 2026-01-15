@@ -10,7 +10,7 @@ import { SourceParams } from '../SourceParams';
 import { TransferCanvasEdge } from '../TransferConnectionsCanvas';
 
 import { SourceParamsNodeProps } from './types';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 export const SourceParamsNode = ({ data }: SourceParamsNodeProps) => {
   const { t } = useTranslation('transfer');

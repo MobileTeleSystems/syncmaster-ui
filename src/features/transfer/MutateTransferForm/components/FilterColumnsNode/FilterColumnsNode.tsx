@@ -11,7 +11,7 @@ import {
 } from '../TransferConnectionsCanvas';
 import { FilterColumnsFormItem } from '../FilterColumnsFormItem';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 export const FilterColumnsNode = () => {
   const { t } = useTranslation('transformation');

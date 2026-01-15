@@ -9,7 +9,7 @@ import { GroupDetailInfo } from '@features/group';
 import { GroupUsers } from '@widgets/group';
 import { useTranslation } from 'react-i18next';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { UpdateGroupButton } from './components';
 
 const { Title } = Typography;

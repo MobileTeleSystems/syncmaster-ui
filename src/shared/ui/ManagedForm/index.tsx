@@ -6,7 +6,7 @@ import { clsx } from 'clsx';
 import { checkIsFormFieldsError, getErrorMessage } from '@shared/config';
 import { useTranslation } from 'react-i18next';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { ManagedFormProps } from './types';
 import { cleanErrors, revalidateErrorFields, showErrorsInFields } from './utils';
 

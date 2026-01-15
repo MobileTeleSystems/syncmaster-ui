@@ -29,6 +29,7 @@ export const ConnectionOracle = () => {
 
   //* It needs to validate required fields service_name and sid correctly if they have initial values
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     changeDisabledFields();
   }, [changeDisabledFields]);
 

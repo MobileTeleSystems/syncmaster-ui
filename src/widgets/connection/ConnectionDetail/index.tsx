@@ -5,7 +5,7 @@ import { UserRole } from '@shared/types';
 
 import { ConnectionDetailProps } from './types';
 import { DeleteConnectionButton, UpdateConnectionButton } from './components';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 export const ConnectionDetail = ({ connection, group }: ConnectionDetailProps) => {
   return (

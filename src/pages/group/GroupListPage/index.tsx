@@ -4,7 +4,7 @@ import { Typography } from 'antd';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 const { Title } = Typography;
 

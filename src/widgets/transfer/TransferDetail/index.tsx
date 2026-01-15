@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 import { TransferDetailProps } from './types';
 import { DeleteTransferButton, UpdateTransferButton } from './components';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 const { Text } = Typography;
 

@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 import { TransferRunsProps } from './types';
 import { CreateRunButton } from './components';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 const { Text } = Typography;
 

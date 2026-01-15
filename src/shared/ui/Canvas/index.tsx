@@ -11,7 +11,7 @@ import {
 } from '@xyflow/react';
 import React, { useEffect } from 'react';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { CanvasProps } from './types';
 
 export const Canvas = <N extends Node, E extends Edge>({

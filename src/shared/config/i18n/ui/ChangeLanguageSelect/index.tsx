@@ -6,7 +6,7 @@ import { Language } from '../../types';
 import { LANGUAGE_LOCAL_STORAGE_KEY } from '../../constants';
 
 import { LANGUAGE_SELECT_OPTIONS } from './constants';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 export const ChangeLanguageSelect = () => {
   const { i18n } = useTranslation();

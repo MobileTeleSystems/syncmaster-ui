@@ -4,7 +4,7 @@ import { Table } from 'antd';
 import { PAGE_SIZES } from './constants';
 import { useTableColumns, useTablePagination, useTableQuery } from './hooks';
 import { ManagedTableProps } from './types';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 export const ManagedTable = <T extends object>({
   queryFunction,

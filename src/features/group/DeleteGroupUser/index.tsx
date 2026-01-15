@@ -5,7 +5,7 @@ import { useDeleteGroupUser } from '@entities/group';
 import { WarningOutlined } from '@ant-design/icons';
 import { Trans, useTranslation } from 'react-i18next';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { DeleteGroupUserProps } from './types';
 
 const { Text } = Typography;

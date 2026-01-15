@@ -4,7 +4,7 @@ import { useModalState } from '@shared/hooks';
 import { useTranslation } from 'react-i18next';
 
 import { CreateRunModal } from './components';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { CreateRunButtonProps } from './types';
 
 export const CreateRunButton = memo(({ transferId, transferName }: CreateRunButtonProps) => {

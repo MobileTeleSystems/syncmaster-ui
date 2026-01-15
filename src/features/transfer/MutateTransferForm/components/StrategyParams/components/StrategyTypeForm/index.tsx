@@ -19,6 +19,7 @@ export const StrategyTypeForm = ({ sourceConnectionType }: StrategyTypeFormProps
     switch (sourceConnectionType) {
       case ConnectionType.HDFS:
       case ConnectionType.S3:
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setDisabled(true);
         return formInstance.setFieldValue(['strategy_params', 'type'], 'full');
       case ConnectionType.CLICKHOUSE:

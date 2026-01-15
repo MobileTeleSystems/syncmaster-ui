@@ -26,6 +26,7 @@ export const useTableQuery = <T>({ queryKey, queryFunction, pagination }: UseTab
   // Setting placeholder data for table to avoid showing empty component between page number/page size changing
   useEffect(() => {
     if (!isFetching) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPlaceholderData(pagination);
     }
   }, [pagination, isFetching]);

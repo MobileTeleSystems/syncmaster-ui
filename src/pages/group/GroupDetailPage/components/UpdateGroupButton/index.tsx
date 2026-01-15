@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActionButton } from '@shared/ui';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { UpdateGroupButtonProps } from './types';
 
 export const UpdateGroupButton = ({ groupId }: UpdateGroupButtonProps) => {

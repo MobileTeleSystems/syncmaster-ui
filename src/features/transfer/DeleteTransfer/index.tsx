@@ -5,7 +5,7 @@ import { WarningOutlined } from '@ant-design/icons';
 import { useDeleteTransfer } from '@entities/transfer';
 import { useTranslation } from 'react-i18next';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { DeleteTransferProps } from './types';
 
 const { Text } = Typography;

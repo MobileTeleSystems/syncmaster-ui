@@ -14,7 +14,7 @@ import { useSupportedTransformationTypes } from '../../hooks';
 
 import { useHandleNodes } from './hooks';
 import { DeleteNode, TransformButtonItem } from './components';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 const { Text } = Typography;
 

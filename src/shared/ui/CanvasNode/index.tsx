@@ -3,7 +3,7 @@ import { Typography } from 'antd';
 import clsx from 'clsx';
 
 import { CanvasNodeProps } from './types';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 const { Title } = Typography;
 

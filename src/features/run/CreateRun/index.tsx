@@ -5,7 +5,7 @@ import { WarningOutlined } from '@ant-design/icons';
 import { useCreateRun } from '@entities/run';
 import { useTranslation } from 'react-i18next';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { CreateRunProps } from './types';
 
 const { Text } = Typography;

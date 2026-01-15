@@ -4,7 +4,7 @@ import { TransformationFilterColumnsType } from '@entities/transformation';
 import { useTranslation } from 'react-i18next';
 
 import { FilterColumnsValueProps } from './types';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 export const FilterColumnsValue = ({ name, type }: FilterColumnsValueProps) => {
   const { t } = useTranslation('transformation');

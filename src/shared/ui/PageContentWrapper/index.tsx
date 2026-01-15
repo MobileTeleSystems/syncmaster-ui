@@ -1,7 +1,7 @@
 import React, { memo, PropsWithChildren } from 'react';
 
 import { PageContentWrapperProps } from './types';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 export const PageContentWrapper = memo(
   ({ width = 'medium', gap = 'medium', children }: PropsWithChildren<PageContentWrapperProps>) => {

@@ -6,7 +6,7 @@ import { useAuth } from '@entities/auth';
 import { SelectGroup } from '@features/group';
 import { ChangeLanguageSelect } from '@shared/config';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { LogoutButton } from './components';
 import { Logo } from './assets';
 

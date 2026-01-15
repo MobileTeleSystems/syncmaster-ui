@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import { Layout } from 'antd';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 const { Content } = Layout;
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout, Menu } from 'antd';
 import { useLocation } from 'react-router-dom';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { useGetSidebarMenu } from './hooks';
 
 const { Sider } = Layout;

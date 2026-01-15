@@ -4,7 +4,7 @@ import { Select } from '@shared/ui';
 import { useTranslation } from 'react-i18next';
 
 import { FilterFileSizeValueProps } from './types';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { useGetFileSizeUnitSelectOptions } from './hooks';
 
 export const FilterFileSizeValue = memo(({ name }: FilterFileSizeValueProps) => {

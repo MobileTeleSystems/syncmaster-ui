@@ -12,6 +12,7 @@ export const SelectedGroupProvider = ({ children }: PropsWithChildren) => {
 
   useLayoutEffect(() => {
     if (initialGroup) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSelectedGroup(initialGroup);
     }
   }, [initialGroup]);

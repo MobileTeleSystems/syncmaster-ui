@@ -5,7 +5,7 @@ import { WarningOutlined } from '@ant-design/icons';
 import { useDeleteConnection } from '@entities/connection';
 import { useTranslation } from 'react-i18next';
 
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { DeleteConnectionProps } from './types';
 
 const { Text } = Typography;

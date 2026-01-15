@@ -5,7 +5,7 @@ import { Form, Input, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 
 import { Logo } from './assets';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 const { Title } = Typography;
 

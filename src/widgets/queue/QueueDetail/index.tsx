@@ -5,7 +5,7 @@ import { UserRole } from '@shared/types';
 
 import { QueueDetailProps } from './types';
 import { DeleteQueueButton, UpdateQueueButton } from './components';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 export const QueueDetail = ({ queue, group }: QueueDetailProps) => {
   return (

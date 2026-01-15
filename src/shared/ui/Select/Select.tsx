@@ -4,7 +4,7 @@ import { BaseOptionType, DefaultOptionType } from 'antd/lib/select';
 import clsx from 'clsx';
 
 import { SelectProps } from './types';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 const SelectComponent = <V, O extends BaseOptionType | DefaultOptionType>({
   className,

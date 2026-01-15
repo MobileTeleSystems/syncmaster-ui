@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ActionButton } from '@shared/ui';
 
 import { AddGroupUserModal } from './components';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 import { AddGroupUserButtonProps } from './types';
 
 export const AddGroupUserButton = memo(({ groupId }: AddGroupUserButtonProps) => {

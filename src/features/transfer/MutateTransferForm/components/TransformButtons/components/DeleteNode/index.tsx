@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { TRANSFER_CANVAS_TRANSFORM_NODE_TYPE_NAME_DISPLAY } from '../../../TransferConnectionsCanvas';
 
 import { DeleteNodeProps } from './types';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 const { Text } = Typography;
 

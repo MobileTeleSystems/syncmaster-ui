@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 import { UpdateGroupUserForm, UpdateGroupUserProps } from './types';
 import { getUpdateGroupUserInitialValues } from './utils';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 const { Text } = Typography;
 

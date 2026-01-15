@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { ActionButtonProps } from './types';
 import { BUTTON_SETTINGS } from './constants';
-import classes from './styles.module.less';
+import * as classes from './styles.module.less';
 
 export const ActionButton = memo(({ actionType, to, className, children, ...props }: ActionButtonProps) => {
   const { t } = useTranslation();
