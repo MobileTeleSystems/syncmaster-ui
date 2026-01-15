@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import { Form, Input, InputNumber } from 'antd';
 import { useTranslation } from 'react-i18next';
 
@@ -9,29 +9,18 @@ export const ConnectionOracle = () => {
   const { t } = useTranslation('connection');
   const form = Form.useFormInstance();
 
-  const [isServiceNameDisabled, setServiceNameDisabled] = useState(false);
-  const [isSidDisabled, setSidDisabled] = useState(false);
+  Form.useWatch(['connection_data', 'service_name'], form);
+  Form.useWatch(['connection_data', 'sid'], form);
 
-  const changeDisabledFields = useCallback(() => {
-    const serviceName = form.getFieldValue(['connection_data', 'service_name']);
-    const sid = form.getFieldValue(['connection_data', 'sid']);
-    setServiceNameDisabled(!!sid);
-    setSidDisabled(!!serviceName);
-  }, [form]);
+  const serviceName = form.getFieldValue(['connection_data', 'service_name']);
+  const sid = form.getFieldValue(['connection_data', 'sid']);
 
   const handleFieldChange = () => {
-    changeDisabledFields();
     form.validateFields([
       ['connection_data', 'service_name'],
       ['connection_data', 'sid'],
     ]);
   };
-
-  //* It needs to validate required fields service_name and sid correctly if they have initial values
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    changeDisabledFields();
-  }, [changeDisabledFields]);
 
   return (
     <>
@@ -46,24 +35,24 @@ export const ConnectionOracle = () => {
         name={['connection_data', 'service_name']}
         rules={[
           {
-            required: !isServiceNameDisabled,
+            required: !sid,
             message: t('oracle.serviceNameOrSidRequired'),
           },
         ]}
       >
-        <Input size="large" disabled={isServiceNameDisabled} onChange={handleFieldChange} placeholder="XEPDB1" />
+        <Input size="large" disabled={!!sid} onChange={handleFieldChange} placeholder="XEPDB1" />
       </Form.Item>
       <Form.Item
         label={t('oracle.sid')}
         name={['connection_data', 'sid']}
         rules={[
           {
-            required: !isSidDisabled,
+            required: !serviceName,
             message: t('oracle.serviceNameOrSidRequired'),
           },
         ]}
       >
-        <Input size="large" disabled={isSidDisabled} onChange={handleFieldChange} />
+        <Input size="large" disabled={!!serviceName} onChange={handleFieldChange} />
       </Form.Item>
       <ConnectionAuthBasic />
     </>
