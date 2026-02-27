@@ -4,10 +4,11 @@ import { TransformationType } from '@entities/transformation';
 import { SourceParamsNode } from '../SourceParamsNode';
 import { TargetParamsNode } from '../TargetParamsNode';
 import { FilterRowsNode } from '../FilterRowsNode';
-import { FilterColumnsNode } from '../FilterColumnsNode';
 import { FilterFileNode } from '../FilterFileNode';
+import { FilterColumnsNode } from '../FilterColumnsNode';
+import { FilterSqlNode } from '../FilterSqlNode';
 
-import { TransferCanvasDefaultNodeType, TransferCanvasEdgeType, TransferCanvasTransformNodeType } from './types';
+import { TransferCanvasDefaultNodeType, TransferCanvasTransformNodeType } from './types';
 
 export const NODE_TYPES: NodeTypes = {
   [TransferCanvasDefaultNodeType.SOURCE]: SourceParamsNode,
@@ -15,6 +16,7 @@ export const NODE_TYPES: NodeTypes = {
   [TransferCanvasTransformNodeType.FILTER_FILE]: FilterFileNode,
   [TransferCanvasTransformNodeType.FILTER_ROWS]: FilterRowsNode,
   [TransferCanvasTransformNodeType.FILTER_COLUMNS]: FilterColumnsNode,
+  [TransferCanvasTransformNodeType.FILTER_SQL]: FilterSqlNode,
 };
 
 export const NODE_TYPES_ID = {
@@ -22,15 +24,8 @@ export const NODE_TYPES_ID = {
   [TransferCanvasTransformNodeType.FILTER_FILE]: '2',
   [TransferCanvasTransformNodeType.FILTER_ROWS]: '3',
   [TransferCanvasTransformNodeType.FILTER_COLUMNS]: '4',
-  [TransferCanvasDefaultNodeType.TARGET]: '5',
-};
-
-export const EDGE_TYPES_ID = {
-  [TransferCanvasEdgeType.SOURCE]: '1',
-  [TransferCanvasEdgeType.FILTER_FILE]: '2',
-  [TransferCanvasEdgeType.FILTER_ROWS]: '3',
-  [TransferCanvasEdgeType.FILTER_COLUMNS]: '4',
-  [TransferCanvasEdgeType.TARGET]: '5',
+  [TransferCanvasTransformNodeType.FILTER_SQL]: '5',
+  [TransferCanvasDefaultNodeType.TARGET]: '6',
 };
 
 export const NODE_POSITION_X_GAP_DEFAULT = 500;
@@ -40,6 +35,7 @@ export const TRANSFER_CANVAS_TRANSFORM_NODE_TYPE_NAME_DISPLAY = {
   [TransferCanvasTransformNodeType.FILTER_FILE]: 'filterFile',
   [TransferCanvasTransformNodeType.FILTER_ROWS]: 'filterRows',
   [TransferCanvasTransformNodeType.FILTER_COLUMNS]: 'filterColumns',
+  [TransferCanvasTransformNodeType.FILTER_SQL]: 'filterSql',
 } as const;
 
 export const TRANSFER_CANVAS_NODE_TYPE_TO_TRANSFORM_TYPE_MAP: Record<
@@ -49,6 +45,7 @@ export const TRANSFER_CANVAS_NODE_TYPE_TO_TRANSFORM_TYPE_MAP: Record<
   [TransferCanvasTransformNodeType.FILTER_FILE]: TransformationType.FILTER_FILE,
   [TransferCanvasTransformNodeType.FILTER_ROWS]: TransformationType.FILTER_ROWS,
   [TransferCanvasTransformNodeType.FILTER_COLUMNS]: TransformationType.FILTER_COLUMNS,
+  [TransferCanvasTransformNodeType.FILTER_SQL]: TransformationType.FILTER_SQL,
 } as const;
 
 export const TRANSFER_TRANSFORM_TYPE_TO_CANVAS_NODE_TYPE_MAP: Record<
@@ -58,6 +55,7 @@ export const TRANSFER_TRANSFORM_TYPE_TO_CANVAS_NODE_TYPE_MAP: Record<
   [TransformationType.FILTER_FILE]: TransferCanvasTransformNodeType.FILTER_FILE,
   [TransformationType.FILTER_ROWS]: TransferCanvasTransformNodeType.FILTER_ROWS,
   [TransformationType.FILTER_COLUMNS]: TransferCanvasTransformNodeType.FILTER_COLUMNS,
+  [TransformationType.FILTER_SQL]: TransferCanvasTransformNodeType.FILTER_SQL,
 } as const;
 
 export const TRANSFER_CANVAS_FILTER_NODES = Object.values(

@@ -1,5 +1,8 @@
-import React from 'react';
-import { TransformationsFormNestedType, TransformationType } from '@entities/transformation';
+import {
+  TransformationsFormNestedType,
+  TransformationsFormWithNestedType,
+  TransformationType,
+} from '@entities/transformation';
 
 import { FilterColumnsValue } from '../FilterColumnsValue';
 import { FilterFileValue } from '../FilterFileValue';
@@ -7,7 +10,7 @@ import { FilterRowsValue } from '../FilterRowsValue';
 
 import { FilterComponentProps } from './types';
 
-export const FilterComponent = <T extends TransformationType>({
+export const FilterComponent = <T extends TransformationsFormWithNestedType>({
   transformationType,
   nestedType,
   name,

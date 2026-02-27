@@ -4,6 +4,7 @@ export enum TransformationType {
   FILTER_ROWS = 'dataframe_rows_filter',
   FILTER_COLUMNS = 'dataframe_columns_filter',
   FILTER_FILE = 'file_metadata_filter',
+  FILTER_SQL = 'sql',
 }
 
 export enum TransformationFilterRowsType {
@@ -107,15 +108,43 @@ export interface TransformationFilterFileForm {
   filters: Array<TransformationFilterFileRegexpItemForm | TransformationFilterFileSizeItemForm>;
 }
 
-export type Transformations = Array<TransformationFilterRows | TransformationFilterColumns | TransformationFilterFile>;
+export enum TransformationFilterSqlDialect {
+  SPARK = 'spark',
+}
+
+export type TransformationFilterSql = {
+  type: TransformationType.FILTER_SQL;
+  dialect: TransformationFilterSqlDialect;
+  query: string;
+};
+
+export type Transformations = Array<
+  TransformationFilterRows | TransformationFilterColumns | TransformationFilterFile | TransformationFilterSql
+>;
+
+export interface TransformationFilterSqlSparkItemForm {
+  dialect: TransformationFilterSqlDialect;
+  query: string;
+}
+
+export type TransformationFormFilterSql = {
+  type: TransformationType.FILTER_SQL;
+  filters: Array<TransformationFilterSqlSparkItemForm>;
+};
 
 export interface TransformationsForm {
   [TransformationType.FILTER_FILE]?: TransformationFilterFileForm['filters'];
   [TransformationType.FILTER_ROWS]?: TransformationFilterRows['filters'];
   [TransformationType.FILTER_COLUMNS]?: TransformationFilterColumns['filters'];
+  [TransformationType.FILTER_SQL]?: TransformationFormFilterSql['filters'];
 }
 
-export type TransformationsFormNestedType<T extends keyof TransformationsForm> =
+export type TransformationsFormWithNestedType =
+  | TransformationType.FILTER_FILE
+  | TransformationType.FILTER_ROWS
+  | TransformationType.FILTER_COLUMNS;
+
+export type TransformationsFormNestedType<T extends TransformationsFormWithNestedType> =
   Required<TransformationsForm>[T][number]['type'];
 
 export interface ShowButtonsContextProps {

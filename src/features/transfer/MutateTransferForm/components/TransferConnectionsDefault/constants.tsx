@@ -1,9 +1,9 @@
 import { TransformationType } from '@entities/transformation';
-import React from 'react';
 
 import { FilterColumnsFormItem } from '../FilterColumnsFormItem';
 import { FilterFileFormItem } from '../FilterFileFormItem';
 import { FilterRowsFormItem } from '../FilterRowsFormItem';
+import { FilterSqlFormItem } from '../FilterSqlFormItem';
 
 import { FilterTypeConfig } from './types';
 
@@ -19,5 +19,9 @@ export const FILTER_TYPES_CONFIG: Record<TransformationType, FilterTypeConfig> =
   [TransformationType.FILTER_COLUMNS]: {
     title: 'filterColumns',
     filter: <FilterColumnsFormItem canHaveEmptyRecordsList />,
+  },
+  [TransformationType.FILTER_SQL]: {
+    title: 'filterSql',
+    filter: <FilterSqlFormItem canHaveEmptyRecordsList />,
   },
 } as const;

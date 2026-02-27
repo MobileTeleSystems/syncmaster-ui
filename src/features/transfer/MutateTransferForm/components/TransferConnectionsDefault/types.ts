@@ -3,7 +3,7 @@ import { TargetParamsProps } from '../TargetParams';
 
 export interface TransferConnectionsDefaultProps extends SourceParamsProps, TargetParamsProps {}
 
-type TitleType = 'filterRows' | 'filterColumns' | 'filterFile';
+type TitleType = 'filterRows' | 'filterColumns' | 'filterFile' | 'filterSql';
 
 export interface FilterTypeConfig {
   title: TitleType;

@@ -1,9 +1,9 @@
 import { Button, Form, FormListFieldData } from 'antd';
-import React, { memo, useLayoutEffect } from 'react';
+import { memo, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useShowButtons } from '../../hooks';
-import { Transformations, TransformationType } from '../../types';
+import { TransformationsForm, TransformationType } from '../../types';
 
 import { TransformationFormItem } from './components';
 import { TransformationFormProps } from './types';
@@ -17,20 +17,24 @@ const TransformationFormComponent = <T extends TransformationType>({
   const { isDisplayed } = useShowButtons();
 
   const formInstance = Form.useFormInstance();
-  const filtersValues: Transformations[number]['filters'] | undefined = formInstance.getFieldValue([
+  const filtersValues: TransformationsForm[T] | undefined = formInstance.getFieldValue([
     'transformations',
     transformationType,
   ]);
+  const isFilterEmpty = !filtersValues?.length;
 
   /** Add at least one element to array form value here,
    * because it is inconvenient to check for the presence of a default value of this array,
    * when forming a request to backend or initial form values */
   useLayoutEffect(() => {
-    const needFillEmpty = !canHaveEmptyRecordsList && !filtersValues?.length;
+    const needFillEmpty = !canHaveEmptyRecordsList && isFilterEmpty;
     if (needFillEmpty) {
       formInstance.setFieldValue(['transformations', transformationType], [{}]);
     }
-  }, [formInstance, filtersValues, transformationType, canHaveEmptyRecordsList]);
+  }, [formInstance, isFilterEmpty, transformationType, canHaveEmptyRecordsList]);
+
+  const isNeedShowAddNew = (fields: FormListFieldData[]) =>
+    isDisplayed && !(transformationType === TransformationType.FILTER_SQL && fields.length);
 
   const canRemoveItem = ({ name }: FormListFieldData) => (name || canHaveEmptyRecordsList) && isDisplayed;
 
@@ -47,9 +51,11 @@ const TransformationFormComponent = <T extends TransformationType>({
               key={field.key}
             />
           ))}
-          <Button className="nodrag" size="large" type="primary" onClick={() => add()} hidden={!isDisplayed}>
-            {t('add')}
-          </Button>
+          {isNeedShowAddNew(fields) && (
+            <Button className="nodrag" size="large" type="primary" onClick={() => add()}>
+              {t('add')}
+            </Button>
+          )}
         </div>
       )}
     </Form.List>

@@ -21,6 +21,7 @@ export const TRANSFORMATIONS_FORM_DEFAULT_VALUE: TransformationsForm = {
   [TransformationType.FILTER_FILE]: [],
   [TransformationType.FILTER_ROWS]: [],
   [TransformationType.FILTER_COLUMNS]: [],
+  [TransformationType.FILTER_SQL]: [],
 };
 
 export const TRANSFORMATIONS_REQUEST_DEFAULT_VALUE: Transformations = [
@@ -70,6 +71,8 @@ export const TRANSFORMATION_FILTER_FILE_TYPE_DISPLAY = {
 const FILE_TRANSFORMATION_TYPES = Object.values(TransformationType);
 
 const DB_TRANSFORMATION_TYPES = FILE_TRANSFORMATION_TYPES.filter((type) => type !== TransformationType.FILTER_FILE);
+
+export const DEFAULT_TRANSFORMATION_TYPES = DB_TRANSFORMATION_TYPES;
 
 export const CONNECTION_TYPE_SUPPORT_TRANSFORMATION_TYPES: Record<ConnectionType, TransformationType[]> = {
   [ConnectionType.CLICKHOUSE]: DB_TRANSFORMATION_TYPES,
