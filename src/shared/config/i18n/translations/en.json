@@ -270,6 +270,7 @@
     "filterColumns": "Filter columns",
     "filterFile": "Filter file",
     "filterSql": "Filter sql",
+    "filterSqlTooltip": "SQL filter. Useful links:<br><docs>Spark SQL syntax documentation</docs><br><api>Functions available for use</api>",
     "fileSizeUnit": "File size unit",
     "fileSizeMin": "min file size",
     "fileSizeMax": "max file size",

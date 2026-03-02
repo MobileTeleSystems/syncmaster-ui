@@ -1,4 +1,4 @@
-export const LINE_HEIGHT = 1.7;
+export const LINE_HEIGHT = 38;
 
 export const WIDTH = '100%';
 

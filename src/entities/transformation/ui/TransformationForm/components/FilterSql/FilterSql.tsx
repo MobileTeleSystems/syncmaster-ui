@@ -16,8 +16,8 @@ export const FilterSql = ({ autoHeightMaxLineCount, value, onChange }: FilterSql
       tabSize={2}
       fontSize={`${FONT_SIZE}em`}
       width={WIDTH}
-      height={`${heightLinesCount * LINE_HEIGHT + 0.2}em`}
-      lineHeight={`${LINE_HEIGHT}em`}
+      height={`${heightLinesCount * LINE_HEIGHT + 2}px`}
+      lineHeight={`${LINE_HEIGHT}px`}
       value={value}
       onChange={onChange}
     />

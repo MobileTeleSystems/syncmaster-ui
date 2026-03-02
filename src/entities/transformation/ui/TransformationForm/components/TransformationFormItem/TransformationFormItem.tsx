@@ -11,7 +11,7 @@ import {
   TransformationType,
 } from '../../../../types';
 import { FilterComponent } from '../FilterComponent';
-import { FilterSql } from '../FilterSql';
+import { FilterSql, FilterSqlTooltip } from '../FilterSql';
 
 import { TransformationFormItemProps } from './types';
 import { useGetNestedTypesSelectOptions } from './hooks';
@@ -85,7 +85,13 @@ export const TransformationFormItem = <T extends TransformationType>({
         />
       )}
       {hasSqlField && (
-        <Form.Item className={classes.sql} label={t('query')} name={[name, 'query']} rules={[{ required: true }]}>
+        <Form.Item
+          className={classes.sql}
+          label={t('query')}
+          name={[name, 'query']}
+          rules={[{ required: true }]}
+          tooltip={<FilterSqlTooltip />}
+        >
           <FilterSql autoHeightMaxLineCount={SQL_AUTO_HEIGHT_MAX_LINE_COUNT} />
         </Form.Item>
       )}

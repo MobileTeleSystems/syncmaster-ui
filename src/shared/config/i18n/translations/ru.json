@@ -268,6 +268,7 @@
     "filterColumns": "Фильтр столбцов",
     "filterFile": "Фильтр файлов",
     "filterSql": "Фильтр SQL",
+    "filterSqlTooltip": "SQL фильтр. Полезные ссылки:<br><docs>Документация по SQL синтаксису Spark</docs><br><api>Доступные для использования функции</api>",
     "fileSizeUnit": "Единица измерения",
     "fileSizeMin": "мин. размер файла",
     "fileSizeMax": "макс. размер файла",
