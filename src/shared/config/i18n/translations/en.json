@@ -270,7 +270,7 @@
     "filterColumns": "Filter columns",
     "filterFile": "Filter file",
     "filterSql": "Filter sql",
-    "filterSqlTooltip": "SQL filter. Useful links:<br><SparkSqlQuerySelectDocs>Spark SQL syntax documentation</SparkSqlQuerySelectDocs><br><SparkSqlApiDocs>Functions available for use</SparkSqlApiDocs>",
+    "filterSqlTooltip": "Query in Spark SQL dialect in form:<br><code>SELECT col1, col2, ... FROM source WHERE ...</code><br>Useful links:<br><SparkSqlQuerySelectDocs>Spark SQL syntax documentation</SparkSqlQuerySelectDocs><br><SparkSqlApiDocs>Allowed functions</SparkSqlApiDocs>",
     "fileSizeUnit": "File size unit",
     "fileSizeMin": "min file size",
     "fileSizeMax": "max file size",
