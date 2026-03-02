@@ -1,5 +1,7 @@
 import { Typography } from 'antd';
 import { Trans } from 'react-i18next';
+
+import { SPARK_SQL_API_DOCS_URL, SPARK_SQL_QUERY_SELECT_DOCS_URL } from './constants';
 const { Link } = Typography;
 
 export const FilterSqlTooltip = () => {
@@ -8,14 +10,8 @@ export const FilterSqlTooltip = () => {
       ns="transformation"
       i18nKey="filterSqlTooltip"
       components={{
-        docs: (
-          <Link
-            href="https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select.html"
-            target="_blank"
-            rel="noreferrer"
-          />
-        ),
-        api: <Link href="https://spark.apache.org/docs/latest/api/sql" target="_blank" rel="noreferrer" />,
+        SparkSqlQuerySelectDocs: <Link href={SPARK_SQL_QUERY_SELECT_DOCS_URL} target="_blank" rel="noreferrer" />,
+        SparkSqlApiDocs: <Link href={SPARK_SQL_API_DOCS_URL} target="_blank" rel="noreferrer" />,
       }}
     />
   );
