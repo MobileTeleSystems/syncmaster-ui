@@ -24,6 +24,8 @@ export const prepareTransformationForm = (data: Transformations): Partial<Transf
             }
           }),
         };
+      case TransformationType.FILTER_SQL:
+        return curr.query ? { ...prev, [curr.type]: [{ query: curr.query }] } : prev;
     }
   }, {});
 };

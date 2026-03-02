@@ -9,11 +9,11 @@ import {
   TransferCanvasTransformNodeType,
   TRANSFER_CANVAS_TRANSFORM_NODE_TYPE_NAME_DISPLAY,
 } from '../TransferConnectionsCanvas';
-import { FilterColumnsFormItem } from '../FilterColumnsFormItem';
+import { FilterSqlFormItem } from '../FilterSqlFormItem';
 
 import * as classes from './styles.module.less';
 
-export const FilterColumnsNode = () => {
+export const FilterSqlNode = () => {
   const { t } = useTranslation('transformation');
 
   const icon = useMemo(() => {
@@ -23,9 +23,9 @@ export const FilterColumnsNode = () => {
   const children = useMemo(() => {
     return (
       <>
-        <Handle type="target" position={Position.Left} id={TransferCanvasEdge.FILTER_COLUMNS_TARGET} />
-        <FilterColumnsFormItem />
-        <Handle type="source" position={Position.Right} id={TransferCanvasEdge.FILTER_COLUMNS_SOURCE} />
+        <Handle type="target" position={Position.Left} id={TransferCanvasEdge.FILTER_SQL_TARGET} />
+        <FilterSqlFormItem />
+        <Handle type="source" position={Position.Right} id={TransferCanvasEdge.FILTER_SQL_SOURCE} />
       </>
     );
   }, []);
@@ -33,7 +33,7 @@ export const FilterColumnsNode = () => {
   return (
     <CanvasNode
       className={classes.root}
-      title={t(TRANSFER_CANVAS_TRANSFORM_NODE_TYPE_NAME_DISPLAY[TransferCanvasTransformNodeType.FILTER_COLUMNS])}
+      title={t(TRANSFER_CANVAS_TRANSFORM_NODE_TYPE_NAME_DISPLAY[TransferCanvasTransformNodeType.FILTER_SQL])}
       icon={icon}
     >
       {children}

@@ -6,12 +6,13 @@ import {
   TransformationFilterRowsType,
   TRANSFORMATION_FILTER_ROWS_TYPE_DISPLAY,
   TransformationType,
+  TransformationsFormWithNestedType,
 } from '@entities/transformation';
 import { OptionItem, prepareOptionsForSelect } from '@shared/ui';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export const useGetNestedTypesSelectOptions = (transformationType: TransformationType) => {
+export const useGetNestedTypesSelectOptions = (transformationType: TransformationsFormWithNestedType) => {
   const { t } = useTranslation('transformation');
 
   const options = useMemo(() => {
@@ -34,7 +35,7 @@ export const useGetNestedTypesSelectOptions = (transformationType: Transformatio
     });
 
     const filterOptions: Record<
-      TransformationType,
+      TransformationsFormWithNestedType,
       OptionItem<TransformationFilterRowsType | TransformationFilterColumnsType | TransformationFilterFileType>[]
     > = {
       [TransformationType.FILTER_FILE]: filterFileTypeSelectOptions,

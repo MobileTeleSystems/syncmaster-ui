@@ -5,4 +5,5 @@ export interface GetInitialNodesProps extends SourceParamsProps, TargetParamsPro
   hasFilterRows: boolean;
   hasFilterColumns: boolean;
   hasFilterFile: boolean;
+  hasFilterSql: boolean;
 }

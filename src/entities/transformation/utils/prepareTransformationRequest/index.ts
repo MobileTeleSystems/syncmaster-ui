@@ -1,5 +1,11 @@
 import { TRANSFORMATIONS_FORM_DEFAULT_VALUE, TRANSFORMATIONS_REQUEST_DEFAULT_VALUE } from '../../constants';
-import { TransformationFilterFileType, Transformations, TransformationsForm, TransformationType } from '../../types';
+import {
+  TransformationFilterFileType,
+  TransformationFilterSqlDialect,
+  Transformations,
+  TransformationsForm,
+  TransformationType,
+} from '../../types';
 
 /** Util for mapping of transformations data from form value to appropriate type for backend  */
 export const prepareTransformationRequest = (data?: TransformationsForm): Transformations => {
@@ -7,8 +13,8 @@ export const prepareTransformationRequest = (data?: TransformationsForm): Transf
     return TRANSFORMATIONS_REQUEST_DEFAULT_VALUE;
   }
 
-  return (Object.keys({ ...TRANSFORMATIONS_FORM_DEFAULT_VALUE, ...data }) as Array<keyof TransformationsForm>).map(
-    (key) => {
+  return (Object.keys({ ...TRANSFORMATIONS_FORM_DEFAULT_VALUE, ...data }) as Array<keyof TransformationsForm>)
+    .map((key) => {
       switch (key) {
         case TransformationType.FILTER_ROWS:
           return {
@@ -34,7 +40,22 @@ export const prepareTransformationRequest = (data?: TransformationsForm): Transf
               }
             }),
           };
+        case TransformationType.FILTER_SQL: {
+          const result = {
+            type: TransformationType.FILTER_SQL,
+            filters: data[key] || [],
+          };
+          /** Convert to flat single filter view to match the api */
+          const { type, filters } = result;
+          return filters.length
+            ? {
+                type,
+                ...filters[0],
+                dialect: TransformationFilterSqlDialect.SPARK,
+              }
+            : null;
+        }
       }
-    },
-  );
+    })
+    .filter(Boolean) as Transformations;
 };

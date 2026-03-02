@@ -4,7 +4,13 @@ import { TransformationFormItemProps } from './components';
 
 export interface TransformationFormProps<T extends TransformationType> extends Pick<
   TransformationFormItemProps<T>,
-  'transformationType' | 'nestedTypeSelectLabel' | 'hasColumnField'
+  | 'transformationType'
+  | 'nestedTypeSelectLabel'
+  | 'hasColumnField'
+  | 'hasNestedTypeSelectField'
+  | 'nestedTypeSelectLabel'
+  | 'hasFilterComponent'
+  | 'hasSqlField'
 > {
   /** Can have empty records list */
   canHaveEmptyRecordsList?: boolean;

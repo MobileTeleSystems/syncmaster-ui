@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { FilterFormItemProps, TransformationForm, TransformationType } from '@entities/transformation';
 import { useTranslation } from 'react-i18next';
 
@@ -12,6 +12,8 @@ export const FilterColumnsFormItem = memo(
         nestedTypeSelectLabel={t('type', { ns: 'shared' })}
         canHaveEmptyRecordsList={canHaveEmptyRecordsList}
         hasColumnField
+        hasNestedTypeSelectField
+        hasFilterComponent
       />
     );
   },

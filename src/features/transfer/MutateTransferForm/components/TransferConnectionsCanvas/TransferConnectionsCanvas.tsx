@@ -34,6 +34,9 @@ export const TransferConnectionsCanvas = ({ groupId, isDisplayedButtons = true }
       hasFilterColumns:
         supportedTransformationTypes.includes(TransformationType.FILTER_COLUMNS) &&
         !!initialTransformations[TransformationType.FILTER_COLUMNS]?.length,
+      hasFilterSql:
+        supportedTransformationTypes.includes(TransformationType.FILTER_SQL) &&
+        !!initialTransformations[TransformationType.FILTER_SQL]?.length,
     });
   }, [groupId, supportedTransformationTypes, initialTransformations]);
 

@@ -8,8 +8,6 @@ import {
   TransferCanvasNodeData,
   TransferCanvasTransformNodeType,
   NODE_TYPES_ID,
-  TransferCanvasDefaultNodeType,
-  EDGE_TYPES_ID,
   TRANSFER_CANVAS_NODE_TYPE_TO_TRANSFORM_TYPE_MAP,
   TRANSFER_CANVAS_FILTER_NODES,
 } from '../../../TransferConnectionsCanvas';
@@ -47,38 +45,28 @@ export const useHandleNodes = () => {
 
   const addNewEdge = (nodeType: TransferCanvasTransformNodeType) => {
     const edges = getEdges();
-    const newEdgeId = EDGE_TYPES_ID[nodeType];
-
-    let indexOfPreviousEdge = 0;
-    let indexOfNextEdge = edges.length;
-
-    edges.forEach((edge, index) => {
-      const currentEdgeId = edge.id;
-      if (currentEdgeId < newEdgeId) {
-        indexOfPreviousEdge = index;
-        return;
-      }
-      if (indexOfNextEdge === edges.length && currentEdgeId > newEdgeId) {
-        indexOfNextEdge = index;
-      }
-    });
 
     const newEdgeSource = NODE_TYPES_ID[nodeType];
-    const newEdgeTarget = edges[indexOfNextEdge]
-      ? edges[indexOfNextEdge].id
-      : NODE_TYPES_ID[TransferCanvasDefaultNodeType.TARGET];
+    const prevEdgeIndex = edges.findIndex((edge) => edge.target > newEdgeSource);
 
     const newEdge: Edge = {
-      id: newEdgeId,
+      id: '',
       source: newEdgeSource,
-      target: newEdgeTarget,
+      target: edges[prevEdgeIndex].target,
       animated: true,
     };
+    edges[prevEdgeIndex].target = newEdge.source;
 
-    const firstEdges = edges.slice(0, indexOfPreviousEdge);
-    const previousEdge = { ...edges[indexOfPreviousEdge], target: newEdgeSource };
-    const lastEdges = edges.slice(indexOfNextEdge);
-    const newEdges = firstEdges.concat(previousEdge).concat(newEdge).concat(lastEdges);
+    const newEdges = edges
+      .slice(0, prevEdgeIndex + 1)
+      // Place the new edge in the found position
+      .concat(newEdge)
+      .concat(edges.slice(prevEdgeIndex + 1))
+      // Remap id for new collection
+      .map((edge, index) => {
+        edge.id = String(index + 1);
+        return edge;
+      });
 
     setEdges(newEdges);
   };
@@ -98,33 +86,27 @@ export const useHandleNodes = () => {
 
   const deleteEdge = (nodeType: TransferCanvasTransformNodeType) => {
     const edges = getEdges();
-    const newEdge: Edge = {
-      id: '',
-      source: '',
-      target: '',
-      animated: true,
-    };
 
-    let nodeIndex = 0;
+    let removedIndex = 0;
+    let removedSource = '';
+    const newEdges = edges
+      .filter((edge, index) => {
+        // Remove node and store removed index
+        if (edge.target === NODE_TYPES_ID[nodeType]) {
+          removedIndex = index;
+          removedSource = edge.source;
+          return false;
+        }
+        return true;
+      })
+      // Remap id for new collection
+      .map((edge, index) => {
+        edge.id = String(index + 1);
+        return edge;
+      });
 
-    const restEdges = edges.filter((edge, index) => {
-      if (edge.target === NODE_TYPES_ID[nodeType]) {
-        newEdge.id = edge.id;
-        newEdge.source = edge.source;
-        nodeIndex = index;
-        return false;
-      }
-      if (edge.source === NODE_TYPES_ID[nodeType]) {
-        newEdge.target = edge.target;
-        nodeIndex = index;
-        return false;
-      }
-      return true;
-    });
-
-    const firstEdges = restEdges.slice(0, nodeIndex);
-    const lastEdges = restEdges.slice(nodeIndex + 1);
-    const newEdges = firstEdges.concat(newEdge).concat(lastEdges);
+    // Switch source for next node from remote
+    newEdges[removedIndex].source = removedSource;
 
     setEdges(newEdges);
   };

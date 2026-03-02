@@ -9,6 +9,7 @@ export const getInitialNodes = ({
   hasFilterRows,
   hasFilterColumns,
   hasFilterFile,
+  hasFilterSql,
 }: GetInitialNodesProps): TransferCanvasNodeData[] => {
   const nodes: TransferCanvasNodeData[] = [
     {
@@ -45,6 +46,16 @@ export const getInitialNodes = ({
     nodes.push({
       id: NODE_TYPES_ID[TransferCanvasTransformNodeType.FILTER_COLUMNS],
       type: TransferCanvasTransformNodeType.FILTER_COLUMNS,
+      data: {},
+      position: setNodePosition(nodeIndex),
+    });
+    nodeIndex++;
+  }
+
+  if (hasFilterSql) {
+    nodes.push({
+      id: NODE_TYPES_ID[TransferCanvasTransformNodeType.FILTER_SQL],
+      type: TransferCanvasTransformNodeType.FILTER_SQL,
       data: {},
       position: setNodePosition(nodeIndex),
     });
