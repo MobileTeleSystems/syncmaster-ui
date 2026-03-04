@@ -6,7 +6,7 @@ interface DefaultError {
 type LocationTypeError = 'body' | 'query';
 
 export interface FormFieldError extends DefaultError {
-  location: [Extract<LocationTypeError, 'body'>, string];
+  location: [Extract<LocationTypeError, 'body'>, string | number];
 }
 
 export interface MessageError {

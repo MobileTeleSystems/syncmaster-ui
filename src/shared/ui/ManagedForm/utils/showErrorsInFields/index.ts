@@ -12,10 +12,10 @@ export const showErrorsInFields = (form: FormInstance, errors: FormFieldError[])
   const fieldErrors = errors
     .map((field) => {
       // Keep only valid parts of the path
-      const validPath = field.location.reduce<string[]>((acc, key) => {
+      const validPath = field.location.reduce<Array<string | number>>((acc, key) => {
         const currentPath = [...acc, key];
         // Check if the path to the current key exists
-        if (typeof form.getFieldValue(currentPath) === 'object' || form.getFieldInstance(currentPath)) {
+        if (typeof form.getFieldValue(currentPath) === 'object' || form.isFieldTouched(currentPath)) {
           acc.push(key);
         }
         return acc;

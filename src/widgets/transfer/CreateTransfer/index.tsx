@@ -1,9 +1,8 @@
-import React from 'react';
 import { ManagedForm } from '@shared/ui';
 import { useNavigate } from 'react-router-dom';
 import { prepareTransferResourcesRequest, Transfer, TransferQueryKey, transferService } from '@entities/transfer';
 import { MutateTransferForm } from '@features/transfer';
-import { prepareTransformationRequest } from '@entities/transformation';
+import { prepareTransformationFormError, prepareTransformationRequest } from '@entities/transformation';
 import { useTranslation } from 'react-i18next';
 
 import { CreateTransferForm, CreateTransferProps } from './types';
@@ -36,6 +35,7 @@ export const CreateTransfer = ({ group }: CreateTransferProps) => {
       mutationFunction={handleCreateTransfer}
       onSuccess={onSuccess}
       successMessage={t('createTransferSuccess')}
+      prepareFormErrors={prepareTransformationFormError}
       keysInvalidateQueries={[[{ queryKey: [TransferQueryKey.GET_TRANSFERS, group.id] }]]}
     >
       <MutateTransferForm group={group} onCancel={onCancel} />

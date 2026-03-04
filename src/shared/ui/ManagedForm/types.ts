@@ -1,3 +1,4 @@
+import { FormFieldError } from '@shared/config';
 import { QueryClient } from '@tanstack/react-query';
 import { FormProps } from 'antd';
 
@@ -20,4 +21,6 @@ export interface ManagedFormProps<T, R> extends Omit<FormProps<T>, 'form' | 'onF
   keysInvalidateQueries?: Parameters<QueryClient['invalidateQueries']>[];
   /** Flag that hides a spin if the request is successful  */
   isHiddenLoadingOnSuccess?: boolean;
+  /** Callback to prepare received errors */
+  prepareFormErrors?: (errors: FormFieldError[]) => FormFieldError[];
 }

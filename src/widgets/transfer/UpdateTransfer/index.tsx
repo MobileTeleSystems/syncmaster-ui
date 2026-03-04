@@ -9,7 +9,11 @@ import {
   transferService,
 } from '@entities/transfer';
 import { MutateTransferForm } from '@features/transfer';
-import { prepareTransformationForm, prepareTransformationRequest } from '@entities/transformation';
+import {
+  prepareTransformationForm,
+  prepareTransformationFormError,
+  prepareTransformationRequest,
+} from '@entities/transformation';
 import { useTranslation } from 'react-i18next';
 
 import { UpdateTransferForm, UpdateTransferProps } from './types';
@@ -47,6 +51,7 @@ export const UpdateTransfer = ({ transfer, group }: UpdateTransferProps) => {
       mutationFunction={handleUpdateTransfer}
       onSuccess={onSuccess}
       successMessage={t('updateTransferSuccess')}
+      prepareFormErrors={prepareTransformationFormError}
       keysInvalidateQueries={[
         [{ queryKey: [TransferQueryKey.GET_TRANSFERS, group.id] }],
         [{ queryKey: [TransferQueryKey.GET_TRANSFER, transfer.id] }],

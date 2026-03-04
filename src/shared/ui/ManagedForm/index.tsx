@@ -1,9 +1,9 @@
-import React, { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { Form, notification, Spin } from 'antd';
 import { PropsWithChildren } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { clsx } from 'clsx';
-import { checkIsFormFieldsError, getErrorMessage } from '@shared/config';
+import { checkIsFormFieldsError, FormFieldError, getErrorMessage } from '@shared/config';
 import { useTranslation } from 'react-i18next';
 
 import * as classes from './styles.module.less';
@@ -19,6 +19,7 @@ export const ManagedForm = <T extends object, R>({
   keysInvalidateQueries = [],
   isHiddenLoadingOnSuccess = false,
   onError = () => undefined,
+  prepareFormErrors,
   ...props
 }: PropsWithChildren<ManagedFormProps<T, R>>) => {
   const { t, i18n } = useTranslation('error');
@@ -51,7 +52,9 @@ export const ManagedForm = <T extends object, R>({
 
         if (checkIsFormFieldsError(error) && error.response) {
           message = t('formErrorHasOccurred');
-          showErrorsInFields(form, error.response.data.error.details);
+          const errors: FormFieldError[] = error.response.data.error.details;
+          const preparedErrors = prepareFormErrors ? prepareFormErrors(errors) : errors;
+          showErrorsInFields(form, preparedErrors);
         }
 
         notification.error({
