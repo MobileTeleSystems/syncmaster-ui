@@ -15,6 +15,11 @@ const SHOW_BUTTONS_CONTEXT_INITIAL_VALUE: ShowButtonsContextProps = {
   isDisplayed: true,
 };
 
+export const TRANSFORMATION_RESPONSE_LOCATION_POSITION = {
+  CATEGORY: 1,
+  TRANSFORMATION_TYPE: 3,
+};
+
 export const ShowButtonsContext = createContext<ShowButtonsContextProps>(SHOW_BUTTONS_CONTEXT_INITIAL_VALUE);
 
 export const TRANSFORMATIONS_FORM_DEFAULT_VALUE: TransformationsForm = {
