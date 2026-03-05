@@ -268,7 +268,7 @@
     "filterColumns": "Фильтр столбцов",
     "filterFile": "Фильтр файлов",
     "filterSql": "Фильтр SQL",
-    "filterSqlTooltip": "SQL запрос на диалекте Spark в формате:<pre>SELECT col1, col2, ... FROM source WHERE ...</pre><br>Полезные ссылки:<br><SparkSqlQuerySelectDocs>Документация по SQL синтаксису Spark</SparkSqlQuerySelectDocs><br><SparkSqlApiDocs>Доступные для использования функции</SparkSqlApiDocs>",
+    "filterSqlTooltip": "SQL запрос на диалекте Spark в формате:<br>SELECT col1, col2, ... FROM source WHERE ...<br><br>Полезные ссылки:<br><SparkSqlQuerySelectDocs>Документация по SQL синтаксису Spark</SparkSqlQuerySelectDocs><br><SparkSqlApiDocs>Доступные для использования функции</SparkSqlApiDocs>",
     "fileSizeUnit": "Единица измерения",
     "fileSizeMin": "мин. размер файла",
     "fileSizeMax": "макс. размер файла",
