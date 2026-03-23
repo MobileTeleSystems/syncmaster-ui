@@ -1,6 +1,6 @@
 stages:
-  - security-scan
   - sbom
+  - security-scan
 
 
 ## -------------- Security Pipeline ---------------- ##
