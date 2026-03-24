@@ -16,8 +16,8 @@ sbom-creation:
     name: ${SBOM_IMAGE}
     entrypoint: ['']
   script:
-    - npm install
-    - npx @cyclonedx/cyclonedx-npm --ignore-npm-errors --output-file sbom.cyclonedx.json --omit=dev
+    - yarn config set npmRegistryServer $NPM_REGISTRY
+    - yarn dlx @cyclonedx/yarn-plugin-cyclonedx --output-file sbom.cyclonedx.json
   artifacts:
     paths:
       - sbom.cyclonedx.json
