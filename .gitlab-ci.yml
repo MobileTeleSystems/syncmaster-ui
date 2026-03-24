@@ -9,13 +9,14 @@ sbom-creation:
   rules:
     - if: $CI_PIPELINE_SOURCE == "web"
       when: always
-    - if: $CI_COMMIT_REF_NAME =~ $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
       when: always
     - when: never
   image:
     name: ${SBOM_IMAGE}
     entrypoint: ['']
   script:
+    - npm install
     - npx @cyclonedx/cyclonedx-npm --ignore-npm-errors --output-file sbom.cyclonedx.json --omit=dev
   artifacts:
     paths:
