@@ -26,7 +26,7 @@
     "@xyflow/react": "12.10.2",
     "ace-builds": "1.43.6",
     "antd": "4.24.16",
-    "axios": "1.14.0",
+    "axios": "1.15.0",
     "clsx": "2.1.1",
     "dayjs": "1.11.20",
     "dotenv-webpack": "9.0.0",
