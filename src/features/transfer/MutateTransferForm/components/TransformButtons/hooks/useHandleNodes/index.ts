@@ -24,6 +24,7 @@ export const useHandleNodes = () => {
 
   /** Set initial nodes using useEffect, because nodes state fill only after mounting */
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTransformNodeTypes(getInitialTransformNodeTypes(getNodes()));
   }, [getNodes]);
 
