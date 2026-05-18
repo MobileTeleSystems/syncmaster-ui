@@ -9,7 +9,9 @@ WORKDIR /app
 COPY .yarnrc.yml ./
 COPY .yarn/ ./.yarn/
 COPY package.json yarn.lock ./
-RUN yarn install --immutable
+# https://github.com/nodejs/docker-node#yarn-v1-classic-bundling
+RUN npm install --global yarn && \
+    yarn install --immutable
 
 COPY . .
 RUN yarn build
