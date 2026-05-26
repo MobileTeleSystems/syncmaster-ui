@@ -21,7 +21,7 @@ export const ConnectionListPage = () => {
 
     return (
       <PageContentWrapper width="large">
-        <AccessWrapper accessRole={UserRole.MAINTAINER} currentRole={group.role}>
+        <AccessWrapper accessRole={UserRole.DEVELOPER} currentRole={group.role}>
           <ActionButton className={classes.createButton} actionType="create" to="/connections/create" />
         </AccessWrapper>
         <ConnectionListWrapper group={group} />

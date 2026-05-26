@@ -12,7 +12,7 @@ export const CreateTransferPageContent = () => {
   if (!group?.data.id) {
     return <GroupWarningAlert description={t('needToSelectGroupToCreateTransfer')} />;
   }
-  if (!hasAccessByUserRole(UserRole.MAINTAINER, group.role)) {
+  if (!hasAccessByUserRole(UserRole.DEVELOPER, group.role)) {
     return <GroupWarningAlert description={t('notPermissionToCreateTransfer')} />;
   }
   return <CreateTransfer group={group.data} />;

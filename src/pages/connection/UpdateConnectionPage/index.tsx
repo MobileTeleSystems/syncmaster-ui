@@ -18,7 +18,7 @@ export const UpdateConnectionPage = () => {
   const { data: connection } = useGetConnection({ id: Number(params.id) });
   const { data: group } = useGetGroup({ id: connection.group_id });
 
-  if (!hasAccessByUserRole(UserRole.MAINTAINER, group.role)) {
+  if (!hasAccessByUserRole(UserRole.DEVELOPER, group.role)) {
     throw new AccessError();
   }
 

@@ -12,7 +12,7 @@ export const CreateConnectionPageContent = () => {
   if (!group?.data.id) {
     return <GroupWarningAlert description={t('needToSelectGroupToCreateConnection')} />;
   }
-  if (!hasAccessByUserRole(UserRole.MAINTAINER, group.role)) {
+  if (!hasAccessByUserRole(UserRole.DEVELOPER, group.role)) {
     return <GroupWarningAlert description={t('notPermissionToCreateConnection')} />;
   }
   return <CreateConnection group={group.data} />;
