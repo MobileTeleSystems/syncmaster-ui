@@ -21,7 +21,7 @@ export const QueueListPage = () => {
 
     return (
       <PageContentWrapper width="large">
-        <AccessWrapper accessRole={UserRole.MAINTAINER} currentRole={group.role}>
+        <AccessWrapper accessRole={UserRole.DEVELOPER} currentRole={group.role}>
           <ActionButton className={classes.createButton} actionType="create" to="/queues/create" />
         </AccessWrapper>
         <QueueListWrapper group={group} />

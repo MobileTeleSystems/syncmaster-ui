@@ -14,12 +14,14 @@ export const ConnectionDetail = ({ connection, group }: ConnectionDetailProps) =
         connection={connection}
         group={group.data}
         extra={
-          <AccessWrapper accessRole={UserRole.MAINTAINER} currentRole={group.role}>
-            <div className={classes.actions}>
+          <div className={classes.actions}>
+            <AccessWrapper accessRole={UserRole.DEVELOPER} currentRole={group.role}>
               <UpdateConnectionButton connectionId={connection.id} />
+            </AccessWrapper>
+            <AccessWrapper accessRole={UserRole.MAINTAINER} currentRole={group.role}>
               <DeleteConnectionButton connection={connection} />
-            </div>
-          </AccessWrapper>
+            </AccessWrapper>
+          </div>
         }
       />
     </PageContentWrapper>

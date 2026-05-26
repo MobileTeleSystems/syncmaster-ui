@@ -25,12 +25,14 @@ export const TransferDetail = ({ transfer, group, connectionSource, connectionTa
         connectionTarget={connectionTarget}
         queue={queue}
         extra={
-          <AccessWrapper accessRole={UserRole.MAINTAINER} currentRole={group.role}>
-            <div className={classes.actions}>
+          <div className={classes.actions}>
+            <AccessWrapper accessRole={UserRole.DEVELOPER} currentRole={group.role}>
               <UpdateTransferButton transferId={transfer.id} />
+            </AccessWrapper>
+            <AccessWrapper accessRole={UserRole.MAINTAINER} currentRole={group.role}>
               <DeleteTransferButton transfer={transfer} />
-            </div>
-          </AccessWrapper>
+            </AccessWrapper>
+          </div>
         }
       >
         <div className={classes.advanced}>

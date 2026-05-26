@@ -17,7 +17,7 @@ export const TransferListPageContent = () => {
 
   return (
     <PageContentWrapper width="large">
-      <AccessWrapper accessRole={UserRole.MAINTAINER} currentRole={group.role}>
+      <AccessWrapper accessRole={UserRole.DEVELOPER} currentRole={group.role}>
         <ActionButton className={classes.createButton} actionType="create" to="/transfers/create" />
       </AccessWrapper>
       <TransferListWrapper group={group} />
