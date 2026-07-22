@@ -18,14 +18,13 @@ RUN yarn build
 
 
 FROM mikefarah/yq AS yq
-FROM nginx:stable-alpine AS prod
+FROM nginx AS prod
 
 COPY ./docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist /usr/share/nginx/html
 
-COPY ./docker/entrypoint.sh /entrypoint.sh
-COPY --from=yq /usr/bin/yq /usr/bin/yq
-RUN chmod +x /entrypoint.sh /usr/bin/yq
+COPY --chmod=0755 ./docker/entrypoint.sh /entrypoint.sh
+COPY --from=yq --chmod=0755 /usr/bin/yq /usr/bin/yq
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]
