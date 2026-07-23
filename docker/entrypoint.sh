@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 SYNCMASTER_CONFIG_FILE=${SYNCMASTER_CONFIG_FILE:-/app/config.yml}
 SYNCMASTER__UI__API_BROWSER_URL_DEFAULT="http://localhost:8000"
